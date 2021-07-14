@@ -6,6 +6,5 @@ dist-ssr
 .idea
 jest-stare
 coverage
-yarn.lock
 yarn-error.log
 stats.html
