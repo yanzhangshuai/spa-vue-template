@@ -20,6 +20,7 @@
     "lint-fix": "npm-run-all --parallel lint-fix:*"
   },
   "dependencies": {
+    "ant-design-vue": "^2.2.2",
     "axios": "^0.21.1",
     "core-js": "^3.15.2",
     "dayjs": "^1.10.6",
@@ -57,6 +58,7 @@
     "@typescript-eslint/parser": "^4.28.3",
     "@vue/babel-plugin-jsx": "^1.0.6",
     "@vue/compiler-sfc": "^3.1.4",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
     "autoprefixer": "^10.3.1",
     "babel-loader": "^8.2.2",
     "compression-webpack-plugin": "^8.0.1",
