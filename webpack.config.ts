@@ -65,7 +65,7 @@ export default async (option: {
     },
 
     resolve: {
-      mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],
+      mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
       alias: {
         '@': resolve('src')
       }
