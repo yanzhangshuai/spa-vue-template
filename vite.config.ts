@@ -48,6 +48,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     server: !isBuild && {
       open: viteEnv.VITE_SERVER_OPEN || true,
       host: true,
+      hmr: true,
       port: viteEnv.VITE_SERVER_PORT,
       https: viteEnv.VITE_SERVER_HTTPS || false,
       proxy: createProxy(viteEnv.VITE_SERVER_PROXY)
