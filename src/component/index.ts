@@ -1,5 +1,6 @@
 import { App, Component } from 'vue';
 import { moduleFilter } from '@/util/helper';
+import antdComponents from './antd';
 
 function injectComponents(app: App<Element>) {
   const modules = moduleFilter<Component>(import.meta.globEager('./modules/**/*.{vue,tsx,jsx}'));
@@ -22,7 +23,15 @@ function injectComponents(app: App<Element>) {
   });
 }
 
+function useAntd(app: App): App {
+  antdComponents.forEach((component) => {
+    app.use(component);
+  });
+  return app;
+}
+
 export function setupComponent(app: App<Element>): App<Element> {
   injectComponents(app);
+  useAntd(app);
   return app;
 }

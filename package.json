@@ -20,6 +20,7 @@
     "test:cover": "jest --passWithNoTests --coverage --reporters jest-stare "
   },
   "dependencies": {
+    "ant-design-vue": "^2.2.2",
     "axios": "^0.21.1",
     "dayjs": "^1.10.5",
     "lodash-es": "^4.17.21",
@@ -68,6 +69,7 @@
     "vite": "^2.3.8",
     "vite-plugin-compression": "^0.3.0",
     "vite-plugin-html": "^2.0.7",
+    "vite-plugin-style-import": "^1.0.1",
     "vue-test": "^1.0.0",
     "vue-tsc": "^0.2.0"
   },
