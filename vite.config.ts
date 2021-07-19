@@ -16,6 +16,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   return {
     base: viteEnv.VITE_PUBLIC_PATH,
     root: root,
+
+    define: {
+      __DEV__: !isBuild,
+      IMAGE_URL: JSON.stringify(viteEnv.VITE_IMAGE_URL)
+    },
+
     css: {
       modules: {
         scopeBehaviour: 'local',
