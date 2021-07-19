@@ -1,6 +1,6 @@
 import { DatePicker, Layout, Menu, ConfigProvider } from 'ant-design-vue';
 // import 'moment-to-dayjs-for-antd-vue';
-if (import.meta.env.DEV) {
+if (DEV) {
   import('ant-design-vue/dist/antd.css');
 }
 
