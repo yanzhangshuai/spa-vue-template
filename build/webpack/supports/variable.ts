@@ -1,10 +1,11 @@
 import { Configuration, DefinePlugin } from 'webpack';
-export function variableSupport(isBuild = false): Configuration {
+export function variableSupport(isBuild = false, imageUrl = ''): Configuration {
   const conf = { plugins: [] };
 
   conf.plugins.push(
     new DefinePlugin({
-      IMAGE_URL: 'https://static.kelexuexi.com/image/330-mobile/'
+      IMAGE_URL: JSON.stringify(imageUrl),
+      DEV: !isBuild
     })
   );
   return conf;
