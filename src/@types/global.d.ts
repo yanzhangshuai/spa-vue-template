@@ -3,12 +3,6 @@ declare module '*.json' {
   export default value;
 }
 
-declare global {
-  interface ImportMeta {
-    globEager<T extends unknown>(globPath: string): Record<string, T>;
-  }
-}
-
 declare type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
 };
