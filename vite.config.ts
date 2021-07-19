@@ -18,7 +18,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     root: root,
 
     define: {
-      __DEV__: !isBuild,
+      DEV: !isBuild,
       IMAGE_URL: JSON.stringify(viteEnv.VITE_IMAGE_URL)
     },
 
