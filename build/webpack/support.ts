@@ -10,9 +10,9 @@ import { variableSupport } from './supports/variable';
 import { compressSupport } from './supports/compress';
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
-    variableSupport(),
     vueSupport(),
     scriptSupport(),
+    variableSupport(isBuild, env.WEBPACK_IMAGE_URL),
     styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),
     env.WEBPACK_REPORT && reportSupport(),

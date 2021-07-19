@@ -5,6 +5,11 @@ export interface Env {
 
   WEBPACK_PUBLIC_PATH: string;
 
+  /**
+   * 图片根目录
+   */
+  WEBPACK_IMAGE_URL: string;
+
   WEBPACK_DROP_CONSOLE: boolean;
 
   WEBPACK_CATCH: boolean | 'filesystem' | 'memory';
