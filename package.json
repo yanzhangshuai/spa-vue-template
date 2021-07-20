@@ -93,12 +93,10 @@
   },
   "browserslist": {
     "development": [
-      "chrome >= 40",
-      "ie 9"
+      "chrome >= 49"
     ],
     "production": [
-      "chrome >= 40",
-      "ie 9"
+      "chrome >= 49"
     ]
   }
 }
