@@ -1,9 +1,9 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteConfig } from 'vue-router';
 import Demo1Router from './demo1';
 import Demo2Page from '@/pages/home/demo2/index.vue';
-const router: RouteRecordRaw = {
+
+const router: RouteConfig = {
   path: '/home',
-  name: 'home',
   component: () => import(/* webpackChunkName: "home" */ '@/pages/home/index.vue'),
   meta: {
     auth: true

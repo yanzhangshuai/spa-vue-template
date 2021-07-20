@@ -1,7 +1,11 @@
-import { App, Directive } from 'vue';
+import Vue, { DirectiveOptions } from 'vue';
 import { moduleFilter } from '@/util/helper';
 
-function injectDirectives(app: App<Element>) {
+interface Directive extends DirectiveOptions {
+  name?: string;
+}
+
+function injectDirectives() {
   const modules = moduleFilter<Directive>(require.context('./modules/', true, /\.(ts|js)$/));
 
   //  匹配文件名称的正则
@@ -20,11 +24,10 @@ function injectDirectives(app: App<Element>) {
     const directiveName =
       directive?.name || (fileMatch[3] && fileMatch[3] !== 'index' ? fileMatch[3] : fileMatch[1]);
 
-    app.directive(directiveName, directive);
+    Vue.directive(directiveName, directive);
   });
 }
 
-export function setupDirective(app: App<Element>): App<Element> {
-  injectDirectives(app);
-  return app;
+export function setupDirective(): void {
+  injectDirectives();
 }

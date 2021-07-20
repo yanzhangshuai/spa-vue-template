@@ -1,4 +1,5 @@
-import { Router } from 'vue-router';
+import Router from 'vue-router';
+import { RouteMeta } from 'vue-router';
 import { useUserStore } from '@/store/modules/user';
 
 /**
@@ -7,7 +8,13 @@ import { useUserStore } from '@/store/modules/user';
  */
 export function createAuthGuard(router: Router): void {
   router.beforeEach((to, _, next) => {
-    if (!to?.meta?.auth) {
+    //  获取所有匹配路由的meta
+    //  相同属性,子路由设置覆盖父路由
+    const meta = to.matched.reduce((prev, curr) => {
+      return { ...(prev || {}), ...(curr?.meta || {}) };
+    }, {} as RouteMeta);
+
+    if (!meta?.auth) {
       next();
       return;
     }

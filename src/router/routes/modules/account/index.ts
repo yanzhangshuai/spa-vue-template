@@ -1,8 +1,7 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteConfig } from 'vue-router';
 
-const router: RouteRecordRaw = {
+const router: RouteConfig = {
   path: '/account',
-  name: 'account',
   component: () => import(/* webpackChunkName: "account" */ '@/pages/account/index.vue'),
 
   children: [

@@ -3,6 +3,8 @@ import { VueLoaderPlugin } from 'vue-loader';
 import { resolve } from '../../utils';
 
 export function vueSupport(): Configuration {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const plugin: any = new VueLoaderPlugin();
   return {
     module: {
       rules: [
@@ -13,11 +15,11 @@ export function vueSupport(): Configuration {
         }
       ]
     },
-    plugins: [new VueLoaderPlugin()],
+    plugins: [plugin],
     resolve: {
       extensions: ['.vue', '.tsx'],
       alias: {
-        vue: '@vue/runtime-dom'
+        Vue: 'vue/dist/vue.esm-bundler.js'
       }
     }
   };

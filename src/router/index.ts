@@ -1,21 +1,28 @@
-import { App } from 'vue';
-import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router';
+import Vue from 'vue';
+import VueRouter, { Route } from 'vue-router';
+import { getCurrentInstance } from '@vue/composition-api';
 import routes from './routes';
 import { setupRouterGuard } from './guard';
 
-export const router: Router = createRouter({
-  history: createWebHistory(),
-  routes: routes as Array<RouteRecordRaw>,
-  strict: true,
-  scrollBehavior: () => ({ left: 0, top: 0 })
-});
+export function setupRouter(): VueRouter {
+  Vue.use(VueRouter);
 
-export function setupRouter(app: App<Element>): App<Element> {
-  app.use(router);
+  const router = new VueRouter({
+    mode: 'history',
+    routes: routes,
+    scrollBehavior: () => ({ x: 0, y: 0 })
+  });
+
   setupRouterGuard(router);
-  return app;
+  return router;
 }
 
-export async function isReady(): Promise<void> {
-  await router.isReady();
+export function useRouter(): VueRouter {
+  const instance = getCurrentInstance();
+  return instance.proxy.$router;
+}
+
+export function useRoute(): Route {
+  const instance = getCurrentInstance();
+  return instance.proxy.$route;
 }

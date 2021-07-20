@@ -1,15 +1,25 @@
 <template>
-  <h1 class="text-2xl text-blue-400">This is home</h1>
+  <div>
+    <h1 class="text-2xl text-blue-400">This is home</h1>
 
-  <counter />
+    <counter />
 
-  <router-view />
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { useRoute } from '@/router';
+import { useStore } from '@/store';
+import { defineComponent } from '@vue/composition-api';
 export default defineComponent({
   components: {},
-  setup() {}
+  setup() {
+    const route = useRoute();
+    const store = useStore();
+    console.log('useStore', store.name);
+    console.log('route', route.path);
+    return {};
+  }
 });
 </script>

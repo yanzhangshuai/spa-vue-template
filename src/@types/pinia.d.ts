@@ -1,4 +1,4 @@
-import 'pinia';
+import { GettersTree, StateTree } from 'pinia';
 declare module 'pinia' {
   export interface DefineStoreOptions<
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -12,5 +12,9 @@ declare module 'pinia' {
     debounce?: {
       [k in keyof A]?: number;
     };
+  }
+
+  export interface Pinia {
+    name: string;
   }
 }
