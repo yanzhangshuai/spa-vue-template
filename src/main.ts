@@ -3,7 +3,7 @@ import { setupStore } from '@/store';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
 import { isReady, setupRouter } from '@/router';
-import App from './app.vue';
+import App from '@/pages/app.vue';
 import '@/assets/styles/index.less';
 
 const app = createApp(App);

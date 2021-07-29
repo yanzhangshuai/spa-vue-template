@@ -1,19 +1,31 @@
 import { App } from 'vue';
-import { createPinia } from 'pinia';
+import { createPinia, Pinia } from 'pinia';
 import { debounce } from 'lodash-es';
 
-const pinia = createPinia();
-pinia.use(({ options, store }) => {
-  if (options.debounce) {
-    return Object.keys(options.debounce).reduce((debouncedActions, action) => {
-      //@ts-ignore
-      debouncedActions[action] = debounce(store[action], options.debounce[action]);
-      return debouncedActions;
-    }, {});
-  }
-});
+export type Store = Pinia;
+
+let store: Store;
 
 export function setupStore(app: App<Element>): App<Element> {
-  app.use(pinia);
+  const store = createPinia();
+
+  store.name = 'pinia';
+
+  store.use(({ options, store }) => {
+    if (options.debounce) {
+      return Object.keys(options.debounce).reduce((debouncedActions, action) => {
+        //@ts-ignore
+        debouncedActions[action] = debounce(store[action], options.debounce[action]);
+        return debouncedActions;
+      }, {});
+    }
+  });
+
+  app.use(store);
+
   return app;
+}
+
+export function useStore(): Store {
+  return store;
 }
