@@ -13,4 +13,7 @@ declare module 'pinia' {
       [k in keyof A]?: number;
     };
   }
+  export interface Pinia {
+    name: string;
+  }
 }

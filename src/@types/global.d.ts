@@ -35,22 +35,16 @@ declare type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 declare type XOR<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
 
 declare interface Fn<T = unknown, R = T> {
-  (...arg: T[]): R;
+  (...arg: Array<T>): R;
 }
 
 declare interface PromiseFn<T = unknown, R = T> {
-  (...arg: T[]): Promise<R>;
+  (...arg: Array<T>): Promise<R>;
 }
 
 declare type RefType<T> = T | null;
 
-declare type LabelValueOptions = {
-  label: string;
-  value: ValueType;
-  [key: string]: string | number | boolean;
-}[];
-
-declare type EmitType = (event: string, ...args: unknown[]) => void;
+declare type EmitType = (event: string, ...args: Array<unknown>) => void;
 
 declare type TargetContext = '_self' | '_blank';
 

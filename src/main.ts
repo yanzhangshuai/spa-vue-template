@@ -3,7 +3,7 @@ import { setupStore } from '@/store';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
 import { isReady, setupRouter } from '@/router';
-import App from './app.vue';
+import App from '@/page/app.vue';
 import '@/assets/styles/index.less';
 import '@/assets/styles/tailwind.css';
 
