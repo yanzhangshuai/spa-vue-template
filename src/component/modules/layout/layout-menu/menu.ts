@@ -1,7 +1,5 @@
-import { XOR } from '@/@types/global';
-
 export interface Menu {
-  id: XOR<string, number>;
+  id: string | number;
   title: string;
   icon?: string;
   children?: Array<Menu>;
