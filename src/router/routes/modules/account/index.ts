@@ -3,7 +3,7 @@ import { RouteRecordRaw } from 'vue-router';
 const router: RouteRecordRaw = {
   path: '/account',
   name: 'account',
-  component: () => import(/* webpackChunkName: "account" */ '@/pages/account/index.vue'),
+  component: () => import(/* webpackChunkName: "account" */ '@/page/account/index.vue'),
 
   children: [
     {
@@ -13,12 +13,12 @@ const router: RouteRecordRaw = {
     {
       path: 'login',
       name: 'account-login',
-      component: () => import('@/pages/account/login/index.vue')
+      component: () => import('@/page/account/login/index.vue')
     },
     {
       path: 'register',
       name: 'account-register',
-      component: () => import('@/pages/account/register/index.vue')
+      component: () => import('@/page/account/register/index.vue')
     }
   ]
 };

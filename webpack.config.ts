@@ -37,7 +37,7 @@ export default async (option: {
 
     devtool: webpackEnv.WEBPACK_DEVTOOL,
 
-    entry: resolve('src/index.ts'),
+    entry: resolve('src/main.ts'),
 
     output: {
       path: path.isAbsolute(webpackEnv.WEBPACK_OUTPUT_DIR)
