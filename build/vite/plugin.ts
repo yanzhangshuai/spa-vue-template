@@ -5,7 +5,7 @@ import { htmlPlugin } from './plugins/html';
 import { reportPlugin } from './plugins/report';
 import { compressPlugin } from './plugins/compress';
 
-export function createVitePlugins(viteEnv: Env, isBuild: boolean): (Plugin | Plugin[])[] {
+export function createVitePlugins(viteEnv: Env, isBuild: boolean): Array<Plugin | Array<Plugin>> {
   return [
     vuePlugin(viteEnv.VITE_SUPPORT_JSX),
     htmlPlugin(isBuild, viteEnv.VITE_APP_TITLE),

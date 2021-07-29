@@ -129,7 +129,7 @@ export function off(
 }
 
 export function once(el: HTMLElement, event: string, fn: EventListener): void {
-  const listener = function (this: unknown, ...args: unknown[]) {
+  const listener = function (this: unknown, ...args: Array<unknown>) {
     if (fn) {
       fn.apply(this, args);
     }

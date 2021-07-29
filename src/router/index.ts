@@ -3,19 +3,22 @@ import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-rout
 import routes from './routes';
 import { setupRouterGuard } from './guard';
 
-export const router: Router = createRouter({
-  history: createWebHistory(),
-  routes: routes as Array<RouteRecordRaw>,
-  strict: true,
-  scrollBehavior: () => ({ left: 0, top: 0 })
-});
+let router: Router;
 
 export function setupRouter(app: App<Element>): App<Element> {
+  router = createRouter({
+    history: createWebHistory(),
+    routes: routes as Array<RouteRecordRaw>,
+    strict: true,
+    scrollBehavior: () => ({ left: 0, top: 0 })
+  });
+
   app.use(router);
   setupRouterGuard(router);
   return app;
 }
 
 export async function isReady(): Promise<void> {
+  if (!router) return;
   await router.isReady();
 }
