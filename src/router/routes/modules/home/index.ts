@@ -3,7 +3,6 @@ import Demo1Router from './demo1';
 import Demo2Page from '@/page/home/demo2/index.vue';
 const router: RouteRecordRaw = {
   path: '/home',
-  name: 'home',
   component: () => import(/* webpackChunkName: "home" */ '@/page/home/index.vue'),
   meta: {
     auth: true
