@@ -15,7 +15,7 @@ export function support(isBuild: boolean, env: Env): Configuration {
     variableSupport(isBuild, env.WEBPACK_IMAGE_URL),
     styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),
-    env.WEBPACK_REPORT && reportSupport(),
+    isBuild && env.WEBPACK_REPORT && reportSupport(),
     isBuild && compressSupport(env.WEBPACK_BUILD_COMPRESS, true)
   ].filter(Boolean);
   const conf = webpackMerge(supports);
