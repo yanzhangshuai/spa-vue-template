@@ -6,7 +6,6 @@ import { htmlSupport } from './html';
 import { styleSupport } from './style';
 import { scriptSupport } from './script';
 import { reportSupport } from './report';
-import { isReportMode } from '../../utils';
 import { variableSupport } from './variable';
 import { compressSupport } from './compress';
 export function support(isBuild: boolean, env: Env): Configuration {
@@ -16,8 +15,8 @@ export function support(isBuild: boolean, env: Env): Configuration {
     scriptSupport(),
     styleSupport(isBuild),
     htmlSupport(isBuild),
-    isBuild && isReportMode() && reportSupport(),
-    isBuild && compressSupport(env.BUILD_COMPRESS, true)
+    isBuild && env.WEBPACK_REPORT && reportSupport(),
+    isBuild && compressSupport(env.WEBPACK_BUILD_COMPRESS, true)
   ].filter(Boolean);
   const conf = webpackMerge(supports);
 

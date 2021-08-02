@@ -9,7 +9,7 @@ export function setupRouter(app: App<Element>): App<Element> {
   router = createRouter({
     history: createWebHistory(),
     routes: routes as Array<RouteRecordRaw>,
-    strict: true,
+    strict: false,
     scrollBehavior: () => ({ left: 0, top: 0 })
   });
 

@@ -4,4 +4,3 @@ vue3 + webpack + Typescript template
 
 import.meta.globEager 匹配文件正则具有局限性
 service 层未设计
-vue-router 具有问题
