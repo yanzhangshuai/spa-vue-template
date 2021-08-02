@@ -6,7 +6,7 @@ const router: RouteConfig = {
   meta: {
     title: '123'
   },
-  component: () => import('@/pages/home/demo1/index.vue')
+  component: () => import('@/page/home/demo1/index.vue')
 };
 
 export default router;

@@ -1,10 +1,10 @@
 import { RouteConfig } from 'vue-router';
 import Demo1Router from './demo1';
-import Demo2Page from '@/pages/home/demo2/index.vue';
+import Demo2Page from '@/page/home/demo2/index.vue';
 
 const router: RouteConfig = {
   path: '/home',
-  component: () => import(/* webpackChunkName: "home" */ '@/pages/home/index.vue'),
+  component: () => import(/* webpackChunkName: "home" */ '@/page/home/index.vue'),
   meta: {
     auth: true
   },
