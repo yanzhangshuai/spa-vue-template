@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <h1 class="text-2xl text-blue-400">This is home</h1>
-
-    <counter />
-
-    <router-view />
-  </div>
+  <layout />
 </template>
 
 <script lang="ts">

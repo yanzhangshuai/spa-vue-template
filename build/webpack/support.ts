@@ -3,6 +3,7 @@ import { merge as webpackMerge } from 'webpack-merge';
 import { Env } from '../types';
 import { vueSupport } from './supports/vue';
 import { htmlSupport } from './supports/html';
+import { antdSupport } from './supports/antd';
 import { styleSupport } from './supports/style';
 import { scriptSupport } from './supports/script';
 import { reportSupport } from './supports/report';
@@ -11,6 +12,7 @@ import { compressSupport } from './supports/compress';
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
+    antdSupport(),
     scriptSupport(),
     variableSupport(isBuild, env.WEBPACK_IMAGE_URL),
     styleSupport(isBuild),
