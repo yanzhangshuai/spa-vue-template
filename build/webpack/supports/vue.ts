@@ -1,10 +1,8 @@
-import { Configuration } from 'webpack';
+import { Configuration, WebpackPluginInstance } from 'webpack';
 import { VueLoaderPlugin } from 'vue-loader';
 import { resolve } from '../../utils';
 
 export function vueSupport(): Configuration {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const plugin: any = new VueLoaderPlugin();
   return {
     module: {
       rules: [
@@ -15,7 +13,7 @@ export function vueSupport(): Configuration {
         }
       ]
     },
-    plugins: [plugin],
+    plugins: [new VueLoaderPlugin() as WebpackPluginInstance],
     resolve: {
       extensions: ['.vue', '.tsx'],
       alias: {
