@@ -12,8 +12,8 @@ import { compressSupport } from './supports/compress';
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
-    antdSupport(),
     scriptSupport(),
+    antdSupport(env.WEBPACK_ANTD_ICONS_NEED_IMPORT),
     variableSupport(isBuild, env.WEBPACK_IMAGE_URL),
     styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),

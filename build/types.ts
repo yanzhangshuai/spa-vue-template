@@ -10,8 +10,19 @@ export interface Env {
    */
   WEBPACK_IMAGE_URL: string;
 
+  /**
+   * antd 中icons 是否按需加载
+   */
+  WEBPACK_ANTD_ICONS_NEED_IMPORT: boolean;
+
+  /**
+   * 打包时是否删除console
+   */
   WEBPACK_DROP_CONSOLE: boolean;
 
+  /**
+   * webpack 缓存
+   */
   WEBPACK_CATCH: boolean | 'filesystem' | 'memory';
 
   WEBPACK_DEVTOOL: string | false;
