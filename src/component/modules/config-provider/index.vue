@@ -1,7 +1,9 @@
 <template>
-  <a-config-provider :auto-insert-space-in-button="false" :locale="locale">
-    <slot></slot>
-  </a-config-provider>
+  <div class="config-provider">
+    <a-config-provider :auto-insert-space-in-button="false" :locale="locale">
+      <slot></slot>
+    </a-config-provider>
+  </div>
 </template>
 
 <script lang="ts">
