@@ -13,7 +13,6 @@ import 'dayjs/locale/zh-cn';
 import locale from 'ant-design-vue/es/locale/zh_CN';
 export default defineComponent({
   setup() {
-    console.log('locale-------', locale);
     return {
       locale
     };
