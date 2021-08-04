@@ -1,6 +1,7 @@
-<template lang="pug">
-.config-provider
-  slot
+<template>
+  <div class="config-provider">
+    <slot></slot>
+  </div>
 </template>
 
 <script lang="ts">
