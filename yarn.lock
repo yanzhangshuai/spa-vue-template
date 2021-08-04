@@ -1429,6 +1429,18 @@ ant-design-vue@^2.2.2:
     vue-types "^3.0.0"
     warning "^4.0.0"
 
+antd-dayjs-vite-plugin@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.npmjs.org/antd-dayjs-vite-plugin/-/antd-dayjs-vite-plugin-1.1.4.tgz#e63b33ee438f55a0c6e9d808fde9e735cf243d66"
+  integrity sha512-R3FSDAPixR11lyQ8o4fGzMPAI+q5lqibDM36eooE4/+QA4qjKIcNfKdRHL8QxEOG1xewoDjrfbz9f8gIyTWJXQ==
+  dependencies:
+    antd-dayjs-webpack-plugin "^1.0.6"
+
+antd-dayjs-webpack-plugin@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/antd-dayjs-webpack-plugin/-/antd-dayjs-webpack-plugin-1.0.6.tgz#7d98bcb51422248b8cd4a32e352a0425a3bffa3a"
+  integrity sha512-UlK3BfA0iE2c5+Zz/Bd2iPAkT6cICtrKG4/swSik5MZweBHtgmu1aUQCHvICdiv39EAShdZy/edfP6mlkS/xXg==
+
 anymatch@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/anymatch/-/anymatch-2.0.0.tgz#bcb24b4f37934d9aa7ac17b4adaf89e7c76ef2eb"
