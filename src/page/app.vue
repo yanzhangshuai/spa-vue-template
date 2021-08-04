@@ -1,5 +1,7 @@
 <template>
-  <router-view />
+  <config-provider>
+    <router-view />
+  </config-provider>
 </template>
 
 <script lang="ts">
