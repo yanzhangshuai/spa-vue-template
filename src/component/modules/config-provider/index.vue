@@ -1,11 +1,9 @@
-  
-<template>
-  <div class="config-provider">
-    <slot></slot>
-  </div>
+<template lang="pug">
+.config-provider
+  slot
 </template>
-    
-  <script lang="ts">
+
+<script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 import 'dayjs/locale/zh-cn';
 export default defineComponent({
@@ -14,5 +12,5 @@ export default defineComponent({
   }
 });
 </script>
-    
+
 <style lang="less" scoped></style>
