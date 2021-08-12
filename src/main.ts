@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import { setupStore } from '@/store';
+import { setupService } from '@/service';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
 import { isReady, setupRouter } from '@/router';
@@ -13,6 +14,8 @@ setupComponent(app);
 setupDirective(app);
 
 setupRouter(app);
+
+setupService();
 
 setupStore(app);
 
