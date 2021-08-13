@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueCompositionAPI from '@vue/composition-api';
 import { setupStore } from '@/store';
 import { setupRouter } from '@/router';
+import { setupService } from '@/service';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
 import App from '@/page/app.vue';
@@ -14,9 +15,11 @@ setupComponent();
 
 setupDirective();
 
-const router = setupRouter();
+setupService();
 
 const store = setupStore();
+
+const router = setupRouter();
 
 new Vue({
   render: (h) => h(App),

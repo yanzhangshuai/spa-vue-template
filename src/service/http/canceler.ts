@@ -1,25 +1,28 @@
 import axios, { Canceler } from 'axios';
 import { isFunction } from 'lodash-es';
-import { RequestConfig } from '@/@types/http';
+import { HttpRequestConfig } from './type';
 
-let pendingMap = new Map<string, Canceler>();
+export class HttpCanceler {
+  pendingMap: Map<string, Canceler>;
+  constructor() {
+    this.pendingMap = new Map<string, Canceler>();
+  }
 
-export const getPendingUrl = (config: RequestConfig): string =>
-  [config.method, config.url].join('&');
-
-export class HttpClientCanceler {
+  getPendingUrl(config: HttpRequestConfig): string {
+    return [config.method, config.url].join('&');
+  }
   /**
    * 添加一个可取消的HTTP
    * @param {Object} config
    */
-  addPending(config: RequestConfig): void {
+  addPending(config: HttpRequestConfig): void {
     this.removePending(config);
-    const url = getPendingUrl(config);
+    const url = this.getPendingUrl(config);
     config.cancelToken =
       config.cancelToken ||
       new axios.CancelToken((cancel) => {
-        if (!pendingMap.has(url)) {
-          pendingMap.set(url, cancel);
+        if (!this.pendingMap.has(url)) {
+          this.pendingMap.set(url, cancel);
         }
       });
   }
@@ -28,25 +31,25 @@ export class HttpClientCanceler {
    * @description: Clear all pending
    */
   removeAllPending(): void {
-    pendingMap.forEach((cancel) => {
+    this.pendingMap.forEach((cancel) => {
       cancel && isFunction(cancel) && cancel();
     });
-    pendingMap.clear();
+    this.pendingMap.clear();
   }
 
   /**
    * Removal request
    * @param {Object} config
    */
-  removePending(config: RequestConfig): void {
-    const url = getPendingUrl(config);
+  removePending(config: HttpRequestConfig): void {
+    const url = this.getPendingUrl(config);
 
-    if (pendingMap.has(url)) {
+    if (this.pendingMap.has(url)) {
       // If there is a current request identifier in pending,
       // the current request needs to be cancelled and removed
-      const cancel = pendingMap.get(url);
+      const cancel = this.pendingMap.get(url);
       cancel && cancel(url);
-      pendingMap.delete(url);
+      this.pendingMap.delete(url);
     }
   }
 
@@ -54,6 +57,10 @@ export class HttpClientCanceler {
    * @description: reset
    */
   reset(): void {
-    pendingMap = new Map<string, Canceler>();
+    this.pendingMap = new Map<string, Canceler>();
+  }
+
+  keys(): Array<string> {
+    return [...this.pendingMap.keys()];
   }
 }
