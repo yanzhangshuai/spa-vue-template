@@ -1,38 +1,58 @@
 import * as qs from 'qs';
-import { cloneDeep, isFunction } from 'lodash-es';
-import { RequestConfig, RequestOptions, Result, UploadFileParams } from '@/@types/http';
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { cloneDeep } from 'lodash-es';
+import axios, { AxiosInstance } from 'axios';
 import { HttpClientCanceler } from './canceler';
-import { CreateOptions } from './transform';
 
-export class HttpClient {
-  private axiosInstance: AxiosInstance;
-  private readonly options: CreateOptions;
+import {
+  HttpResponse,
+  HttpRequestConfig,
+  HttpUploadRequestConfig,
+  HttpOptions,
+  InterceptorManager
+} from './type';
 
-  constructor(options: CreateOptions) {
-    this.options = options;
-    this.axiosInstance = axios.create(options);
-    this.setupInterceptors();
+export class Http {
+  private _axios: AxiosInstance;
+  private _options: HttpOptions;
+  private _canceler: HttpClientCanceler;
+
+  constructor(options?: HttpOptions) {
+    this.createAxios(options);
+
+    this.setupCancelInterceptor();
   }
 
-  getAxios(): AxiosInstance {
-    return this.axiosInstance;
+  get options(): HttpOptions {
+    return this._options;
+  }
+
+  get axios(): AxiosInstance {
+    return this._axios;
+  }
+
+  get interceptor(): InterceptorManager {
+    return this.axios.interceptors;
+  }
+
+  get canceler(): HttpClientCanceler {
+    return this._canceler;
   }
 
   /**
    * @description: 重新配置Option
    */
-  resetConfig(config: CreateOptions): HttpClient {
-    if (!this.axiosInstance) {
+  resetConfig(options: HttpOptions): Http {
+    if (!this.axios) {
       return;
     }
-    this.createAxios(config);
+
+    this.createAxios(options);
     return this;
   }
 
   // support form-data
-  supportFormData(config: RequestConfig): RequestConfig {
-    const headers = config.headers || this.options.headers;
+  private supportFormData(config: HttpRequestConfig): HttpRequestConfig {
+    const headers = config.headers || this.options?.request?.headers || {};
     const contentType = headers?.['Content-Type'] || headers?.['content-type'];
 
     if (
@@ -53,172 +73,140 @@ export class HttpClient {
    * @description: 设置header
    */
   setHeader(headers: Record<string, unknown>): void {
-    if (!this.axiosInstance) {
+    if (!this.axios) {
       return;
     }
-    Object.assign(this.axiosInstance.defaults.headers, headers);
+    Object.assign(this.axios.defaults.headers, headers);
   }
 
-  get<T = unknown>(url: string, config: RequestConfig, options?: RequestOptions): Promise<T> {
-    return this.request(url, { ...config, method: 'GET' }, options);
-  }
-
-  post<T = unknown>(url: string, config: RequestConfig, options?: RequestOptions): Promise<T> {
-    return this.request(url, { ...config, method: 'POST' }, options);
-  }
-
-  put<T = unknown>(url: string, config: RequestConfig, options?: RequestOptions): Promise<T> {
-    return this.request(url, { ...config, method: 'PUT' }, options);
-  }
-
-  delete<T = unknown>(url: string, config: RequestConfig, options?: RequestOptions): Promise<T> {
-    return this.request(url, { ...config, method: 'DELETE' }, options);
-  }
-
-  request<T = unknown>(
+  get<T = unknown, R = T>(
     url: string,
-    config: AxiosRequestConfig,
-    options?: RequestOptions
-  ): Promise<T> {
-    let conf: CreateOptions = cloneDeep(config);
+    query?: Record<string, unknown>,
+    config?: HttpRequestConfig
+  ): Promise<R> {
+    config = config || {};
+    config.params = { ...(config.params || {}), ...(query || {}) };
+    return this.request<T, R>(url, { ...config, method: 'GET' });
+  }
 
-    const transform = this.getTransform();
+  post<T = unknown, R = T>(
+    url: string,
+    data?: Record<string, unknown>,
+    query?: Record<string, unknown>,
+    config?: HttpRequestConfig
+  ): Promise<R> {
+    config = config || {};
+    config.data = { ...(config.data || {}), ...(data || {}) };
+    config.params = { ...(config.params || {}), ...(query || {}) };
+    return this.request(url, { ...config, method: 'POST' });
+  }
 
-    const { requestOptions } = this.options;
+  put<T = unknown, R = T>(
+    url: string,
+    query?: Record<string, unknown>,
+    config?: HttpRequestConfig
+  ): Promise<R> {
+    config = config || {};
+    config.params = { ...(config.params || {}), ...(query || {}) };
+    return this.request(url, { ...config, method: 'PUT' });
+  }
 
-    const opt: RequestOptions = Object.assign({}, requestOptions, options);
+  delete<T = unknown, R = T>(
+    url: string,
+    query?: Record<string, unknown>,
+    config?: HttpRequestConfig
+  ): Promise<R> {
+    config = config || {};
+    config.params = { ...(config.params || {}), ...(query || {}) };
+    return this.request<T, R>(url, { ...config, method: 'DELETE' });
+  }
 
-    const { beforeRequestHook, requestCatchHook, transformRequestHook } = transform || {};
-    if (beforeRequestHook && isFunction(beforeRequestHook)) {
-      conf = beforeRequestHook(conf, opt);
-    }
-    conf.requestOptions = opt;
+  request<T = unknown, R = T>(url: string, config: HttpRequestConfig): Promise<R> {
+    let conf = {
+      ...cloneDeep(this.options.request || {}),
+      ...cloneDeep(config || {})
+    };
 
     conf = this.supportFormData(conf);
 
     conf.url = url;
 
-    return new Promise((resolve, reject) => {
-      this.axiosInstance
-        .request<unknown, AxiosResponse<Result>>(conf)
-        .then((res: AxiosResponse<Result>) => {
-          if (transformRequestHook && isFunction(transformRequestHook)) {
-            try {
-              const ret = transformRequestHook(res, opt);
-              resolve(ret);
-            } catch (err) {
-              reject(err || new Error('request error!'));
-            }
-            return;
-          }
-          resolve(res as unknown as Promise<T>);
+    return new Promise<R>((resolve, reject) => {
+      this.axios
+        .request<T, HttpResponse<T>>(conf)
+        .then((res: HttpResponse<T>) => {
+          const data: R = (config.returnAllResponse ? res : res.data) as unknown as R;
+          resolve(data);
         })
         .catch((e: Error) => {
-          if (requestCatchHook && isFunction(requestCatchHook)) {
-            reject(requestCatchHook(e, opt));
-            return;
-          }
           reject(e);
         });
     });
   }
 
-  uploadFile<T = unknown>(config: RequestConfig, params: UploadFileParams): Promise<unknown> {
+  uploadFile<T = unknown, R = T>(url: string, config: HttpUploadRequestConfig): Promise<R> {
     const formData = new window.FormData();
 
-    if (params.data) {
-      Object.keys(params.data).forEach((key) => {
-        if (!params.data) return;
-        const value = params.data[key];
-        if (Array.isArray(value)) {
-          value.forEach((item) => {
-            formData.append(`${key}[]`, item);
-          });
-          return;
-        }
-
-        formData.append(key, params.data[key]);
-      });
-    }
-
-    formData.append(params.name || 'file', params.file, params.filename);
-
-    return this.axiosInstance.request<T>({
-      ...config,
-      method: 'POST',
-      data: formData,
-      headers: {
-        'Content-type': 'multipart/form-data;charset=UTF-8',
-        ignoreCancelToken: true
+    Object.keys(config?.data || {}).forEach((key) => {
+      if (!config.data) return;
+      const value = config.data[key];
+      if (Array.isArray(value)) {
+        value.forEach((item) => {
+          formData.append(`${key}[]`, item);
+        });
+        return;
       }
+
+      formData.append(key, value);
+    });
+
+    formData.append(config.name || 'file', config.file, config.filename || config.file?.name || '');
+
+    return new Promise<R>((resolve, reject) => {
+      this.axios
+        .request<T, HttpResponse<T>>({
+          url: url,
+          ...config,
+          method: config.method || 'POST',
+          data: formData,
+          headers: {
+            'Content-type': 'multipart/form-data;charset=UTF-8',
+            ...(config.headers || {})
+          },
+          cancelToken: config.cancelToken
+        })
+        .then((res) => {
+          const data: R = (config.returnAllResponse ? res : res.data) as unknown as R;
+          resolve(data);
+        })
+        .catch((err) => {
+          reject(err);
+        });
     });
   }
 
   /**
    * @description:
    */
-  private createAxios(config: CreateOptions): void {
-    this.axiosInstance = axios.create(config);
-  }
-
-  private getTransform() {
-    const { transform } = this.options;
-    return transform;
+  private createAxios(options: HttpOptions): void {
+    this._options = options || {};
+    this._axios = axios.create(options?.request || {});
   }
 
   /**
    * @description: 拦截器设置
    */
-  private setupInterceptors() {
-    const transform = this.getTransform();
-    if (!transform) {
-      return;
-    }
-    const {
-      requestInterceptors,
-      requestInterceptorsCatch,
-      responseInterceptors,
-      responseInterceptorsCatch
-    } = transform;
+  private setupCancelInterceptor() {
+    this._canceler = new HttpClientCanceler();
+    this.axios.interceptors.request.use((conf: HttpRequestConfig) => {
+      !conf.ignoreCancelToken && this.canceler.addPending(conf);
 
-    const axiosCanceler = new HttpClientCanceler();
-
-    //  Request成功结果 捕捉
-    this.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
-      //  是否可取消
-      const {
-        headers: { ignoreCancelToken }
-      } = config;
-
-      const ignoreCancel =
-        ignoreCancelToken !== undefined
-          ? ignoreCancelToken
-          : this.options.requestOptions?.ignoreCancelToken;
-
-      !ignoreCancel && axiosCanceler.addPending(config);
-      if (requestInterceptors && isFunction(requestInterceptors)) {
-        config = requestInterceptors(config, this.options);
-      }
-      return config;
+      return conf;
     }, undefined);
 
-    // Request失败结果 捕捉
-    requestInterceptorsCatch &&
-      isFunction(requestInterceptorsCatch) &&
-      this.axiosInstance.interceptors.request.use(undefined, requestInterceptorsCatch);
-
-    // Response成功结果 捕捉
-    this.axiosInstance.interceptors.response.use((res: AxiosResponse<unknown>) => {
-      res && axiosCanceler.removePending(res.config);
-      if (responseInterceptors && isFunction(responseInterceptors)) {
-        res = responseInterceptors(res);
-      }
+    this.axios.interceptors.response.use((res: HttpResponse<unknown>) => {
+      !res.config.ignoreCancelToken && this.canceler.removePending(res.config);
       return res;
     }, undefined);
-
-    // Response失败结果 捕捉
-    responseInterceptorsCatch &&
-      isFunction(responseInterceptorsCatch) &&
-      this.axiosInstance.interceptors.response.use(undefined, responseInterceptorsCatch);
   }
 }
