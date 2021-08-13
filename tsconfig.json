@@ -34,7 +34,7 @@
     "types": ["vite/client", "jest"],
     "sourceMap": false,
     "downlevelIteration": true,
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     //  类型声明文件的查找地址
     "typeRoots": ["node_modules/@types", "src/@types", "types"],
