@@ -1,4 +1,4 @@
-import * as qs from 'qs';
+import qs from 'qs';
 import { cloneDeep } from 'lodash-es';
 import axios, { AxiosInstance } from 'axios';
 import { HttpClientCanceler } from './canceler';

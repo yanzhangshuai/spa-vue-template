@@ -15,7 +15,7 @@ setupDirective(app);
 
 setupRouter(app);
 
-setupService();
+setupService(app);
 
 setupStore(app);
 
