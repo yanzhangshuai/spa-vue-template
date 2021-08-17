@@ -20,7 +20,7 @@
     "lint-fix": "npm-run-all --parallel lint-fix:*"
   },
   "dependencies": {
-    "ant-design-vue": "^1.7.6",
+    "ant-design-vue": "^1.7.7",
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
     "less": "^4.1.1",
