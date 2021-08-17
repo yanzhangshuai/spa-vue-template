@@ -60,7 +60,8 @@ export default async (option: {
               drop_console: webpackEnv.WEBPACK_DROP_CONSOLE
             }
           }
-        })
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        }) as any
       ]
     },
 
