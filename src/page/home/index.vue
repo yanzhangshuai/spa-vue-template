@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts">
-import { useHttp } from '@/service';
 import { defineComponent } from 'vue';
+import { useHttp } from '@/service';
+
 export default defineComponent({
-  components: {},
   setup() {
     const http = useHttp();
     http
