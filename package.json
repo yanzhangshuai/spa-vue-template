@@ -20,7 +20,10 @@
     "test:cover": "jest --passWithNoTests --coverage --reporters jest-stare "
   },
   "dependencies": {
+    "@vueuse/core": "^6.0.0",
     "axios": "^0.21.1",
+    "bucket-storage": "^0.1.2",
+    "crypto-js": "^4.1.1",
     "dayjs": "^1.10.6",
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.0-rc.4",
@@ -35,6 +38,7 @@
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@tailwindcss/postcss7-compat": "^2.2.7",
+    "@types/crypto-js": "^4.0.2",
     "@types/jest": "^27.0.1",
     "@types/lodash-es": "^4.17.4",
     "@types/node": "^16.6.1",
