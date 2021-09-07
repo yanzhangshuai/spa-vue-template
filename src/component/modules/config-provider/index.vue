@@ -19,4 +19,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style lang="less" scoped></style>

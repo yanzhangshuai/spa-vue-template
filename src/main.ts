@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { setupUtils } from '@/util';
 import { setupStore } from '@/store';
 import { setupService } from '@/service';
 import { setupComponent } from '@/component';
@@ -8,6 +9,8 @@ import App from '@/page/app.vue';
 import '@/assets/styles/index.less';
 
 const app = createApp(App);
+
+setupUtils(app);
 
 setupComponent(app);
 
