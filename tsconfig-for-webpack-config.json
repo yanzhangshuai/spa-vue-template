@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "module": "CommonJS",
-    "target": "ES5",
+    "target": "es6",
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "baseUrl": ".",
     "rootDir": "./",
+    "lib": ["esnext"],
     "typeRoots": ["node_modules/@types"]
   },
   "presets": ["es2015"]
