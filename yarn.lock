@@ -1786,10 +1786,10 @@ bser@2.1.1:
   dependencies:
     node-int64 "^0.4.0"
 
-bucket-storage@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/bucket-storage/-/bucket-storage-0.1.2.tgz#be5659ccbcdba8200126625bc457f14c1db47658"
-  integrity sha512-tsXRnICpia+Clu6p5WxU31PxuEesUSjItuEoGdisGkxbc9iLBdPy4mzBI2AApETeSgVtolguokVkoQ5ZZuB3qA==
+bucket-storage@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.npmjs.org/bucket-storage/-/bucket-storage-0.4.0.tgz#0ba0ecf0ed0f7889da2c91a8016a9d0746a7f1d5"
+  integrity sha512-xoe8xD2lHJrIrGBaF2cQAnXv4ZWwnc3KVq1xqQupMZRcfjI58GXfsHsUMD9fLuo3dDp5TOip8CYqZb1SD0MRYQ==
   dependencies:
     crypto-js "^4.1.1"
 

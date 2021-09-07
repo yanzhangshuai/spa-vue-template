@@ -3,7 +3,7 @@
     <slot></slot>
   </div>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent } from 'vue';
 import 'dayjs/locale/zh-cn';
@@ -13,5 +13,5 @@ export default defineComponent({
   }
 });
 </script>
-  
-  <style lang="less" scoped></style>
+
+<style lang="less" scoped></style>

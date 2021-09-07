@@ -5,9 +5,13 @@
 </template>
 
 <script lang="ts">
+import { useTitle } from '@/hook/web/title';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  setup() {
+    useTitle();
+  }
 });
 </script>

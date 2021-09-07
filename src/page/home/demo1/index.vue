@@ -6,12 +6,4 @@
   <tsx-demo />
 </template>
 
-<script lang="ts" setup>
-import { useReload } from '@/router/hooks/reload';
-import { useThrottleFn } from '@vueuse/shared';
-
-const reload = useReload();
-const onReload = useThrottleFn(() => {
-  reload().then((res) => console.log('res', res));
-}, 3000);
-</script>
+<script lang="ts" setup></script>
