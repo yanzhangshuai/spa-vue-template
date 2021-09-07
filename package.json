@@ -20,7 +20,9 @@
     "lint-fix": "npm-run-all --parallel lint-fix:*"
   },
   "dependencies": {
+    "@vueuse/core": "^6.2.1",
     "axios": "^0.21.1",
+    "bucket-storage": "^0.4.0",
     "dayjs": "^1.10.6",
     "less": "^4.1.1",
     "lodash-es": "^4.17.21",

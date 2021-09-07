@@ -5,6 +5,8 @@
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "rootDir": "./",
     "typeRoots": ["node_modules/@types"]
   },
   "presets": ["es2015"]

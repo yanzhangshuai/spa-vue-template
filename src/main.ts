@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { setupUtil } from '@/util';
 import { setupStore } from '@/store';
 import { setupService } from '@/service';
 import { setupComponent } from '@/component';
@@ -9,6 +10,8 @@ import '@/assets/styles/index.less';
 import '@/assets/styles/tailwind.css';
 
 const app = createApp(App);
+
+setupUtil(app);
 
 setupComponent(app);
 
