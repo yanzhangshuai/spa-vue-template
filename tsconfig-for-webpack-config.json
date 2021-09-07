@@ -6,6 +6,8 @@
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "rootDir": "./",
     "lib": ["esnext"],
     "typeRoots": ["node_modules/@types"]
   },

@@ -27,6 +27,7 @@
     "forceConsistentCasingInFileNames": true,
     //  非相对路径中跟目录
     "baseUrl": ".",
+    "rootDir": "./",
     "paths": {
       "@/*": ["src/*"],
       "#/*": ["types/*"]
