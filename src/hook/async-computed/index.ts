@@ -1,4 +1,4 @@
-import { ref, readonly, watchEffect, Ref, DeepReadonly } from '@vue/composition-api';
+import { ref, readonly, watchEffect, Ref, DeepReadonly } from 'vue';
 
 /**
  * Handle overlapping async evaluations
