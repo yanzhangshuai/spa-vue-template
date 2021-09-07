@@ -1,6 +1,6 @@
 import { App } from 'vue';
-import { createPinia, Pinia } from 'pinia';
 import { debounce } from 'lodash-es';
+import { createPinia, Pinia } from 'pinia';
 
 export type Store = Pinia;
 

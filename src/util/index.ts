@@ -1,7 +1,7 @@
 import { App } from 'vue';
-import { setupStorage } from '@/util/storage';
+import { setupStorage } from './storage';
 
-export function setupUtils(app: App<Element>): App<Element> {
+export function setupUtil(app: App<Element>): App<Element> {
   setupStorage();
   return app;
 }

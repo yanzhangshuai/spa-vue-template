@@ -1,16 +1,16 @@
 import { createApp } from 'vue';
-import { setupUtils } from '@/util';
-import { setupStore } from '@/store';
-import { setupService } from '@/service';
-import { setupComponent } from '@/component';
-import { setupDirective } from '@/directive';
-import { isReady, setupRouter } from '@/router';
-import App from '@/page/app.vue';
-import '@/assets/styles/index.less';
+import { setupUtil } from './util';
+import { setupStore } from './store';
+import { setupService } from './service';
+import { setupComponent } from './component';
+import { setupDirective } from './directive';
+import { isReady, setupRouter } from './router';
+import App from './page/app.vue';
+import './asset/style/index.less';
 
 const app = createApp(App);
 
-setupUtils(app);
+setupUtil(app);
 
 setupComponent(app);
 

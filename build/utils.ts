@@ -3,18 +3,21 @@ import { Env } from './types';
 
 export const root = process.cwd();
 
-export function isReportMode(): boolean {
-  return process.env.npm_config_report === 'true';
-}
-
-export const resolve = (dir: string): string => {
-  return path.join(root, dir);
-};
-
 /**
  * 配置文件所在路径
  */
 export const configPath = resolve('config');
+
+export function resolve(dir: string): string {
+  return path.join(root, dir);
+}
+
+export function moduleAlias(modules: Array<string>, prefixPath = 'src'): Record<string, string> {
+  return modules.reduce((accumulator, current) => {
+    accumulator[current] = resolve(prefixPath + '/' + current);
+    return accumulator;
+  }, {} as Record<string, string>);
+}
 
 // 转换配置文件数据
 export function wrapperEnv(envConf: Record<keyof Env, string>): Env {
@@ -39,7 +42,7 @@ export function wrapperEnv(envConf: Record<keyof Env, string>): Env {
       }
 
       // 数组或对象
-      if (/^[\{\[].*[\}\]]$/.test(value)) {
+      if (/^[{\[].*[}\]]$/.test(value)) {
         let realValue: unknown = value;
         try {
           realValue = JSON.parse(value);
