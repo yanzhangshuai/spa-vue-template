@@ -11,22 +11,4 @@
     </a-layout>
   </a-layout>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  setup() {
-    const onCollapse = (collapsed: boolean, type: string) => {
-      console.log(collapsed, type);
-    };
-
-    const onBreakpoint = (broken: boolean) => {
-      console.log(broken);
-    };
-
-    return {
-      onCollapse,
-      onBreakpoint
-    };
-  }
-});
-</script>
+<script lang="ts" setup></script>
