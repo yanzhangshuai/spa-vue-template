@@ -22,7 +22,7 @@
   "dependencies": {
     "@vueuse/core": "^6.0.0",
     "axios": "^0.21.1",
-    "bucket-storage": "^0.4.0",
+    "bucket-storage": "^0.4.4",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.10.6",
     "lodash-es": "^4.17.21",
@@ -45,7 +45,7 @@
     "@types/qs": "^6.9.7",
     "@types/ramda": "^0.27.44",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
+    "@typescript-eslint/parser": "^4.31.0",
     "@vitejs/plugin-legacy": "^1.5.1",
     "@vitejs/plugin-vue": "^1.4.0",
     "@vitejs/plugin-vue-jsx": "^1.1.7",
