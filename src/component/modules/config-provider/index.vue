@@ -6,17 +6,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import 'dayjs/locale/zh-cn';
 import locale from 'ant-design-vue/es/locale/zh_CN';
-export default defineComponent({
-  setup() {
-    return {
-      locale
-    };
-  }
-});
 </script>
 
 <style lang="less" scoped></style>
