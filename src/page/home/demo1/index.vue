@@ -1,10 +1,16 @@
 <template>
-  <div>我是demo11</div>
-  <!-- <input-number-test /> -->
+  <div class="text-red-600">我是demo1</div>
   <button @click="$router.push('/home/demo2')">Go To Demo2</button>
-  <button @click="onReload">onReload</button>
+  <setup-demo ref="setupDemoRef" v-model:name="name"></setup-demo>
   <tsx-demo />
   <date-picker-test></date-picker-test>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { onMounted, ref, unref } from 'vue';
+const setupDemoRef = ref(null);
+onMounted(() => {
+  unref(setupDemoRef).onBtn();
+});
+const name = ref('123');
+</script>

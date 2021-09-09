@@ -26,7 +26,9 @@ export function useEventListener({
   const isAddRef = ref(false);
 
   if (el) {
-    const element: Ref<Element> = ref(el as Element);
+    const element: Ref<Element> = ref<Element>(
+      (el || window) as Element
+    ) as unknown as Ref<Element>;
 
     const handler = isDebounce ? useDebounceFn(listener, wait) : useThrottleFn(listener, wait);
     const realHandler = wait ? handler : listener;
@@ -50,7 +52,7 @@ export function useEventListener({
     );
 
     remove = () => {
-      removeEventListener(element.value);
+      removeEventListener(unref(element));
       removeWatch();
     };
   }

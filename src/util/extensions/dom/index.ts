@@ -1,4 +1,4 @@
-import { Fn } from '@/../../../../@types/global';
+import { Fn } from '@/@types/global';
 
 export interface ViewportOffsetResult {
   left: number;

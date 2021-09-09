@@ -1,4 +1,4 @@
-import { XOR } from 'src/@types/global';
+import { XOR } from '@/@types/global';
 import { AxiosInterceptorManager, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
 
 export interface HttpOptions {

@@ -29,7 +29,15 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "#/*": ["types/*"]
+      "asset/*": ["src/asset/*"],
+      "component/*": ["src/component/*"],
+      "directive/*": ["src/directive/*"],
+      "hook/*": ["src/hook/*"],
+      "page/*": ["src/page/*"],
+      "router/*": ["src/router/*"],
+      "service/*": ["src/service/*"],
+      "store/*": ["src/store/*"],
+      "util/*": ["src/util/*"],
     },
     "types": ["vite/client", "jest"],
     "sourceMap": false,
@@ -37,14 +45,13 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     //  类型声明文件的查找地址
-    "typeRoots": ["node_modules/@types",
-      "src/@types", "types"],
+    "typeRoots": ["node_modules/@types"],
 
     //  引入的库文件
     "lib": ["es5", "es6", "es7", "dom", "esnext", "dom.iterable"]
   },
   //  排除编译的文件
-  "exclude": ["node_modules", "build", "src/assets/json/*.json"],
+  "exclude": ["node_modules", "build", "src/asset/json/*.json"],
   //  包含编译的入口文件
   "include": [
     "src/**/*.ts",
