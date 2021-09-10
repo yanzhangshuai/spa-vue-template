@@ -1,7 +1,7 @@
 import qs from 'qs';
 import { cloneDeep } from 'lodash-es';
 import axios, { AxiosInstance } from 'axios';
-import { HttpCanceler } from './canceler';
+import { HttpClientCanceler } from './canceler';
 
 import {
   HttpResponse,
@@ -14,7 +14,7 @@ import {
 export class Http {
   private _axios: AxiosInstance;
   private _options: HttpOptions;
-  private _canceler: HttpCanceler;
+  private _canceler: HttpClientCanceler;
 
   constructor(options?: HttpOptions) {
     this.createAxios(options);
@@ -34,7 +34,7 @@ export class Http {
     return this.axios.interceptors;
   }
 
-  get canceler(): HttpCanceler {
+  get canceler(): HttpClientCanceler {
     return this._canceler;
   }
 
@@ -197,7 +197,7 @@ export class Http {
    * @description: 拦截器设置
    */
   private setupCancelInterceptor() {
-    this._canceler = new HttpCanceler();
+    this._canceler = new HttpClientCanceler();
     this.axios.interceptors.request.use((conf: HttpRequestConfig) => {
       !conf.ignoreCancelToken && this.canceler.addPending(conf);
 

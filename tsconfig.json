@@ -27,11 +27,19 @@
     "forceConsistentCasingInFileNames": true,
     //  非相对路径中跟目录
     "baseUrl": ".",
-    "rootDir": "./",
     "paths": {
       "@/*": ["src/*"],
-      "#/*": ["types/*"]
+      "asset/*": ["src/asset/*"],
+      "component/*": ["src/component/*"],
+      "directive/*": ["src/directive/*"],
+      "hook/*": ["src/hook/*"],
+      "page/*": ["src/page/*"],
+      "router/*": ["src/router/*"],
+      "service/*": ["src/service/*"],
+      "store/*": ["src/store/*"],
+      "util/*": ["src/util/*"],
     },
+    "types": ["jest"],
     "sourceMap": false,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
@@ -43,7 +51,13 @@
     "lib": ["es5", "es6", "es7", "dom", "esnext", "dom.iterable"]
   },
   //  排除编译的文件
-  "exclude": ["node_modules", "build", "src/assets/json/*.json"],
+  "exclude": ["node_modules", "build", "src/asset/json/*.json"],
   //  包含编译的入口文件
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+  ]
 }

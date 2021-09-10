@@ -1,11 +1,11 @@
 import path from 'path';
-import { Configuration } from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
+import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
 import { loadEnv } from './build/config';
-import { support } from './build/webpack/support';
+import { configPath, moduleAlias, resolve, wrapperEnv } from './build/utils';
 import { createDevServer } from './build/webpack/dev';
-import { configPath, resolve, wrapperEnv } from './build/utils';
+import { support } from './build/webpack/support';
 
 export default async (option: {
   WEBPACK_BUNDLE: boolean;
@@ -68,12 +68,21 @@ export default async (option: {
     resolve: {
       mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
       alias: {
-        '@': resolve('src')
+        '@': resolve('src'),
+        ...moduleAlias([
+          'asset',
+          'component',
+          'directive',
+          'hook',
+          'page',
+          'router',
+          'service',
+          'store',
+          'util'
+        ])
       }
     }
   };
 
-  const conf = webpackMerge(baseConf, support(isBuild, webpackEnv));
-
-  return conf;
+  return webpackMerge(baseConf, support(isBuild, webpackEnv));
 };

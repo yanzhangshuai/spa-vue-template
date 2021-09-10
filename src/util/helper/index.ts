@@ -1,4 +1,4 @@
-import { isArray, isNil, isObject, isString } from 'lodash-es';
+import { isArray, isNil, isObject, isString } from 'util/is';
 import { ValueType } from '@/@types/global';
 
 export const awaitWrapper = <T = unknown, E = unknown>(
