@@ -1,5 +1,5 @@
-// import { setupStorage } from './storage';
+import { setupStorage } from './storage';
 
-export function setupUtil() {
-  // setupStorage();
+export function setupUtil(): void {
+  setupStorage();
 }

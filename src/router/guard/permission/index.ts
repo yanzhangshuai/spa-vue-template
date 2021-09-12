@@ -1,6 +1,6 @@
 import Router from 'vue-router';
 
-export function createPermissionGuard(router: Router): void {
+export function createPermissionGuard(router: Readonly<Router>): void {
   router.beforeEach((to, _, next) => {
     next();
   });

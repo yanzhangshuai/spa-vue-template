@@ -1,4 +1,4 @@
-vue3 + webpack + Typescript template
+vue2 + webpack + Typescript template
 
 目前问题
 

@@ -1,11 +1,26 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "module": "CommonJS",
-    "target": "ES5",
+    "target": "es6",
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "typeRoots": ["node_modules/@types"]
+    "baseUrl": "./",
+    "rootDir": "./",
+    "lib": [
+      "esnext"
+    ],
+    "paths": {
+      "build/*": [
+        "./build/*"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
-  "presets": ["es2015"]
+  "presets": [
+    "es2015"
+  ]
 }

@@ -16,7 +16,7 @@ export function setupStore(): Store {
         //@ts-ignore
         debouncedActions[action] = debounce(store[action], options.debounce[action]);
         return debouncedActions;
-      }, {});
+      }, {} as Record<string, Function>);
     }
   });
   return store;
