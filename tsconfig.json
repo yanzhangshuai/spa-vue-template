@@ -28,27 +28,46 @@
     //  非相对路径中跟目录
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": [
+        "src/*"
+      ]
     },
-    "types": ["webpack-env"],
+    "types": [
+      "node",
+      "webpack-env"
+    ],
     "sourceMap": false,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     //  类型声明文件的查找地址
-    "typeRoots": ["node_modules/@types", "src/@types","@types/node"],
-
+    "typeRoots": [
+      "node_modules/@types",
+      "src/@types",
+      "@types/node"
+    ],
     //  引入的库文件
-    "lib": ["es5", "es6", "es7", "dom", "esnext", "dom.iterable"]
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "dom",
+      "esnext",
+      "dom.iterable"
+    ]
   },
   //  排除编译的文件
-  "exclude": ["node_modules", "build", "src/asset/json/*.json"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "src/asset/json/*.json"
+  ],
   //  包含编译的入口文件
   "include": [
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
+    "src/**/*.vue"
   ]
 }

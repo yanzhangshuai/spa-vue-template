@@ -10,8 +10,8 @@ export const resolve = (dir: string): string => {
 
 /**
  * 获取可用端口
- * @param {*} options
  * @returns
+ * @param startPort
  */
 export const findPort = (startPort: number): Promise<number> => {
   return portfinder.getPortPromise({ startPort: startPort, port: startPort });
@@ -21,6 +21,7 @@ export const findPort = (startPort: number): Promise<number> => {
  * 配置文件所在路径
  */
 export const configPath = resolve('config');
+
 // 转换配置文件数据
 export function wrapperEnv(envConf: Record<keyof Env, string>): Env {
   return (Object.keys(envConf) as Array<keyof Env>)
@@ -41,7 +42,7 @@ export function wrapperEnv(envConf: Record<keyof Env, string>): Env {
         };
       }
       // 数组或对象
-      if (/^[\{\[].*[\}\]]$/.test(value)) {
+      if (/^[{\[].*[}\]]$/.test(value)) {
         let realValue: unknown = value;
         try {
           realValue = JSON.parse(value);
