@@ -8,12 +8,23 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "rootDir": "./",
-    "lib": ["esnext"],
-    "types": ["node"],
+    "lib": [
+      "esnext"
+    ],
+    "types": [
+      "node"
+    ],
     "paths": {
-      "build/*": ["./build/*"],
+      "build/*": [
+        "./build/*"
+      ]
     },
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": [
+      "node_modules/@types",
+      "build/@types"
+    ]
   },
-  "presets": ["es2015"]
+  "presets": [
+    "es2015"
+  ]
 }
