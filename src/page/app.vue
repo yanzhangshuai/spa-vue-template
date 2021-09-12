@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useTitle } from 'hook/web/title';
-import { useStorage } from 'util/storage';
+import { useTitle } from '@/hook/web/title';
+import { useStorage } from '@/util/storage';
 useTitle();
 
 const storage = useStorage();

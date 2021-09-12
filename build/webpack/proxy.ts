@@ -8,7 +8,7 @@ export function createProxy(proxy: Record<string, string>): ProxyConfigMap {
         target: proxy[prefix],
         changeOrigin: true,
         ws: true,
-        pathRewrite: (path) => path.replace(new RegExp(`^${prefix}`), ''),
+        pathRewrite: (path: string) => path.replace(new RegExp(`^${prefix}`), ''),
         // https is require secure=false
         ...(isHttps ? { secure: false } : {})
       };

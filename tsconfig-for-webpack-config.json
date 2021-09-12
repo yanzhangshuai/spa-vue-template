@@ -9,6 +9,7 @@
     "baseUrl": "./",
     "rootDir": "./",
     "lib": ["esnext"],
+    "types": ["node"],
     "paths": {
       "build/*": ["./build/*"],
     },
