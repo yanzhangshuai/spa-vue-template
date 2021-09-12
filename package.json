@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^6.3.2",
-    "ant-design-vue": "^2.2.6",
+    "ant-design-vue": "^2.2.7",
     "axios": "^0.21.4",
     "bucket-storage": "^0.4.6",
     "dayjs": "^1.10.7",
