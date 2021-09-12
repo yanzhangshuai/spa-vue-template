@@ -7,13 +7,13 @@ const RE_NEWLINES = /\\n/g;
 const NEWLINES_MATCH = /\n|\r|\r\n/;
 // 将src转为obj
 function parse(src: string | Buffer): Record<string, string> {
-  const obj = {};
+  const obj: Record<string, string> = {};
 
   // convert Buffers before splitting into lines and processing
   src
     .toString()
     .split(NEWLINES_MATCH)
-    .forEach(function (line) {
+    .forEach((line: string) => {
       // 匹配key=val
       const keyValueArr = line.match(RE_INI_KEY_VAL);
       // matched?
@@ -59,14 +59,14 @@ function lookupFile(dir: string, formats: Array<string> | string, pathOnly = fal
   }
 }
 
-const main = function (config) {
+const main = function (config: { parsed: Record<string, string>; ignoreProcessEnv: boolean }) {
   // if ignoring process.env, use a blank object
   const environment = config.ignoreProcessEnv ? {} : process.env;
 
-  const interpolate = (envValue) => {
+  const interpolate = (envValue: string): string => {
     const matches = envValue.match(/(.?\${?(?:[a-zA-Z0-9_]+)?}?)/g) || [];
 
-    return matches.reduce(function (newEnv, match) {
+    return matches.reduce(function (newEnv: string, match: string) {
       const parts = /(.?)\${?([a-zA-Z0-9_]+)?}?/g.exec(match);
       const prefix = parts[1];
 
@@ -109,7 +109,7 @@ export function loadEnv(
   envDir: string,
   prefix = 'WEBPACK_'
 ): Record<string, string> {
-  const env = {};
+  const env: Record<string, string> = {};
   const envFiles = [
     /** mode local file */ `.env.${mode}.local`,
     /** mode file */ `.env.${mode}`,
