@@ -1,11 +1,11 @@
 import path from 'path';
-import TerserPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
 import { merge as webpackMerge } from 'webpack-merge';
 import { loadEnv } from './build/config';
-import { configPath, moduleAlias, resolve, wrapperEnv } from './build/utils';
-import { createDevServer } from './build/webpack/dev';
 import { support } from './build/webpack/support';
+import { createDevServer } from './build/webpack/dev';
+import { configPath, moduleAlias, resolve, wrapperEnv } from './build/utils';
 
 export default async (option: {
   WEBPACK_BUNDLE: boolean;
@@ -48,7 +48,7 @@ export default async (option: {
       clean: true
     },
 
-    //TODO: @types/webpack-dev-server3.11.1版本的提示目前才正确，3.11.1以上版本有问题
+    //@ts-ignore
     devServer: (!isBuild && (await createDevServer(webpackEnv))) || {},
 
     optimization: {
@@ -60,8 +60,7 @@ export default async (option: {
               drop_console: webpackEnv.WEBPACK_DROP_CONSOLE
             }
           }
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        }) as any
+        })
       ]
     },
 

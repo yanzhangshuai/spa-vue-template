@@ -6,9 +6,12 @@
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "rootDir": "./",
     "lib": ["esnext"],
+    "paths": {
+      "build/*": ["./build/*"],
+    },
     "typeRoots": ["node_modules/@types"]
   },
   "presets": ["es2015"]

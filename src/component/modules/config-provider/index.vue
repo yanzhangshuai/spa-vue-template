@@ -4,14 +4,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
 import 'dayjs/locale/zh-cn';
-export default defineComponent({
-  setup() {
-    return {};
-  }
-});
 </script>
 
 <style lang="less" scoped></style>

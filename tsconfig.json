@@ -26,7 +26,7 @@
     "declaration": false,
     "forceConsistentCasingInFileNames": true,
     //  非相对路径中跟目录
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
       "asset/*": ["src/asset/*"],
@@ -39,13 +39,13 @@
       "store/*": ["src/store/*"],
       "util/*": ["src/util/*"],
     },
-    "types": ["jest"],
+    "types": ["webpack-env"],
     "sourceMap": false,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     //  类型声明文件的查找地址
-    "typeRoots": ["node_modules/@types", "src/@types"],
+    "typeRoots": ["node_modules/@types", "src/@types","@types/node"],
 
     //  引入的库文件
     "lib": ["es5", "es6", "es7", "dom", "esnext", "dom.iterable"]

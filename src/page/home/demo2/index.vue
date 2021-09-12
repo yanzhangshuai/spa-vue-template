@@ -2,12 +2,9 @@
   <div>我是demo2</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script lang="ts" setup>
+import { useStorage } from 'util/storage';
 
-export default defineComponent({
-  setup() {
-    return {};
-  }
-});
+const storage = useStorage();
+storage.set('name', 'demo2');
 </script>
