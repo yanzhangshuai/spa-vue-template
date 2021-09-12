@@ -8,8 +8,16 @@ export function isDef<T = unknown>(val?: T): val is T {
   return typeof val !== 'undefined';
 }
 
-export function isUnDef<T = unknown>(val?: T): val is T {
+export function isUnDef<T = unknown>(val?: T): val is undefined {
   return !isDef(val);
+}
+
+export function isNull(val: unknown): val is null {
+  return val === null;
+}
+
+export function isNil(val: unknown): val is null | undefined {
+  return isUnDef(val) || isNull(val);
 }
 
 export function isObject(val: unknown): val is Record<string | number | symbol, unknown> {
@@ -36,20 +44,13 @@ export function isDate(val: unknown): val is Date {
   return is(val, 'Date');
 }
 
-export function isNull(val: unknown): val is null {
-  return val === null;
-}
-
-export function isNullAndUnDef(val: unknown): val is null | undefined {
-  return isUnDef(val) && isNull(val);
-}
-
-export function isNullOrUnDef(val: unknown): val is null | undefined {
-  return isUnDef(val) || isNull(val);
-}
-
 export function isNumber(val: unknown): val is number {
   return is(val, 'Number');
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
+export function isNumeric(val: any): val is number | string {
+  return !isArray(val) && !isObject(val) && val - parseFloat(val) + 1 >= 0;
 }
 
 export function isPromise<T = unknown>(val: unknown): val is Promise<T> {

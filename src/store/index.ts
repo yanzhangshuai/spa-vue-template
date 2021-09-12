@@ -12,10 +12,9 @@ export function setupStore(app: App<Element>): App<Element> {
   store.use(({ options, store }) => {
     if (options.debounce) {
       return Object.keys(options.debounce).reduce((debouncedActions, action) => {
-        //@ts-ignore
         debouncedActions[action] = debounce(store[action], options.debounce[action]);
         return debouncedActions;
-      }, {});
+      }, {} as Record<string, Function>);
     }
   });
 

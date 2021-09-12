@@ -4,13 +4,14 @@
   </config-provider>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { useTitle } from '@/hook/web/title';
-export default defineComponent({
-  name: 'App',
-  setup() {
-    useTitle();
-  }
+<script lang="ts" setup>
+import { useTitle } from 'hook/web/title';
+import { useStorage } from 'util/storage';
+useTitle();
+
+const storage = useStorage();
+
+storage.watch<string>('name', (newVal) => {
+  console.log('storage---name: ' + newVal);
 });
 </script>

@@ -2,7 +2,7 @@ import axios, { Canceler } from 'axios';
 import { isFunction } from 'lodash-es';
 import { HttpRequestConfig } from './type';
 
-export class HttpCanceler {
+export class HttpClientCanceler {
   pendingMap: Map<string, Canceler>;
   constructor() {
     this.pendingMap = new Map<string, Canceler>();

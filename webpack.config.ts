@@ -5,7 +5,7 @@ import { merge as webpackMerge } from 'webpack-merge';
 import { loadEnv } from './build/config';
 import { support } from './build/webpack/support';
 import { createDevServer } from './build/webpack/dev';
-import { configPath, resolve, wrapperEnv } from './build/utils';
+import { configPath, moduleAlias, resolve, wrapperEnv } from './build/utils';
 
 export default async (option: {
   WEBPACK_BUNDLE: boolean;
@@ -48,7 +48,7 @@ export default async (option: {
       clean: true
     },
 
-    //TODO: @types/webpack-dev-server3.11.1版本的提示目前才正确，3.11.1以上版本有问题
+    //@ts-ignore
     devServer: (!isBuild && (await createDevServer(webpackEnv))) || {},
 
     optimization: {
@@ -60,20 +60,28 @@ export default async (option: {
               drop_console: webpackEnv.WEBPACK_DROP_CONSOLE
             }
           }
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        }) as any
+        })
       ]
     },
 
     resolve: {
       mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
       alias: {
-        '@': resolve('src')
+        '@': resolve('src'),
+        ...moduleAlias([
+          'asset',
+          'component',
+          'directive',
+          'hook',
+          'page',
+          'router',
+          'service',
+          'store',
+          'util'
+        ])
       }
     }
   };
 
-  const conf = webpackMerge(baseConf, support(isBuild, webpackEnv));
-
-  return conf;
+  return webpackMerge(baseConf, support(isBuild, webpackEnv));
 };
