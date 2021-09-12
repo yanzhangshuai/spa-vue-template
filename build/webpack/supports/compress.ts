@@ -1,14 +1,15 @@
-import { Configuration } from 'webpack';
+import { Configuration, WebpackPluginInstance } from 'webpack';
 import CompressionPlugin from 'compression-webpack-plugin';
 
 export function compressSupport(
   type: 'gzip' | 'brotli' | 'none',
   deleteOriginFile = false
 ): Configuration {
-  const conf = {
+  const conf: Configuration = {
     plugins: []
   };
 
+  //TODO: compression-webpack-plugin ts有问题
   if (type === 'gzip') {
     conf.plugins.push(
       new CompressionPlugin({
@@ -18,7 +19,7 @@ export function compressSupport(
         threshold: 8192,
         minRatio: 0.8,
         deleteOriginalAssets: deleteOriginFile
-      })
+      }) as unknown as WebpackPluginInstance
     );
   }
 
@@ -32,7 +33,7 @@ export function compressSupport(
         threshold: 8192,
         minRatio: 0.8,
         deleteOriginalAssets: deleteOriginFile
-      })
+      }) as unknown as WebpackPluginInstance
     );
   }
   return conf;

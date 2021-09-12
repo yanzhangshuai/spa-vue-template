@@ -1,6 +1,6 @@
 import { Configuration, DefinePlugin } from 'webpack';
 export function variableSupport(isBuild = false, imageUrl = ''): Configuration {
-  const conf = { plugins: [] };
+  const conf: Configuration = { plugins: [] };
 
   conf.plugins.push(
     new DefinePlugin({

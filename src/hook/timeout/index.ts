@@ -1,10 +1,10 @@
 import { ref, watch, Ref } from 'vue';
 import { tryOnUnmounted } from '@vueuse/core';
-import { isFunction } from 'util/is';
+import { isFunction } from '@/util/is';
 import { Fn, TimeoutHandle } from '@/@types/global';
 
 export function useTimeout(
-  handle: Fn<unknown>,
+  handle: Fn,
   wait: number,
   native = false
 ): { readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> } {

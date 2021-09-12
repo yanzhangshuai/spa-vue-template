@@ -5,7 +5,7 @@ import { merge as webpackMerge } from 'webpack-merge';
 import { loadEnv } from './build/config';
 import { support } from './build/webpack/support';
 import { createDevServer } from './build/webpack/dev';
-import { configPath, moduleAlias, resolve, wrapperEnv } from './build/utils';
+import { configPath, resolve, wrapperEnv } from './build/utils';
 
 export default async (option: {
   WEBPACK_BUNDLE: boolean;
@@ -67,18 +67,7 @@ export default async (option: {
     resolve: {
       mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
       alias: {
-        '@': resolve('src'),
-        ...moduleAlias([
-          'asset',
-          'component',
-          'directive',
-          'hook',
-          'page',
-          'router',
-          'service',
-          'store',
-          'util'
-        ])
+        '@': resolve('src')
       }
     }
   };
