@@ -1,11 +1,12 @@
 import Router from 'vue-router';
 import { getMeta } from '@/router/util';
 import { useUserStore } from '@/store/modules/user';
+
 /**
  * 认证守卫
  * @param router
  */
-export function createAuthGuard(router: Router): void {
+export function createAuthGuard(router: Readonly<Router>): void {
   router.beforeEach((to, _, next) => {
     const meta = getMeta(to);
 

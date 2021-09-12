@@ -38,8 +38,7 @@ export function copyTextToClipboard(
 
   element.setAttribute('readonly', '');
 
-  //@ts-ignore
-  (element.style as unknown).contain = 'strict';
+  element.style.contain = 'strict';
   element.style.position = 'absolute';
   element.style.left = '-9999px';
   element.style.fontSize = '12pt';

@@ -17,6 +17,9 @@ const router: RouteConfig = {
     {
       path: 'demo2',
       name: 'home-demo2',
+      meta: {
+        title: 'demo2'
+      },
       component: Demo2Page
     }
   ]
