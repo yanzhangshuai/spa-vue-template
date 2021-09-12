@@ -1,6 +1,8 @@
 import { Configuration } from 'webpack';
+//@ts-ignore
 import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import { resolve } from '../../utils';
+
 export function antdSupport(needed: boolean): Configuration {
   const alias: Record<string, string> = {};
 
