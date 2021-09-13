@@ -9,7 +9,7 @@ export function createProxy(proxy: Record<string, string>): ProxyTarget {
         target: proxy[prefix],
         changeOrigin: true,
         ws: true,
-        rewrite: (path) => path.replace(new RegExp(`^${prefix}`), ''),
+        rewrite: (path: string) => path.replace(new RegExp(`^${prefix}`), ''),
         // https is require secure=false
         ...(isHttps ? { secure: false } : {})
       };
