@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
-import { setupUtil } from '@/util';
 import { setupStore } from '@/store';
+import { setupPlugin } from '@/plugin';
 import { setupService } from '@/service';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
@@ -11,7 +11,7 @@ import '@/asset/styles/tailwind.css';
 
 const app = createApp(App);
 
-setupUtil(app);
+setupPlugin(app);
 
 setupComponent(app);
 

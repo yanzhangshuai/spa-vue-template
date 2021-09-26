@@ -1,6 +1,6 @@
 import { App } from 'vue';
-import { createPinia, Pinia } from 'pinia';
 import { debounce } from 'lodash-es';
+import { createPinia, Pinia } from 'pinia';
 
 export type Store = Pinia;
 
@@ -23,6 +23,6 @@ export function setupStore(app: App<Element>): App<Element> {
   return app;
 }
 
-export function useStore(): Store {
+export function useStore(): Readonly<Store> {
   return store;
 }

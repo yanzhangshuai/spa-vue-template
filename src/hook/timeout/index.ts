@@ -7,7 +7,7 @@ export function useTimeout(
   handle: Fn,
   wait: number,
   native = false
-): { readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> } {
+): Readonly<{ readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> }> {
   if (!isFunction(handle)) {
     throw new Error('handle is not Function!');
   }
@@ -35,10 +35,12 @@ export function useTimeoutRef(wait: number): {
   const readyRef = ref(false);
 
   let timer: TimeoutHandle;
+
   function stop(): void {
     readyRef.value = false;
     timer && window.clearTimeout(timer);
   }
+
   function start(): void {
     stop();
     timer = setTimeout(() => {

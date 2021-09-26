@@ -1,10 +1,10 @@
 import { Configuration, DefinePlugin } from 'webpack';
-export function variableSupport(isBuild = false, imageUrl = ''): Configuration {
+export function variableSupport(isBuild = false, filePath = ''): Configuration {
   const conf: Configuration = { plugins: [] };
 
   conf.plugins.push(
     new DefinePlugin({
-      IMAGE_URL: JSON.stringify(imageUrl),
+      FILE_PATH_PREFIX: JSON.stringify(filePath),
       DEV: !isBuild
     })
   );
