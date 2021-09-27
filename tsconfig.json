@@ -49,6 +49,9 @@
       "page/*": [
         "src/page/*"
       ],
+      "type/*": [
+        "src/type/*"
+      ],
       "router/*": [
         "src/router/*"
       ],

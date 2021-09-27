@@ -1,4 +1,4 @@
-import { Fn } from '@/@types/global';
+import { Fn } from 'type/global';
 import { isObject, isWindow } from 'util/is';
 import { useThrottleFn } from '@vueuse/core';
 import { Ref, ref, onMounted, watch, onUnmounted } from 'vue';

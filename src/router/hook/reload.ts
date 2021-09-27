@@ -1,5 +1,5 @@
 import { unref } from 'vue';
-import { PromiseFn } from '@/@types/global';
+import { PromiseFn } from 'type/global';
 import { Router, useRouter } from 'vue-router';
 
 export function useReload(router?: Router): PromiseFn<never, boolean> {
