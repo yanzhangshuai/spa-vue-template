@@ -13,7 +13,7 @@ import { onMounted, ref, unref } from 'vue';
 import RefSetupDemo from 'component/modules/base/ref-setup-demo/index.vue';
 import RefDemo from 'component/modules/base/ref-demo/index.vue';
 
-const refSetupDemoRef = ref<InstanceType<typeof RefSetupDemo>>(null);
+const refSetupDemoRef = ref(null);
 const refDemoRef = ref<InstanceType<typeof RefDemo>>(null);
 
 onMounted(() => {
