@@ -6,7 +6,8 @@ let globalProps: GlobalProps;
 
 export function setupGlobalProperty(app: App<Element>): App<Element> {
   globalProps = {
-    FILE_PATH_PREFIX: FILE_PATH_PREFIX
+    FILE_PATH_PREFIX: FILE_PATH_PREFIX,
+    DEV: DEV
   };
 
   Object.defineProperty(app.config.globalProperties, '$window', {

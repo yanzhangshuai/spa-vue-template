@@ -1,7 +1,8 @@
 <template>
   <div class="text-red-600" @click="$window.alert('1')">我是demo1</div>
   <button @click="$router.push('/home/demo2')">Go To Demo2</button>
-  <img :src="`${$globalProps.FILE_PATH_PREFIX}/11.png`" alt="" />
+  <p>$globalProps.FILE_PATH_PREFIX：{{ $globalProps.FILE_PATH_PREFIX }}</p>
+  <p>$globalProps.DEV：{{ $globalProps.DEV }}</p>
   <tsx-demo />
   <setup-demo />
 </template>
