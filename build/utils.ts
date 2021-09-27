@@ -1,5 +1,5 @@
 import path from 'path';
-import { Env } from './types';
+import { Env } from './type';
 
 export const root = process.cwd();
 

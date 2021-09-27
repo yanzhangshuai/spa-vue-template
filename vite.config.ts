@@ -75,6 +75,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
           'hook',
           'plugin',
           'page',
+          'type',
           'router',
           'service',
           'store',
