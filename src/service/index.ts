@@ -1,5 +1,6 @@
 import { App } from 'vue';
 import { Http } from './http/index';
+import { DeepReadonly } from '@/@types/global';
 import { setupInterceptor } from './interceptor/index';
 
 let http: Http;
@@ -11,6 +12,6 @@ export function setupService(app: App<Element>): App<Element> {
   return app;
 }
 
-export function useHttp(): Http {
+export function useHttp(): DeepReadonly<Http> {
   return http;
 }

@@ -4,11 +4,12 @@ import { ref, watch, Ref } from 'vue';
 interface Options {
   target?: HTMLElement;
 }
-export function useCopyToClipboard(initial?: string): {
+
+export function useCopyToClipboard(initial?: string): Readonly<{
   clipboardRef: Ref<string>;
   isSuccessRef: Ref<boolean>;
   copiedRef: Ref<boolean>;
-} {
+}> {
   const clipboardRef = ref(initial || '');
   const isSuccessRef = ref(false);
   const copiedRef = ref(false);

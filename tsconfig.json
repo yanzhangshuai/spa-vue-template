@@ -43,6 +43,9 @@
       "hook/*": [
         "src/hook/*"
       ],
+      "plugin/*": [
+        "src/plugin/*"
+      ],
       "page/*": [
         "src/page/*"
       ],
@@ -70,7 +73,8 @@
     "esModuleInterop": true,
     //  类型声明文件的查找地址
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "src"
     ],
     //  引入的库文件
     "lib": [

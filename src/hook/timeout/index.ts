@@ -7,7 +7,7 @@ export function useTimeout(
   handle: Fn<unknown>,
   wait: number,
   native = false
-): { readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> } {
+): Readonly<{ readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> }> {
   if (!isFunction(handle)) {
     throw new Error('handle is not Function!');
   }

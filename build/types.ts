@@ -3,7 +3,7 @@ export interface Env {
 
   VITE_SUPPORT_JSX: boolean;
 
-  VITE_IMAGE_URL: string;
+  VITE_FILE_SERVER: string;
 
   VITE_PUBLIC_PATH: string;
 

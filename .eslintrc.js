@@ -43,6 +43,15 @@ module.exports = {
     'eslint-plugin-jest',
     '@typescript-eslint/eslint-plugin'
   ],
+
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly'
+  },
   rules: {
     'no-var': 2,
     'no-eval': 2,
