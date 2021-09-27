@@ -1,6 +1,6 @@
 import path from 'path';
 import portfinder from 'portfinder';
-import { Env } from './types';
+import { Env } from './type';
 
 export const root = process.cwd();
 
