@@ -1,4 +1,5 @@
 import { ConfigEnv, loadEnv, UserConfig } from 'vite';
+import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import { createProxy } from './build/vite/proxy';
 import { createVitePlugins } from './build/vite/plugin';
 import { configPath, moduleAlias, resolve, root, wrapperEnv } from './build/utils';
@@ -19,7 +20,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     define: {
       DEV: !isBuild,
-      IMAGE_URL: JSON.stringify(viteEnv.VITE_IMAGE_URL)
+      FILE_PATH_PREFIX: JSON.stringify(viteEnv.VITE_FILE_SERVER)
     },
 
     css: {
@@ -37,6 +38,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         }
       }
     },
+    plugins: createVitePlugins(viteEnv, isBuild),
 
     build: {
       target: 'es2015',
@@ -48,7 +50,10 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         }
       },
       brotliSize: false,
-      chunkSizeWarningLimit: 2000
+      chunkSizeWarningLimit: 2000,
+      rollupOptions: {
+        plugins: [dynamicImportVars()]
+      }
     },
 
     server: !isBuild && {
@@ -68,6 +73,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
           'component',
           'directive',
           'hook',
+          'plugin',
           'page',
           'router',
           'service',
@@ -78,7 +84,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       },
       mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],
       extensions: ['.vue', '.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
-    },
-    plugins: createVitePlugins(viteEnv, isBuild)
+    }
   };
 };

@@ -7,6 +7,10 @@ declare type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
 };
 
+declare type DeepReadonly<T> = {
+  readonly [K in keyof T]: keyof T[K] extends undefined ? T[K] : DeepReadonly<T[K]>;
+};
+
 declare type TimeoutHandle = ReturnType<typeof setTimeout>;
 
 declare type IntervalHandle = ReturnType<typeof setInterval>;

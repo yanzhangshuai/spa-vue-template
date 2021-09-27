@@ -1,2 +1,2 @@
 declare const DEV: boolean;
-declare const IMAGE_URL: string;
+declare const FILE_PATH_PREFIX: string;
