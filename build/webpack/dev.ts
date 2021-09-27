@@ -1,5 +1,5 @@
 import { Configuration } from 'webpack-dev-server';
-import { Env } from './../types';
+import { Env } from '../type';
 import { findPort } from '../utils';
 import { createProxy } from './proxy';
 

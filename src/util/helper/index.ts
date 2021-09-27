@@ -1,5 +1,5 @@
 import { isArray, isNil, isObject, isString } from '../is';
-import { ValueType } from '@/@types/global';
+import { ValueType } from '@/type/global';
 
 export const awaitWrapper = <T = unknown, E = unknown>(
   promise: Promise<T>

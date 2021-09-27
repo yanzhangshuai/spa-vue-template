@@ -36,7 +36,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     //  类型声明文件的查找地址
-    "typeRoots": ["node_modules/@types", "src/@types","@types/node"],
+    "typeRoots": ["node_modules/@types", "src","@types/node"],
 
     //  引入的库文件
     "lib": ["es5", "es6", "es7", "dom", "esnext", "dom.iterable"]

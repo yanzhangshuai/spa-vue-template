@@ -1,6 +1,6 @@
 import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
-import { Env } from '../types';
+import { Env } from '../type';
 import { compressSupport } from './supports/compress';
 import { htmlSupport } from './supports/html';
 import { reportSupport } from './supports/report';

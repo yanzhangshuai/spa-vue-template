@@ -1,5 +1,5 @@
 import BucketStorage from 'bucket-storage';
-import { DeepReadonly } from '@/@types/global';
+import { DeepReadonly } from '@/type/global';
 
 let storage: BucketStorage;
 
