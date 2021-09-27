@@ -21,7 +21,7 @@ const props = defineProps({
   },
   value: {
     type: Object as PropType<De>,
-    required: true
+    required: false
   }
 });
 
