@@ -1,4 +1,5 @@
-import 'pinia';
+import { GettersTree, StateTree } from 'pinia';
+export {};
 declare module 'pinia' {
   export interface DefineStoreOptions<
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

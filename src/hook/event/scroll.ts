@@ -10,7 +10,7 @@ export function useScroll(
     leading?: boolean;
     trailing?: boolean;
   }
-): { refX: Ref<number>; refY: Ref<number>; stop: Fn<void> } {
+): Readonly<{ refX: Ref<number>; refY: Ref<number>; stop: Fn<void> }> {
   const refX = ref(0);
   const refY = ref(0);
   let handler = () => {

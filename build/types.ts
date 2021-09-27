@@ -6,9 +6,9 @@ export interface Env {
   WEBPACK_PUBLIC_PATH: string;
 
   /**
-   * 图片根目录
+   * 文件服务器
    */
-  WEBPACK_IMAGE_URL: string;
+  WEBPACK_FILE_SERVER: string;
 
   WEBPACK_DROP_CONSOLE: boolean;
 
