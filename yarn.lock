@@ -1506,25 +1506,25 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/composition-api@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.npmjs.org/@vue/composition-api/-/composition-api-1.1.5.tgz#dec72423d2a41a49ddae87d107a6694b68003c33"
-  integrity sha512-OBi35vuM2ZJHENCbYshvikSHZ2qoIl63TBUpszZkmdlmgWLi7yi0tKmesXfP2TsSuNVaKqvxNhHQ9BsEh5IwAg==
+"@vue/composition-api@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.2.2.tgz#7276667eea4c65add902a132802504c6a9950fa2"
+  integrity sha512-hnnock2l8Uawuzm/Nq8LqaztuOO70rpyX3Gz/Kpl/JtNalsG/EuuHuRQAWPiT3Is8NCB/8V5hiH7fmCmAc0+pQ==
   dependencies:
     tslib "^2.3.0"
 
-"@vueuse/core@^6.3.2":
-  version "6.3.2"
-  resolved "https://registry.npmjs.org/@vueuse/core/-/core-6.3.2.tgz#3365b21a2d094d5afc42b607e84792fed6a4c463"
-  integrity sha512-Uq8XT4iH9tq7uIxsxDWeH3YXo5GJAJC9cB7q58oVMym3o34oO6AaMVDJd6HlqjzoIwoOAlsrd3ZLHrEUjBGPsw==
+"@vueuse/core@^6.5.3":
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-6.5.3.tgz#15848eaccad18652df4cb4b6ccae7bd7921a0c7e"
+  integrity sha512-o3CTu4nEqs371sDY5qLBX0r4QOm6GVpm3ApQc2Y+p8OMI2rRGartQo8xRykpUfsyq602A+SVtm/wxIWBkD/KCQ==
   dependencies:
-    "@vueuse/shared" "6.3.2"
+    "@vueuse/shared" "6.5.3"
     vue-demi "*"
 
-"@vueuse/shared@6.3.2":
-  version "6.3.2"
-  resolved "https://registry.npmjs.org/@vueuse/shared/-/shared-6.3.2.tgz#35a821561fd4fb1ea2e24b6fa9086f3d0d506316"
-  integrity sha512-/KcGBbdxdjAPlmPjAs6Zs5dVWMYYL5eK7/c1kPExRIO7HKVRnV6scUYWgmU4qMP9ZVB8XD2tF+5JuWz3vAHuAw==
+"@vueuse/shared@6.5.3":
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-6.5.3.tgz#6503fa4bfbf45d0616bacedb8a4bd003f01da73b"
+  integrity sha512-ChOKu3mECyZeqGJ/gHVm0CaHoZK5/TwNZr1ZM/aqH+RaRNQvC1qkLf1/8PBugzN3yRgC3BtZ/M1kLpGe/BFylw==
   dependencies:
     vue-demi "*"
 
@@ -4976,7 +4976,7 @@ pify@^4.0.1:
 
 pinia@^0.5.4:
   version "0.5.4"
-  resolved "https://registry.npmjs.org/pinia/-/pinia-0.5.4.tgz#8bbbeda6f8244a7afd2177889be712fe6fbba212"
+  resolved "https://registry.yarnpkg.com/pinia/-/pinia-0.5.4.tgz#8bbbeda6f8244a7afd2177889be712fe6fbba212"
   integrity sha512-gQEmLlnNdLOgIVrONxpO0/6AidD7lqdaRFJT0w7j1YYw+GxKX+5+mtYdh42F3q5zLKPeQ8dUTKMfIps6Q8MR2w==
 
 pkg-dir@^4.1.0, pkg-dir@^4.2.0:
@@ -6708,7 +6708,7 @@ vue-loader@^15.9.8:
 
 vue-router@^3.5.2:
   version "3.5.2"
-  resolved "https://registry.npmjs.org/vue-router/-/vue-router-3.5.2.tgz#5f55e3f251970e36c3e8d88a7cd2d67a350ade5c"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.5.2.tgz#5f55e3f251970e36c3e8d88a7cd2d67a350ade5c"
   integrity sha512-807gn82hTnjCYGrnF3eNmIw/dk7/GE4B5h69BlyCK9KHASwSloD1Sjcn06zg9fVG4fYH2DrsNBZkpLtb25WtaQ==
 
 vue-style-loader@^4.1.0:
@@ -6734,7 +6734,7 @@ vue-template-es2015-compiler@^1.9.0:
 
 vue@^2.6.14:
   version "2.6.14"
-  resolved "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
 
 watchpack@^2.2.0:

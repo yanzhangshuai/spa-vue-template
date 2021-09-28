@@ -18,6 +18,6 @@ export const useCounterStore = defineStore({
   },
 
   debounce: {
-    increment: 3000
+    increment: 100
   }
 });

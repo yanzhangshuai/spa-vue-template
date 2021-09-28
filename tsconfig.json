@@ -43,7 +43,7 @@
     //  类型声明文件的查找地址
     "typeRoots": [
       "node_modules/@types",
-      "src/@types",
+      "src",
       "@types/node"
     ],
     //  引入的库文件

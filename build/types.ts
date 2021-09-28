@@ -8,7 +8,7 @@ export interface Env {
   /**
    * 图片根目录
    */
-  WEBPACK_IMAGE_URL: string;
+  WEBPACK_FILE_PATH: string;
 
   WEBPACK_DROP_CONSOLE: boolean;
 

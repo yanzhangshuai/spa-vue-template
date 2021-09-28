@@ -5,7 +5,7 @@ export function variableSupport(isBuild = false, imageUrl = ''): Configuration {
 
   conf.plugins.push(
     new DefinePlugin({
-      IMAGE_URL: JSON.stringify(imageUrl),
+      FILE_PATH_PREFIX: JSON.stringify(imageUrl),
       DEV: !isBuild
     })
   );

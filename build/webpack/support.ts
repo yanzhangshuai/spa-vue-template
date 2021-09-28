@@ -13,7 +13,7 @@ export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
     scriptSupport(),
-    variableSupport(isBuild, env.WEBPACK_IMAGE_URL),
+    variableSupport(isBuild, env.WEBPACK_FILE_PATH),
     styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),
     isBuild && env.WEBPACK_REPORT && reportSupport(),
