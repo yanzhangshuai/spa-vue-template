@@ -3,20 +3,14 @@ export interface Env {
 
   VITE_SUPPORT_JSX: boolean;
 
-  VITE_FILE_SERVER: string;
+  // VITE_FILE_SERVER: string;
 
   VITE_PUBLIC_PATH: string;
 
   VITE_DROP_CONSOLE: boolean;
 
-  VITE_GLOB_API_URL: string;
-
   //启用REPORT
   VITE_REPORT: boolean;
-
-  VITE_GLOB_UPLOAD_URL: string;
-
-  VITE_GLOB_API_URL_PREFIX: string;
 
   //  dev
   VITE_SERVER_PORT: number;

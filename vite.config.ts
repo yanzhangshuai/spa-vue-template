@@ -17,11 +17,12 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   return {
     base: viteEnv.VITE_PUBLIC_PATH,
     root: root,
-
-    define: {
-      DEV: !isBuild,
-      FILE_PATH_PREFIX: JSON.stringify(viteEnv.VITE_FILE_SERVER)
-    },
+    envDir: configPath,
+    envPrefix: 'GLOBAL',
+    // define: {
+    //   // DEV: !isBuild,
+    //   // FILE_PATH_PREFIX: JSON.stringify(viteEnv.VITE_FILE_SERVER)
+    // },
 
     css: {
       modules: {
@@ -43,6 +44,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     build: {
       target: 'es2015',
       outDir: viteEnv.VITE_OUTPUT_DIR,
+      assetsDir: 'assets',
       terserOptions: {
         compress: {
           keep_infinity: true,
@@ -52,12 +54,17 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       brotliSize: false,
       chunkSizeWarningLimit: 2000,
       rollupOptions: {
-        plugins: [dynamicImportVars()]
+        plugins: [dynamicImportVars()],
+        output: {
+          assetFileNames: '[ext]/[name].[hash].[ext]',
+          chunkFileNames: 'js/[name].[hash].js',
+          entryFileNames: 'js/[name].[hash].js'
+        }
       }
     },
 
     server: !isBuild && {
-      open: viteEnv.VITE_SERVER_OPEN || true,
+      open: viteEnv.VITE_SERVER_OPEN !== false,
       host: true,
       hmr: true,
       port: viteEnv.VITE_SERVER_PORT,

@@ -6,8 +6,8 @@ let globalProps: GlobalProps;
 
 export function setupGlobalProperty(app: App<Element>): App<Element> {
   globalProps = {
-    FILE_PATH_PREFIX: FILE_PATH_PREFIX,
-    DEV: DEV
+    FILE_PATH_PREFIX: import.meta.env.GLOBAL_FILE_PATH,
+    DEV: import.meta.env.DEV
   };
 
   Object.defineProperty(app.config.globalProperties, '$window', {
@@ -26,6 +26,6 @@ export function setupGlobalProperty(app: App<Element>): App<Element> {
   return app;
 }
 
-export function useStorage(): DeepReadonly<GlobalProps> {
+export function useGlobalProps(): DeepReadonly<GlobalProps> {
   return globalProps;
 }
