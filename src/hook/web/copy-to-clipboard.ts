@@ -1,5 +1,5 @@
-import { isDef } from 'util/is';
 import { ref, watch, Ref } from 'vue';
+import { isDef } from '@/util/is';
 
 interface Options {
   target?: HTMLElement;

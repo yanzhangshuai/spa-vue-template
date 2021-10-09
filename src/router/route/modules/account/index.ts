@@ -1,14 +1,20 @@
-import { RouteRecordRaw } from 'vue-router';
+import { createVNode } from 'vue';
+import { RouteRecordRaw, RouterView } from 'vue-router';
+import { ACCOUNT_PAGE_PATH, AccountRouterName } from './const';
 
 const router: RouteRecordRaw = {
   path: '/account',
-  name: 'account',
-  component: () => import('page/account/index.vue'),
+  name: AccountRouterName.ACCOUNT_ROUTER,
+  component: () => Promise.resolve(createVNode(RouterView)),
   children: [
     {
+      path: '',
+      redirect: { name: AccountRouterName.ACCOUNT_LOGIN_ROUTER }
+    },
+    {
       path: 'login',
-      name: 'account-login',
-      component: () => import('page/account/login/index.vue')
+      name: AccountRouterName.ACCOUNT_LOGIN_ROUTER,
+      component: () => import(`@/page/account/login/index.vue`)
     }
   ]
 };

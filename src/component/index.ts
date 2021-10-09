@@ -1,5 +1,5 @@
 import { App, Component } from 'vue';
-import { moduleFilter } from 'util/helper';
+import { moduleFilter } from '@/util/helper';
 import antdComponents from './antd';
 
 function injectComponents(app: App<Element>) {
