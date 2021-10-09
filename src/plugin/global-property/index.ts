@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import { GlobalProps } from './type';
 import { DeepReadonly } from '@/type/global';
+import { GlobalProps } from './type';
 
 let globalProps: GlobalProps;
 

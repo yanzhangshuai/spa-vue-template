@@ -11,7 +11,7 @@ import { useStorage } from '@/plugin/storage';
 export default defineComponent({
   name: 'App',
   setup() {
-    useTitle();
+    // useTitle();
     const storage = useStorage();
     storage.watch<string>('name', (newVal) => {
       console.log('storage-name:' + newVal);
