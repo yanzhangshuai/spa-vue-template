@@ -1,11 +1,11 @@
 import Vue from 'vue';
-import { reactive, UnwrapRef } from '@vue/composition-api';
 import Router, { Route } from 'vue-router';
+import { reactive, ref, Ref, UnwrapRef } from '@vue/composition-api';
 import routes from './route';
 import { setupRouterGuard } from './guard';
 
 let router: Router;
-let currentRoute: UnwrapRef<Route>;
+let currentRoute: Ref<UnwrapRef<Route>>;
 
 export function setupRouter(): Readonly<Router> {
   Vue.use(Router);
@@ -16,10 +16,9 @@ export function setupRouter(): Readonly<Router> {
     scrollBehavior: () => ({ x: 0, y: 0 })
   });
 
-  currentRoute = reactive({ ...router.currentRoute });
-
+  currentRoute = ref(router.currentRoute);
   router.beforeEach((to: Route, _, next) => {
-    to && Object.assign(currentRoute, to);
+    to && (currentRoute.value = reactive(to));
     next();
   });
 
@@ -31,6 +30,6 @@ export function useRouter(): Readonly<Router> {
   return router;
 }
 
-export function useRoute(): UnwrapRef<Route> {
+export function useRoute(): Ref<UnwrapRef<Route>> {
   return currentRoute;
 }
