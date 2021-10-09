@@ -2,7 +2,7 @@ import { ConfigEnv, loadEnv, UserConfig } from 'vite';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import { createProxy } from './build/vite/proxy';
 import { createVitePlugins } from './build/vite/plugin';
-import { configPath, moduleAlias, resolve, root, wrapperEnv } from './build/utils';
+import { configPath, resolve, root, wrapperEnv } from './build/utils';
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   const isBuild = mode === 'production';
@@ -75,19 +75,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     resolve: {
       alias: {
         '@': resolve('src'),
-        ...moduleAlias([
-          'asset',
-          'component',
-          'directive',
-          'hook',
-          'plugin',
-          'page',
-          'type',
-          'router',
-          'service',
-          'store',
-          'util'
-        ]),
         vue: '@vue/runtime-dom'
       },
       mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],

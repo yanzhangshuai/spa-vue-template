@@ -1,7 +1,7 @@
 import { ref, watch, Ref } from 'vue';
 import { tryOnUnmounted } from '@vueuse/core';
-import { isFunction } from 'util/is';
-import { Fn, TimeoutHandle } from 'type/global';
+import { isFunction } from '@/util/is';
+import { Fn, TimeoutHandle } from '@/type/global';
 
 export function useTimeout(
   handle: Fn<unknown>,

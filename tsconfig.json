@@ -31,39 +31,6 @@
       "@/*": [
         "src/*"
       ],
-      "asset/*": [
-        "src/asset/*"
-      ],
-      "component/*": [
-        "src/component/*"
-      ],
-      "directive/*": [
-        "src/directive/*"
-      ],
-      "hook/*": [
-        "src/hook/*"
-      ],
-      "plugin/*": [
-        "src/plugin/*"
-      ],
-      "page/*": [
-        "src/page/*"
-      ],
-      "type/*": [
-        "src/type/*"
-      ],
-      "router/*": [
-        "src/router/*"
-      ],
-      "service/*": [
-        "src/service/*"
-      ],
-      "store/*": [
-        "src/store/*"
-      ],
-      "util/*": [
-        "src/util/*"
-      ]
     },
     "types": [
       "vite/client",
