@@ -7,11 +7,11 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 import { useTitle } from '@/hook/web/title';
-import { useStorage } from '@/util/storage';
+import { useStorage } from '@/plugin/storage';
 export default defineComponent({
   name: 'App',
   setup() {
-    useTitle();
+    // useTitle();
     const storage = useStorage();
     storage.watch<string>('name', (newVal) => {
       console.log('storage-name:' + newVal);

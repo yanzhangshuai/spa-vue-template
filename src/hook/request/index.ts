@@ -7,7 +7,6 @@
 // import { Method } from 'axios';
 // import { Ref, ref } from 'vue';
 // import { Singleton } from '@/utils/singleton';
-// import { ValueType } from '@/types/common';
 
 // interface IRequestConfig {
 //   /**

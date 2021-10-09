@@ -1,8 +1,9 @@
 import { RouteConfig } from 'vue-router';
+import { HomeRouterName } from '../const';
 
 const router: RouteConfig = {
   path: 'demo1',
-  name: 'home-demo1',
+  name: HomeRouterName.HOME_DEMO1_ROUTER,
   meta: {
     title: 'demo1'
   },

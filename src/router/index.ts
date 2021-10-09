@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { reactive, UnwrapRef } from '@vue/composition-api';
 import Router, { Route } from 'vue-router';
-import routes from './routes';
+import routes from './route';
 import { setupRouterGuard } from './guard';
 
 let router: Router;

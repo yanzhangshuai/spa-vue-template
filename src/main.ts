@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueCompositionAPI from '@vue/composition-api';
-import { setupUtil } from '@/util';
+import { setupPlugin } from '@/plugin';
 import { setupStore } from '@/store';
 import { setupRouter } from '@/router';
 import { setupService } from '@/service';
@@ -12,7 +12,7 @@ import '@/asset/styles/tailwind.css';
 
 Vue.use(VueCompositionAPI);
 
-setupUtil();
+setupPlugin();
 
 setupComponent();
 
