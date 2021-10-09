@@ -1,6 +1,6 @@
 import { App } from 'vue';
 import { createRouter, createWebHistory, Router, RouteRecordRaw } from 'vue-router';
-import routes from './routes';
+import routes from './route';
 import { setupRouterGuard } from './guard';
 
 let router: Router;
