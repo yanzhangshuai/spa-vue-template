@@ -1,5 +1,5 @@
 import { DatePicker, Layout, Menu, ConfigProvider } from 'ant-design-vue';
-if (DEV) {
+if (import.meta.env.DEV) {
   import('ant-design-vue/dist/antd.css');
 }
 
