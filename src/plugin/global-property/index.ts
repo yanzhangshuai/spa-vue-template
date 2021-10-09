@@ -26,6 +26,6 @@ export function setupGlobalProperty(app: App<Element>): App<Element> {
   return app;
 }
 
-export function useStorage(): DeepReadonly<GlobalProps> {
+export function useGlobalProps(): DeepReadonly<GlobalProps> {
   return globalProps;
 }
