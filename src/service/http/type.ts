@@ -17,22 +17,6 @@ export interface HttpResponse<T> extends AxiosResponse<T> {
 }
 
 export interface HttpRequestConfig extends AxiosRequestConfig {
-  // // Splicing request parameters to url
-  // joinParamsToUrl?: boolean;
-  // // Format request parameter time
-  // formatDate?: boolean;
-  // //  Whether to process the request result
-  // isTransformResponse?: boolean;
-  // // 是否返回原生响应头 比如：需要获取响应头时使用该属性
-  // isReturnNativeResponse?: boolean;
-  // // Whether to join url
-  // joinPrefix?: boolean;
-  // // Interface address, use the default apiUrl if you leave it blank
-  // apiUrl?: string;
-
-  // // Whether to add a timestamp
-  // joinTime?: boolean;
-
   /**
    * 是否忽略取消
    */
@@ -56,5 +40,3 @@ export interface HttpUploadRequestConfig extends HttpRequestConfig {
 
   cancelToken?: CancelToken;
 }
-
-// export type HttpResponseType<T> = T extends HttpResponse<infer R> ? R : T;
