@@ -8,7 +8,9 @@
   </a-layout-sider>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import LayoutMenu from './layout-menu';
+</script>
 
 <style lang="less" scoped>
 .logo {

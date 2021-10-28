@@ -11,4 +11,7 @@
     </a-layout>
   </a-layout>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import LayoutSider from './layout-sider/index.vue';
+import LayoutHeader from './layout-header/index.vue';
+</script>
