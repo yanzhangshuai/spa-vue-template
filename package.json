@@ -9,6 +9,7 @@
     "build": "yarn lint-fix && vue-tsc --noEmit && vite build",
     "build:br": "yarn lint-fix && vue-tsc --noEmit && cross-env VITE_BUILD_COMPRESS=brotli  vite build",
     "build:gzip": "yarn lint-fix && vue-tsc --noEmit && cross-env VITE_BUILD_COMPRESS=gzip  vite build",
+    "serve": "yarn build && vite preview",
     "report": "cross-env VITE_REPORT=true  vite build",
     "lint:js": "eslint --config .eslintrc.js  ./{src,test}/**/*.{ts,tsx,vue}",
     "lint:style": "stylelint --config .stylelintrc.js ./src/**/*.{less,vue,tsx}",

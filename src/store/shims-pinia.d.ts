@@ -1,6 +1,5 @@
 import { UnwrapRef } from 'vue';
 import { PiniaCustomProperties, StateTree, StoreWithGetters, StoreWithState } from 'pinia';
-export {};
 declare module 'pinia' {
   export interface DefineStoreOptions<Id extends string, S extends StateTree, G, A> {
     id: Id;
@@ -17,3 +16,5 @@ declare module 'pinia' {
     name: string;
   }
 }
+
+export {};
