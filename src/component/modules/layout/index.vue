@@ -13,7 +13,13 @@
 </template>
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
+import LayoutHeader from './layout-header/index.vue';
+import LayoutSider from './layout-sider/index.vue';
 export default defineComponent({
+  components: {
+    LayoutHeader,
+    LayoutSider
+  },
   setup() {
     const onCollapse = (collapsed: boolean, type: string) => {
       console.log(collapsed, type);
