@@ -1,4 +1,3 @@
-export {};
 declare module 'vue-router' {
   interface RouteMeta extends Record<string | number | symbol, unknown> {
     title?: string;
@@ -6,3 +5,4 @@ declare module 'vue-router' {
     roles?: Array<number>;
   }
 }
+export {};
