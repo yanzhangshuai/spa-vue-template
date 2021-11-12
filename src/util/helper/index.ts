@@ -1,4 +1,3 @@
-import { ValueType } from '@/type/global';
 import { isString, isArray, isObject, isNil } from '../is';
 
 export const awaitWrapper = <T = unknown, E = unknown>(

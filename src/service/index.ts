@@ -1,5 +1,4 @@
 import { App } from 'vue';
-import { DeepReadonly } from '@/type/global';
 import { Http } from './http/index';
 import { setupInterceptor } from './interceptor/index';
 
