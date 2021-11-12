@@ -24,9 +24,7 @@ export function setupStore(app: App<Element>): App<Element> {
       );
     }
   });
-
   app.use(store);
-
   return app;
 }
 

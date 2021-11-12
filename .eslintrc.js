@@ -82,7 +82,8 @@ module.exports = {
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-var-requires': 2,
     '@typescript-eslint/no-inferrable-types': 2,
-    'vue/require-default-prop': 0,
+    'vue/require-default-prop': 2,
+    'vue/multi-word-component-names':0,
     'vue/eqeqeq': [2, 'always', { null: 'ignore' }],
     'vue/max-attributes-per-line': [
       0,
@@ -100,7 +101,7 @@ module.exports = {
     'jest/no-focused-tests': 2,
     'jest/no-identical-title': 2,
     'jest/prefer-to-have-length': 1,
-    'jest/valid-describe': 2,
+    'jest/valid-describe-callback': 2,
     'jest/valid-expect': 2,
     'jest/valid-expect-in-promise': 2
   },

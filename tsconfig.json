@@ -26,7 +26,7 @@
     "declaration": false,
     "forceConsistentCasingInFileNames": true,
     //  非相对路径中跟目录
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "src/*"
@@ -44,7 +44,8 @@
     //  类型声明文件的查找地址
     "typeRoots": [
       "node_modules/@types",
-      "src"
+      "src",
+      "type"
     ],
     //  引入的库文件
     "lib": [
@@ -71,6 +72,6 @@
     "src/**/*.vue",
     "test/**/*.ts",
     "test/**/*.tsx",
-    "type/**/*.d.ts",
+    "type/**/*.d.ts"
   ]
 }
