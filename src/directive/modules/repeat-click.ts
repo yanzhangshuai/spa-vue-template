@@ -1,4 +1,3 @@
-// import { Fn, IntervalHandle, Nullable } from '@/type/global';
 // import { on, once } from '@/util/extensions/dom';
 // import { Directive, DirectiveBinding } from 'vue';
 

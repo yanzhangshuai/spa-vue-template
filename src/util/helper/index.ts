@@ -1,5 +1,4 @@
 import { isArray, isNil, isObject, isString } from 'lodash-es';
-import { ValueType } from '@/type/global';
 
 export const awaitWrapper = <T = unknown, E = unknown>(
   promise: Promise<T>

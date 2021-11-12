@@ -1,5 +1,4 @@
 import { Ref, ref, onMounted, watch, onUnmounted } from '@vue/composition-api';
-import { Fn } from '@/type/global';
 import { useThrottleFn } from '@vueuse/core';
 import { isObject, isWindow } from '@/util/is';
 
