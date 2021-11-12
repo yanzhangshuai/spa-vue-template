@@ -70,6 +70,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "test/**/*.ts",
-    "test/**/*.tsx"
+    "test/**/*.tsx",
+    "type/**/*.d.ts",
   ]
 }
