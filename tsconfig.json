@@ -26,7 +26,7 @@
     "declaration": false,
     "forceConsistentCasingInFileNames": true,
     //  非相对路径中跟目录
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
@@ -68,6 +68,7 @@
     "src/**/*.js",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "type/**/*.d.ts"
   ]
 }

@@ -1,7 +1,6 @@
 import { ref, watch, Ref } from '@vue/composition-api';
 import { tryOnUnmounted } from '@vueuse/core';
 import { isFunction } from '@/util/is';
-import { Fn, TimeoutHandle } from '@/type/global';
 
 export function useTimeout(
   handle: Fn<unknown>,
@@ -34,7 +33,7 @@ export function useTimeoutRef(wait: number): {
 } {
   const readyRef = ref(false);
 
-  let timer: TimeoutHandle;
+  let timer: Timeout;
   function stop(): void {
     readyRef.value = false;
     timer && window.clearTimeout(timer);
