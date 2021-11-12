@@ -1,5 +1,4 @@
 import { AxiosInterceptorManager, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
-import { XOR } from '@/type/global';
 
 export interface HttpOptions {
   authenticationScheme?: string;
