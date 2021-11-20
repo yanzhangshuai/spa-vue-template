@@ -65,9 +65,9 @@ export default async (option: {
     },
 
     resolve: {
-      mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
+      mainFiles: ["index", "module"],
       alias: {
-        '@': resolve('src')
+        "@": resolve("src")
       }
     }
   };
