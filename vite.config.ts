@@ -75,7 +75,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     resolve: {
       alias: {
         '@': resolve('src'),
-        vue: '@vue/runtime-dom'
       },
       mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],
       extensions: ['.vue', '.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']

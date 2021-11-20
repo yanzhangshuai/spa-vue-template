@@ -1,5 +1,5 @@
+export {};
 import { GlobalProps } from './type';
-
 declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
     $window: Window & typeof globalThis;

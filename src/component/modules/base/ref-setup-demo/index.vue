@@ -4,26 +4,11 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue';
-
-export interface De {
+const props = defineProps<{
   name: string;
-}
-
-const props = defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  id: {
-    type: Number,
-    required: true
-  },
-  value: {
-    type: Object as PropType<De>,
-    required: false
-  }
-});
+  id: number;
+  value?: { name: string };
+}>();
 
 const emit = defineEmits(['update:name']);
 

@@ -17,4 +17,3 @@ export function useReload(router?: Router): PromiseFn<never, boolean> {
     });
   };
 }
-

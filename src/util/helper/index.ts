@@ -92,7 +92,7 @@ export const queryFormat = (
  * @param de 是否只需要默认导出
  * @returns 模块  key:文件名称, value:default:模块 或当前文件所有模块列表
  */
-export const moduleFilter = <T extends unknown>(
+export const moduleFilter = <T>(
   modules: Record<string, Record<string, T>>,
   filter = /^\.\/.*$/,
   de = true
