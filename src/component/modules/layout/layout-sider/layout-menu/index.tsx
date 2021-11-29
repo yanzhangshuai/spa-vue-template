@@ -1,5 +1,5 @@
 import { defineComponent, h, ref } from 'vue';
-import { Menu } from '@/component/antd';
+import { Menu } from '@/component/ui';
 import menus, { Menu as MenuData } from './menu';
 
 export default defineComponent({

@@ -3,8 +3,8 @@ if (import.meta.env.DEV) {
   import('ant-design-vue/dist/antd.css');
 }
 
-const antdComponents = [Layout, Menu, DatePicker, ConfigProvider];
+const uiComponents = [Layout, Menu, DatePicker, ConfigProvider];
 
-export default antdComponents;
+export default uiComponents;
 
 export { Layout, Menu, DatePicker, ConfigProvider };

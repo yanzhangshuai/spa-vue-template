@@ -1,10 +1,7 @@
 import type { Plugin } from 'vite';
 import styleImport from 'vite-plugin-style-import';
-import antdDayjs from 'antd-dayjs-vite-plugin';
-export function antdPlugin(isBuild = false): Array<Plugin> {
+export function uiPlugin(isBuild = false): Array<Plugin> {
   const plugins: Array<Plugin> = [];
-
-  plugins.push(antdDayjs({ preset: 'antdv3' }));
 
   isBuild &&
     plugins.push(
