@@ -5,8 +5,8 @@ if (DEV) {
   require('ant-design-vue/dist/antd.css');
 }
 
-const antdComponents = [Layout, Menu, DatePicker, ConfigProvider];
+const uiComponents = [Layout, Menu, DatePicker, ConfigProvider];
 
-export default antdComponents;
+export default uiComponents;
 
 // export { Layout, Menu, DatePicker, ConfigProvider };

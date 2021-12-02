@@ -3,7 +3,7 @@ import { merge as webpackMerge } from 'webpack-merge';
 import { Env } from '../type';
 import { compressSupport } from './supports/compress';
 import { htmlSupport } from './supports/html';
-import { antdSupport } from './supports/antd';
+import { uiSupport } from './supports/ui';
 import { styleSupport } from './supports/style';
 import { scriptSupport } from './supports/script';
 import { reportSupport } from './supports/report';
@@ -13,7 +13,7 @@ import { vueSupport } from './supports/vue';
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
-    antdSupport(),
+    uiSupport(),
     scriptSupport(),
     variableSupport(isBuild, env.WEBPACK_FILE_SERVER),
     styleSupport(isBuild),
