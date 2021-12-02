@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent, watch } from '@vue/composition-api';
 import { useRoute } from '@/router';
-import { useTitle } from '@/hook/web/title';
+// import { useTitle } from '@/hook/web/title';
 import { useStorage } from '@/plugin/storage';
 export default defineComponent({
   name: 'App',

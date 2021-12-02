@@ -48,7 +48,6 @@ export default async (option: {
       clean: true
     },
 
-    //@ts-ignore
     devServer: (!isBuild && (await createDevServer(webpackEnv))) || {},
 
     optimization: {
