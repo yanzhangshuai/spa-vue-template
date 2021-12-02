@@ -19,7 +19,7 @@ const props = defineProps({
   },
   value: {
     type: Object as PropType<De>,
-    required: false
+    default: () => undefined
   }
 });
 const emit = defineEmits(['update:name']);

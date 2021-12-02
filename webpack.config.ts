@@ -48,7 +48,6 @@ export default async (option: {
       clean: true
     },
 
-    //@ts-ignore
     devServer: (!isBuild && (await createDevServer(webpackEnv))) || {},
 
     optimization: {
@@ -65,9 +64,9 @@ export default async (option: {
     },
 
     resolve: {
-      mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
+      mainFiles: ["index", "module"],
       alias: {
-        '@': resolve('src')
+        "@": resolve("src")
       }
     }
   };
