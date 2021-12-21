@@ -16,6 +16,7 @@
     "lint": "npm-run-all --parallel lint:*"
   },
   "dependencies": {
+    "@vue/runtime-core": "^3.2.26",
     "@vueuse/core": "^7.4.0",
     "axios": "^0.24.0",
     "bucket-storage": "^0.4.6",
