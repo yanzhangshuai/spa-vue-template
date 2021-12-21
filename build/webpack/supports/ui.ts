@@ -3,10 +3,10 @@ import { Configuration } from 'webpack';
 import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import { resolve } from '../../utils';
 
-export function antdSupport(needed: boolean): Configuration {
+export function uiSupport(needed: boolean): Configuration {
   const alias: Record<string, string> = {};
 
-  needed && (alias['@ant-design/icons/lib/dist$'] = resolve('src/component/antd/icons.ts'));
+  needed && (alias['@ant-design/icons/lib/dist$'] = resolve('src/component/ui/icons.ts'));
 
   return {
     plugins: [

@@ -1,3 +1,12 @@
+const plugins = [
+  ['@vue/babel-plugin-jsx', {}],
+  process.env.NODE_ENV === 'production' && ['import', { libraryName: 'ant-design-vue', style: 'css' }],
+  ['@babel/plugin-proposal-function-bind'],
+  ['@babel/plugin-proposal-decorators', { legacy: true }],
+  ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
+  ['@babel/plugin-proposal-class-properties', { loose: true }]
+].filter(Boolean);
+
 module.exports = {
   presets: [
     [
@@ -14,11 +23,5 @@ module.exports = {
     ],
     ['@babel/preset-typescript', { allExtensions: true }]
   ],
-  plugins: [
-    ['@vue/babel-plugin-jsx', {}],
-    ['@babel/plugin-proposal-function-bind'],
-    ['@babel/plugin-proposal-decorators', { legacy: true }],
-    ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
-    ['@babel/plugin-proposal-class-properties', { loose: true }]
-  ]
+  plugins: plugins
 };

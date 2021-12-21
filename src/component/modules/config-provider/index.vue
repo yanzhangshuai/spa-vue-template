@@ -9,7 +9,6 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 import 'dayjs/locale/zh-cn';
-//@ts-ignore
 import locale from 'ant-design-vue/es/locale/zh_CN';
 export default defineComponent({
   setup() {

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { moduleFilter } from '@/util/helper';
-import antdComponents from './antd';
+import uiComponents from './ui';
 
 type Component = {
   name?: string;
@@ -27,13 +27,13 @@ function injectComponents() {
   });
 }
 
-function useAntd() {
-  antdComponents.forEach((component) => {
+function useUI() {
+  uiComponents.forEach((component) => {
     Vue.use(component);
   });
 }
 
 export function setupComponent(): void {
-  useAntd();
+  useUI();
   injectComponents();
 }
