@@ -4,8 +4,9 @@
   <ref-setup-demo :id="123" ref="refSetupDemoRef" v-model:name="name" />
   <ref-demo ref="refDemoRef" />
   <tsx-demo />
-  <p>$globalProps.FILE_PATH_PREFIX :{{ $globalProps.FILE_PATH_PREFIX }}</p>
-  <p>$globalProps.DEV :{{ $globalProps.DEV }}</p>
+  <p>文件服务器地址 :{{ $globalProps.FILE_PATH_PREFIX }}</p>
+  <p>当前环境 :{{ $globalProps.DEV }}</p>
+  <p>当前时间 :{{ $globalProps.dateFormat($window.Date.now()) }}</p>
   <date-picker-test></date-picker-test>
 </template>
 

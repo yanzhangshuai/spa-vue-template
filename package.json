@@ -16,6 +16,7 @@
     "lint": "npm-run-all --parallel lint:*"
   },
   "dependencies": {
+    "@vue/runtime-core": "^3.2.26",
     "@vueuse/core": "^7.4.0",
     "ant-design-vue": "^3.0.0-alpha.14",
     "axios": "^0.24.0",
