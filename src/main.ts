@@ -18,12 +18,12 @@ setupDirective();
 
 setupService();
 
-const store = setupStore();
+// const store = setupStore();
 
 const router = setupRouter();
 
 new Vue({
   render: (h) => h(App),
-  [store.name]: store,
+  // [store.name]: store,
   router
 }).$mount('#app');

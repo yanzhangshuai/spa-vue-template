@@ -1,24 +1,18 @@
 import { UnwrapRef } from '@vue/composition-api';
-import { GettersTree, StateTree } from 'pinia';
-import { PiniaCustomProperties, StoreWithGetters, StoreWithState } from 'pinia/dist/src/types';
+import { _StoreWithGetters, _StoreWithState, PiniaCustomProperties, StateTree } from 'pinia';
 
 export {};
 declare module 'pinia' {
-  export interface DefineStoreOptions<
-    Id extends string,
-    S extends StateTree,
-    G extends GettersTree<S>,
-    A
-  > {
+  export interface DefineStoreOptions<Id extends string, S extends StateTree, G extends {}, A> {
     /**
      * Optional object of actions.
      */
     actions?: A &
       ThisType<
         A &
-          UnwrapRef<StateTree extends S ? {} : S> &
-          StoreWithState<Id, S, G, A> &
-          StoreWithGetters<GettersTree<S> extends G ? {} : G> &
+          UnwrapRef<S> &
+          _StoreWithState<Id, S, G, A> &
+          _StoreWithGetters<G> &
           PiniaCustomProperties
       >;
 
