@@ -1,4 +1,5 @@
 import { App } from 'vue';
+import { dateFormat } from '@/util/date';
 import { GlobalProps } from './type';
 
 let globalProps: GlobalProps;
@@ -6,7 +7,8 @@ let globalProps: GlobalProps;
 export function setupGlobalProperty(app: App<Element>): App<Element> {
   globalProps = {
     FILE_PATH_PREFIX: import.meta.env.GLOBAL_FILE_PATH,
-    DEV: import.meta.env.DEV
+    DEV: import.meta.env.DEV,
+    dateFormat: dateFormat
   };
 
   Object.defineProperty(app.config.globalProperties, '$window', {

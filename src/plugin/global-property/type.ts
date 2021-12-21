@@ -5,4 +5,9 @@ export interface GlobalProps {
   FILE_PATH_PREFIX: string;
 
   DEV?: boolean;
+
+  /**
+   * 日期格式化
+   */
+  dateFormat: (date: number | Date, template?: string) => string;
 }

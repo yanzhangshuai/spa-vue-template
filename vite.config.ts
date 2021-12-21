@@ -43,7 +43,8 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     build: {
       target: 'es2015',
-      outDir: viteEnv.VITE_OUTPUT_DIR,
+      //TODO: 当前vite版本如果不设置ourDir，devServer时会报startsWith异常,@2.7.3
+      outDir: viteEnv.VITE_OUTPUT_DIR || '',
       assetsDir: 'assets',
       terserOptions: {
         compress: {
