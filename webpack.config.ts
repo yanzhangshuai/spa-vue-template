@@ -48,7 +48,6 @@ export default async (option: {
       clean: true
     },
 
-    //@ts-ignore
     devServer: (!isBuild && (await createDevServer(webpackEnv))) || {},
 
     optimization: {
@@ -68,6 +67,7 @@ export default async (option: {
       mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
       alias: {
         '@': resolve('src')
+        // '@vue/composition-api$': '@vue/composition-api/dist/vue-composition-api.mjs'
       }
     }
   };

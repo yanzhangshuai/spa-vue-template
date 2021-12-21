@@ -8,7 +8,7 @@ export interface Env {
   /**
    * 图片根目录
    */
-  WEBPACK_FILE_PATH: string;
+  WEBPACK_FILE_SERVER: string;
 
   /**
    * antd 中icons 是否按需加载

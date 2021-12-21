@@ -1,20 +1,20 @@
 import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
 import { Env } from '../types';
-import { vueSupport } from './supports/vue';
+import { compressSupport } from './supports/compress';
 import { htmlSupport } from './supports/html';
 import { antdSupport } from './supports/antd';
-import { styleSupport } from './supports/style';
 import { reportSupport } from './supports/report';
 import { scriptSupport } from './supports/script';
+import { styleSupport } from './supports/style';
 import { variableSupport } from './supports/variable';
-import { compressSupport } from './supports/compress';
+import { vueSupport } from './supports/vue';
 
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
     scriptSupport(),
-    variableSupport(isBuild, env.WEBPACK_FILE_PATH),
+    variableSupport(isBuild, env.WEBPACK_FILE_SERVER),
     antdSupport(env.WEBPACK_ANTD_ICONS_NEED_IMPORT),
     styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),
