@@ -64,9 +64,9 @@ export default async (option: {
     },
 
     resolve: {
-      mainFiles: ["index", "module"],
+      mainFiles: ['index', 'module'],
       alias: {
-        "@": resolve("src")
+        '@': resolve('src')
       }
     }
   };
