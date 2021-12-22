@@ -43,7 +43,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     build: {
       target: 'es2015',
-      //TODO: 当前vite版本如果不设置ourDir，devServer时会报startsWith异常,@2.7.3
+      //TODO: 当前vite版本如果不设置ourDir，devServer时会报startsWith异常,@2.7.5
       outDir: viteEnv.VITE_OUTPUT_DIR || '',
       assetsDir: 'assets',
       terserOptions: {
@@ -75,7 +75,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     resolve: {
       alias: {
-        '@': resolve('src'),
+        '@': resolve('src')
       },
       mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],
       extensions: ['.vue', '.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
