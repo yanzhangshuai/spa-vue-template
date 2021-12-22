@@ -2,6 +2,7 @@ import { ConfigEnv, loadEnv, UserConfig } from 'vite';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import { createProxy } from './build/vite/proxy';
 import { createVitePlugins } from './build/vite/plugin';
+import { assetFileNames, manualChunks } from './build/vite/output';
 import { configPath, resolve, root, wrapperEnv } from './build/utils';
 
 export default ({ mode }: ConfigEnv): UserConfig => {
@@ -43,6 +44,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     build: {
       target: 'es2015',
+      sourcemap: viteEnv.VITE_SOURCE_MAP,
       //TODO: 当前vite版本如果不设置ourDir，devServer时会报startsWith异常,@2.7.5
       outDir: viteEnv.VITE_OUTPUT_DIR || '',
       assetsDir: 'assets',
@@ -57,9 +59,10 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       rollupOptions: {
         plugins: [dynamicImportVars()],
         output: {
-          assetFileNames: '[ext]/[name].[hash].[ext]',
           chunkFileNames: 'js/[name].[hash].js',
-          entryFileNames: 'js/[name].[hash].js'
+          entryFileNames: 'js/[name].[hash].js',
+          manualChunks: manualChunks,
+          assetFileNames: assetFileNames
         }
       }
     },

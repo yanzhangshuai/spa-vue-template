@@ -5,6 +5,8 @@ export interface Env {
 
   // VITE_FILE_SERVER: string;
 
+  VITE_SOURCE_MAP: boolean | 'inline' | 'hidden';
+
   VITE_PUBLIC_PATH: string;
 
   VITE_DROP_CONSOLE: boolean;

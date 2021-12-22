@@ -15,6 +15,11 @@ const router: RouteRecordRaw = {
       path: 'login',
       name: AccountRouterName.ACCOUNT_LOGIN_ROUTER,
       component: () => import(`@/page/account/login/index.vue`)
+    },
+    {
+      path: 'register',
+      name: AccountRouterName.ACCOUNT_REGISTER_ROUTER,
+      component: () => import(`@/page/account/register/index.vue`)
     }
   ]
 };

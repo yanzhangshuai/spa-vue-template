@@ -1,11 +1,12 @@
 {
-  "name": "pc-vite-template",
+  "name": "vite-template",
   "version": "1.0.0",
   "repository": "https://github.com/OrcasTeam/vue-template.git",
   "author": "yanzhangshuai <yanzhangshuai@126.com>",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
+    "build:skip-check": "vite build",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",
     "build:br": "vue-tsc --noEmit --skipLibCheck && cross-env VITE_BUILD_COMPRESS=brotli  vite build",
     "build:gzip": "vue-tsc --noEmit --skipLibCheck && cross-env VITE_BUILD_COMPRESS=gzip  vite build",
