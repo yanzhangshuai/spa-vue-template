@@ -5,6 +5,7 @@ import { merge as webpackMerge } from 'webpack-merge';
 import { loadEnv } from './build/config';
 import { support } from './build/webpack/support';
 import { createDevServer } from './build/webpack/dev';
+import { chunkFilename } from './build/webpack/output';
 import { configPath, resolve, wrapperEnv } from './build/utils';
 
 export default async (option: {
@@ -44,7 +45,7 @@ export default async (option: {
         ? webpackEnv.WEBPACK_OUTPUT_DIR
         : resolve(webpackEnv.WEBPACK_OUTPUT_DIR),
       filename: isBuild ? 'js/name_[contenthash].js' : 'js/[name].js',
-      chunkFilename: 'js/[name].chunk.js',
+      chunkFilename: chunkFilename,
       clean: true
     },
 
