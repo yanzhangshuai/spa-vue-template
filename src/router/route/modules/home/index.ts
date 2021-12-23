@@ -1,7 +1,6 @@
 import { RouteConfig } from 'vue-router';
 import Demo1Router from './demo1';
 import { HomeRouterName } from './const';
-import Demo2Page from '@/page/home/demo2/index.vue';
 
 const router: RouteConfig = {
   path: '/home',
@@ -22,7 +21,7 @@ const router: RouteConfig = {
       meta: {
         title: 'demo2'
       },
-      component: Demo2Page
+      component: () => import(/* webpackChunkName: "home" */ '@/page/home/demo2/index.vue')
     }
   ]
 };
