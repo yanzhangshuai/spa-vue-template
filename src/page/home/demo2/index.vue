@@ -1,5 +1,8 @@
 <template>
-  <div>我是demo2</div>
+  <div>
+    <h2>我是demo2</h2>
+    <button @click="$router.push('/account')">Go To Login</button>
+  </div>
 </template>
 
 <script lang="ts">

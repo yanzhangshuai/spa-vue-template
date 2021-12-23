@@ -7,7 +7,7 @@ const router: RouteConfig = {
   meta: {
     title: 'demo1'
   },
-  component: () => import('@/page/home/demo1/index.vue')
+  component: () => import(/* webpackChunkName: "home" */ '@/page/home/demo1/index.vue')
 };
 
 export default router;

@@ -3,9 +3,10 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
 import { loadEnv } from './build/config';
-import { configPath, resolve, wrapperEnv } from './build/utils';
-import { createDevServer } from './build/webpack/dev';
 import { support } from './build/webpack/support';
+import { createDevServer } from './build/webpack/dev';
+import { chunkFilename } from './build/webpack/output';
+import { configPath, resolve, wrapperEnv } from './build/utils';
 
 export default async (option: {
   WEBPACK_BUNDLE: boolean;
@@ -44,7 +45,7 @@ export default async (option: {
         ? webpackEnv.WEBPACK_OUTPUT_DIR
         : resolve(webpackEnv.WEBPACK_OUTPUT_DIR),
       filename: isBuild ? 'js/name_[contenthash].js' : 'js/[name].js',
-      chunkFilename: 'js/[name].chunk.js',
+      chunkFilename: chunkFilename,
       clean: true
     },
 

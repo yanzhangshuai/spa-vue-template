@@ -14,12 +14,12 @@ const router: RouteConfig = {
     {
       path: 'login',
       name: AccountRouterName.ACCOUNT_LOGIN_ROUTER,
-      component: () => import('@/page/account/login/index.vue')
+      component: () => import(/* webpackChunkName: "account" */ '@/page/account/login/index.vue')
     },
     {
       path: 'register',
       name: AccountRouterName.ACCOUNT_REGISTER_ROUTER,
-      component: () => import('@/page/account/register/index.vue')
+      component: () => import(/* webpackChunkName: "account" */ '@/page/account/register/index.vue')
     }
   ]
 };
