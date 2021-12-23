@@ -21,7 +21,7 @@ const router: RouteConfig = {
       meta: {
         title: 'demo2'
       },
-      component: () => import(/* webpackChunkName: "home" */ '@/page/home/demo2/index.vue'),
+      component: () => import(/* webpackChunkName: "home" */ '@/page/home/demo2/index.vue')
     }
   ]
 };
