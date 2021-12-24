@@ -90,9 +90,7 @@ const main = function (config: { parsed: Record<string, string>; ignoreProcessEn
   };
 
   for (const configKey in config.parsed) {
-    const value = environment.hasOwnProperty(configKey)
-      ? environment[configKey]
-      : config.parsed[configKey];
+    const value = environment.hasOwnProperty(configKey) ? environment[configKey] : config.parsed[configKey];
 
     config.parsed[configKey] = interpolate(value);
   }
@@ -104,18 +102,9 @@ const main = function (config: { parsed: Record<string, string>; ignoreProcessEn
   return config;
 };
 
-export function loadEnv(
-  mode: 'development' | 'production',
-  envDir: string,
-  prefix = 'WEBPACK_'
-): Record<string, string> {
+export function loadEnv(mode: 'development' | 'production', envDir: string, prefix = 'WEBPACK_'): Record<string, string> {
   const env: Record<string, string> = {};
-  const envFiles = [
-    /** mode local file */ `.env.${mode}.local`,
-    /** mode file */ `.env.${mode}`,
-    /** local file */ `.env.local`,
-    /** default file */ `.env`
-  ];
+  const envFiles = [/** mode local file */ `.env.${mode}.local`, /** mode file */ `.env.${mode}`, /** local file */ `.env.local`, /** default file */ `.env`];
   // 检查是否有前缀起始的env变量
   // 通常是内联提供的，应该按优先级排列
   for (const key in process.env) {

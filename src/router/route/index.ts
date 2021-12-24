@@ -15,9 +15,7 @@ const findModuleRoutes = (): Array<RouteRecordRaw> => {
 
   return flatMap(
     Object.keys(modules).map((key) => {
-      const module: Array<RouteRecordRaw> | RouteRecordRaw = modules[key] as
-        | Array<RouteRecordRaw>
-        | RouteRecordRaw;
+      const module: Array<RouteRecordRaw> | RouteRecordRaw = modules[key] as Array<RouteRecordRaw> | RouteRecordRaw;
       return isArray(module) ? module : [module];
     })
   );

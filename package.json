@@ -11,9 +11,10 @@
     "build:br": "npm-run-all lint && cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" WEBPACK_BUILD_COMPRESS=brotli  webpack",
     "build:gzip": "npm-run-all lint && cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" WEBPACK_BUILD_COMPRESS=gzip  webpack",
     "report": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"  WEBPACK_REPORT=true webpack",
-    "lint:js": "eslint --config .eslintrc.js  ./{src,test}/**/*.{ts,tsx,vue} --fix",
+    "lint:js": "eslint --config .eslintrc.js  ./{src,test,type,build}/**/*.{ts,tsx,vue} --fix",
     "lint:style": "stylelint --config .stylelintrc.js ./src/**/*.{less,vue,tsx} --fix",
-    "lint": "npm-run-all --parallel lint:*"
+    "lint": "npm-run-all --parallel lint:*",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@vue/runtime-core": "^3.2.26",
@@ -39,6 +40,8 @@
     "@babel/plugin-proposal-pipeline-operator": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-typescript": "^7.16.5",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@types/html-webpack-plugin": "^3.2.6",
     "@types/lodash-es": "^4.17.5",
     "@types/mini-css-extract-plugin": "^2.4.0",
@@ -66,7 +69,9 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^8.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
     "less-loader": "^10.2.0",
+    "lint-staged": "^12.1.3",
     "mini-css-extract-plugin": "^2.4.5",
     "npm-run-all": "^4.1.5",
     "portfinder": "^1.0.28",
@@ -94,5 +99,9 @@
     "production": [
       "chrome >= 49"
     ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx,vue}": "npm run lint:js",
+    "*.{css,less,vue}": "npm run lint:style"
   }
 }
