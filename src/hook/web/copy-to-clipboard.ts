@@ -28,10 +28,7 @@ export function useCopyToClipboard(initial?: string): Readonly<{
   return { clipboardRef, isSuccessRef, copiedRef };
 }
 
-export function copyTextToClipboard(
-  input: string,
-  { target = document.body }: Options = {}
-): boolean {
+export function copyTextToClipboard(input: string, { target = document.body }: Options = {}): boolean {
   const element = document.createElement('textarea');
   const previouslyFocusedElement = document.activeElement;
 
