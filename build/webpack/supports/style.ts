@@ -56,7 +56,6 @@ export function styleSupport(isBuild = false): Configuration {
     }
   };
 
-  isBuild &&
-    styleConf.plugins.push(new MiniCssExtractPlugin({ filename: 'css/[name]_[contenthash].css' }));
+  isBuild && styleConf.plugins.push(new MiniCssExtractPlugin({ filename: 'css/[name]_[contenthash].css' }));
   return styleConf;
 }

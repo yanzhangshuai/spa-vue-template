@@ -12,15 +12,7 @@ export interface UseEventParams {
   isDebounce?: boolean;
   wait?: number;
 }
-export function useEventListener({
-  el = window,
-  name,
-  listener,
-  options,
-  autoRemove = true,
-  isDebounce = true,
-  wait = 80
-}: UseEventParams): Readonly<{ removeEvent: RemoveEventFn }> {
+export function useEventListener({ el = window, name, listener, options, autoRemove = true, isDebounce = true, wait = 80 }: UseEventParams): Readonly<{ removeEvent: RemoveEventFn }> {
   /* eslint-disable-next-line */
   let remove: RemoveEventFn = () => {};
   const isAddRef = ref(false);

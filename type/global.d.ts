@@ -44,6 +44,7 @@ declare global {
 
   type Nullable<T> = T | null;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type Recordable<T = any> = Record<string, T>;
 
   type ValueType = string | number | boolean | undefined | null | Symbol;
@@ -57,10 +58,12 @@ declare global {
    */
   type XOR<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface Fn<T = any, R = T> {
     (...arg: Array<T>): R;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface PromiseFn<T = any, R = T> {
     (...arg: Array<T>): Promise<R>;
   }
@@ -69,7 +72,7 @@ declare global {
 
   type EmitType = (event: string, ...args: Array<unknown>) => void;
 
-  type TargetContext = "_self" | "_blank";
+  type TargetContext = '_self' | '_blank';
 
   interface ComponentElRef<T extends HTMLElement = HTMLDivElement> {
     $el: T;

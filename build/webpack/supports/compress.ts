@@ -1,10 +1,7 @@
 import { Configuration, WebpackPluginInstance } from 'webpack';
 import CompressionPlugin from 'compression-webpack-plugin';
 
-export function compressSupport(
-  type: 'gzip' | 'brotli' | 'none',
-  deleteOriginFile = false
-): Configuration {
+export function compressSupport(type: 'gzip' | 'brotli' | 'none', deleteOriginFile = false): Configuration {
   const conf: Configuration = {
     plugins: []
   };
