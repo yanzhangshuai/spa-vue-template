@@ -10,7 +10,6 @@ export function createVitePlugins(viteEnv: Env, isBuild: boolean): Array<Plugin 
     vuePlugin(viteEnv.VITE_SUPPORT_JSX),
     htmlPlugin(isBuild, viteEnv.VITE_APP_TITLE),
     viteEnv.VITE_REPORT && reportPlugin(),
-    isBuild &&
-      compressPlugin(viteEnv.VITE_BUILD_COMPRESS, viteEnv.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE)
+    isBuild && compressPlugin(viteEnv.VITE_BUILD_COMPRESS, viteEnv.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE)
   ].filter(Boolean);
 }

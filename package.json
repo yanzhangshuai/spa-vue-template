@@ -12,7 +12,7 @@
     "build:gzip": "vue-tsc --noEmit --skipLibCheck && cross-env VITE_BUILD_COMPRESS=gzip  vite build",
     "serve": "npm-run-all build && vite preview",
     "report": "cross-env VITE_REPORT=true  vite build",
-    "lint:js": "eslint --config .eslintrc.js  ./src/**/*.{ts,tsx,vue} --fix",
+    "lint:js": "eslint --config .eslintrc.js  ./{src,test,type,build}/**/*.{ts,tsx,vue} --fix",
     "lint:style": "stylelint --config .stylelintrc.js ./src/**/*.{css,less,vue} --fix",
     "lint": "npm-run-all --parallel lint:*",
     "test": "jest --passWithNoTests",
