@@ -42,16 +42,7 @@ export interface Env {
   WEBPACK_SERVER_OPEN: boolean;
   WEBPACK_SERVER_HTTPS: boolean;
   WEBPACK_SERVER_PROXY: Record<string, string>;
-  WEBPACK_SERVER_STATS:
-    | 'none'
-    | 'summary'
-    | 'errors-only'
-    | 'errors-warnings'
-    | 'minimal'
-    | 'normal'
-    | 'detailed'
-    | 'verbose'
-    | boolean;
+  WEBPACK_SERVER_STATS: 'none' | 'summary' | 'errors-only' | 'errors-warnings' | 'minimal' | 'normal' | 'detailed' | 'verbose' | boolean;
 
   //  build
   WEBPACK_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none';

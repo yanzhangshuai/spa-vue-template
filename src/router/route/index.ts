@@ -15,9 +15,7 @@ const findModuleRoutes = (): Array<RouteConfig> => {
 
   return flatMap(
     Object.keys(modules).map((key) => {
-      const module: Array<RouteConfig> | RouteConfig = modules[key] as
-        | Array<RouteConfig>
-        | RouteConfig;
+      const module: Array<RouteConfig> | RouteConfig = modules[key] as Array<RouteConfig> | RouteConfig;
       return isArray(module) ? module : [module];
     })
   );

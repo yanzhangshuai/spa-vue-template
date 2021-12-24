@@ -3,13 +3,7 @@ import { cloneDeep } from 'lodash-es';
 import axios, { AxiosInstance } from 'axios';
 import { HttpCanceler } from './canceler';
 
-import {
-  HttpResponse,
-  HttpRequestConfig,
-  HttpUploadRequestConfig,
-  HttpOptions,
-  InterceptorManager
-} from './type';
+import { HttpResponse, HttpRequestConfig, HttpUploadRequestConfig, HttpOptions, InterceptorManager } from './type';
 
 export class Http {
   private _axios: AxiosInstance;
@@ -55,11 +49,7 @@ export class Http {
     const headers = config.headers || this.options?.request?.headers || {};
     const contentType = headers?.['Content-Type'] || headers?.['content-type'];
 
-    if (
-      contentType !== 'application/x-www-form-urlencoded;charset=UTF-8' ||
-      !Reflect.has(config, 'data') ||
-      config.method?.toUpperCase() === 'GET'
-    ) {
+    if (contentType !== 'application/x-www-form-urlencoded;charset=UTF-8' || !Reflect.has(config, 'data') || config.method?.toUpperCase() === 'GET') {
       return config;
     }
 
@@ -79,43 +69,26 @@ export class Http {
     Object.assign(this.axios.defaults.headers, headers);
   }
 
-  get<T = unknown, R = T>(
-    url: string,
-    query?: Record<string, unknown>,
-    config?: HttpRequestConfig
-  ): Promise<R> {
+  get<T = unknown, R = T>(url: string, query?: Record<string, unknown>, config?: HttpRequestConfig): Promise<R> {
     config = config || {};
     config.params = { ...(config.params || {}), ...(query || {}) };
     return this.request<T, R>(url, { ...config, method: 'GET' });
   }
 
-  post<T = unknown, R = T>(
-    url: string,
-    data?: Record<string, unknown>,
-    query?: Record<string, unknown>,
-    config?: HttpRequestConfig
-  ): Promise<R> {
+  post<T = unknown, R = T>(url: string, data?: Record<string, unknown>, query?: Record<string, unknown>, config?: HttpRequestConfig): Promise<R> {
     config = config || {};
     config.data = { ...(config.data || {}), ...(data || {}) };
     config.params = { ...(config.params || {}), ...(query || {}) };
     return this.request(url, { ...config, method: 'POST' });
   }
 
-  put<T = unknown, R = T>(
-    url: string,
-    query?: Record<string, unknown>,
-    config?: HttpRequestConfig
-  ): Promise<R> {
+  put<T = unknown, R = T>(url: string, query?: Record<string, unknown>, config?: HttpRequestConfig): Promise<R> {
     config = config || {};
     config.params = { ...(config.params || {}), ...(query || {}) };
     return this.request(url, { ...config, method: 'PUT' });
   }
 
-  delete<T = unknown, R = T>(
-    url: string,
-    query?: Record<string, unknown>,
-    config?: HttpRequestConfig
-  ): Promise<R> {
+  delete<T = unknown, R = T>(url: string, query?: Record<string, unknown>, config?: HttpRequestConfig): Promise<R> {
     config = config || {};
     config.params = { ...(config.params || {}), ...(query || {}) };
     return this.request<T, R>(url, { ...config, method: 'DELETE' });

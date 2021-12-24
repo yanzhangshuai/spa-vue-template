@@ -7,14 +7,7 @@ declare module 'pinia' {
     /**
      * Optional object of actions.
      */
-    actions?: A &
-      ThisType<
-        A &
-          UnwrapRef<S> &
-          _StoreWithState<Id, S, G, A> &
-          _StoreWithGetters<G> &
-          PiniaCustomProperties
-      >;
+    actions?: A & ThisType<A & UnwrapRef<S> & _StoreWithState<Id, S, G, A> & _StoreWithGetters<G> & PiniaCustomProperties>;
 
     debounce?: {
       [k in keyof A]?: number;
