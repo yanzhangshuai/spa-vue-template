@@ -8,15 +8,11 @@ import { moduleFilter } from '@/util/helper';
  * @returns
  */
 const findModuleRoutes = (): Array<RouteRecordRaw> => {
-  const modules = moduleFilter<Array<RouteRecordRaw> | RouteRecordRaw>(
-    import.meta.globEager('./modules/*/index.ts')
-  );
+  const modules = moduleFilter<Array<RouteRecordRaw> | RouteRecordRaw>(import.meta.globEager('./modules/*/index.ts'));
 
   return flatMap(
     Object.keys(modules).map((key) => {
-      const module: Array<RouteRecordRaw> | RouteRecordRaw = modules[key] as
-        | Array<RouteRecordRaw>
-        | RouteRecordRaw;
+      const module: Array<RouteRecordRaw> | RouteRecordRaw = modules[key] as Array<RouteRecordRaw> | RouteRecordRaw;
       return isArray(module) ? module : [module];
     })
   );

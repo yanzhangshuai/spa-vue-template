@@ -13,23 +13,13 @@ export interface UseEventParams {
   wait?: number;
 }
 
-export function useEventListener({
-  el = window,
-  name,
-  listener,
-  options,
-  autoRemove = true,
-  isDebounce = true,
-  wait = 80
-}: UseEventParams): Readonly<{ removeEvent: RemoveEventFn }> {
+export function useEventListener({ el = window, name, listener, options, autoRemove = true, isDebounce = true, wait = 80 }: UseEventParams): Readonly<{ removeEvent: RemoveEventFn }> {
   /* eslint-disable-next-line */
   let remove: RemoveEventFn = () => {};
   const isAddRef = ref(false);
 
   if (el) {
-    const element: Ref<Element> = ref<Element>(
-      (el || window) as Element
-    ) as unknown as Ref<Element>;
+    const element: Ref<Element> = ref<Element>((el || window) as Element) as unknown as Ref<Element>;
 
     const handler = isDebounce ? useDebounceFn(listener, wait) : useThrottleFn(listener, wait);
     const realHandler = wait ? handler : listener;
