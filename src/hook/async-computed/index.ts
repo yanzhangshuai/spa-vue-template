@@ -7,10 +7,7 @@ import { ref, readonly, watchEffect, Ref, DeepReadonly } from '@vue/composition-
  */
 export type AsyncComputedOnCancel = (cancelCallback: () => void) => void;
 
-export type AsyncComputedResult<T> = [
-  value: DeepReadonly<Ref<T>>,
-  evaluating: DeepReadonly<Ref<boolean>>
-];
+export type AsyncComputedResult<T> = [value: DeepReadonly<Ref<T>>, evaluating: DeepReadonly<Ref<boolean>>];
 
 /**
  * Create an asynchronous computed dependency
@@ -19,10 +16,7 @@ export type AsyncComputedResult<T> = [
  * @param defaultValue A default value, used until the first evaluation finishes
  * @returns A two-item tuple with the first item being a readonly ref to the computed value and the second item holding a boolean ref, indicating whether the async computed value is currently (re-)evaluated
  */
-export default function useAsyncComputed<T>(
-  callback: (onCancel: AsyncComputedOnCancel) => T | Promise<T>,
-  defaultValue?: T
-): AsyncComputedResult<T> {
+export default function useAsyncComputed<T>(callback: (onCancel: AsyncComputedOnCancel) => T | Promise<T>, defaultValue?: T): AsyncComputedResult<T> {
   let counter = 0;
   const current = ref(defaultValue) as Ref<T>;
   const evaluating = ref<boolean>(false);

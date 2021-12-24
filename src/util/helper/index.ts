@@ -1,8 +1,6 @@
 import { isArray, isNil, isObject, isString } from 'lodash-es';
 
-export const awaitWrapper = <T = unknown, E = unknown>(
-  promise: Promise<T>
-): Promise<Array<T | E>> => promise.then((data: T) => [null, data]).catch((err: E) => [err, null]);
+export const awaitWrapper = <T = unknown, E = unknown>(promise: Promise<T>): Promise<Array<T | E>> => promise.then((data: T) => [null, data]).catch((err: E) => [err, null]);
 
 export function snakeNameWithObject<T = unknown>(data: T | Array<T>, encode = false): T | Array<T> {
   if (isString(data)) {
@@ -45,10 +43,7 @@ export function snakeNameWithObject<T = unknown>(data: T | Array<T>, encode = fa
  * @param uri
  * @param query
  */
-export const queryFormat = (
-  uri: string,
-  query?: Record<string, ValueType | Array<ValueType>>
-): string => {
+export const queryFormat = (uri: string, query?: Record<string, ValueType | Array<ValueType>>): string => {
   const keys = Object.keys(query || {});
   if (!keys.length) return uri;
 

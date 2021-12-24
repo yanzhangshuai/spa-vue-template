@@ -7,11 +7,7 @@ module.exports = {
     es6: true
   },
 
-  extends: [
-    'plugin:vue/vue3-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
-  ],
+  extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
 
   parser: 'vue-eslint-parser',
   //  解析器配置
@@ -59,25 +55,16 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/ban-types': 0,
-    '@typescript-eslint/no-unused-vars': 1,
+    '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-this-alias': 2,
     '@typescript-eslint/no-explicit-any': 2,
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-var-requires': 2,
     '@typescript-eslint/no-inferrable-types': 2,
     'vue/require-default-prop': 0,
-    "vue/multi-word-component-names": 0,
+    'vue/multi-word-component-names': 0,
     'vue/eqeqeq': [2, 'always', { null: 'ignore' }],
-    'vue/max-attributes-per-line': [
-      0,
-      {
-        singleline: 1,
-        multiline: {
-          max: 1,
-          allowFirstLine: false
-        }
-      }
-    ]
+    'vue/max-attributes-per-line': [0, { singleline: 1, multiline: { max: 1, allowFirstLine: false } }]
 
     // 'jest/consistent-test-it': [2, { fn: 'it' }],
     // 'jest/no-disabled-tests': 1,
