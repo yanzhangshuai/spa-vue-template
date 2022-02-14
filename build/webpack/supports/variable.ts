@@ -1,10 +1,12 @@
 import { Configuration, DefinePlugin } from 'webpack';
-export function variableSupport(isBuild = false, filePath = ''): Configuration {
+import { Env } from '../../type';
+export function variableSupport(isBuild = false, env: Env): Configuration {
   const conf: Configuration = { plugins: [] };
 
   conf.plugins.push(
     new DefinePlugin({
-      FILE_PATH_PREFIX: JSON.stringify(filePath),
+      GLOBAL_FILE_PATH: JSON.stringify(env.WEBPACK_FILE_SERVER),
+      GLOBAL_VERSION: JSON.stringify(env.WEBPACK_VERSION),
       DEV: !isBuild
     })
   );

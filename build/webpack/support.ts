@@ -15,7 +15,7 @@ export function support(isBuild: boolean, env: Env): Configuration {
     vueSupport(),
     uiSupport(),
     scriptSupport(),
-    variableSupport(isBuild, env.WEBPACK_FILE_SERVER),
+    variableSupport(isBuild, env),
     styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),
     env.WEBPACK_REPORT && reportSupport(),

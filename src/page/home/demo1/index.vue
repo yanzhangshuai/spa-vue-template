@@ -7,6 +7,7 @@
   <p>文件服务器地址 :{{ $globalProps.FILE_PATH_PREFIX }}</p>
   <p>当前环境 :{{ $globalProps.DEV }}</p>
   <p>当前时间 :{{ $globalProps.dateFormat($window.Date.now()) }}</p>
+  <p>当前版本 :{{ $globalProps.VERSION }}</p>
   <date-picker-test></date-picker-test>
 </template>
 
