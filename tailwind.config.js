@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  content: ['./src/**/*.{vue,js,ts,jsx,tsx,stories.js}'],
+  content: ['./src/**/*.{vue,ts,tsx}'],
   media: false,
   plugins: []
 };

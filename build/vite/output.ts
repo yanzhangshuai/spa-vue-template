@@ -4,11 +4,7 @@ export function assetFileNames(chunkInfo: PreRenderedAsset): string {
   return '[ext]/[name].[hash].[ext]';
 }
 
-const PAGE_REGEX = /src\/page\/(\w+)\//;
-
-const VUE_REGEX = /\/node_modules\/(@vue)/;
-
-const REGEX_CHUNK = [VUE_REGEX, PAGE_REGEX];
+const REGEX_CHUNK = [/\/node_modules\/(@vue)/, /src\/page\/(\w+)\//];
 
 /**
  * 生成chunk
@@ -16,6 +12,7 @@ const REGEX_CHUNK = [VUE_REGEX, PAGE_REGEX];
  * @param api
  */
 export function manualChunks(id: string, api: GetManualChunkApi): string | null | undefined {
+  //  根据包名称生成制定的chunk
   const matchedRegex = REGEX_CHUNK.find((regex) => regex.test(id));
 
   if (!matchedRegex) return 'index';
