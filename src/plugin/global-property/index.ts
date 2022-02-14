@@ -6,6 +6,7 @@ let globalProps: GlobalProps;
 
 export function setupGlobalProperty(app: App<Element>): App<Element> {
   globalProps = {
+    VERSION: import.meta.env.GLOBAL_VERSION,
     FILE_PATH_PREFIX: import.meta.env.GLOBAL_FILE_PATH,
     DEV: import.meta.env.DEV,
     dateFormat: dateFormat

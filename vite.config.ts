@@ -1,5 +1,6 @@
 import { ConfigEnv, loadEnv, UserConfig } from 'vite';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
+import packageJson from './package.json';
 import { createProxy } from './build/vite/proxy';
 import { createVitePlugins } from './build/vite/plugin';
 import { assetFileNames, manualChunks } from './build/vite/output';
@@ -7,6 +8,9 @@ import { configPath, resolve, root, wrapperEnv } from './build/utils';
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   const isBuild = mode === 'production';
+
+  // 设置版本号
+  process.env.GLOBAL_VERSION = packageJson.version;
 
   // 根据VITE命令设置NODE环境变量
   process.env.NODE_ENV = mode;
@@ -20,10 +24,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     root: root,
     envDir: configPath,
     envPrefix: 'GLOBAL',
-    // define: {
-    //   // DEV: !isBuild,
-    //   // FILE_PATH_PREFIX: JSON.stringify(viteEnv.VITE_FILE_SERVER)
-    // },
 
     css: {
       modules: {
