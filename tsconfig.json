@@ -13,7 +13,7 @@
     "noImplicitThis": true,
     // 严格模式
     "alwaysStrict": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     //  删除注释
     "removeComments": true,
     //  支持的jsx的类型
