@@ -1,9 +1,9 @@
 export interface Env {
   VITE_APP_TITLE: string;
 
-  VITE_SUPPORT_JSX: boolean;
+  VITE_FILE_PATH: string;
 
-  // VITE_FILE_SERVER: string;
+  VITE_SUPPORT_JSX: boolean;
 
   VITE_SOURCE_MAP: boolean | 'inline' | 'hidden';
 
