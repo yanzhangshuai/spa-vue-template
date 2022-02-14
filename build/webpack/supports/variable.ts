@@ -1,11 +1,13 @@
 import { Configuration, DefinePlugin } from 'webpack';
+import { Env } from '../../types';
 
-export function variableSupport(isBuild = false, imageUrl = ''): Configuration {
+export function variableSupport(isBuild = false, env: Env): Configuration {
   const conf: Configuration = { plugins: [] };
 
   conf.plugins.push(
     new DefinePlugin({
-      FILE_PATH_PREFIX: JSON.stringify(imageUrl),
+      GLOBAL_FILE_PATH: JSON.stringify(env.WEBPACK_FILE_SERVER),
+      GLOBAL_VERSION: JSON.stringify(env.WEBPACK_VERSION),
       DEV: !isBuild
     })
   );
