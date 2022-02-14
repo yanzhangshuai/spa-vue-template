@@ -14,7 +14,7 @@ export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
     scriptSupport(),
-    variableSupport(isBuild, env.WEBPACK_FILE_SERVER),
+    variableSupport(isBuild, env),
     uiSupport(env.WEBPACK_UI_ICONS_NEED_IMPORT),
     styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),

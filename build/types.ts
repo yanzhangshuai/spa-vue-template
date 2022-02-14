@@ -11,6 +11,11 @@ export interface Env {
   WEBPACK_FILE_SERVER: string;
 
   /**
+   * 版本号
+   */
+  WEBPACK_VERSION: string;
+
+  /**
    * ui 中icons 是否按需加载
    */
   WEBPACK_UI_ICONS_NEED_IMPORT: boolean;
@@ -18,6 +23,7 @@ export interface Env {
   /**
    * 打包时是否删除console
    */
+
   WEBPACK_DROP_CONSOLE: boolean;
 
   /**

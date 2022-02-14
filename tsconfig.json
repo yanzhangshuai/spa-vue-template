@@ -13,9 +13,9 @@
     "noImplicitThis": true,
     // 严格模式
     "alwaysStrict": true,
+    "isolatedModules": false,
     //  删除注释
     "removeComments": true,
-    //  支持的jsx的类型
     "jsx": "preserve",
     "jsxFactory": "h",
     //  启用ES装饰器
