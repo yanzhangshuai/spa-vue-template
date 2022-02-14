@@ -1,9 +1,9 @@
 // import { on, once } from '@/util/extensions/dom';
 // import { Directive, DirectiveBinding } from 'vue';
-
+// //TODO：无法使用
 // const repeatDirective: Directive = {
 //   beforeMount(el: Element, binding: DirectiveBinding<Fn>) {
-//     let interval: Nullable<IntervalHandle> = null;
+//     let interval: Nullable<number> = null;
 //     let startTime = 0;
 //     const handler = (): void => binding?.value();
 //     const clear = (): void => {
@@ -15,11 +15,11 @@
 //     };
 
 //     on(el, 'mousedown', (e: Event): void => {
-//       if ((e as any).button !== 0) return;
+//       if ((e as MouseEvent).button !== 0) return;
 //       startTime = Date.now();
 //       once(document.body, 'mouseup', clear);
 //       interval && clearInterval(interval);
-//       interval = setInterval(handler, 100);
+//       interval = window.setInterval(handler, 100);
 //     });
 //   },
 // };
