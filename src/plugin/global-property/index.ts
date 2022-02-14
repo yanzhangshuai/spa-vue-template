@@ -6,7 +6,8 @@ let globalProps: GlobalProps;
 
 export function setupGlobalProperty(app: App<Element>): App<Element> {
   globalProps = {
-    FILE_PATH_PREFIX: FILE_PATH_PREFIX,
+    VERSION: GLOBAL_VERSION,
+    FILE_PATH_PREFIX: GLOBAL_FILE_PATH,
     DEV: DEV,
     dateFormat: dateFormat
   };

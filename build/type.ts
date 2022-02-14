@@ -10,6 +10,11 @@ export interface Env {
    */
   WEBPACK_FILE_SERVER: string;
 
+  /**
+   * 版本号
+   */
+  WEBPACK_VERSION: string;
+
   WEBPACK_DROP_CONSOLE: boolean;
 
   WEBPACK_CATCH: boolean | 'filesystem' | 'memory';

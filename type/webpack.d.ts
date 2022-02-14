@@ -1,3 +1,5 @@
 declare const DEV: boolean;
 
-declare const FILE_PATH_PREFIX: string;
+declare const GLOBAL_FILE_PATH: string;
+
+declare const GLOBAL_VERSION: string;
