@@ -64,7 +64,6 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
       mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],
       alias: {
         '@': resolve('src')
-        // '@vue/composition-api$': '@vue/composition-api/dist/vue-composition-api.mjs'
       }
     }
   };
