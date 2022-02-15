@@ -11,11 +11,11 @@ import { vueSupport } from './vue';
 
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
-    variableSupport(),
     vueSupport(),
     scriptSupport(),
     styleSupport(isBuild),
     htmlSupport(isBuild),
+    variableSupport(isBuild, env),
     isBuild && env.WEBPACK_REPORT && reportSupport(),
     isBuild && compressSupport(env.WEBPACK_BUILD_COMPRESS, true)
   ].filter(Boolean);
