@@ -7,7 +7,7 @@ module.exports = {
         useBuiltIns: 'usage',
         loose: true,
         corejs: {
-          version: '3.15.2',
+          version: '3.21.0',
           proposals: true
         }
       }
