@@ -1,7 +1,7 @@
 module.exports = {
   'processors': [],
   'plugins': [],
-  'extends': ['stylelint-config-standard', 'stylelint-config-recommended-vue'],
+  'extends': ['stylelint-config-standard-vue'],
    "overrides": [
      { "files": ["*.less", "**/*.less"], "customSyntax": "postcss-less" },
      { "files": ["*.vue", "**/*.vue"], "rules": { "unit-allowed-list": ["em", "rem", "s", "px"] } },
