@@ -10,7 +10,8 @@ export function createVitePlugins(viteEnv: Env, isBuild: boolean): Array<Plugin 
   return [
     vuePlugin(viteEnv.VITE_SUPPORT_JSX),
     htmlPlugin(isBuild, viteEnv.VITE_APP_TITLE),
-    autoVolarPlugin(),
+    //只有dev环境才开启
+    !isBuild && autoVolarPlugin(),
     viteEnv.VITE_REPORT && reportPlugin(),
     isBuild && compressPlugin(viteEnv.VITE_BUILD_COMPRESS, viteEnv.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE)
   ].filter(Boolean);
