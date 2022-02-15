@@ -15,9 +15,9 @@ export function support(isBuild: boolean, env: Env): Configuration {
     vueSupport(),
     scriptSupport(),
     variableSupport(isBuild, env),
-    uiSupport(env.WEBPACK_UI_ICONS_NEED_IMPORT),
-    styleSupport(isBuild),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),
+    styleSupport(isBuild),
+    uiSupport(env.WEBPACK_UI_ICONS_NEED_IMPORT),
     isBuild && env.WEBPACK_REPORT && reportSupport(),
     isBuild && compressSupport(env.WEBPACK_BUILD_COMPRESS, true)
   ].filter(Boolean);

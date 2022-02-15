@@ -9,13 +9,7 @@ export function uiSupport(needed: boolean): Configuration {
   needed && (alias['@ant-design/icons/lib/dist$'] = resolve('src/component/ui/icons.ts'));
 
   return {
-    plugins: [
-      new AntdDayjsWebpackPlugin({
-        preset: 'antdv3'
-      })
-    ],
-    resolve: {
-      alias: alias
-    }
+    plugins: [new AntdDayjsWebpackPlugin({ preset: 'antdv3' })],
+    resolve: { alias }
   };
 }
