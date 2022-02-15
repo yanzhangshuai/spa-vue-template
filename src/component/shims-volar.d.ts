@@ -4,7 +4,17 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider'];
+    ADatePicker: typeof import('ant-design-vue/es')['DatePicker'];
+    ALayout: typeof import('ant-design-vue/es')['Layout'];
+    ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent'];
+    ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader'];
+    ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider'];
     ConfigProvider: typeof import('./modules/config-provider/index.vue')['default'];
+    DatePickerTest: typeof import('./modules/date-picker-test/index.vue')['default'];
+    Layout: typeof import('./modules/layout/index.vue')['default'];
+    LayoutHeader: typeof import('./modules/layout/layout-header/index.vue')['default'];
+    LayoutSider: typeof import('./modules/layout/layout-sider/index.vue')['default'];
     RefDemo: typeof import('./modules/base/ref-demo/index.vue')['default'];
     RefSetupDemo: typeof import('./modules/base/ref-setup-demo/index.vue')['default'];
   }

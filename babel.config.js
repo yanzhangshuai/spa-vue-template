@@ -1,9 +1,5 @@
 const plugins = [
   ['@vue/babel-plugin-jsx', {}],
-  process.env.NODE_ENV === 'production' && [
-    'import',
-    { libraryName: 'ant-design-vue', libraryDirectory: 'es', style: 'css' }
-  ],
   ['@babel/plugin-proposal-function-bind'],
   ['@babel/plugin-proposal-decorators', { legacy: true }],
   ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],

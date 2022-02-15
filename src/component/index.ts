@@ -1,6 +1,5 @@
 import { App, Component } from 'vue';
 import { moduleFilter } from '@/util/helper';
-import uiComponents from './ui';
 
 function injectComponents(app: App<Element>) {
   const modules = moduleFilter<Component>(require.context('./modules/', true, /\.(vue|tsx)$/));
@@ -22,16 +21,8 @@ function injectComponents(app: App<Element>) {
   });
 }
 
-function useAntd(app: App): App {
-  uiComponents.forEach((component) => {
-    app.use(component);
-  });
-  return app;
-}
-
 export function setupComponent(app: App<Element>): App<Element> {
   injectComponents(app);
 
-  useAntd(app);
   return app;
 }

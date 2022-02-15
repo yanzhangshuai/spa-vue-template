@@ -1,7 +1,6 @@
 import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
 import { Env } from '../type';
-import { uiSupport } from './supports/ui';
 import { vueSupport } from './supports/vue';
 import { htmlSupport } from './supports/html';
 import { styleSupport } from './supports/style';
@@ -13,7 +12,6 @@ import { autoVolarSupport } from './supports/auto-volar';
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
-    uiSupport(),
     scriptSupport(),
     autoVolarSupport(),
     styleSupport(isBuild),
