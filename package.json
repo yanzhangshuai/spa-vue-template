@@ -88,8 +88,8 @@
     "vite": "^2.8.1",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-html": "^3.0.6",
-    "vite-plugin-windicss": "^1.7.0",
     "vite-plugin-style-import": "^2.0.0",
+    "vite-plugin-windicss": "^1.7.0",
     "vue-tsc": "^0.31.4"
   },
   "jest-stare": {
