@@ -1,16 +1,21 @@
-import type { Plugin } from 'vite';
 import compress from 'vite-plugin-compression';
+import { PluginFn } from '../type';
 
-export function compressPlugin(type?: 'gzip' | 'brotli' | 'none', deleteOriginFile = false): Array<Plugin> {
-  const plugins: Array<Plugin> = [];
-  if (type === 'gzip') {
-    plugins.push(compress({ ext: '.gz', deleteOriginFile }));
+export const compressPlugin: PluginFn = (isBuild: boolean, env) => {
+  if (!env?.VITE_BUILD_COMPRESS || env.VITE_BUILD_COMPRESS === 'none') return [];
+
+  if (env.VITE_BUILD_COMPRESS === 'gzip') {
+    return {
+      apply: 'build',
+      ...compress({ ext: '.gz', deleteOriginFile: env.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE })
+    };
   }
-  if (type === 'brotli') {
-    plugins.push(compress({ ext: '.br', algorithm: 'brotliCompress', deleteOriginFile }));
+
+  if (env.VITE_BUILD_COMPRESS === 'brotli') {
+    return {
+      apply: 'build',
+      ...compress({ ext: '.br', algorithm: 'brotliCompress', deleteOriginFile: env.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE })
+    };
   }
-
-  plugins.forEach((plugin) => (plugin.apply = 'build'));
-
-  return plugins;
-}
+  return [];
+};

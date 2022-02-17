@@ -1,6 +1,5 @@
-import { ProxyOptions } from 'vite';
+import { ProxyTarget } from './type';
 
-type ProxyTarget = Record<string, ProxyOptions>;
 export function createProxy(proxy: Record<string, string>): ProxyTarget {
   return Object.keys(proxy)
     .map((prefix: string) => {
