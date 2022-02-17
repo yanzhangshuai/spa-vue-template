@@ -8,12 +8,10 @@ import { reportSupport } from './supports/report';
 import { scriptSupport } from './supports/script';
 import { variableSupport } from './supports/variable';
 import { compressSupport } from './supports/compress';
-import { autoVolarSupport } from './supports/auto-volar';
 export function support(isBuild: boolean, env: Env): Configuration {
   const supports = [
     vueSupport(),
     scriptSupport(),
-    autoVolarSupport(),
     styleSupport(isBuild),
     variableSupport(isBuild, env),
     htmlSupport(isBuild, env.WEBPACK_APP_TITLE),
