@@ -32,10 +32,9 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       },
       preprocessorOptions: {
         less: {
-          // modifyVars: {
-          // 	hack: `true; @import (reference) "@/styles/global/index.less";`,
-          // },import { supportBuild } from './parts';
-
+          modifyVars: {
+            hack: [`true; @import (reference) "${resolve('src/asset/theme/default.less')}";`]
+          },
           javascriptEnabled: true
         }
       }
@@ -45,8 +44,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     build: {
       target: 'es2015',
       sourcemap: viteEnv.VITE_SOURCE_MAP,
-      //TODO: 当前vite版本如果不设置ourDir，devServer时会报startsWith异常,@2.7.5
-      outDir: viteEnv.VITE_OUTPUT_DIR || '',
+      outDir: viteEnv.VITE_OUTPUT_DIR,
       assetsDir: 'assets',
       terserOptions: {
         compress: {
