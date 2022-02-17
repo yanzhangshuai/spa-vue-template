@@ -16,15 +16,12 @@ export function styleSupport(isBuild = false): Configuration {
           include: resolve('src'),
           use: [
             isBuild ? loader : 'style-loader',
-            {
-              loader: 'css-loader',
-              options: { importLoaders: 1 }
-            },
+            { loader: 'css-loader', options: { importLoaders: 1 } },
             {
               loader: 'less-loader',
               options: {
                 lessOptions: {
-                  modifyVars: {},
+                  modifyVars: { hack: [`true; @import (reference) "${resolve('src/asset/theme/default.less')}";`] },
                   javascriptEnabled: true
                 }
               }
