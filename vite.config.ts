@@ -32,10 +32,9 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       },
       preprocessorOptions: {
         less: {
-          // modifyVars: {
-          // 	hack: `true; @import (reference) "@/styles/global/index.less";`,
-          // },import { supportBuild } from './parts';
-
+          modifyVars: {
+            hack: [`true; @import (reference) "${resolve('src/asset/theme/default.less')}";`]
+          },
           javascriptEnabled: true
         }
       }

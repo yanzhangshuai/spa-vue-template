@@ -4,13 +4,8 @@ import { createHtmlPlugin } from 'vite-plugin-html';
 export function htmlPlugin(isBuild: boolean, title: string): Array<Plugin> {
   const htmlPlugin = createHtmlPlugin({
     minify: isBuild,
-    inject: {
-      data: {
-        title: title
-      }
-    }
+    template: 'public/index.html',
+    inject: { data: { title: title } }
   });
-
-  if (!htmlPlugin) return [];
-  return htmlPlugin as Array<Plugin>;
+  return htmlPlugin.filter((p) => p).map((p) => p as Plugin);
 }
