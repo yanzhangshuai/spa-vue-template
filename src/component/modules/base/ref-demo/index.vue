@@ -14,3 +14,8 @@ export default defineComponent({
   }
 });
 </script>
+<style lang="less" scoped>
+h1 {
+  color: @primary;
+}
+</style>

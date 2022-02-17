@@ -7,24 +7,18 @@ export function styleSupport(isBuild = false): Configuration {
   const styleConf: Configuration = {
     module: {
       rules: [
-        {
-          test: /\.css$/,
-          use: [isBuild ? loader : 'style-loader', { loader: 'css-loader' }, 'postcss-loader']
-        },
+        { test: /\.css$/, use: [isBuild ? loader : 'style-loader', { loader: 'css-loader' }, 'postcss-loader'] },
         {
           test: /\.less$/,
           include: resolve('src'),
           use: [
             isBuild ? loader : 'style-loader',
-            {
-              loader: 'css-loader',
-              options: { importLoaders: 1 }
-            },
+            { loader: 'css-loader', options: { importLoaders: 2 } },
             {
               loader: 'less-loader',
               options: {
                 lessOptions: {
-                  modifyVars: {},
+                  modifyVars: { hack: [`true; @import (reference) "${resolve('src/asset/theme/default.less')}";`] },
                   javascriptEnabled: true
                 }
               }
