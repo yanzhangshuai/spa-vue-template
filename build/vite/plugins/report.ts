@@ -1,7 +1,7 @@
-import { Plugin } from 'vite';
 import visualizer from 'rollup-plugin-visualizer';
+import { PluginFn } from '../type';
 
-export function reportPlugin(report = false): Plugin {
+export const reportPlugin: PluginFn = (isBuild, env) => {
   return {
     ...visualizer({
       open: true,
@@ -9,6 +9,6 @@ export function reportPlugin(report = false): Plugin {
       brotliSize: true,
       template: 'treemap' // "sunburst" | "treemap" | "network"
     }),
-    apply: () => report
+    apply: () => env.VITE_REPORT
   };
-}
+};

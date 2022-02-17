@@ -1,7 +1,6 @@
 const plugins = {
   autoprefixer: {},
-  'postcss-import': {},
-  ['tailwindcss']: { config: './tailwind.config.js' }
+  'postcss-import': {}
 };
 
 if (process.env.NODE_ENV === 'production') {

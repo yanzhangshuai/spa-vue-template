@@ -1,15 +1,17 @@
-import { Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import { PluginFn } from '../type';
 
-export function vuePlugin(supportJsx = true): Array<Plugin> | Plugin {
+export const vuePlugin: PluginFn = (isBuild, env) => {
   const plugins = [vue()];
-  if (supportJsx)
+
+  if (env?.VITE_SUPPORT_JSX)
     plugins.push(
       vueJsx({
         optimize: true,
         transformOn: true
       })
     );
+
   return plugins;
-}
+};

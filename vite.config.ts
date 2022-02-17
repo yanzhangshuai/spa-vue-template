@@ -39,7 +39,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         }
       }
     },
-    plugins: createVitePlugins(viteEnv, isBuild),
+    plugins: createVitePlugins(isBuild, viteEnv),
 
     build: {
       target: 'es2015',
