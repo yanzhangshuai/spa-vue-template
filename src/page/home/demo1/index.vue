@@ -23,3 +23,8 @@ export default defineComponent({
   }
 });
 </script>
+<style lang="less" scoped>
+p {
+  color: @primary;
+}
+</style>
