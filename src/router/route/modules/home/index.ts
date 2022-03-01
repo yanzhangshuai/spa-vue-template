@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import Demo1Router from './demo1';
-import { HOME_PAGE_PATH, HomeRouterName } from './const';
+import { HomeRouterName } from './const';
 
 const router: RouteRecordRaw = {
   path: '/home',
