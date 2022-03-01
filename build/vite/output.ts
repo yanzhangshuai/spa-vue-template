@@ -1,6 +1,7 @@
 import { GetManualChunkApi, PreRenderedAsset } from 'rollup';
 
-export function assetFileNames(chunkInfo: PreRenderedAsset): string {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function assetFileNames(chunkInfo?: PreRenderedAsset): string {
   return '[ext]/[name].[hash].[ext]';
 }
 
@@ -11,6 +12,7 @@ const REGEX_CHUNK = [/\/node_modules\/(@vue)/, /src\/page\/(\w+)\//];
  * @param id
  * @param api
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function manualChunks(id: string, api: GetManualChunkApi): string | null | undefined {
   //  根据包名称生成制定的chunk
   const matchedRegex = REGEX_CHUNK.find((regex) => regex.test(id));
