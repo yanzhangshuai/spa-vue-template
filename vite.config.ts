@@ -46,6 +46,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       sourcemap: viteEnv.VITE_SOURCE_MAP,
       outDir: viteEnv.VITE_OUTPUT_DIR,
       assetsDir: 'assets',
+      minify: 'terser',
       terserOptions: {
         compress: {
           keep_infinity: true,

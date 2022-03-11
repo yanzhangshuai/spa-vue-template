@@ -1,5 +1,5 @@
 import path from 'path';
-import helper from 'vue-component-helper';
+import helper from 'vue-component-volar';
 
 const componentPath = path.join(__dirname, '../');
 
