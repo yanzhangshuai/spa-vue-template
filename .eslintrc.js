@@ -5,7 +5,8 @@ module.exports = {
     browser: true,
     //  启用ES6特性（除modules）
     es6: true,
-    'jest/globals': true
+    'jest/globals': true,
+    'vue/setup-compiler-macros': true
   },
 
   extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:jest/recommended', 'plugin:jest/style', 'plugin:prettier/recommended'],
@@ -33,14 +34,6 @@ module.exports = {
   //  第三方插件
   plugins: ['eslint-plugin-vue', 'eslint-plugin-promise', 'eslint-plugin-jest', '@typescript-eslint/eslint-plugin'],
 
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-    defineProps: 'readonly',
-    defineEmits: 'readonly',
-    defineExpose: 'readonly',
-    withDefaults: 'readonly'
-  },
   rules: {
     'no-var': 2,
     'no-eval': 2,

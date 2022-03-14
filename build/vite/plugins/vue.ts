@@ -3,7 +3,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { PluginFn } from '../type';
 
 export const vuePlugin: PluginFn = (isBuild, env) => {
-  const plugins = [vue()];
+  const plugins = [vue({ reactivityTransform: true })];
 
   if (env?.VITE_SUPPORT_JSX)
     plugins.push(
