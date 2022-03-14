@@ -4,7 +4,8 @@ module.exports = {
     //  浏览器
     browser: true,
     //  启用ES6特性（除modules）
-    es6: true
+    es6: true,
+    'vue/setup-compiler-macros': true
   },
 
   extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
