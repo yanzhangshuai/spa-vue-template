@@ -1,8 +1,9 @@
-import { Configuration, DefinePlugin } from 'webpack';
+import { DefinePlugin } from 'webpack';
 import { VueLoaderPlugin } from 'vue-loader';
+import { SupportFn } from '../type';
 import { resolve } from '../../utils';
 
-export function vueSupport(): Configuration {
+export const vueSupport: SupportFn = () => {
   return {
     module: {
       rules: [
@@ -22,9 +23,7 @@ export function vueSupport(): Configuration {
     ],
     resolve: {
       extensions: ['.vue', '.tsx'],
-      alias: {
-        vue: '@vue/runtime-dom'
-      }
+      alias: { vue: '@vue/runtime-dom' }
     }
   };
-}
+};

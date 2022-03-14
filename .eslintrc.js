@@ -50,12 +50,12 @@ module.exports = {
     'block-spacing': [2, 'always'],
     'space-before-function-paren': 0,
     'no-lonely-if': 2,
-
+    'no-unused-vars': 0,
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/ban-types': 0,
-    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 2,
     '@typescript-eslint/no-this-alias': 2,
     '@typescript-eslint/no-explicit-any': 2,
     '@typescript-eslint/no-namespace': 0,
@@ -74,15 +74,6 @@ module.exports = {
         }
       }
     ]
-
-    // 'jest/consistent-test-it': [2, { fn: 'it' }],
-    // 'jest/no-disabled-tests': 1,
-    // 'jest/no-focused-tests': 2,
-    // 'jest/no-identical-title': 2,
-    // 'jest/prefer-to-have-length': 1,
-    // 'jest/valid-describe': 2,
-    // 'jest/valid-expect': 2,
-    // 'jest/valid-expect-in-promise': 2
   },
 
   noInlineConfig: false,

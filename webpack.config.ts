@@ -60,6 +60,8 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
       ]
     },
 
+    performance: { maxEntrypointSize: 400000, maxAssetSize: 400000 },
+
     resolve: {
       mainFiles: ['index', 'module'],
       alias: {
