@@ -15,6 +15,7 @@ import { AssetInfo } from 'webpack';
  * @param path
  * @param asset
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function chunkFilename(path: unknown, asset: AssetInfo): string {
   return 'js/[name].[contenthash].js';
 }

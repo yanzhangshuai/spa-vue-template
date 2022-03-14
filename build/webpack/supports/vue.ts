@@ -1,8 +1,9 @@
-import { Configuration, WebpackPluginInstance } from 'webpack';
+import { WebpackPluginInstance } from 'webpack';
 import { VueLoaderPlugin } from 'vue-loader';
+import { SupportFn } from '../type';
 import { resolve } from '../../utils';
 
-export function vueSupport(): Configuration {
+export const vueSupport: SupportFn = () => {
   return {
     module: {
       rules: [
@@ -14,11 +15,7 @@ export function vueSupport(): Configuration {
       ]
     },
     plugins: [new VueLoaderPlugin() as WebpackPluginInstance],
-    resolve: {
-      extensions: ['.vue', '.tsx'],
-      alias: {
-        Vue: 'vue/dist/vue.esm-bundler.js'
-      }
-    }
+
+    resolve: { extensions: ['.vue', '.tsx'] }
   };
-}
+};

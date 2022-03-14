@@ -1,7 +1,7 @@
-import { Configuration } from 'webpack';
+import { SupportFn } from '../type';
 import { resolve } from '../../utils';
 
-export function scriptSupport(isBuild = false): Configuration {
+export const scriptSupport: SupportFn = () => {
   return {
     module: {
       rules: [
@@ -17,8 +17,6 @@ export function scriptSupport(isBuild = false): Configuration {
         }
       ]
     },
-    resolve: {
-      extensions: ['.ts', '.js']
-    }
+    resolve: { extensions: ['.ts', '.js'] }
   };
-}
+};
