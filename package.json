@@ -1,8 +1,8 @@
 {
-  "name": "vue-template",
+  "name": "spa-vue-template",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/yanzhangshuai/vue-template.git",
+  "repository": "https://github.com/yanzhangshuai/spa-vue-template.git",
   "author": "yanzhangshuai <yanzhangshuai@126.com>",
   "license": "MIT"
 }
