@@ -10,15 +10,19 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, unref } from 'vue';
+import { onMounted, ref, unref, watch } from 'vue';
 import RefDemo from '@/component/modules/base/ref-demo/index.vue';
 
-const name = ref('123');
+const name = $ref('123');
 const refSetupDemoRef = ref(null);
 const refDemoRef = ref<InstanceType<typeof RefDemo>>(null);
 
 onMounted(() => {
   unref(refDemoRef).onClick();
   unref(refSetupDemoRef).onBtn();
+});
+
+watch($$(name), (newVal) => {
+  console.log('name changed', newVal);
 });
 </script>
