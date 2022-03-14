@@ -11,16 +11,22 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, unref } from 'vue';
-import RefSetupDemo from '@/component/modules/base/ref-setup-demo/index.vue';
+import { onMounted, ref, unref, watch } from 'vue';
 import RefDemo from '@/component/modules/base/ref-demo/index.vue';
+import RefSetupDemo from '@/component/modules/base/ref-setup-demo/index.vue';
 
 const refSetupDemoRef = ref(null);
+
 const refDemoRef = ref<InstanceType<typeof RefDemo>>(null);
+
+const name = $ref('123');
 
 onMounted(() => {
   unref(refDemoRef).onClick();
   unref(refSetupDemoRef).onBtn();
 });
-const name = ref('123');
+
+watch($$(name), (newVal) => {
+  console.log('name changed', newVal);
+});
 </script>
