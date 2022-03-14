@@ -1,15 +1,15 @@
-import { Configuration } from 'webpack';
 //@ts-ignore
 import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import { resolve } from '../../utils';
+import { SupportFn } from '../type';
 
-export function uiSupport(needed: boolean): Configuration {
+export const uiSupport: SupportFn = (isBuild, env) => {
   const alias: Record<string, string> = {};
 
-  needed && (alias['@ant-design/icons/lib/dist$'] = resolve('src/component/ui/icons.ts'));
+  env.WEBPACK_UI_ICONS_NEED_IMPORT && (alias['@ant-design/icons/lib/dist$'] = resolve('src/component/ui/icons.ts'));
 
   return {
     plugins: [new AntdDayjsWebpackPlugin({ preset: 'antdv3' })],
     resolve: { alias }
   };
-}
+};

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 interface zhCN {
   [key: string]: unknown;
 }

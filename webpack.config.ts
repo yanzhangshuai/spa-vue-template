@@ -1,6 +1,6 @@
 import path from 'path';
-import TerserPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
 import { merge as webpackMerge } from 'webpack-merge';
 import packageJson from './package.json';
 import { loadEnv } from './build/config';
@@ -59,6 +59,8 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
         })
       ]
     },
+
+    performance: { maxEntrypointSize: 400000, maxAssetSize: 400000 },
 
     resolve: {
       mainFiles: ['index', 'module', 'jsnext:main', 'jsnext'],

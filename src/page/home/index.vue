@@ -4,9 +4,6 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import { useRoute } from '@/router';
-import { useStore } from '@/store';
-import { useHttp } from '@/service';
 export default defineComponent({
   components: {},
   setup() {

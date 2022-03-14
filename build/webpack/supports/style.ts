@@ -1,10 +1,12 @@
 import { Configuration } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import { SupportFn } from '../type';
 import { resolve } from '../../utils';
-export function styleSupport(isBuild = false): Configuration {
+
+export const styleSupport: SupportFn = (isBuild) => {
   const { loader } = MiniCssExtractPlugin;
-  const styleConf: Configuration = {
+  const conf: Configuration = {
     module: {
       rules: [
         {
@@ -33,26 +35,15 @@ export function styleSupport(isBuild = false): Configuration {
 
     optimization: {
       minimizer: [new CssMinimizerPlugin()],
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.css$/,
-            chunks: 'all',
-            enforce: true
-          }
-        }
-      }
+      splitChunks: { chunks: 'all', cacheGroups: { styles: { name: 'styles', test: /\.css$/, chunks: 'all', enforce: true } } }
     },
 
     plugins: [],
 
-    resolve: {
-      extensions: ['.less', '.css']
-    }
+    resolve: { extensions: ['.less', '.css'] }
   };
 
-  isBuild && styleConf.plugins.push(new MiniCssExtractPlugin({ filename: 'css/[name]_[contenthash].css' }));
-  return styleConf;
-}
+  isBuild && conf.plugins.push(new MiniCssExtractPlugin({ filename: 'css/[name]_[contenthash].css' }));
+
+  return conf;
+};
