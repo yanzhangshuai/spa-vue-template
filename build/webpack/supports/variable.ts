@@ -1,6 +1,7 @@
 import { Configuration, DefinePlugin } from 'webpack';
-import { Env } from '../../type';
-export function variableSupport(isBuild = false, env: Env): Configuration {
+import { SupportFn } from '../type';
+
+export const variableSupport: SupportFn = (isBuild, env) => {
   const conf: Configuration = { plugins: [] };
 
   conf.plugins.push(
@@ -11,4 +12,4 @@ export function variableSupport(isBuild = false, env: Env): Configuration {
     })
   );
   return conf;
-}
+};

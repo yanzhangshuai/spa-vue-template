@@ -1,6 +1,6 @@
 import { createVNode } from 'vue';
 import { RouteRecordRaw, RouterView } from 'vue-router';
-import { ACCOUNT_PAGE_PATH, AccountRouterName } from './const';
+import { AccountRouterName } from './const';
 
 const router: RouteRecordRaw = {
   path: '/account',
