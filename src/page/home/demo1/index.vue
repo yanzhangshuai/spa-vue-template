@@ -4,7 +4,7 @@
   <ref-setup-demo :id="123" ref="refSetupDemoRef" v-model:name="name" />
   <ref-demo ref="refDemoRef" />
   <p>文件服务器地址 :{{ $globalProps.FILE_PATH_PREFIX }}</p>
-  <p>当前环境 :{{ $globalProps.DEV }}</p>
+  <p>当前是否为开发环境 :{{ $globalProps.DEV }}</p>
   <p>当前时间 :{{ $globalProps.dateFormat($window.Date.now()) }}</p>
   <p>当前版本 :{{ $globalProps.VERSION }}</p>
 </template>
