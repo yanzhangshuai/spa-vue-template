@@ -8,7 +8,7 @@ export function setupGlobalProperty(app: App<Element>): App<Element> {
   globalProps = {
     VERSION: GLOBAL_VERSION,
     FILE_PATH_PREFIX: GLOBAL_FILE_PATH,
-    DEV: DEV,
+    DEV: GLOBAL_DEV,
     dateFormat: dateFormat
   };
 
