@@ -34,8 +34,7 @@ export const styleSupport: SupportFn = (isBuild) => {
     },
 
     optimization: {
-      minimizer: [new CssMinimizerPlugin()],
-      splitChunks: { chunks: 'all', cacheGroups: { styles: { name: 'styles', test: /\.css$/, chunks: 'all', enforce: true } } }
+      minimizer: [new CssMinimizerPlugin()]
     },
 
     plugins: [],
