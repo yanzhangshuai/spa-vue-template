@@ -9,6 +9,7 @@ export const chunksSupport: SupportFn = () => {
         chunks: 'all',
         automaticNameDelimiter: '~',
         cacheGroups: {
+          ui: { name: 'npm.ui', test: /[\\/]node_modules[\\/](@)?ant-design/, priority: -5 },
           libs: { name: 'npm.libs', test: /[\\/]node_modules[\\/](@)?vue/, priority: -5 },
           vendors: { name: 'npm.vendors', test: /[\\/]node_modules[\\/]/, priority: -10 },
           // vendors: {
