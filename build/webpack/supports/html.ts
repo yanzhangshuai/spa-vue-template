@@ -11,7 +11,8 @@ export const htmlSupport: SupportFn = (isBuild, env) => {
         title: env.WEBPACK_APP_TITLE,
         //  是否进行缓存，默认为true，在开发环境可以设置成false
         cache: isBuild,
-        minify: isBuild
+        minify: isBuild,
+        inject: 'body'
       })
     ]
   };
