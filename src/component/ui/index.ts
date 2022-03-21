@@ -1,6 +1,6 @@
 import { DatePicker, Layout, Menu, ConfigProvider } from 'ant-design-vue';
 
-if (DEV) {
+if (GLOBAL_DEV) {
   // dev环境加载全部antd样式
   require('ant-design-vue/dist/antd.css');
 }
