@@ -1,5 +1,5 @@
-import qs from 'qs';
 import { cloneDeep } from 'lodash-es';
+import queryString from 'query-string';
 import axios, { AxiosInstance } from 'axios';
 import { HttpClientCanceler } from './canceler';
 
@@ -55,7 +55,7 @@ export class Http {
 
     return {
       ...config,
-      data: qs.stringify(config.data, { arrayFormat: 'brackets' })
+      data: queryString.stringify(config.data, { arrayFormat: 'bracket' })
     };
   }
 

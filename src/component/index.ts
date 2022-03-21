@@ -23,5 +23,6 @@ function injectComponents(app: App<Element>) {
 
 export function setupComponent(app: App<Element>): App<Element> {
   injectComponents(app);
+
   return app;
 }
