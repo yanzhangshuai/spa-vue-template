@@ -17,6 +17,11 @@ export interface HttpResponse<T> extends AxiosResponse<T> {
 
 export interface HttpRequestConfig extends AxiosRequestConfig {
   /**
+   * upload base url
+   */
+  uploadBaseUrl?: string;
+
+  /**
    * 是否忽略取消
    */
   ignoreCancelToken?: boolean;
@@ -33,7 +38,7 @@ export interface HttpUploadRequestConfig extends HttpRequestConfig {
   // File parameter interface field name
   name?: string;
   // file name
-  file?: XOR<File, Blob>;
+  file: XOR<File, Blob>;
   // file name
   filename?: string;
 

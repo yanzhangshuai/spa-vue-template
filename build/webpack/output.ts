@@ -1,11 +1,5 @@
 import { AssetInfo } from 'webpack';
 
-// const PAGE_REGEX = /src\/page\/(\w+)\//;
-//
-// const VUE_REGEX = /\/node_modules\/(@vue)/;
-//
-// const REGEX_CHUNK = [VUE_REGEX, PAGE_REGEX];
-
 /**
  *
  * @param isBuild
@@ -15,7 +9,7 @@ import { AssetInfo } from 'webpack';
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function filename(isBuild: boolean, path: unknown, asset?: AssetInfo): string {
-  return isBuild ? 'js/[name]_[contenthash].js' : 'js/[name].js';
+  return isBuild ? 'js/[name].[contenthash].js' : 'js/[name].js';
 }
 
 /**
@@ -27,5 +21,14 @@ export function filename(isBuild: boolean, path: unknown, asset?: AssetInfo): st
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function chunkFilename(isBuild: boolean, path: unknown, asset?: AssetInfo): string {
-  return isBuild ? 'js/[name]_[contenthash].js' : 'js/[name].js';
+  return isBuild ? 'js/[name].[contenthash].js' : 'js/[name].js';
+}
+
+/**
+ * css filename
+ * @param isBuild
+ * @returns
+ */
+export function cssFilename(isBuild: boolean) {
+  return isBuild ? 'css/[name].[contenthash].css' : 'css/[name].css';
 }
