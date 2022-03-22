@@ -8,6 +8,7 @@ export function createDevServer(env: Env): Promise<Configuration> {
     port: env.WEBPACK_SERVER_PORT,
     open: env.WEBPACK_SERVER_OPEN,
     hot: true,
+    compress: env.WEBPACK_SERVER_COMPRESS,
     historyApiFallback: true,
     client: {
       overlay: true
@@ -18,7 +19,8 @@ export function createDevServer(env: Env): Promise<Configuration> {
     },
 
     devMiddleware: {
-      stats: env.WEBPACK_SERVER_STATS
+      stats: env.WEBPACK_SERVER_STATS,
+      writeToDisk: env.WEBPACK_SERVER_WRITE_TO_DIST
     },
 
     watchFiles: {

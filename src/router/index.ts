@@ -11,6 +11,7 @@ export function setupRouter(): Readonly<Router> {
   Vue.use(Router);
 
   const router = new Router({
+    base: GLOBAL_PATH_BASE_URL,
     mode: 'history',
     routes: routes,
     scrollBehavior: () => ({ x: 0, y: 0 })

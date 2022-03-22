@@ -2,12 +2,13 @@ import path from 'path';
 import { Configuration } from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
 import { merge as webpackMerge } from 'webpack-merge';
+import { Env } from './build/type';
 import packageJson from './package.json';
 import { loadEnv } from './build/config';
 import { support } from './build/webpack/support';
 import { createDevServer } from './build/webpack/dev';
-import { chunkFilename, filename } from './build/webpack/output';
 import { configPath, resolve, wrapperEnv } from './build/utils';
+import { chunkFilename, filename } from './build/webpack/output';
 
 export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean; WEBPACK_SERVE: boolean; development: boolean }): Promise<Configuration> => {
   //  环境判断
@@ -23,9 +24,7 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
 
   const env = loadEnv(mode, configPath);
 
-  const webpackEnv = wrapperEnv(env);
-
-  webpackEnv.WEBPACK_VERSION = process.env.GLOBAL_VERSION || '';
+  const webpackEnv = wrapperEnv<Env>(env);
 
   const baseConf: Configuration = {
     target: 'web',
@@ -53,7 +52,7 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
         new TerserPlugin({
           terserOptions: {
             compress: {
-              drop_console: webpackEnv.WEBPACK_DROP_CONSOLE
+              drop_console: webpackEnv.WEBPACK_BUILD_DROP_CONSOLE
             }
           }
         })
