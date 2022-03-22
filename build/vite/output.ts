@@ -23,6 +23,10 @@ export function manualChunks(id: string): string | null | undefined {
 }
 
 function nodeModulesChunks(id: string) {
+  if (/[\\/]node_modules[\\/](@)?ant-design/.test(id)) {
+    return '__ui';
+  }
+
   if (/[\\/]node_modules[\\/](@)?vue/.test(id)) {
     return '__libs';
   }
