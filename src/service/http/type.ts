@@ -2,7 +2,7 @@ import { AxiosInterceptorManager, AxiosRequestConfig, AxiosResponse, CancelToken
 
 export interface HttpOptions {
   authenticationScheme?: string;
-  urlPrefix?: string;
+
   request?: HttpRequestConfig;
 }
 
@@ -24,6 +24,8 @@ export interface HttpRequestConfig extends AxiosRequestConfig {
    * 是否返回全部Response信息
    */
   returnAllResponse?: boolean;
+
+  uploadBaseUrl?: string;
 }
 
 // multipart/form-data: upload file
@@ -33,7 +35,7 @@ export interface HttpUploadRequestConfig extends HttpRequestConfig {
   // File parameter interface field name
   name?: string;
   // file name
-  file?: XOR<File, Blob>;
+  file: XOR<File, Blob>;
   // file name
   filename?: string;
 

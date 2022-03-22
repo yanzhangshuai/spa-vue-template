@@ -8,7 +8,7 @@ import { useHttp } from '@/service';
 const http = useHttp();
 http
   .get<string>(
-    '/api/app/hello',
+    '/app/hello',
     {
       id: 1,
       name: '123',

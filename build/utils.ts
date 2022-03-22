@@ -1,6 +1,5 @@
 import path from 'path';
 import portfinder from 'portfinder';
-import { Env } from './type';
 
 export const root = process.cwd();
 
@@ -29,8 +28,8 @@ export const findPort = (startPort: number): Promise<number> => {
  */
 export const configPath = resolve('config');
 // 转换配置文件数据
-export function wrapperEnv(envConf: Record<keyof Env, string>): Env {
-  return (Object.keys(envConf) as Array<keyof Env>)
+export function wrapperEnv<T extends Object>(envConf: Record<keyof T, string>): T {
+  return (Object.keys(envConf) as Array<keyof T>)
     .map((envName) => {
       const value = envConf[envName].replace(/\\n/g, '\n');
       //  布尔值
@@ -67,5 +66,5 @@ export function wrapperEnv(envConf: Record<keyof Env, string>): Env {
     .reduce((prev, current) => {
       prev[current.envName] = current.value as never;
       return prev;
-    }, {} as Env);
+    }, {} as T);
 }

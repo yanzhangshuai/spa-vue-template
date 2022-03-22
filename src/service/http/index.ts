@@ -1,4 +1,4 @@
-import qs from 'qs';
+import qs from 'query-string';
 import { cloneDeep } from 'lodash-es';
 import axios, { AxiosInstance } from 'axios';
 import { HttpClientCanceler } from './canceler';
@@ -55,7 +55,7 @@ export class Http {
 
     return {
       ...config,
-      data: qs.stringify(config.data, { arrayFormat: 'brackets' })
+      data: qs.stringify(config.data, { arrayFormat: 'bracket' })
     };
   }
 
@@ -138,6 +138,7 @@ export class Http {
     return new Promise<R>((resolve, reject) => {
       this.axios
         .request<T, HttpResponse<T>>({
+          baseURL: this.options.request.uploadBaseUrl,
           url: url,
           ...config,
           method: config.method || 'POST',
