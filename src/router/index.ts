@@ -7,7 +7,7 @@ let router: Router;
 
 export function setupRouter(app: App<Element>): App<Element> {
   router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(GLOBAL_PATH_BASE_URL),
     routes: routes as Array<RouteRecordRaw>,
     strict: false,
     scrollBehavior: () => ({ left: 0, top: 0 })

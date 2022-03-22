@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { SupportFn } from '../type';
 import { resolve } from '../../utils';
+import { cssFilename } from '../output';
 
 export const styleSupport: SupportFn = (isBuild) => {
   const { loader } = MiniCssExtractPlugin;
@@ -39,7 +40,7 @@ export const styleSupport: SupportFn = (isBuild) => {
     resolve: { extensions: ['.less', '.css'] }
   };
 
-  isBuild && styleConf.plugins.push(new MiniCssExtractPlugin({ filename: 'css/[name]_[contenthash].css' }));
+  isBuild && styleConf.plugins.push(new MiniCssExtractPlugin({ filename: cssFilename(isBuild) }));
 
   return styleConf;
 };
