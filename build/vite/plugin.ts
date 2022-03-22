@@ -8,5 +8,5 @@ import { reportPlugin } from './plugins/report';
 import { compressPlugin } from './plugins/compress';
 
 export function createVitePlugins(isBuild: boolean, viteEnv: Env): Array<Plugin | Plugin[]> {
-  return [vuePlugin(isBuild, viteEnv), cssPlugin(), uiPlugin(isBuild, viteEnv), htmlPlugin(isBuild, viteEnv), reportPlugin(isBuild, viteEnv), compressPlugin(isBuild, viteEnv)];
+  return [vuePlugin, cssPlugin, uiPlugin, htmlPlugin, reportPlugin, compressPlugin].map((plugin) => plugin(isBuild, viteEnv));
 }

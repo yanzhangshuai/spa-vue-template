@@ -20,9 +20,11 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   const viteEnv = wrapperEnv(env);
 
   return {
-    base: viteEnv.VITE_PUBLIC_PATH,
+    base: viteEnv.VITE_PUBLIC_PATH || '/',
     root: root,
+
     envDir: configPath,
+
     envPrefix: 'GLOBAL',
 
     css: {
@@ -42,21 +44,22 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     plugins: createVitePlugins(isBuild, viteEnv),
 
     build: {
-      target: 'es2015',
-      sourcemap: viteEnv.VITE_SOURCE_MAP,
-      outDir: viteEnv.VITE_OUTPUT_DIR,
-      assetsDir: 'assets',
-      minify: 'terser',
+      target: viteEnv.VITE_BUILD_TARGET || 'es2015',
+      sourcemap: viteEnv.VITE_BUILD_SOURCE_MAP || false,
+      minify: viteEnv.VITE_BUILD_MINIFY || true,
+      outDir: viteEnv.VITE_BUILD_OUTPUT_DIR,
+      assetsDir: viteEnv.VITE_BUILD_ASSETS_DIR || 'assets',
       terserOptions: {
         compress: {
           keep_infinity: true,
-          drop_console: viteEnv.VITE_DROP_CONSOLE
+          drop_console: viteEnv.VITE_BUILD_DROP_CONSOLE
         }
       },
       brotliSize: false,
       chunkSizeWarningLimit: 2000,
       rollupOptions: {
         plugins: [dynamicImportVars()],
+
         output: {
           chunkFileNames: 'js/[name].[hash].js',
           entryFileNames: 'js/[name].[hash].js',

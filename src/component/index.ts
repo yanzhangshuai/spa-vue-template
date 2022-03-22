@@ -32,5 +32,6 @@ function useAntd(app: App): App {
 export function setupComponent(app: App<Element>): App<Element> {
   injectComponents(app);
   useAntd(app);
+
   return app;
 }
