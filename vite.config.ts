@@ -3,8 +3,8 @@ import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import packageJson from './package.json';
 import { createProxy } from './build/vite/proxy';
 import { createVitePlugins } from './build/vite/plugin';
-import { assetFileNames, manualChunks } from './build/vite/output';
 import { configPath, resolve, root, wrapperEnv } from './build/utils';
+import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './build/vite/output';
 
 export default ({ mode }: ConfigEnv): UserConfig => {
   const isBuild = mode === 'production';
@@ -21,6 +21,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
   return {
     base: viteEnv.VITE_PUBLIC_PATH || '/',
+
     root: root,
 
     envDir: configPath,
@@ -49,7 +50,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       minify: viteEnv.VITE_BUILD_MINIFY || true,
       outDir: viteEnv.VITE_BUILD_OUTPUT_DIR,
       assetsDir: viteEnv.VITE_BUILD_ASSETS_DIR || 'assets',
-      terserOptions: {
+      terserOptions: viteEnv.VITE_BUILD_MINIFY === 'terser' && {
         compress: {
           keep_infinity: true,
           drop_console: viteEnv.VITE_BUILD_DROP_CONSOLE
@@ -60,12 +61,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       rollupOptions: {
         plugins: [dynamicImportVars()],
 
-        output: {
-          chunkFileNames: 'js/[name].[hash].js',
-          entryFileNames: 'js/[name].[hash].js',
-          manualChunks: manualChunks,
-          assetFileNames: assetFileNames
-        }
+        output: { entryFileNames: entryFileNames, chunkFileNames: chunkFileNames, manualChunks: manualChunks, assetFileNames: assetFileNames }
       }
     },
 

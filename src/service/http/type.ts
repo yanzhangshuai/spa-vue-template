@@ -2,7 +2,6 @@ import { AxiosInterceptorManager, AxiosRequestConfig, AxiosResponse, CancelToken
 
 export interface HttpOptions {
   authenticationScheme?: string;
-  urlPrefix?: string;
   request?: HttpRequestConfig;
 }
 
@@ -16,6 +15,7 @@ export interface HttpResponse<T> extends AxiosResponse<T> {
 }
 
 export interface HttpRequestConfig extends AxiosRequestConfig {
+  uploadBaseUrl?: string;
   /**
    * 是否忽略取消
    */
@@ -33,7 +33,7 @@ export interface HttpUploadRequestConfig extends HttpRequestConfig {
   // File parameter interface field name
   name?: string;
   // file name
-  file?: XOR<File, Blob>;
+  file: XOR<File, Blob>;
   // file name
   filename?: string;
 
