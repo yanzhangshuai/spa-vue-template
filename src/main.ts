@@ -6,9 +6,9 @@ import { setupRouter } from '@/router';
 import { setupService } from '@/service';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
-import '@/asset/style/tailwind.css';
-import '@/asset/style/index.less';
 import App from '@/page/app.vue';
+import 'windi.css';
+import '@/asset/style/index.less';
 
 Vue.use(VueCompositionAPI);
 

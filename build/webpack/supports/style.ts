@@ -1,5 +1,6 @@
-import { Configuration } from 'webpack';
+import { Configuration, WebpackPluginInstance } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import WindiCSSWebpackPlugin from 'windicss-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { SupportFn } from '../type';
 import { resolve } from '../../utils';
@@ -38,7 +39,7 @@ export const styleSupport: SupportFn = (isBuild) => {
       minimizer: [new CssMinimizerPlugin()]
     },
 
-    plugins: [],
+    plugins: [new WindiCSSWebpackPlugin({}) as unknown as WebpackPluginInstance],
 
     resolve: { extensions: ['.less', '.css'] }
   };
