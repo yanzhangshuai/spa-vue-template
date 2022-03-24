@@ -32,3 +32,7 @@ export function chunkFilename(isBuild: boolean, path: unknown, asset?: AssetInfo
 export function cssFilename(isBuild: boolean) {
   return isBuild ? 'css/[name].[contenthash].css' : 'css/[name].css';
 }
+
+export function cssChunkFilename(isBuild: boolean) {
+  return isBuild ? 'css/[name].[contenthash].css' : 'css/[name].css';
+}
