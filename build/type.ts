@@ -12,6 +12,11 @@ export interface Env {
   VITE_SUPPORT_JSX: boolean;
 
   /**
+   * 是否支持options api写法
+   */
+  VITE_SUPPORT_VUE_OPTIONS_API: boolean;
+
+  /**
    * 打包资源公共路径
    */
   VITE_PUBLIC_PATH: string;

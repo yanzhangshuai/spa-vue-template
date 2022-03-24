@@ -28,6 +28,10 @@ export default ({ mode }: ConfigEnv): UserConfig => {
 
     envPrefix: 'GLOBAL',
 
+    define: {
+      __VUE_OPTIONS_API__: viteEnv.VITE_SUPPORT_VUE_OPTIONS_API
+    },
+
     css: {
       modules: {
         scopeBehaviour: 'local',
