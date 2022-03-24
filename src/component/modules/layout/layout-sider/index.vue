@@ -4,7 +4,7 @@
       <img class="h-7" src="https://avatars.githubusercontent.com/u/31086862?s=60&v=4" alt="" />
       <h4 class="ml-4 text-2xl text-white">这是title</h4>
     </div>
-    <layout-menu />
+    <!-- <layout-menu /> -->
   </a-layout-sider>
 </template>
 
