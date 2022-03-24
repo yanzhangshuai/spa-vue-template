@@ -2,7 +2,6 @@ import { defineConfig } from 'windicss/helpers';
 
 export default defineConfig({
   darkMode: 'class',
-  preflight: false,
   attributify: true,
   extract: {
     // accepts globs and file paths relative to project root
