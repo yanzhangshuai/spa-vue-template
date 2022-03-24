@@ -10,6 +10,11 @@ export interface Env {
   WEBPACK_SUPPORT_JSX: boolean;
 
   /**
+   * 是否支持options api写法
+   */
+  WEBPACK_SUPPORT_VUE_OPTIONS_API: boolean;
+
+  /**
    * 打包资源公共路径
    */
   WEBPACK_PUBLIC_PATH: string;
