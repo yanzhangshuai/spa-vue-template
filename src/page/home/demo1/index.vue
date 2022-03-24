@@ -1,14 +1,12 @@
 <template>
   <div>
-    <div class="text-blue-300" @click="$window.alert('123')">我是demo1</div>
-    <button @click="$router.push('/home/demo2')">Go To Demo2</button>
-    <p>文件服务器地址 :{{ $globalProps.FILE_PATH_PREFIX }}</p>
-    <p>当前是否为开发环境 :{{ $globalProps.DEV }}</p>
-    <p>当前时间 :{{ $globalProps.dateFormat($window.Date.now()) }}</p>
-    <p>当前版本 :{{ $globalProps.VERSION }}</p>
+    <div class="text-block" @click="$window.alert('1')">我是demo1</div>
+    <button class="text-red-700 dark:text-green-400" @click="$router.push('/home/demo2')">Go To Demo2</button>
+    <li>文件服务器地址 :{{ $globalProps.FILE_PATH_PREFIX }}</li>
+    <li>当前是否为开发环境:{{ $globalProps.DEV }}</li>
+    <li>当前时间 :{{ $globalProps.dateFormat($window.Date.now()) }}</li>
+    <li>当前版本 :{{ $globalProps.VERSION }}</li>
   </div>
-  <!-- <button @click="$router.push('/home/demo2')">Go To Demo2</button>
-  <tsx-demo /> -->
 </template>
 
 <script lang="ts">
@@ -24,7 +22,11 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-p {
+div {
   color: @primary;
+}
+
+li {
+  @apply font-bold py-1 list-none px-0 text-red-300 rounded !important;
 }
 </style>
