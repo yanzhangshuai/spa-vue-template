@@ -6,8 +6,8 @@ import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
 import { isReady, setupRouter } from '@/router';
 import App from '@/page/app.vue';
+import 'windi.css';
 import '@/asset/style/index.less';
-import '@/asset/style/tailwind.css';
 
 const app = createApp(App);
 
@@ -27,3 +27,5 @@ setupStore(app);
 isReady().then(() => {
   app.mount('#app');
 });
+
+document.documentElement.classList.add('dark');
