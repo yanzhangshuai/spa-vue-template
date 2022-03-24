@@ -1,11 +1,10 @@
 import { defineConfig } from 'windicss/helpers';
-
 export default defineConfig({
   darkMode: 'class',
   attributify: true,
   extract: {
     // accepts globs and file paths relative to project root
-    include: ['index.html', 'src/**/*.{vue,tsx}'],
+    include: ['src/**/*.{vue,tsx,html,less,css}'],
     exclude: ['node_modules/**/*', '.git/**/*']
   },
   theme: {
@@ -14,7 +13,8 @@ export default defineConfig({
         '-1': '-1'
       },
       colors: {
-        primary: '#007fff'
+        primary: '#007fff',
+        block: '#0a1f44'
       },
       screens: {
         sm: '576px',
@@ -23,6 +23,8 @@ export default defineConfig({
         xl: '1200px',
         '2xl': '1600px'
       }
-    }
-  }
+    },
+    default: {}
+  },
+  shortcuts: {}
 });

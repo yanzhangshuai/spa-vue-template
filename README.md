@@ -16,5 +16,6 @@ npm run serve                   生产环境运行
 npm run lint                    eslint、stylelint
 npm run report                  分析生产环境编译结果
 npm run analysis                分析 windicss 使用结果
+npm run analysis                分析 windicss 使用结果
 npm run test                    单元测试
 ```

@@ -1,6 +1,5 @@
 const plugins = {
-  autoprefixer: {},
-  'postcss-import': {}
+  autoprefixer: {}
 };
 
 if (process.env.NODE_ENV === 'production') {

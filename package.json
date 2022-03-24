@@ -17,7 +17,8 @@
     "lint": "npm-run-all --parallel lint:*",
     "test": "jest --passWithNoTests",
     "test:cover": "jest --passWithNoTests --coverage --reporters jest-stare",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analysis": "windicss-analysis"
   },
   "dependencies": {
     "@vue/runtime-core": "^3.2.31",
@@ -70,7 +71,6 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.12",
     "postcss-html": "^1.3.0",
-    "postcss-import": "^14.1.0",
     "postcss-less": "^6.0.0",
     "prettier": "^2.6.0",
     "rollup": "^2.70.1",
@@ -87,7 +87,8 @@
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-windicss": "^1.8.3",
-    "vue-tsc": "^0.33.7"
+    "vue-tsc": "^0.33.7",
+    "windicss-analysis": "^0.3.5"
   },
   "jest-stare": {
     "merge": "true",
