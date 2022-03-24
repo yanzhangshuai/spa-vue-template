@@ -6,19 +6,14 @@ export const scriptSupport: SupportFn = () => {
     module: {
       rules: [
         {
-          test: /\.[tj]sx$/,
+          test: /\.[tj]s(x)?$/,
           include: resolve('src'),
-          use: ['babel-loader']
-        },
-        {
-          test: /\.[tj]s$/,
-          include: resolve('src'),
-          use: ['babel-loader']
+          use: ['thread-loader', 'babel-loader']
         }
       ]
     },
     resolve: {
-      extensions: ['.ts', '.js']
+      extensions: ['.tsx', '.ts', '.jsx', '.js']
     }
   };
 };
