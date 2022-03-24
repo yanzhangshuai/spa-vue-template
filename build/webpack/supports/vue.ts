@@ -10,12 +10,12 @@ export const vueSupport: SupportFn = () => {
         {
           test: /\.vue$/,
           include: resolve('src'),
-          use: [{ loader: 'vue-loader', options: { pad: true } }]
+          use: ['thread-loader', { loader: 'vue-loader', options: { pad: true } }]
         }
       ]
     },
     plugins: [new VueLoaderPlugin() as WebpackPluginInstance],
 
-    resolve: { extensions: ['.vue', '.tsx'] }
+    resolve: { extensions: ['.vue'] }
   };
 };

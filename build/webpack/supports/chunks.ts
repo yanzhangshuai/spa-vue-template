@@ -20,7 +20,7 @@ export const chunksSupport: SupportFn = () => {
           //   test: /[\\/]node_modules[\\/]/,
           //   priority: -10
           // },
-          styles: { name: 'styles', test: /\.css/, chunks: 'all', enforce: true, priority: -10 }
+          styles: { name: '__vendors', test: /\.css/, chunks: 'all', enforce: true, priority: -10 }
         }
       }
     }
