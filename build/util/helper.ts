@@ -1,16 +1,5 @@
-import path from 'path';
-import { Env } from './type';
-
-export const root = process.cwd();
-
-/**
- * 配置文件所在路径
- */
-export const configPath = resolve('config');
-
-export function resolve(dir: string): string {
-  return path.join(root, dir);
-}
+import { resolve } from './path';
+import { Env } from '../type/env';
 
 export function moduleAlias(modules: Array<string>, prefixPath = 'src'): Record<string, string> {
   return modules.reduce((accumulator, current) => {

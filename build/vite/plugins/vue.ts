@@ -1,6 +1,6 @@
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import { PluginFn } from '../type';
+import { PluginFn } from '../../type/vite';
 
 export const vuePlugin: PluginFn = (isBuild, env) => {
   const plugins = [vue({ reactivityTransform: true })];

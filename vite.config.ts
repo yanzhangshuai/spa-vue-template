@@ -1,9 +1,10 @@
 import { ConfigEnv, loadEnv, UserConfig } from 'vite';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import packageJson from './package.json';
+import { wrapperEnv } from './build/util/helper';
+import { configPath, resolve, root } from './build/util/path';
 import { createProxy } from './build/vite/proxy';
 import { createVitePlugins } from './build/vite/plugin';
-import { configPath, resolve, root, wrapperEnv } from './build/utils';
 import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './build/vite/output';
 
 export default ({ mode }: ConfigEnv): UserConfig => {

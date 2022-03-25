@@ -1,5 +1,5 @@
 import { Plugin } from 'vite';
-import { Env } from '../type';
+import { Env } from '../type/env';
 import { vuePlugin } from './plugins/vue';
 import { cssPlugin } from './plugins/css';
 import { htmlPlugin } from './plugins/html';

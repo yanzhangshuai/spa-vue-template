@@ -1,5 +1,5 @@
 import visualizer from 'rollup-plugin-visualizer';
-import { PluginFn } from '../type';
+import { PluginFn } from '../../type/vite';
 
 export const reportPlugin: PluginFn = (isBuild, env) => {
   return {
@@ -7,7 +7,8 @@ export const reportPlugin: PluginFn = (isBuild, env) => {
       open: true,
       gzipSize: true,
       brotliSize: true,
-      template: 'treemap' // "sunburst" | "treemap" | "network"
+      template: 'treemap', // "sunburst" | "treemap" | "network"
+      filename: './report/dependence/index.html'
     }),
     apply: () => env.VITE_REPORT
   };
