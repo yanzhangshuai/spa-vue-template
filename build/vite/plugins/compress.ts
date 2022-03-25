@@ -1,5 +1,5 @@
 import compress from 'vite-plugin-compression';
-import { PluginFn } from '../type';
+import { PluginFn } from '../../type/vite';
 
 export const compressPlugin: PluginFn = (isBuild: boolean, env) => {
   if (!env?.VITE_BUILD_COMPRESS || env.VITE_BUILD_COMPRESS === 'none') return [];

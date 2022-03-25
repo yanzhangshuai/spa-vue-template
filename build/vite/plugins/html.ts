@@ -1,6 +1,6 @@
 import { Plugin } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
-import { PluginFn } from '../type';
+import { PluginFn } from '../../type/vite';
 
 export const htmlPlugin: PluginFn = (isBuild, env) => {
   return (createHtmlPlugin({
