@@ -2,8 +2,8 @@ import { Configuration, WebpackPluginInstance } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import WindiCSSWebpackPlugin from 'windicss-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import { SupportFn } from '../type';
-import { resolve } from '../../utils';
+import { resolve } from '../../util/path';
+import { SupportFn } from '../../type/webpack';
 import { cssChunkFilename, cssFilename } from '../output';
 
 export const styleSupport: SupportFn = (isBuild) => {
