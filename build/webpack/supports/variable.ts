@@ -1,7 +1,9 @@
 import { Configuration, DefinePlugin } from 'webpack';
-import { SupportFn } from '../type';
-import { loadEnv } from '../../config';
-import { configPath, wrapperEnv } from '../../utils';
+import { loadEnv } from '../../util/config';
+import { configPath } from '../../util/path';
+import { wrapperEnv } from '../../util/helper';
+import { SupportFn } from '../../type/webpack';
+
 export const variableSupport: SupportFn = (isBuild) => {
   const conf: Configuration = { plugins: [] };
 

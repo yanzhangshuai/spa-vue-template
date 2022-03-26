@@ -1,10 +1,46 @@
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
 
 const NEWLINE = '\n';
-const RE_INI_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/;
 const RE_NEWLINES = /\\n/g;
 const NEWLINES_MATCH = /\n|\r|\r\n/;
+const RE_INI_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/;
+
+export function loadEnv(mode: 'development' | 'production', envDir: string, prefix = 'WEBPACK_'): Record<string, string> {
+  const env: Record<string, string> = {};
+  const envFiles = [/** mode local file */ `.env.${mode}.local`, /** mode file */ `.env.${mode}`, /** local file */ `.env.local`, /** default file */ `.env`];
+  // 检查是否有前缀起始的env变量
+  // 通常是内联提供的，应该按优先级排列
+  for (const key in process.env) {
+    if (key.startsWith(prefix) && env[key] === undefined) {
+      env[key] = process.env[key];
+    }
+  }
+
+  for (const file of envFiles) {
+    const path = lookupFile(envDir, [file], true);
+    if (path) {
+      const parsed = parse(fs.readFileSync(path));
+      // let environment variables use each other
+      main({
+        parsed,
+        // prevent process.env mutation
+        ignoreProcessEnv: true
+      });
+      // only keys that start with prefix are exposed to client
+      for (const [key, value] of Object.entries(parsed)) {
+        if (key.startsWith(prefix) && env[key] === undefined) {
+          env[key] = value;
+        } else if (key === 'NODE_ENV') {
+          // NODE_ENV override in .env file
+          //process.env.VITE_USER_NODE_ENV = value;
+        }
+      }
+    }
+  }
+  return env;
+}
+
 // 将src转为obj
 function parse(src: string | Buffer): Record<string, string> {
   const obj: Record<string, string> = {};
@@ -101,38 +137,3 @@ const main = function (config: { parsed: Record<string, string>; ignoreProcessEn
 
   return config;
 };
-
-export function loadEnv(mode: 'development' | 'production', envDir: string, prefix = 'WEBPACK_'): Record<string, string> {
-  const env: Record<string, string> = {};
-  const envFiles = [/** mode local file */ `.env.${mode}.local`, /** mode file */ `.env.${mode}`, /** local file */ `.env.local`, /** default file */ `.env`];
-  // 检查是否有前缀起始的env变量
-  // 通常是内联提供的，应该按优先级排列
-  for (const key in process.env) {
-    if (key.startsWith(prefix) && env[key] === undefined) {
-      env[key] = process.env[key];
-    }
-  }
-
-  for (const file of envFiles) {
-    const path = lookupFile(envDir, [file], true);
-    if (path) {
-      const parsed = parse(fs.readFileSync(path));
-      // let environment variables use each other
-      main({
-        parsed,
-        // prevent process.env mutation
-        ignoreProcessEnv: true
-      });
-      // only keys that start with prefix are exposed to client
-      for (const [key, value] of Object.entries(parsed)) {
-        if (key.startsWith(prefix) && env[key] === undefined) {
-          env[key] = value;
-        } else if (key === 'NODE_ENV') {
-          // NODE_ENV override in .env file
-          //process.env.VITE_USER_NODE_ENV = value;
-        }
-      }
-    }
-  }
-  return env;
-}
