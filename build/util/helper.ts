@@ -1,17 +1,11 @@
-import path from 'path';
 import portfinder from 'portfinder';
-
-export const root = process.cwd();
-
-export const resolve = (dir: string): string => {
-  return path.join(root, dir);
-};
+import { resolve } from './path';
 
 export function moduleAlias(modules: Array<string>, prefixPath = 'src'): Record<string, string> {
   return modules.reduce((accumulator, current) => {
     accumulator[current] = resolve(prefixPath + '/' + current);
     return accumulator;
-  }, {} as Record<string, string>);
+  }, {});
 }
 
 /**
@@ -23,10 +17,6 @@ export const findPort = (startPort: number): Promise<number> => {
   return portfinder.getPortPromise({ startPort: startPort, port: startPort });
 };
 
-/**
- * 配置文件所在路径
- */
-export const configPath = resolve('config');
 // 转换配置文件数据
 export function wrapperEnv<T extends Object>(envConf: Record<keyof T, string>): T {
   return (Object.keys(envConf) as Array<keyof T>)

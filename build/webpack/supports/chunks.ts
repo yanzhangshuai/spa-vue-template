@@ -1,5 +1,5 @@
 import { Configuration } from 'webpack';
-import { SupportFn } from '../type';
+import { SupportFn } from '../../type/webpack';
 
 export const chunksSupport: SupportFn = () => {
   const conf: Configuration = {
