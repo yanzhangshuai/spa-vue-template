@@ -9,12 +9,12 @@
     "build": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack",
     "build:br": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" WEBPACK_BUILD_COMPRESS=brotli  webpack",
     "build:gzip": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" WEBPACK_BUILD_COMPRESS=gzip  webpack",
-    "report": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"  WEBPACK_REPORT=true webpack",
     "lint:js": "eslint --config .eslintrc.js  ./{src,test,type,build}/**/*.{ts,tsx,vue} --fix",
     "lint:style": "stylelint --config .stylelintrc.js ./src/**/*.{css,less,vue} --fix",
     "lint": "npm-run-all --parallel lint:*",
     "prepare": "husky install",
-    "analysis": "windicss-analysis"
+    "report": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\"  WEBPACK_REPORT=true webpack",
+    "report:windi": "windicss-analysis"
   },
   "dependencies": {
     "@vue/composition-api": "^1.4.9",

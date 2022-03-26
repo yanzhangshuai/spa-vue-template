@@ -1,6 +1,6 @@
 import { Configuration } from 'webpack';
 import CompressionPlugin from 'compression-webpack-plugin';
-import { SupportFn } from '../type';
+import { SupportFn } from '../../type/webpack';
 
 export const compressSupport: SupportFn = (isBuild, env) => {
   const conf: Configuration = { plugins: [] };

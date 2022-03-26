@@ -1,6 +1,6 @@
 import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
-import { Env } from '../type';
+import { Env } from '../type/env';
 import { vueSupport } from './supports/vue';
 import { htmlSupport } from './supports/html';
 import { reportSupport } from './supports/report';

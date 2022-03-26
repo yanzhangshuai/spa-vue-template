@@ -1,4 +1,4 @@
 import { Configuration } from 'webpack';
-import { Env } from '../type';
+import { Env } from './env';
 
 export type SupportFn = (isBuild?: boolean, env?: Env) => Configuration;
