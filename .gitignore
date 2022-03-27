@@ -4,7 +4,6 @@ dist
 dist-ssr
 *.local
 .idea
-jest-stare
 coverage
 yarn-error.log
 package-lock.json
