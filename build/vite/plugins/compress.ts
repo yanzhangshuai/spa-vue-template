@@ -1,7 +1,7 @@
 import compress from 'vite-plugin-compression';
 import { PluginFn } from '../../type/vite';
 
-export const compressPlugin: PluginFn = (isBuild: boolean, env) => {
+export const compressPlugin: PluginFn = (mode, env) => {
   if (!env?.VITE_BUILD_COMPRESS || env.VITE_BUILD_COMPRESS === 'none') return [];
 
   if (env.VITE_BUILD_COMPRESS === 'gzip') {

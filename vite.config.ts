@@ -1,14 +1,16 @@
-import { ConfigEnv, loadEnv, UserConfig } from 'vite';
+/// <reference types="vitest" />
+import { defineConfig, loadEnv } from 'vite';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import packageJson from './package.json';
+import { Mode } from './build/type/vite';
 import { wrapperEnv } from './build/util/helper';
 import { configPath, resolve, root } from './build/util/path';
 import { createProxy } from './build/vite/proxy';
 import { createVitePlugins } from './build/vite/plugin';
 import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './build/vite/output';
 
-export default ({ mode }: ConfigEnv): UserConfig => {
-  const isBuild = mode === 'production';
+export default defineConfig((conf) => {
+  const mode = conf.mode as Mode;
 
   // 设置版本号
   process.env.GLOBAL_VERSION = packageJson.version;
@@ -47,9 +49,9 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         }
       }
     },
-    plugins: createVitePlugins(isBuild, viteEnv),
+    plugins: createVitePlugins(mode, viteEnv),
 
-    build: {
+    build: mode === 'production' && {
       target: viteEnv.VITE_BUILD_TARGET || 'es2015',
       sourcemap: viteEnv.VITE_BUILD_SOURCE_MAP || false,
       minify: viteEnv.VITE_BUILD_MINIFY || true,
@@ -70,7 +72,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       }
     },
 
-    server: !isBuild && {
+    server: mode === 'development' && {
       open: viteEnv.VITE_SERVER_OPEN !== false,
       host: true,
       hmr: true,
@@ -85,6 +87,15 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       },
       mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],
       extensions: ['.vue', '.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
+    },
+
+    test: mode === 'test' && {
+      global: true,
+      environment: 'jsdom',
+      coverage: {
+        reporter: ['text', 'html'],
+        reportsDirectory: resolve('report/test')
+      }
     }
   };
-};
+});

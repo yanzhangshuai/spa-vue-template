@@ -18,5 +18,5 @@ npm run lint                    eslint、stylelint
 
 npm run report                  分析生产环境包依赖情况
 npm run report:windi            分析 windicss 使用情况
-npm run report:test             分析 jest 情况
+npm run report:test             分析 单元测试 情况
 ```
