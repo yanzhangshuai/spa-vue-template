@@ -2,10 +2,7 @@
   <div>
     <div class="text-block" @click="$window.alert('1')">我是demo1</div>
     <button class="text-red-700 dark:text-green-400" @click="$router.push('/home/demo2')">Go To Demo2</button>
-    <li>文件服务器地址 :{{ $globalProps.FILE_PATH_PREFIX }}</li>
-    <li>当前是否为开发环境:{{ $globalProps.DEV }}</li>
-    <li>当前时间 :{{ $globalProps.dateFormat($window.Date.now()) }}</li>
-    <li>当前版本 :{{ $globalProps.VERSION }}</li>
+    <global-props-demo />
   </div>
 </template>
 
