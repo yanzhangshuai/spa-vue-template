@@ -93,7 +93,7 @@ export default defineConfig((conf) => {
       global: true,
       environment: 'jsdom',
       coverage: {
-        reporter: ['text', 'html'],
+        reporter: ['html'],
         reportsDirectory: resolve('report/test')
       }
     }
