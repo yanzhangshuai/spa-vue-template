@@ -13,7 +13,7 @@ export default defineConfig((conf) => {
   const mode = conf.mode as Mode;
 
   // 设置版本号
-  process.env.GLOBAL_VERSION = packageJson.version;
+  process.env.GLOBAL_APP_VERSION = packageJson.version;
 
   // 根据VITE命令设置NODE环境变量
   process.env.NODE_ENV = mode;
