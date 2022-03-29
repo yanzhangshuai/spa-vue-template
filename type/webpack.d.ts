@@ -1,19 +1,27 @@
-declare const GLOBAL_DEV: boolean;
+/**
+ * 应用名称
+ */
+declare const GLOBAL_APP_NAME: string;
+/**
+ * 应用LOGO
+ */
+declare const GLOBAL_APP_LOGO: string;
+/**
+ *  应用版本
+ */
+declare const GLOBAL_APP_VERSION: string;
 
 /**
- * 当前title
+ * 应用标题
  */
 declare const GLOBAL_APP_TITLE: string;
+
+declare const GLOBAL_DEV: boolean;
 
 /**
  * 静态文件地址
  */
 declare const GLOBAL_FILE_PATH: string;
-
-/**
- * 项目版本
- */
-declare const GLOBAL_VERSION: string;
 
 /**
  *api base url

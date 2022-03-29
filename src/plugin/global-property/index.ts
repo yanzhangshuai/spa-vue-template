@@ -6,7 +6,10 @@ let globalProps: GlobalProps;
 
 export function setupGlobalProperty(app: App<Element>): App<Element> {
   globalProps = {
-    VERSION: GLOBAL_VERSION,
+    APP_NAME: GLOBAL_APP_NAME,
+    APP_LOGO: GLOBAL_APP_LOGO,
+    APP_VERSION: GLOBAL_APP_VERSION,
+    APP_TITLE: GLOBAL_APP_TITLE,
     FILE_PATH_PREFIX: GLOBAL_FILE_PATH,
     DEV: GLOBAL_DEV,
     dateFormat: dateFormat
