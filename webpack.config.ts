@@ -18,7 +18,7 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
   const mode = isBuild ? 'production' : 'development';
 
   // 设置版本号
-  process.env.GLOBAL_VERSION = packageJson.version;
+  process.env.GLOBAL_APP_VERSION = packageJson.version;
 
   // 根据webpack命令设置NODE环境变量
   process.env.NODE_ENV = mode;

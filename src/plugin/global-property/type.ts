@@ -1,17 +1,35 @@
 export declare interface GlobalProps {
   /**
-   * 版本号
+   * 应用名称
    */
-  VERSION: string;
+  readonly APP_NAME: string;
+
+  /**
+   * 应用LOGO
+   */
+  readonly APP_LOGO: string;
+
+  /**
+   * 应用版本
+   */
+  readonly APP_VERSION: string;
+
+  /**
+   * 应用标题
+   */
+  readonly APP_TITLE: string;
   /**
    * 文件服务器路径
    */
-  FILE_PATH_PREFIX: string;
+  readonly FILE_PATH_PREFIX: string;
 
-  DEV: boolean;
+  /**
+   * 当前是否为开发环境
+   */
+  readonly DEV: boolean;
 
   /**
    * 日期格式化
    */
-  dateFormat: (date: number | Date, template?: string) => string;
+  readonly dateFormat: (date: number | Date, template?: string) => string;
 }

@@ -1,5 +1,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
+    'global-props-demo': typeof import('./modules/base/global-props-demo/global-props-demo/index.vue')['default'];
     'config-provider': typeof import('./modules/config-provider/index.vue')['default'];
     'date-picker-test': typeof import('./modules/date-picker-test/index.vue')['default'];
     layout: typeof import('./modules/layout/index.vue')['default'];
