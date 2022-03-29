@@ -1,7 +1,6 @@
 import { Configuration } from 'webpack-dev-server';
 import { Env } from '../type/env';
 import { createProxy } from './proxy';
-import { resolve } from '../util/path';
 import { findPort } from '../util/helper';
 
 export function createDevServer(env: Env): Promise<Configuration> {
@@ -25,7 +24,7 @@ export function createDevServer(env: Env): Promise<Configuration> {
     },
 
     watchFiles: {
-      paths: resolve('src'),
+      paths: ['src/**/*.png', 'public/**/*'],
       options: {
         usePolling: false,
         ignored: /node_modules/
