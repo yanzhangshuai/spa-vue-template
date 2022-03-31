@@ -2,10 +2,10 @@ import { Configuration } from 'webpack';
 import CompressionPlugin from 'compression-webpack-plugin';
 import { SupportFn } from '../../type/webpack';
 
-export const compressSupport: SupportFn = (isBuild, env) => {
+export const compressSupport: SupportFn = (mode, env) => {
   const conf: Configuration = { plugins: [] };
 
-  if (!isBuild || !env?.WEBPACK_BUILD_COMPRESS || env.WEBPACK_BUILD_COMPRESS === 'none') return conf;
+  if (mode !== 'production' || !env?.WEBPACK_BUILD_COMPRESS || env.WEBPACK_BUILD_COMPRESS === 'none') return conf;
 
   const compressionObj: Record<string, string> = {};
   if (env.WEBPACK_BUILD_COMPRESS === 'gzip') {

@@ -27,5 +27,3 @@ setupStore(app);
 isReady().then(() => {
   app.mount('#app');
 });
-
-document.documentElement.classList.add('dark');

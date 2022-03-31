@@ -1,42 +1,39 @@
 module.exports = {
-  //  依赖环境
   env: {
-    //  浏览器
     browser: true,
-    //  启用ES6特性（除modules）
     es6: true,
     'vue/setup-compiler-macros': true
   },
-
+  
   extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
-
+  
   parser: 'vue-eslint-parser',
   //  解析器配置
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
     ecmaVersion: 2021,
-    ecmaFeatures: {
-      jsx: true
-    },
+    ecmaFeatures: { jsx: true },
     extraFileExtensions: [`.vue`, '.tsx'],
-    vueFeatures: {
-      interpolationAsNonHTML: true
-    }
+    vueFeatures: { interpolationAsNonHTML: true }
   },
   settings: {
     'import/resolver': {
       alias: [['@', './src']]
     }
   },
-
+  
+  noInlineConfig: false,
+  reportUnusedDisableDirectives: false,
+  
   //  第三方插件
   plugins: ['eslint-plugin-vue', 'eslint-plugin-promise', '@typescript-eslint/eslint-plugin'],
+  
   rules: {
     'no-var': 2,
     'no-eval': 2,
     'no-alert': process.env.NODE_ENV !== 'production' ? 0 : 2,
-    'no-console': process.env.NODE_ENV !== 'production' ? 0 : [1, { allow: ['warn', 'error'] }],
+    'no-console': process.env.NODE_ENV !== 'production' ? 0 : [ 1, { allow: ['warn', 'error'] }],
     'no-restricted-syntax': 2,
     'no-script-url': 2,
     'no-self-compare': 2,
@@ -52,6 +49,7 @@ module.exports = {
     'space-before-function-paren': 0,
     'no-lonely-if': 2,
     'no-unused-vars': 0,
+    
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/ban-ts-comment': 0,
@@ -65,18 +63,6 @@ module.exports = {
     'vue/require-default-prop': 2,
     'vue/multi-word-component-names': 0,
     'vue/eqeqeq': [2, 'always', { null: 'ignore' }],
-    'vue/max-attributes-per-line': [
-      0,
-      {
-        singleline: 1,
-        multiline: {
-          max: 1,
-          allowFirstLine: false
-        }
-      }
-    ]
-  },
-
-  noInlineConfig: false,
-  reportUnusedDisableDirectives: false
+    'vue/max-attributes-per-line': [ 0, { singleline: 1, multiline: { max: 1, allowFirstLine: false } }]
+  }
 };
