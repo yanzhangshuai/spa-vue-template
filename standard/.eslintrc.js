@@ -1,10 +1,8 @@
 module.exports = {
-  //  依赖环境
   env: {
-    //  浏览器
     browser: true,
-    //  启用ES6特性（除modules）
-    es6: true
+    es6: true,
+    'vue/setup-compiler-macros': true
   },
 
   extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
@@ -15,13 +13,9 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
     ecmaVersion: 2021,
-    ecmaFeatures: {
-      jsx: true
-    },
+    ecmaFeatures: { jsx: true },
     extraFileExtensions: [`.vue`, '.tsx'],
-    vueFeatures: {
-      interpolationAsNonHTML: true
-    }
+    vueFeatures: { interpolationAsNonHTML: true }
   },
   settings: {
     'import/resolver': {
@@ -29,8 +23,12 @@ module.exports = {
     }
   },
 
+  noInlineConfig: false,
+  reportUnusedDisableDirectives: false,
+
   //  第三方插件
   plugins: ['eslint-plugin-vue', 'eslint-plugin-promise', '@typescript-eslint/eslint-plugin'],
+
   rules: {
     'no-var': 2,
     'no-eval': 2,
@@ -62,21 +60,9 @@ module.exports = {
     '@typescript-eslint/no-namespace': 0,
     '@typescript-eslint/no-var-requires': 2,
     '@typescript-eslint/no-inferrable-types': 2,
-    'vue/require-default-prop': 0,
+    'vue/require-default-prop': 2,
     'vue/multi-word-component-names': 0,
     'vue/eqeqeq': [2, 'always', { null: 'ignore' }],
     'vue/max-attributes-per-line': [0, { singleline: 1, multiline: { max: 1, allowFirstLine: false } }]
-
-    // 'jest/consistent-test-it': [2, { fn: 'it' }],
-    // 'jest/no-disabled-tests': 1,
-    // 'jest/no-focused-tests': 2,
-    // 'jest/no-identical-title': 2,
-    // 'jest/prefer-to-have-length': 1,
-    // 'jest/valid-describe': 2,
-    // 'jest/valid-expect': 2,
-    // 'jest/valid-expect-in-promise': 2
-  },
-
-  noInlineConfig: false,
-  reportUnusedDisableDirectives: false
+  }
 };

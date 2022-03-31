@@ -10,7 +10,7 @@ export const vueSupport: SupportFn = () => {
         {
           test: /\.vue$/,
           include: resolve('src'),
-          use: ['thread-loader', { loader: 'vue-loader', options: { pad: true } }]
+          use: ['thread-loader', 'vue-loader']
         }
       ]
     },
