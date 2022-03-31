@@ -1,38 +1,43 @@
 import { AssetInfo } from 'webpack';
+import { Mode } from '../type/webpack';
 
 /**
  *
- * @param isBuild
- * @param path
+ * @param mode
+ * @param _
  * @param asset
  * @returns
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function filename(isBuild: boolean, _: unknown, asset?: AssetInfo): string {
-  return isBuild ? 'js/[name].[contenthash].js' : 'js/[name].js';
+export function filename(mode: Mode, _: unknown, asset?: AssetInfo): string {
+  return mode === 'production' ? 'js/[name].[contenthash].js' : 'js/[name].js';
 }
 
 /**
  *
- * @param isBuild
+ * @param mode
  * @param path
  * @param asset
  * @returns
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function chunkFilename(isBuild: boolean, path: unknown, asset?: AssetInfo): string {
-  return isBuild ? 'js/[name].[contenthash].js' : 'js/[name].js';
+export function chunkFilename(mode: Mode, path: unknown, asset?: AssetInfo): string {
+  return mode === 'production' ? 'js/[name].[contenthash].js' : 'js/[name].js';
 }
 
 /**
  * css filename
- * @param isBuild
  * @returns
+ * @param mode
  */
-export function cssFilename(isBuild: boolean) {
-  return isBuild ? 'css/[name].[contenthash].css' : 'css/[name].css';
+export function cssFilename(mode: Mode) {
+  return mode === 'production' ? 'css/[name].[contenthash].css' : 'css/[name].css';
 }
 
-export function cssChunkFilename(isBuild: boolean): string {
-  return isBuild ? 'css/[name].[contenthash].css' : 'css/[name].css';
+/**
+ * css chunkFilename
+ * @param mode
+ */
+export function cssChunkFilename(mode: Mode): string {
+  return mode === 'production' ? 'css/[name].[contenthash].css' : 'css/[name].css';
 }

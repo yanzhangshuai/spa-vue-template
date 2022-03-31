@@ -3,7 +3,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { resolve } from '../../util/path';
 import { SupportFn } from '../../type/webpack';
 
-export const reportSupport: SupportFn = (isBuild, env) => {
+export const reportSupport: SupportFn = (mode, env) => {
   const conf: Configuration = { plugins: [] };
   if (!env.WEBPACK_REPORT) return conf;
 

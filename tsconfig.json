@@ -33,29 +33,15 @@
         "src/*"
       ]
     },
-    "types": [
-      "node",
-      "webpack-env"
-    ],
     "sourceMap": false,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "types": ["node", "webpack-env"],
     //  类型声明文件的查找地址
-    "typeRoots": [
-      "node_modules/@types",
-      "src",
-      "type"
-    ],
-    //  引入的库文件
-    "lib": [
-      "es5",
-      "es6",
-      "es7",
-      "dom",
-      "esnext",
-      "dom.iterable"
-    ]
+    "typeRoots": ["node_modules/@types", "src", "type"],
+     //  引入的库文件
+    "lib": ["dom", "esnext", "dom.iterable"]
   },
   //  排除编译的文件
   "exclude": ["node_modules", "build", "src/asset/json/*.json"],

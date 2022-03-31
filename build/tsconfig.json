@@ -7,14 +7,8 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "baseUrl": "./",
-    "rootDir": "./",
-    "lib": ["esnext"],
+    "baseUrl": "../",
+    "rootDir": "../",
     "types": ["node"],
-    "paths": {
-      "build/*": ["./build/*"],
-    },
-    "typeRoots": ["node_modules/@types"]
-  },
-  "presets": ["es2015"]
+  }
 }
