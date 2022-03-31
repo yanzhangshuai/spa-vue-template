@@ -23,13 +23,13 @@ export function createDevServer(env: Env): Promise<Configuration> {
       writeToDisk: env.WEBPACK_SERVER_WRITE_TO_DIST
     },
 
-    watchFiles: {
-      paths: ['src/**/*.png', 'public/**/*'],
-      options: {
-        usePolling: false,
-        ignored: /node_modules/
-      }
-    },
+    // watchFiles: {
+    //   paths: ['src/**/*.png', 'public/**/*'],
+    //   options: {
+    //     usePolling: false,
+    //     ignored: /node_modules/
+    //   }
+    // },
     proxy: createProxy(env.WEBPACK_SERVER_PROXY)
   };
 

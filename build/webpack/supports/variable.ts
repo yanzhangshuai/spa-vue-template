@@ -4,16 +4,14 @@ import { configPath } from '../../util/path';
 import { wrapperEnv } from '../../util/helper';
 import { SupportFn } from '../../type/webpack';
 
-export const variableSupport: SupportFn = (isBuild) => {
+export const variableSupport: SupportFn = (mode) => {
   const conf: Configuration = { plugins: [] };
-
-  const mode = process.env.NODE_ENV as 'development' | 'production';
 
   const env = loadEnv(mode, configPath, 'GLOBAL_');
 
   const globalEnv = wrapperEnv<Record<string, string | boolean | number>>(env);
 
-  globalEnv['GLOBAL_DEV'] = !isBuild;
+  globalEnv['GLOBAL_DEV'] = mode === 'development';
 
   for (const key in globalEnv) {
     if (Object.prototype.hasOwnProperty.call(globalEnv, key)) {

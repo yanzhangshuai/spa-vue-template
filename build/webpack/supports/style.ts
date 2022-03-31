@@ -6,21 +6,21 @@ import { resolve } from '../../util/path';
 import { SupportFn } from '../../type/webpack';
 import { cssChunkFilename, cssFilename } from '../output';
 
-export const styleSupport: SupportFn = (isBuild) => {
+export const styleSupport: SupportFn = (mode) => {
   const { loader } = MiniCssExtractPlugin;
-  const conf: Configuration = {
+  const styleConf: Configuration = {
     module: {
       rules: [
         {
           test: /\.css$/,
-          use: [isBuild ? loader : 'style-loader', { loader: 'css-loader' }, 'postcss-loader']
+          use: [mode === 'production' ? loader : 'style-loader', { loader: 'css-loader' }, { loader: 'postcss-loader', options: { postcssOptions: { config: resolve('build/postcss.config.js') } } }]
         },
         {
           test: /\.less$/,
           include: resolve('src'),
           use: [
-            isBuild ? loader : 'style-loader',
-            { loader: 'css-loader', options: { importLoaders: 1 } },
+            mode === 'production' ? loader : 'style-loader',
+            { loader: 'css-loader', options: { importLoaders: 2 } },
             {
               loader: 'less-loader',
               options: {
@@ -44,7 +44,7 @@ export const styleSupport: SupportFn = (isBuild) => {
     resolve: { extensions: ['.less', '.css'] }
   };
 
-  isBuild && conf.plugins.push(new MiniCssExtractPlugin({ filename: cssFilename(isBuild), chunkFilename: cssChunkFilename(isBuild) }));
+  mode === 'production' && styleConf.plugins.push(new MiniCssExtractPlugin({ filename: cssFilename(mode), chunkFilename: cssChunkFilename(mode) }));
 
-  return conf;
+  return styleConf;
 };

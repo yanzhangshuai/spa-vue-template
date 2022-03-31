@@ -1,17 +1,18 @@
 import { Configuration } from 'webpack';
 import { merge as webpackMerge } from 'webpack-merge';
 import { Env } from '../type/env';
+import { Mode, SupportFn } from '../type/webpack';
 import { vueSupport } from './supports/vue';
 import { htmlSupport } from './supports/html';
+import { styleSupport } from './supports/style';
 import { reportSupport } from './supports/report';
 import { scriptSupport } from './supports/script';
 import { chunksSupport } from './supports/chunks';
-import { styleSupport } from './supports/style';
-import { compressSupport } from './supports/compress';
 import { variableSupport } from './supports/variable';
+import { compressSupport } from './supports/compress';
 
-export function support(isBuild: boolean, env: Env): Configuration {
-  const supports = [vueSupport, scriptSupport, chunksSupport, variableSupport, styleSupport, htmlSupport, reportSupport, compressSupport];
+export function support(mode: Mode, env: Env): Configuration {
+  const supports: Array<SupportFn> = [vueSupport, scriptSupport, chunksSupport, styleSupport, variableSupport, htmlSupport, reportSupport, compressSupport];
 
-  return webpackMerge(supports.map((support) => support(isBuild, env)));
+  return webpackMerge(supports.map((support) => support(mode, env)));
 }
