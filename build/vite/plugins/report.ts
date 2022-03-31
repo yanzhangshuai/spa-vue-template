@@ -8,7 +8,7 @@ export const reportPlugin: PluginFn = (mode, env) => {
       gzipSize: true,
       brotliSize: true,
       template: 'treemap', // "sunburst" | "treemap" | "network"
-      filename: './report/depend/index.html'
+      filename: './report/libs/index.html'
     }),
     apply: () => env.VITE_REPORT
   };

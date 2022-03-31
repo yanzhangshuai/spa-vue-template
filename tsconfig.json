@@ -28,22 +28,31 @@
     "forceConsistentCasingInFileNames": true,
     //  非相对路径中跟目录
     "baseUrl": "./",
-
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     "sourceMap": false,
-    "esModuleInterop": true,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "types": ["vite/client", "vitest/globals", "node"],
+    "esModuleInterop": true,
+    "types": ["node", "vite/client", "vitest/globals"],
     //  类型声明文件的查找地址
     "typeRoots": ["node_modules/@types", "src", "type"],
     //  引入的库文件
-    "lib": ["es5", "es6", "es7", "dom", "esnext", "dom.iterable"]
+    "lib": ["dom", "esnext", "dom.iterable"]
   },
   //  排除编译的文件
   "exclude": ["node_modules", "build", "src/asset/json/*.json"],
   //  包含编译的入口文件
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "test/**/*.ts", "test/**/*.tsx", "type/**/*.d.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "type/**/*.d.ts",
+    "test/**/*.ts"
+  ]
 }

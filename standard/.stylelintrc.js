@@ -1,10 +1,10 @@
 module.exports = {
   'processors': [],
   'plugins': [],
-  'extends': ['stylelint-config-standard-vue'],
+  'extends': ['stylelint-config-html/vue'],
    "overrides": [
-     { "files": ["*.less", "**/*.less"], "customSyntax": "postcss-less" },
-     { "files": ["*.vue", "**/*.vue"], "rules": { "unit-allowed-list": ["em", "rem", "s", "px"] } },
+     { "files": ["*.less", "../**/*.less"], "customSyntax": "postcss-less" },
+     { "files": ["*.vue", "../**/*.vue"], "rules": { "unit-allowed-list": ["em", "rem", "s", "px"] }, "customSyntax": "postcss-html" },
    ],
   'rules': {
     'media-feature-name-no-vendor-prefix': true,
