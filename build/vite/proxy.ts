@@ -14,8 +14,8 @@ export function createProxy(proxy: Record<string, string>): ProxyTarget {
       };
       return { prefix, option };
     })
-    .reduce((prev, current) => {
-      prev[current.prefix] = current.option;
-      return prev;
+    .reduce((accumulator, current) => {
+      accumulator[current.prefix] = current.option;
+      return accumulator;
     }, {} as ProxyTarget);
 }

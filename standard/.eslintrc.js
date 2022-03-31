@@ -36,6 +36,7 @@ module.exports = {
   rules: {
     'no-var': 2,
     'no-eval': 2,
+    'comma-dangle': ['error', 'never'],
     'no-alert': process.env.NODE_ENV !== 'production' ? 0 : 2,
     'no-console': process.env.NODE_ENV !== 'production' ? 0 : [1, { allow: ['warn', 'error'] }],
     'no-restricted-syntax': 2,
@@ -65,6 +66,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 2,
     '@typescript-eslint/no-inferrable-types': 2,
     'vue/require-default-prop': 2,
+    'vue/singleline-html-element-content-newline': 0,
     'vue/multi-word-component-names': 0,
     'vue/eqeqeq': [2, 'always', { null: 'ignore' }],
     'vue/max-attributes-per-line': [0, { singleline: 1, multiline: { max: 1, allowFirstLine: false } }]

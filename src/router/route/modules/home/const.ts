@@ -1,4 +1,4 @@
-import { PAGE_PATH } from '@/router/route/const';
+import { PAGE_PATH } from '../../const';
 
 export const HomeRouterName = {
   HOME_ROUTER: 'home',

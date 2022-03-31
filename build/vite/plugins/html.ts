@@ -5,7 +5,7 @@ import { PluginFn } from '../../type/vite';
 export const htmlPlugin: PluginFn = (mode, env) => {
   return (createHtmlPlugin({
     minify: mode === 'production',
-    template: 'public/index.html',
+    template: '/index.html',
     entry: '/src/main.ts',
     inject: { data: { title: env.VITE_APP_TITLE } }
   }) || []) as Plugin[];
