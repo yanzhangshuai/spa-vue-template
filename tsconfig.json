@@ -37,7 +37,7 @@
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "types": ["node", "webpack-env"],
+    "types": ["node", "webpack-env", "jest"],
     //  类型声明文件的查找地址
     "typeRoots": ["node_modules/@types", "src", "type"],
      //  引入的库文件
@@ -52,6 +52,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "type/**/*.d.ts"
+    "type/**/*.d.ts",
+    "test/**/*.ts"
   ]
 }
