@@ -1,7 +1,7 @@
 import { Router } from 'vue-router';
 
 export function createPermissionGuard(router: Router): void {
-  router.beforeEach((to, _, next) => {
+  router.beforeEach((_to, _from, next) => {
     next();
   });
 }

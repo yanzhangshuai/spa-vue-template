@@ -6,7 +6,6 @@ const config: InitialOptionsTsJest = {
   rootDir: root,
   testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/test/modules/**/**/*.{test,spec}.ts'],
-  setupFilesAfterEnv: ['<rootDir>/test/extensions/to-be-type.ts'],
   moduleFileExtensions: ['ts', 'js', 'json', 'vue'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'

@@ -5,9 +5,11 @@
 
 <script setup lang="ts">
 import { PropType } from 'vue';
+
 export interface De {
   name: string;
 }
+
 const props = defineProps({
   name: {
     type: String,
