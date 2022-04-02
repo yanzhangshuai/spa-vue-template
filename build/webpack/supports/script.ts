@@ -1,5 +1,6 @@
 import { resolve } from '../../util/path';
 import { SupportFn } from '../../type/webpack';
+
 export const scriptSupport: SupportFn = () => {
   return {
     module: {
@@ -11,8 +12,6 @@ export const scriptSupport: SupportFn = () => {
         }
       ]
     },
-    resolve: {
-      extensions: ['.tsx', '.ts', '.jsx', '.js']
-    }
+    resolve: { extensions: ['.ts', '.tsx', '.json', '.jsx', '.mjs', '.js'] }
   };
 };

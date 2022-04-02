@@ -7,7 +7,7 @@ import { useUserStore } from '@/store/modules/user';
  * @param router
  */
 export function createAuthGuard(router: Readonly<Router>): void {
-  router.beforeEach((to, _, next) => {
+  router.beforeEach((to, _from, next) => {
     const meta = getMeta(to);
 
     if (!meta?.auth) {

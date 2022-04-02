@@ -4,10 +4,11 @@ import WindiCSSWebpackPlugin from 'windicss-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { resolve } from '../../util/path';
 import { SupportFn } from '../../type/webpack';
-import { cssChunkFilename, cssFilename } from '../output';
+import { cssFilename, cssChunkFilename } from '../output';
 
 export const styleSupport: SupportFn = (mode) => {
   const { loader } = MiniCssExtractPlugin;
+
   const styleConf: Configuration = {
     module: {
       rules: [
@@ -44,7 +45,13 @@ export const styleSupport: SupportFn = (mode) => {
     resolve: { extensions: ['.less', '.css'] }
   };
 
-  mode === 'production' && styleConf.plugins.push(new MiniCssExtractPlugin({ filename: cssFilename(mode), chunkFilename: cssChunkFilename(mode) }));
+  mode === 'production' &&
+    styleConf.plugins.push(
+      new MiniCssExtractPlugin({
+        filename: (pathData, assetInfo) => cssFilename(mode, pathData, assetInfo),
+        chunkFilename: (pathData, assetInfo) => cssChunkFilename(mode, pathData, assetInfo)
+      })
+    );
 
   return styleConf;
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="config-provider">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

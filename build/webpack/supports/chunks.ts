@@ -2,7 +2,7 @@ import { Configuration } from 'webpack';
 import { SupportFn } from '../../type/webpack';
 
 export const chunksSupport: SupportFn = () => {
-  const conf: Configuration = {
+  const config: Configuration = {
     optimization: {
       runtimeChunk: { name: '__runtime' },
       splitChunks: {
@@ -24,5 +24,5 @@ export const chunksSupport: SupportFn = () => {
       }
     }
   };
-  return conf;
+  return config;
 };

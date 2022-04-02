@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
+    "outDir": "../x",
     "moduleResolution": "node",
     "module": "CommonJS",
     "target": "es6",
+    "skipLibCheck": true,
+    "allowJs": true,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "baseUrl": "../",
     "rootDir": "../",
-    "types": ["node"],
+    "types": ["node"]
   }
 }
