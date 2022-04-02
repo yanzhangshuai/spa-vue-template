@@ -1,6 +1,6 @@
 import { fn } from 'vitest';
 import { mount } from '@vue/test-utils';
-import RefDemo from '@/component/modules/base/ref-demo/index.vue';
+import RefDemo from 'component/base/ref-demo/index.vue';
 
 describe('ref-demo', () => {
   it('component exist', () => {

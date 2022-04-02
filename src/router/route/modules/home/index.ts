@@ -5,7 +5,7 @@ import { HomeRouterName } from './const';
 const router: RouteRecordRaw = {
   path: '/home',
   name: HomeRouterName.HOME_ROUTER,
-  component: () => import(`@/page/home/index.vue`),
+  component: () => import(`page/home/index.vue`),
   meta: {
     auth: true
   },
@@ -18,7 +18,7 @@ const router: RouteRecordRaw = {
     {
       path: 'demo2',
       name: HomeRouterName.HOME_DEMO2_ROUTER,
-      component: () => import(`@/page/home/demo2/index.vue`)
+      component: () => import(`page/home/demo2/index.vue`)
     }
   ]
 };

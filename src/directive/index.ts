@@ -1,5 +1,5 @@
 import { App, Directive } from 'vue';
-import { moduleFilter } from '@/util/helper';
+import { moduleFilter } from 'util/helper';
 
 function injectDirectives(app: App<Element>) {
   const modules = moduleFilter<Directive>(import.meta.globEager('./modules/**/*.{ts,js}'));

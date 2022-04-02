@@ -1,51 +1,44 @@
 {
   "compilerOptions": {
-    // 编译结果版本
     "target": "ESNext",
-    //  使用的模块标准
     "module": "ESNext",
-    //  使用 node解析规则
     "moduleResolution": "node",
-    //  编译出错不再执行
+    "baseUrl": "./",
     "noEmitOnError": true,
-    //  禁用any
     "noImplicitAny": true,
     "noImplicitThis": true,
-    // 严格模式
     "alwaysStrict": true,
     "isolatedModules": false,
-    //  删除注释
     "removeComments": true,
-    //  支持的jsx的类型
     "jsx": "preserve",
     "jsxFactory": "h",
-    //  启用ES装饰器
     "experimentalDecorators": true,
     "strictFunctionTypes": true,
     "resolveJsonModule": true,
-    //  不生成d.ts
     "declaration": false,
     "forceConsistentCasingInFileNames": true,
-    //  非相对路径中跟目录
-    "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "asset/*":                ["src/asset/*"],
+      "hook/*":                 ["src/hook/*"],
+      "plugin/*":               ["src/plugin/*"],
+      "page/*":                 ["src/page/*"],
+      "router/*":               ["src/router/*"],
+      "service/*":              ["src/service/*"],
+      "util/*":                 ["src/util/*"],
+      "store/*":                ["src/store/modules/*"],
+      "component/*":            ["src/component/modules/*"],
+      "directive/*":            ["src/directive/modules/*"],
+      "@/*":                    ["src/*"]
     },
     "sourceMap": false,
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "types": ["node", "vite/client", "vitest/globals"],
-    //  类型声明文件的查找地址
     "typeRoots": ["node_modules/@types", "src", "type"],
-    //  引入的库文件
     "lib": ["dom", "esnext", "dom.iterable"]
   },
-  //  排除编译的文件
   "exclude": ["node_modules", "build", "src/asset/json/*.json"],
-  //  包含编译的入口文件
   "include": [
     "src/**/*.ts",
     "src/**/*.js",

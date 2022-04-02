@@ -1,7 +1,7 @@
 import { flatMap } from 'lodash-es';
 import { RouteRecordRaw } from 'vue-router';
-import { isArray } from '@/util/is';
-import { moduleFilter } from '@/util/helper';
+import { isArray } from 'util/is';
+import { moduleFilter } from 'util/helper';
 
 /**
  * 遍历moduleRoutes

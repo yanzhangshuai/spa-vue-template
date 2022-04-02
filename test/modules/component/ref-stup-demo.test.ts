@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import RefSetupDemo from '@/component/modules/base/ref-setup-demo/index.vue';
+import RefSetupDemo from 'component/base/ref-setup-demo/index.vue';
 
 describe('ref-setup-demo', () => {
   it('component exist', () => {

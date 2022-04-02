@@ -1,1 +1,1 @@
-export const PAGE_PATH = '@/page';
+export const PAGE_PATH = 'page';

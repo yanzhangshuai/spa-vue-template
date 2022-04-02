@@ -1,5 +1,5 @@
 import { App, Component } from 'vue';
-import { moduleFilter } from '@/util/helper';
+import { moduleFilter } from 'util/helper';
 
 function injectComponents(app: App<Element>) {
   const modules = moduleFilter<Component>(import.meta.globEager('./modules/**/*.{vue,tsx,jsx}'));

@@ -7,6 +7,6 @@ export const root = process.cwd();
  */
 export const configPath = resolve('config');
 
-export function resolve(dir: string): string {
-  return path.join(root, dir);
+export function resolve(...paths: Array<string>): string {
+  return path.join(root, ...paths);
 }

@@ -1,6 +1,6 @@
 import { ref, watch, Ref } from 'vue';
 import { tryOnUnmounted } from '@vueuse/core';
-import { isFunction } from '@/util/is';
+import { isFunction } from 'util/is';
 
 export function useTimeout(handle: Fn<unknown>, wait: number, native = false): Readonly<{ readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> }> {
   if (!isFunction(handle)) {

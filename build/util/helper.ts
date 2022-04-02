@@ -1,12 +1,4 @@
-import { resolve } from './path';
 import { Env } from '../type/env';
-
-export function moduleAlias(modules: Array<string>, prefixPath = 'src'): Record<string, string> {
-  return modules.reduce((accumulator, current) => {
-    accumulator[current] = resolve(prefixPath + '/' + current);
-    return accumulator;
-  }, {} as Record<string, string>);
-}
 
 // 转换配置文件数据
 export function wrapperEnv(envConf: Record<keyof Env, string>): Env {

@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useTitle } from '@/hook/web/title';
-import { useStorage } from '@/plugin/storage';
-import { useUserStore } from '@/store/modules/user';
+import { useUserStore } from 'store/user';
+import { useTitle } from 'hook/web/title';
+import { useStorage } from 'plugin/storage';
 
 defineProps({});
 

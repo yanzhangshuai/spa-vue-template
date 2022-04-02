@@ -6,7 +6,7 @@
 //  */
 // import { Method } from 'axios';
 // import { Ref, ref } from 'vue';
-// import { Singleton } from '@/utils/singleton';
+// import { Singleton } from 'util/singleton';
 
 // interface IRequestConfig {
 //   /**

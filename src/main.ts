@@ -5,9 +5,9 @@ import { setupService } from './service';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
 import { isReady, setupRouter } from '@/router';
-import App from '@/page/app.vue';
 import 'virtual:windi.css';
-import '@/asset/style/index.less';
+import App from 'page/app.vue';
+import 'asset/style/index.less';
 
 const app = createApp(App);
 

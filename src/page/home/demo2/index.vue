@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useStorage } from '@/plugin/storage';
+import { useStorage } from 'plugin/storage';
 
 const storage = useStorage();
 storage.set('name', 'name');

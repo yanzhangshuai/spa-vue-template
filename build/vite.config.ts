@@ -1,8 +1,9 @@
 import { ConfigEnv, defineConfig, loadEnv } from 'vite';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 import { Mode } from './type/vite';
-import packageJson from '../package.json';
+import { version } from '../package.json';
 import { wrapperEnv } from './util/helper';
+import { alias } from './vite/alias';
 import { createProxy } from './vite/proxy';
 import { createVitePlugins } from './vite/plugin';
 import { configPath, resolve, root } from './util/path';
@@ -12,7 +13,7 @@ export default defineConfig((conf: ConfigEnv) => {
   const mode = conf.mode as Mode;
 
   // 设置版本号
-  process.env.GLOBAL_APP_VERSION = packageJson.version;
+  process.env.GLOBAL_APP_VERSION = version;
 
   // 根据VITE命令设置NODE环境变量
   process.env.NODE_ENV = mode;
@@ -88,9 +89,7 @@ export default defineConfig((conf: ConfigEnv) => {
     },
 
     resolve: {
-      alias: {
-        '@': resolve('src')
-      },
+      alias: alias(),
       mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],
       extensions: ['.vue', '.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
     }

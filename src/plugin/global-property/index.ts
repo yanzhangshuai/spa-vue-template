@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import { dateFormat } from '@/util/date';
+import { dateFormat } from 'util/date';
 import { GlobalProps } from './type';
 
 let globalProps: GlobalProps;

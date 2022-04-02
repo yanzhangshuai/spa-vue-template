@@ -39,5 +39,5 @@ npm run report:test             分析 单元测试 情况
   - **store**：数据缓存模块
   - **util**：工具模块
 - **standard**：代码规则层
+- **test**：单元测试
 - **type**：通用类型层
-s

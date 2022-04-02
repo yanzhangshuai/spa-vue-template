@@ -8,7 +8,8 @@
 
 <script lang="ts" setup>
 import { onMounted, ref, unref, watch } from 'vue';
-import RefDemo from '@/component/modules/base/ref-demo/index.vue';
+import RefDemo from 'component/base/ref-demo/index.vue';
+
 const name = $ref('123');
 const refSetupDemoRef = ref(null);
 const refDemoRef = ref<InstanceType<typeof RefDemo>>(null);

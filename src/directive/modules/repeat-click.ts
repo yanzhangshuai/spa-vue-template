@@ -1,4 +1,4 @@
-// import { on, once } from '@/util/extensions/dom';
+// import { on, once } from 'util/extensions/dom';
 // import { Directive, DirectiveBinding } from 'vue';
 // //TODO：无法使用
 // const repeatDirective: Directive = {
