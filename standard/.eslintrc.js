@@ -2,10 +2,11 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    'jest/globals': true,
     'vue/setup-compiler-macros': true
   },
 
-  extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
+  extends: ['plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended', 'plugin:jest/recommended', 'plugin:jest/style'],
 
   parser: 'vue-eslint-parser',
   //  解析器配置
@@ -27,7 +28,7 @@ module.exports = {
   reportUnusedDisableDirectives: false,
 
   //  第三方插件
-  plugins: ['eslint-plugin-vue', 'eslint-plugin-promise', '@typescript-eslint/eslint-plugin'],
+  plugins: ['eslint-plugin-vue', 'eslint-plugin-promise', '@typescript-eslint/eslint-plugin', 'eslint-plugin-jest'],
 
   rules: {
     'no-var': 2,
@@ -63,6 +64,15 @@ module.exports = {
     'vue/require-default-prop': 2,
     'vue/multi-word-component-names': 0,
     'vue/eqeqeq': [2, 'always', { null: 'ignore' }],
-    'vue/max-attributes-per-line': [0, { singleline: 1, multiline: { max: 1, allowFirstLine: false } }]
+    'vue/max-attributes-per-line': [0, { singleline: 1, multiline: { max: 1, allowFirstLine: false } }],
+
+    'jest/consistent-test-it': [2, { fn: 'it' }],
+    'jest/no-disabled-tests': 1,
+    'jest/no-focused-tests': 2,
+    'jest/no-identical-title': 2,
+    'jest/prefer-to-have-length': 1,
+    'jest/valid-describe-callback': 2,
+    'jest/valid-expect': 2,
+    'jest/valid-expect-in-promise': 2
   }
 };

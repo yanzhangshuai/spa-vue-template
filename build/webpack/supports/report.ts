@@ -7,7 +7,7 @@ export const reportSupport: SupportFn = (mode, env) => {
   const conf: Configuration = { plugins: [] };
   if (!env.WEBPACK_REPORT) return conf;
 
-  conf.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static', reportFilename: resolve('report/depend/index.html') }));
+  conf.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static', reportFilename: resolve('report/libs/index.html') }));
 
   return conf;
 };
