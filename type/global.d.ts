@@ -1,8 +1,10 @@
-// declare module "*.json" {
-//   const value: unknown;
-//   export default value;
-// }
 export {};
+
+declare module '*.json' {
+  const value: unknown;
+  export default value;
+}
+
 declare global {
   /**
    * 属性可写

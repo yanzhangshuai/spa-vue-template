@@ -3,7 +3,7 @@ import { VueLoaderPlugin } from 'vue-loader';
 import { resolve } from '../../util/path';
 import { SupportFn } from '../../type/webpack';
 
-export const vueSupport: SupportFn = (mode, env) => {
+export const vueSupport: SupportFn = (_mode, env) => {
   return {
     module: {
       rules: [

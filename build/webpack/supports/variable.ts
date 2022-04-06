@@ -1,11 +1,10 @@
 import { Configuration, DefinePlugin } from 'webpack';
-import { loadEnv } from '../../util/config';
-import { configPath } from '../../util/path';
-import { wrapperEnv } from '../../util/helper';
 import { SupportFn } from '../../type/webpack';
+import { configPath } from '../../util/path';
+import { loadEnv, wrapperEnv } from '../../util/env';
 
 export const variableSupport: SupportFn = (mode) => {
-  const conf: Configuration = { plugins: [] };
+  const config: Configuration = { plugins: [] };
 
   const env = loadEnv(mode, configPath, 'GLOBAL_');
 
@@ -13,13 +12,11 @@ export const variableSupport: SupportFn = (mode) => {
 
   globalEnv['GLOBAL_DEV'] = mode === 'development';
 
-  for (const key in globalEnv) {
-    if (Object.prototype.hasOwnProperty.call(globalEnv, key)) {
-      globalEnv[key] = JSON.stringify(globalEnv[key]);
-    }
-  }
+  Object.keys(globalEnv).forEach((key) => {
+    globalEnv[key] = JSON.stringify(globalEnv[key]);
+  });
 
-  conf.plugins.push(new DefinePlugin(globalEnv));
+  config.plugins.push(new DefinePlugin(globalEnv));
 
-  return conf;
+  return config;
 };

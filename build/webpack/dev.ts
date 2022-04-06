@@ -4,12 +4,13 @@ import { createProxy } from './proxy';
 import { findPort } from '../util/helper';
 
 export function createDevServer(env: Env): Promise<Configuration> {
-  const conf: Configuration = {
+  const config: Configuration = {
     port: env.WEBPACK_SERVER_PORT,
     open: env.WEBPACK_SERVER_OPEN,
     hot: true,
     compress: env.WEBPACK_SERVER_COMPRESS,
     historyApiFallback: true,
+
     client: {
       overlay: true
     },
@@ -30,15 +31,16 @@ export function createDevServer(env: Env): Promise<Configuration> {
     //     ignored: /node_modules/
     //   }
     // },
+
     proxy: createProxy(env.WEBPACK_SERVER_PROXY)
   };
 
   return new Promise((resolve) => {
     findPort(env.WEBPACK_SERVER_PORT)
       .then((port) => {
-        conf.port = port;
-        resolve(conf);
+        config.port = port;
+        resolve(config);
       })
-      .catch(() => resolve(conf));
+      .catch(() => resolve(config));
   });
 }

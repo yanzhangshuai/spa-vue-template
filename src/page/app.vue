@@ -7,6 +7,7 @@
 <script lang="ts" setup>
 import { useTitle } from '@/hook/web/title';
 import { useStorage } from '@/plugin/storage';
+
 useTitle();
 
 const storage = useStorage();
