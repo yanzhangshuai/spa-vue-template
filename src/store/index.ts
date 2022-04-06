@@ -8,8 +8,10 @@ let store: Store;
 
 export function setupStore(): Store {
   Vue.use(PiniaVuePlugin);
+
   store = createPinia();
   store.name = 'pinia';
+
   store.use(({ options, store }) => {
     if (options.debounce) {
       return Object.keys(options.debounce).reduce((debouncedActions, action) => {
@@ -21,6 +23,6 @@ export function setupStore(): Store {
   return store;
 }
 
-export function useStore(): Store {
+export function useStore(): DeepReadonly<Store> {
   return store;
 }

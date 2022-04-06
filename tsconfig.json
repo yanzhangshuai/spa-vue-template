@@ -1,58 +1,41 @@
 {
-  "compilerOptions": {
-    // 编译结果版本
-    "target": "ESNext",
-    //  使用的模块标准
-    "module": "ESNext",
-    //  使用 node解析规则
-    "moduleResolution": "node",
-    //  编译出错不再执行
-    "noEmitOnError": true,
-    //  禁用any
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    // 严格模式
-    "alwaysStrict": true,
-    "isolatedModules": false,
-    //  删除注释
-    "removeComments": true,
-    //  支持的jsx的类型
-    "jsx": "preserve",
-    "jsxFactory": "h",
-    //  启用ES装饰器
-    "experimentalDecorators": true,
-    "strictFunctionTypes": true,
-    "resolveJsonModule": true,
-    //  不生成d.ts
-    "declaration": false,
-    "forceConsistentCasingInFileNames": true,
-    //  非相对路径中跟目录
-    "baseUrl": "./",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
-    "sourceMap": false,
-    "downlevelIteration": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "types": ["node", "webpack-env", "jest"],
-    //  类型声明文件的查找地址
-    "typeRoots": ["node_modules/@types", "src", "type"],
-    //  引入的库文件
-    "lib": ["dom", "esnext", "dom.iterable"]
-  },
-  //  排除编译的文件
-  "exclude": ["node_modules", "build", "src/asset/json/*.json"],
-  //  包含编译的入口文件
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.js",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "type/**/*.d.ts",
-    "test/**/*.ts"
-  ]
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"baseUrl": "./",
+		"moduleResolution": "node",
+		"noEmitOnError": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"alwaysStrict": true,
+		"isolatedModules": false,
+		"removeComments": true,
+		"jsx": "preserve",
+		"jsxFactory": "h",
+		"experimentalDecorators": true,
+		"strictFunctionTypes": true,
+		"resolveJsonModule": true,
+		"declaration": false,
+		"forceConsistentCasingInFileNames": true,
+		"paths": {
+			"@/*": ["src/*"]
+		},
+		"sourceMap": false,
+		"downlevelIteration": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"types": ["node", "webpack-env", "jest"],
+		"typeRoots": ["node_modules/@types", "src", "type"],
+		"lib": ["dom", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "esnext", "dom.iterable"]
+	},
+	"exclude": ["node_modules", "build", "src/asset/json/*.json"],
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.js",
+		"src/**/*.d.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"type/**/*.d.ts",
+		"test/**/*.ts"
+	]
 }

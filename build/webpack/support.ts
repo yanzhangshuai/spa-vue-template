@@ -10,10 +10,10 @@ import { reportSupport } from './supports/report';
 import { scriptSupport } from './supports/script';
 import { chunksSupport } from './supports/chunks';
 import { variableSupport } from './supports/variable';
-import { compressSupport } from './supports/compress';
+import { compressionSupport } from './supports/compression';
 
 export function support(mode: Mode, env: Env): Configuration {
-  const supports: Array<SupportFn> = [vueSupport, scriptSupport, chunksSupport, styleSupport, uiSupport, variableSupport, htmlSupport, reportSupport, compressSupport];
+  const supports: Array<SupportFn> = [vueSupport, scriptSupport, chunksSupport, styleSupport, uiSupport, variableSupport, htmlSupport, compressionSupport, reportSupport];
 
   return webpackMerge(supports.map((support) => support(mode, env)));
 }

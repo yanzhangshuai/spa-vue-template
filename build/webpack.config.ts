@@ -2,20 +2,19 @@ import path from 'path';
 import { Configuration } from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
 import { merge as webpackMerge } from 'webpack-merge';
-import packageJson from '../package.json';
+import { version } from '../package.json';
 import { Env } from './type/env';
-import { loadEnv } from './util/config';
-import { wrapperEnv } from './util/helper';
+import { wrapperEnv, loadEnv } from './util/env';
 import { configPath, resolve } from './util/path';
 import { support } from './webpack/support';
 import { createDevServer } from './webpack/dev';
-import { chunkFilename, filename } from './webpack/output';
+import { filename, chunkFilename } from './webpack/output';
 
 export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean; WEBPACK_SERVE: boolean; development: boolean }): Promise<Configuration> => {
   const mode = option.WEBPACK_BUILD ? 'production' : 'development';
 
   // 设置版本号
-  process.env.GLOBAL_APP_VERSION = packageJson.version;
+  process.env.GLOBAL_APP_VERSION = version;
 
   // 根据webpack命令设置NODE环境变量
   process.env.NODE_ENV = mode;
@@ -60,7 +59,7 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
     performance: { maxEntrypointSize: 400000, maxAssetSize: 400000 },
 
     resolve: {
-      mainFiles: ['index', 'module'],
+      mainFiles: ['index', 'module', 'jsnext'],
       alias: {
         '@': resolve('src')
       }

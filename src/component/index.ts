@@ -2,9 +2,7 @@ import Vue from 'vue';
 import { moduleFilter } from '@/util/helper';
 import uiComponents from './ui';
 
-type Component = {
-  name?: string;
-};
+type Component = { name?: string };
 
 function injectComponents() {
   const modules = moduleFilter<Component>(require.context('./modules/', true, /\.(vue|tsx)$/));
