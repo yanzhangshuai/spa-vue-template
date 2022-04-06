@@ -15,6 +15,8 @@ npm run build                   生产环境
 npm run build:br                生产环境, 文件压缩.br格式
 npm run build:gz                生产环境, 文件压缩.gz格式
 
+npm run deploy                  构建 Docker 部署镜像
+
 npm run test                    单元测试
 npm run lint                    eslint、stylelint
 
@@ -26,6 +28,7 @@ npm run report:windi            分析 windicss 使用结果
 
 项目结构
 * **build**：项目编译模块
+* **deploy**：构建 Docker 部署镜像模块
 * **src**： 项目工作区模块
     * **asset**： 静态文件层
     * **component**：组件层
