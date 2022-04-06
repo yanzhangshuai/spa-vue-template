@@ -1,7 +1,8 @@
 import { fn } from 'vitest';
 import { mount } from '@vue/test-utils';
-import RefDemo from '@/component/modules/base/ref-demo/index.vue';
-describe('ref-demo', async () => {
+import RefDemo from '@/component/modules/ref-demo/index.vue';
+
+describe('ref-demo', () => {
   it('component exist', () => {
     expect(RefDemo).toBeTruthy();
   });
@@ -11,6 +12,6 @@ describe('ref-demo', async () => {
   it('onClick exist', () => {
     const mockFn = fn(wrapper.vm.onClick);
     mockFn();
-    expect(mockFn).toBeCalledTimes(1);
+    expect(mockFn).toHaveBeenCalledTimes(1);
   });
 });

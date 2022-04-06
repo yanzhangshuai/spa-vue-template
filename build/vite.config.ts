@@ -1,19 +1,18 @@
-/// <reference types="vitest" />
-import { defineConfig, loadEnv } from 'vite';
+import { ConfigEnv, defineConfig, loadEnv } from 'vite';
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
-import packageJson from './package.json';
-import { Mode } from './build/type/vite';
-import { wrapperEnv } from './build/util/helper';
-import { configPath, resolve, root } from './build/util/path';
-import { createProxy } from './build/vite/proxy';
-import { createVitePlugins } from './build/vite/plugin';
-import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './build/vite/output';
+import { Mode } from './type/vite';
+import { version } from '../package.json';
+import { wrapperEnv } from './util/env';
+import { createProxy } from './vite/proxy';
+import { createVitePlugins } from './vite/plugin';
+import { configPath, resolve, root } from './util/path';
+import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './vite/output';
 
-export default defineConfig((conf) => {
+export default defineConfig((conf: ConfigEnv) => {
   const mode = conf.mode as Mode;
 
   // 设置版本号
-  process.env.GLOBAL_APP_VERSION = packageJson.version;
+  process.env.GLOBAL_APP_VERSION = version;
 
   // 根据VITE命令设置NODE环境变量
   process.env.NODE_ENV = mode;
@@ -36,6 +35,7 @@ export default defineConfig((conf) => {
     },
 
     css: {
+      postcss: resolve('/build/postcss.config.js'),
       modules: {
         scopeBehaviour: 'local',
         localsConvention: 'camelCaseOnly'
@@ -49,6 +49,7 @@ export default defineConfig((conf) => {
         }
       }
     },
+
     plugins: createVitePlugins(mode, viteEnv),
 
     build: mode === 'production' && {
@@ -68,7 +69,12 @@ export default defineConfig((conf) => {
       rollupOptions: {
         plugins: [dynamicImportVars()],
 
-        output: { entryFileNames: entryFileNames, chunkFileNames: chunkFileNames, manualChunks: manualChunks, assetFileNames: assetFileNames }
+        output: {
+          entryFileNames: entryFileNames,
+          chunkFileNames: chunkFileNames,
+          manualChunks: manualChunks,
+          assetFileNames: assetFileNames
+        }
       }
     },
 
@@ -85,17 +91,8 @@ export default defineConfig((conf) => {
       alias: {
         '@': resolve('src')
       },
-      mainFields: ['index', 'module', 'jsnext:main', 'jsnext'],
-      extensions: ['.vue', '.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
-    },
-
-    test: mode === 'test' && {
-      global: true,
-      environment: 'jsdom',
-      coverage: {
-        reporter: ['html'],
-        reportsDirectory: resolve('report/test')
-      }
+      mainFields: ['index', 'module', 'jsnext'],
+      extensions: ['.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
     }
   };
 });

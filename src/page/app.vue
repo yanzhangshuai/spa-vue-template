@@ -11,12 +11,13 @@ import { useUserStore } from '@/store/modules/user';
 
 defineProps({});
 
+useTitle();
+
 const userStore = useUserStore();
 
 userStore.getUserInfo().then((res) => {
   console.log('res', res);
 });
-useTitle();
 const storage = useStorage();
 console.log("  storage.get('name')", storage.get('name'));
 </script>

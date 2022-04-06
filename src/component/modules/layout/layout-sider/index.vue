@@ -1,8 +1,8 @@
 <template>
   <a-layout-sider collapsed-width="0" width="240">
     <div class="logo">
-      <img class="h-7" src="https://avatars.githubusercontent.com/u/31086862?s=60&v=4" alt="" />
-      <h4 class="ml-4 text-2xl text-white">这是title</h4>
+      <img class="h-7" :src="$globalProps.APP_LOGO" alt="" />
+      <h4 class="ml-4 text-2xl text-white">{{ $globalProps.APP_NAME }}</h4>
     </div>
     <layout-menu />
   </a-layout-sider>
