@@ -29,6 +29,7 @@ npm run report:test             分析 单元测试 情况
 项目结构
 
 - **build**：项目编译模块
+- **deploy**：构建 Docker 部署镜像模块
 - **src**： 项目工作区模块
   - **asset**： 静态文件层
   - **component**：组件层
