@@ -1,19 +1,19 @@
 import { RouteConfig } from 'vue-router';
-import { AccountRouterName } from './const';
+import { AccountRouteName } from './const';
 
-const router: RouteConfig = {
+const route: RouteConfig = {
   path: '/account',
-  name: AccountRouterName.ACCOUNT_ROUTER,
+  name: AccountRouteName.DEFAULT_ROUTER,
   component: () => import(/* webpackChunkName: "account" */ '@/page/account/index.vue'),
 
   children: [
     {
       path: '',
-      redirect: { name: AccountRouterName.ACCOUNT_LOGIN_ROUTER }
+      redirect: { name: AccountRouteName.LOGIN_ROUTER }
     },
     {
       path: 'login',
-      name: AccountRouterName.ACCOUNT_LOGIN_ROUTER,
+      name: AccountRouteName.LOGIN_ROUTER,
       component: () => import(/* webpackChunkName: "account" */ '@/page/account/login/index.vue'),
       meta: {
         title: '登录'
@@ -21,7 +21,7 @@ const router: RouteConfig = {
     },
     {
       path: 'register',
-      name: AccountRouterName.ACCOUNT_REGISTER_ROUTER,
+      name: AccountRouteName.REGISTER_ROUTER,
       component: () => import(/* webpackChunkName: "account" */ '@/page/account/register/index.vue'),
       meta: {
         title: '注册'
@@ -30,4 +30,4 @@ const router: RouteConfig = {
   ]
 };
 
-export default router;
+export default route;

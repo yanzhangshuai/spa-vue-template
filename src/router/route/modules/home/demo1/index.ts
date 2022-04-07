@@ -1,11 +1,11 @@
 import { RouteConfig } from 'vue-router';
-import { HomeRouterName } from '../const';
+import { HomeRouteName } from '../const';
 
-const router: RouteConfig = {
+const route: RouteConfig = {
   path: 'demo1',
-  name: HomeRouterName.HOME_DEMO1_ROUTER,
+  name: HomeRouteName.DEMO1_ROUTER,
   meta: { title: 'demo1' },
   component: () => import(/* webpackChunkName: "home" */ '@/page/home/demo1/index.vue')
 };
 
-export default router;
+export default route;
