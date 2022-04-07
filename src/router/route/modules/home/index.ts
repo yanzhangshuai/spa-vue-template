@@ -1,10 +1,11 @@
 import { RouteRecordRaw } from 'vue-router';
-import Demo1Router from './demo1';
-import { HomeRouterName } from './const';
+import Demo1Route from './demo1';
+import ErrorRoutes from './error';
+import { HomeRouteName } from './const';
 
-const router: RouteRecordRaw = {
+const route: RouteRecordRaw = {
   path: '/home',
-  name: HomeRouterName.HOME_ROUTER,
+  name: HomeRouteName.DEFAULT_ROUTER,
   component: () => import(/* webpackChunkName: "home"*/ `@/page/home/index.vue`),
   meta: {
     auth: true
@@ -12,15 +13,16 @@ const router: RouteRecordRaw = {
   children: [
     {
       path: '',
-      redirect: { name: HomeRouterName.HOME_DEMO1_ROUTER }
+      redirect: { name: HomeRouteName.DEMO1_ROUTER }
     },
-    Demo1Router,
     {
       path: 'demo2',
-      name: HomeRouterName.HOME_DEMO2_ROUTER,
+      name: HomeRouteName.DEMO2_ROUTER,
       component: () => import(/* webpackChunkName: "home"*/ `@/page/home/demo2/index.vue`)
-    }
+    },
+    Demo1Route,
+    ...ErrorRoutes
   ]
 };
 
-export default router;
+export default route;
