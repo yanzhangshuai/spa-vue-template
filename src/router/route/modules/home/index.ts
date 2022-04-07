@@ -1,10 +1,10 @@
 import { RouteConfig } from 'vue-router';
-import Demo1Router from './demo1';
-import { HomeRouterName } from './const';
+import Demo1Route from './demo1';
+import { HomeRouteName } from './const';
 
-const router: RouteConfig = {
+const route: RouteConfig = {
   path: '/home',
-  name: HomeRouterName.HOME_ROUTER,
+  name: HomeRouteName.DEFAULT_ROUTER,
   component: () => import(/* webpackChunkName: "home" */ '@/page/home/index.vue'),
   meta: {
     auth: true
@@ -12,18 +12,18 @@ const router: RouteConfig = {
   children: [
     {
       path: '',
-      redirect: { name: HomeRouterName.HOME_DEMO1_ROUTER }
+      redirect: { name: HomeRouteName.DEMO1_ROUTER }
     },
-    Demo1Router,
     {
       path: 'demo2',
-      name: HomeRouterName.HOME_DEMO2_ROUTER,
+      name: HomeRouteName.DEMO2_ROUTER,
       meta: {
         title: 'demo2'
       },
       component: () => import(/* webpackChunkName: "home" */ '@/page/home/demo2/index.vue')
-    }
+    },
+    Demo1Route
   ]
 };
 
-export default router;
+export default route;
