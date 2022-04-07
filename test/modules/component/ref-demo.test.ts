@@ -1,4 +1,3 @@
-import { fn } from 'vitest';
 import { mount } from '@vue/test-utils';
 import RefDemo from '@/component/modules/ref-demo/index.vue';
 
@@ -10,7 +9,7 @@ describe('ref-demo', () => {
   const wrapper = mount(RefDemo);
 
   it('onClick exist', () => {
-    const mockFn = fn(wrapper.vm.onClick);
+    const mockFn = vi.fn(wrapper.vm.onClick);
     mockFn();
     expect(mockFn).toHaveBeenCalledTimes(1);
   });

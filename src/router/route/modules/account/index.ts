@@ -1,27 +1,27 @@
 import { createVNode } from 'vue';
 import { RouteRecordRaw, RouterView } from 'vue-router';
-import { AccountRouterName } from './const';
+import { AccountRouteName } from './const';
 
-const router: RouteRecordRaw = {
+const route: RouteRecordRaw = {
   path: '/account',
-  name: AccountRouterName.ACCOUNT_ROUTER,
+  name: AccountRouteName.DEFAULT_ROUTER,
   component: () => Promise.resolve(createVNode(RouterView)),
   children: [
     {
       path: '',
-      redirect: { name: AccountRouterName.ACCOUNT_LOGIN_ROUTER }
+      redirect: { name: AccountRouteName.LOGIN_ROUTER }
     },
     {
       path: 'login',
-      name: AccountRouterName.ACCOUNT_LOGIN_ROUTER,
+      name: AccountRouteName.LOGIN_ROUTER,
       component: () => import(`@/page/account/login/index.vue`)
     },
     {
       path: 'register',
-      name: AccountRouterName.ACCOUNT_REGISTER_ROUTER,
+      name: AccountRouteName.REGISTER_ROUTER,
       component: () => import(`@/page/account/register/index.vue`)
     }
   ]
 };
 
-export default router;
+export default route;
