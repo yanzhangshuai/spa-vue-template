@@ -65,6 +65,7 @@ module.exports = {
     'vue/multi-word-component-names': 0,
     'vue/eqeqeq': [2, 'always', { null: 'ignore' }],
     'vue/max-attributes-per-line': [0, { singleline: 1, multiline: { max: 1, allowFirstLine: false } }],
+
     'jest/consistent-test-it': [2, { fn: 'it' }],
     'jest/no-disabled-tests': 1,
     'jest/no-focused-tests': 2,
