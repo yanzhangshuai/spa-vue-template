@@ -5,7 +5,6 @@ function injectDirectives(app: App<Element>) {
   const modules = moduleFilter<Directive>(import.meta.globEager('./modules/**/*.{ts,js}'));
 
   //  匹配文件名称的正则
-  //TODO 正则没有全部满足
   const directiveRegex = /\/([\w\d-]+)([.-]?[dD]irective)?\/([\w\d-]+)([.-]?[dD]irective)?\.[tj]s$/;
 
   Object.keys(modules).forEach((key) => {
