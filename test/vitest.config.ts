@@ -18,6 +18,9 @@ export default defineConfig(async (env) => {
       root: root,
       globals: true,
       environment: 'jsdom',
+      transformMode: {
+        web: [/\.[jt]sx$/]
+      },
       dir: 'test/modules',
       include: ['**/*.{test,spec}.ts'],
       coverage: {
