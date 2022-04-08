@@ -1,13 +1,8 @@
 vue3 + webpack + Typescript template
 
-目前问题
 
-require.context 匹配文件正则具有局限性
+### 命令
 
-service 层未设计
-
-
-命令
 ```
 npm run dev                     开发环境
 
@@ -26,7 +21,8 @@ npm run report:windi            分析 windicss 使用结果
 
 ```
 
-项目结构
+
+### 项目结构
 * **build**：项目编译模块
 * **deploy**：构建 Docker 部署镜像模块
 * **src**： 项目工作区模块
@@ -43,3 +39,10 @@ npm run report:windi            分析 windicss 使用结果
 * **standard**：代码规则模块
 * **test**：单元测试模块
 * **type**：通用类型模块
+
+
+### NPM
+
+支持 `npm`、`yarn`、`pnpm` 等多种包管理工具
+
+`NPM仓库` 地址默认为 **https://registry.npmmirror.com(原 https://registry.npm.taobao.org)**，如需更改为其它仓库地址，可修改 `.npmrc` 文件 **registry** 属性
