@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
 import { ErrorRouteName } from './const';
 
 const routes: Array<RouteRecordRaw> = [

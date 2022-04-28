@@ -1,4 +1,4 @@
-import { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
 import Demo1Route from './demo1';
 import ErrorRoutes from './error';
 import { HomeRouteName } from './const';

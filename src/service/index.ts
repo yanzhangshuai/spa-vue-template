@@ -1,10 +1,17 @@
-import { App } from 'vue';
-import { Http } from './http/index';
+import type { Plugin } from 'vue';
+import { createAsker } from '@mwjz/asker';
 import { setupInterceptor } from './interceptor/index';
 
-let http: Http;
-export function setupService(app: App<Element>): App<Element> {
-  http = new Http({
+const HttpPlugin: Plugin = {
+  install() {
+    create();
+  }
+};
+
+export default HttpPlugin;
+
+function create() {
+  const asker = createAsker({
     request: {
       ignoreCancelToken: false,
       baseURL: import.meta.env.GLOBAL_API_BASE_URL,
@@ -12,11 +19,5 @@ export function setupService(app: App<Element>): App<Element> {
     }
   });
 
-  setupInterceptor(http.interceptor);
-
-  return app;
-}
-
-export function useHttp(): DeepReadonly<Http> {
-  return http;
+  setupInterceptor(asker.interceptor);
 }

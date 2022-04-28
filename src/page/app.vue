@@ -1,12 +1,5 @@
-<template>
-  <config-provider>
-    <router-view />
-  </config-provider>
-</template>
-
 <script lang="ts" setup>
 import { useTitle } from '@/hook/web/title';
-import { useStorage } from '@/plugin/storage';
 import { useUserStore } from '@/store/modules/user';
 
 defineProps({});
@@ -18,7 +11,11 @@ const userStore = useUserStore();
 userStore.getUserInfo().then((res) => {
   console.log('res', res);
 });
-const storage = useStorage();
-console.log("  storage.get('name')", storage.get('name'));
 </script>
+
+<template>
+  <config-provider>
+    <router-view />
+  </config-provider>
+</template>
 <style lang="less"></style>

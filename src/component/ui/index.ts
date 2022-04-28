@@ -1,4 +1,4 @@
-import { DatePicker, Layout, Menu, ConfigProvider } from 'ant-design-vue';
+import { ConfigProvider, DatePicker, Layout, Menu } from 'ant-design-vue';
 
 const uiComponents = [Layout, Menu, DatePicker, ConfigProvider];
 

@@ -1,5 +1,5 @@
-import { createStyleImportPlugin, AndDesignVueResolve } from 'vite-plugin-style-import';
-import { PluginFn } from '../../type/vite';
+import { AndDesignVueResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
+import type { PluginFn } from '../../type/vite';
 
 export const uiPlugin: PluginFn = () => {
   return createStyleImportPlugin({
@@ -8,7 +8,7 @@ export const uiPlugin: PluginFn = () => {
       {
         libraryName: 'ant-design-vue',
         esModule: true,
-        resolveStyle: (name) => `ant-design-vue/es/${name}/style/index`
+        resolveStyle: name => `ant-design-vue/es/${name}/style/index`
       }
     ]
   });

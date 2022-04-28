@@ -1,69 +1,70 @@
 export interface ViewportOffsetResult {
-  left: number;
-  top: number;
-  right: number;
-  bottom: number;
-  rightIncludeBody: number;
-  bottomIncludeBody: number;
+  left: number
+  top: number
+  right: number
+  bottom: number
+  rightIncludeBody: number
+  bottomIncludeBody: number
 }
 
 export function getBoundingClientRect(element: Element): DOMRect | number {
-  if (!element || !element.getBoundingClientRect) {
+  if (!element || !element.getBoundingClientRect)
     return 0;
-  }
+
   return element.getBoundingClientRect();
 }
 
 export function hasClass(el: Element, cls: string): boolean {
-  if (!el || !cls) return false;
-  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');
-  if (el.classList) {
+  if (!el || !cls)
+    return false;
+  if (cls.includes(' '))
+    throw new Error('className should not contain space.');
+  if (el.classList)
     return el.classList.contains(cls);
-  } else {
-    return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
-  }
+  else
+    return (` ${el.className} `).includes(` ${cls} `);
 }
 
 /* istanbul ignore next */
 export function addClass(el: Element, cls: string): void {
-  if (!el) return;
+  if (!el)
+    return;
   let curClass = el.className;
   const classes = (cls || '').split(' ');
 
   for (let i = 0, j = classes.length; i < j; i++) {
     const clsName = classes[i];
-    if (!clsName) continue;
+    if (!clsName)
+      continue;
 
-    if (el.classList) {
+    if (el.classList)
       el.classList.add(clsName);
-    } else if (!hasClass(el, clsName)) {
-      curClass += ' ' + clsName;
-    }
+    else if (!hasClass(el, clsName))
+      curClass += ` ${clsName}`;
   }
-  if (!el.classList) {
+  if (!el.classList)
     el.className = curClass;
-  }
 }
 
 /* istanbul ignore next */
 export function removeClass(el: Element, cls: string): void {
-  if (!el || !cls) return;
+  if (!el || !cls)
+    return;
   const classes = cls.split(' ');
-  let curClass = ' ' + el.className + ' ';
+  let curClass = ` ${el.className} `;
 
   for (let i = 0, j = classes.length; i < j; i++) {
     const clsName = classes[i];
-    if (!clsName) continue;
+    if (!clsName)
+      continue;
 
-    if (el.classList) {
+    if (el.classList)
       el.classList.remove(clsName);
-    } else if (hasClass(el, clsName)) {
-      curClass = curClass.replace(' ' + clsName + ' ', ' ');
-    }
+    else if (hasClass(el, clsName))
+      curClass = curClass.replace(` ${clsName} `, ' ');
   }
-  if (!el.classList) {
+  if (!el.classList)
     el.className = trim(curClass);
-  }
 }
 
 export function getViewportOffset(element: Element): ViewportOffsetResult {
@@ -92,8 +93,8 @@ export function getViewportOffset(element: Element): ViewportOffsetResult {
   const clientWidth = window.document.documentElement.clientWidth;
   const clientHeight = window.document.documentElement.clientHeight;
   return {
-    left: left,
-    top: top,
+    left,
+    top,
     right: clientWidth - rectWidth - left,
     bottom: clientHeight - rectHeight - top,
     rightIncludeBody: clientWidth - left,
@@ -107,22 +108,20 @@ function trim(string: string) {
 
 /* istanbul ignore next */
 export function on(element: Element | HTMLElement | Document | Window, event: string, handler: EventListenerOrEventListenerObject): void {
-  if (element && event && handler) {
+  if (element && event && handler)
     element.addEventListener(event, handler, false);
-  }
 }
 
 export function off(element: Element | HTMLElement | Document | Window, event: string, handler: Fn): void {
-  if (element && event && handler) {
+  if (element && event && handler)
     element.removeEventListener(event, handler, false);
-  }
 }
 
 export function once(el: HTMLElement, event: string, fn: EventListener): void {
   const listener = function (this: unknown, ...args: Array<unknown>) {
-    if (fn) {
+    if (fn)
       fn.apply(this, args);
-    }
+
     off(el, event, listener);
   };
   on(el, event, listener);

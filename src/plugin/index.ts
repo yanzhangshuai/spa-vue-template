@@ -1,9 +1,14 @@
-import { App } from 'vue';
-import { setupStorage } from './storage';
+import type { App, Plugin } from 'vue';
 import { setupGlobalProperty } from './global-property';
 
-export function setupPlugin(app: App<Element>): App<Element> {
-  setupStorage();
+const _Plugin: Plugin = {
+  install(app: App) {
+    injectPlugin(app);
+  }
+};
+
+export default _Plugin;
+
+function injectPlugin(app: App<Element>) {
   setupGlobalProperty(app);
-  return app;
 }

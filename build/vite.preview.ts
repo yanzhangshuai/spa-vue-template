@@ -6,10 +6,6 @@ import { createProxy } from './vite/proxy';
 const viteEnv = wrapperEnv(loadEnv('development', configPath));
 
 preview({
-  server: {
-    //TODO: vite2.9.1有bug,判断了server.proxy
-    proxy: createProxy(viteEnv.VITE_SERVER_PROXY)
-  },
   preview: {
     host: true,
     cors: true,

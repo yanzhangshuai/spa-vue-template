@@ -1,5 +1,5 @@
-import { Plugin, ProxyOptions } from 'vite';
-import { Env } from './env';
+import type { Plugin, ProxyOptions } from 'vite';
+import type { Env } from './env';
 
 export type Mode = 'development' | 'production' | 'test';
 

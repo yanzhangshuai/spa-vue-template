@@ -1,4 +1,5 @@
-import { ref, readonly, watchEffect, Ref, DeepReadonly } from 'vue';
+import type { DeepReadonly, Ref } from 'vue';
+import { readonly, ref, watchEffect } from 'vue';
 
 /**
  * Handle overlapping async evaluations
@@ -36,16 +37,15 @@ export default function useAsyncComputed<T>(callback: (onCancel: AsyncComputedOn
       const result = await callback((cancelCallback) => {
         onInvalidate(() => {
           evaluating.value = false;
-          if (!hasFinished) {
+          if (!hasFinished)
             cancelCallback();
-          }
         });
       });
 
-      if (counterAtBeginning === counter) {
+      if (counterAtBeginning === counter)
         current.value = result;
-      }
-    } finally {
+    }
+    finally {
       evaluating.value = false;
       hasFinished = true;
     }

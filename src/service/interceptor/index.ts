@@ -1,4 +1,4 @@
-import { InterceptorManager } from '@/service/http/type';
+import type { InterceptorManager } from '@mwjz/asker';
 
 export function setupInterceptor(manager: InterceptorManager): void {
   manager.request.use((conf) => {

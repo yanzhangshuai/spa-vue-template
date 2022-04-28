@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import { UserConfig } from 'vitest/config';
+import type { UserConfig } from 'vitest/config';
 import { root } from '../build/util/path';
 import viteConfig from '../build/vite.config';
 
@@ -15,7 +15,7 @@ export default defineConfig(async (env) => {
   const userConfig: UserConfig = {
     ...config,
     test: {
-      root: root,
+      root,
       globals: true,
       environment: 'jsdom',
       transformMode: {

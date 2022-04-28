@@ -1,6 +1,7 @@
 import { defineComponent, h, ref } from 'vue';
+import type { Menu as MenuData } from './menu';
+import menus from './menu';
 import { Menu } from '@/component/ui';
-import menus, { Menu as MenuData } from './menu';
 
 export default defineComponent({
   setup() {
@@ -9,11 +10,13 @@ export default defineComponent({
 
     const menuNode = (menus: Array<MenuData>) => {
       return menus.map((menu) => {
-        return !menu.children ? (
+        return !menu.children
+          ? (
           <Menu.Item key={menu.id}>
             <span>{menu.title}</span>
           </Menu.Item>
-        ) : (
+            )
+          : (
           <Menu.SubMenu
             key={menu.id}
             title={h(() => (
@@ -21,7 +24,7 @@ export default defineComponent({
             ))}>
             {menuNode(menu.children)}
           </Menu.SubMenu>
-        );
+            );
       });
     };
     return () => (
