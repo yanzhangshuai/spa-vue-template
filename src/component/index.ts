@@ -1,5 +1,13 @@
-import { App, Component } from 'vue';
+import { App, Component, Plugin } from 'vue';
 import { moduleFilter } from '@/util/helper';
+
+const ComponentPlugin: Plugin = {
+  install(app: App) {
+    injectComponents(app);
+  }
+};
+
+export default ComponentPlugin;
 
 function injectComponents(app: App<Element>) {
   const modules = moduleFilter<Component>(require.context('./modules/', true, /\.(vue|tsx)$/));
@@ -19,9 +27,4 @@ function injectComponents(app: App<Element>) {
     const componentName = component.name || (fileMatch[3] && fileMatch[3] !== 'index' ? fileMatch[3] : fileMatch[1]);
     app.component(componentName, component);
   });
-}
-
-export function setupComponent(app: App<Element>): App<Element> {
-  injectComponents(app);
-  return app;
 }

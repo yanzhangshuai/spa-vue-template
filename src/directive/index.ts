@@ -1,5 +1,13 @@
-import { App, Directive } from 'vue';
+import { App, Directive, Plugin } from 'vue';
 import { moduleFilter } from '@/util/helper';
+
+const DirectivePlugin: Plugin = {
+  install(app: App) {
+    injectDirectives(app);
+  }
+};
+
+export default DirectivePlugin;
 
 function injectDirectives(app: App<Element>) {
   const modules = moduleFilter<Directive>(require.context('./modules/', true, /\.(ts|js)$/));
@@ -20,9 +28,4 @@ function injectDirectives(app: App<Element>) {
 
     app.directive(directiveName, directive);
   });
-}
-
-export function setupDirective(app: App<Element>): App<Element> {
-  injectDirectives(app);
-  return app;
 }
