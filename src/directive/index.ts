@@ -1,4 +1,4 @@
-import { App, Directive, Plugin } from 'vue';
+import type { App, Directive, Plugin } from 'vue';
 import { moduleFilter } from '@/util/helper';
 
 const DirectivePlugin: Plugin = {

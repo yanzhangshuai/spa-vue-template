@@ -1,8 +1,9 @@
 import visualizer from 'rollup-plugin-visualizer';
-import { PluginFn } from '../../type/vite';
+import type { PluginFn } from '../../type/vite';
 
 export const reportPlugin: PluginFn = (_mode, env) => {
-  if (!env.VITE_REPORT) return [];
+  if (!env.VITE_REPORT)
+    return [];
 
   return visualizer({
     open: true,

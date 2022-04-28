@@ -1,4 +1,4 @@
-import { PreRenderedAsset, PreRenderedChunk } from 'rollup';
+import type { PreRenderedAsset, PreRenderedChunk } from 'rollup';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function entryFileNames(chunkInfo: PreRenderedChunk) {
@@ -21,21 +21,18 @@ export function assetFileNames(chunkInfo?: PreRenderedAsset): string {
  * @param api
  */
 export function manualChunks(id: string): string | null | undefined {
-  if (id.includes('node_modules')) {
+  if (id.includes('node_modules'))
     return nodeModulesChunks(id);
-  }
 
-  if (id.includes('/src/page')) {
+  if (id.includes('/src/page'))
     return pageChunks(id);
-  }
 
   return 'index';
 }
 
 function nodeModulesChunks(id: string) {
-  if (/[\\/]node_modules[\\/](@)?vue/.test(id)) {
+  if (/[\\/]node_modules[\\/](@)?vue/.test(id))
     return '__libs';
-  }
 
   return '__vendors';
 }

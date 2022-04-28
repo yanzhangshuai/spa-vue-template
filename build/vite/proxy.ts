@@ -1,4 +1,4 @@
-import { ProxyTarget } from '../type/vite';
+import type { ProxyTarget } from '../type/vite';
 
 export function createProxy(proxy: Record<string, string>): ProxyTarget {
   return Object.keys(proxy)

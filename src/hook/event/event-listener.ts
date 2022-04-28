@@ -1,21 +1,21 @@
-import { ref, watch, unref, Ref } from 'vue';
-import { useThrottleFn, useDebounceFn } from '@vueuse/core';
+import type { Ref } from 'vue';
+import { ref, unref, watch } from 'vue';
+import { useDebounceFn, useThrottleFn } from '@vueuse/core';
 
 export type RemoveEventFn = () => void;
 
 export interface UseEventParams {
-  el?: Element | Ref<Element | undefined> | Window | unknown;
-  name: string;
-  listener: EventListener;
-  options?: boolean | AddEventListenerOptions;
-  autoRemove?: boolean;
-  isDebounce?: boolean;
-  wait?: number;
+  el?: Element | Ref<Element | undefined> | Window | unknown
+  name: string
+  listener: EventListener
+  options?: boolean | AddEventListenerOptions
+  autoRemove?: boolean
+  isDebounce?: boolean
+  wait?: number
 }
 
 export function useEventListener({ el = window, name, listener, options, autoRemove = true, isDebounce = true, wait = 80 }: UseEventParams): Readonly<{ removeEvent: RemoveEventFn }> {
-  /* eslint-disable-next-line */
-  let remove: RemoveEventFn = () => {};
+  let remove: RemoveEventFn = () => { };
   const isAddRef = ref(false);
 
   if (el) {

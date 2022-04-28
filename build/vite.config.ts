@@ -1,7 +1,7 @@
-import { ConfigEnv, defineConfig, loadEnv } from 'vite';
-import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
-import { Mode } from './type/vite';
+import type { ConfigEnv } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { version } from '../package.json';
+import type { Mode } from './type/vite';
 import { wrapperEnv } from './util/env';
 import { createProxy } from './vite/proxy';
 import { createVitePlugins } from './vite/plugin';
@@ -24,7 +24,7 @@ export default defineConfig((conf: ConfigEnv) => {
   return {
     base: viteEnv.VITE_PUBLIC_PATH || '/',
 
-    root: root,
+    root,
 
     envDir: configPath,
 
@@ -67,13 +67,12 @@ export default defineConfig((conf: ConfigEnv) => {
       brotliSize: false,
       chunkSizeWarningLimit: 2000,
       rollupOptions: {
-        plugins: [dynamicImportVars()],
 
         output: {
-          entryFileNames: entryFileNames,
-          chunkFileNames: chunkFileNames,
-          manualChunks: manualChunks,
-          assetFileNames: assetFileNames
+          entryFileNames,
+          chunkFileNames,
+          manualChunks,
+          assetFileNames
         }
       }
     },

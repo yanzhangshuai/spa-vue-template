@@ -1,6 +1,3 @@
-<template>
-  <div>HTTP请求数据：{{ data }}</div>
-</template>
 <script setup lang="ts">
 import { useDemoService } from '@/service/modules/demo';
 
@@ -17,3 +14,6 @@ demoService
     console.error(err);
   });
 </script>
+<template>
+  <div>HTTP请求数据：{{ data }}</div>
+</template>

@@ -13,7 +13,7 @@ export default defineComponent({
     return () => (
       <>
         <h1>我是tsx-demo</h1>
-        {list.map((s) => (
+        {list.map(s => (
           <li
             onClick={() => {
               console.log(s);

@@ -1,6 +1,6 @@
 declare module 'pinia' {
   export interface Pinia {
-    name: string;
+    name: string
   }
 }
 

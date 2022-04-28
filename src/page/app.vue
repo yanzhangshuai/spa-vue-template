@@ -1,9 +1,3 @@
-<template>
-  <config-provider>
-    <router-view />
-  </config-provider>
-</template>
-
 <script lang="ts" setup>
 import { useTitle } from '@/hook/web/title';
 import { useUserStore } from '@/store/modules/user';
@@ -18,4 +12,10 @@ userStore.getUserInfo().then((res) => {
   console.log('res', res);
 });
 </script>
+
+<template>
+  <config-provider>
+    <router-view />
+  </config-provider>
+</template>
 <style lang="less"></style>

@@ -1,13 +1,14 @@
 import { useThrottleFn } from '@vueuse/core';
-import { Ref, ref, onMounted, watch, onUnmounted } from 'vue';
+import type { Ref } from 'vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import { isObject, isWindow } from '@/util/is';
 
 export function useScroll(
   refEl: Ref<Element | Window | null>,
   options?: {
-    wait?: number;
-    leading?: boolean;
-    trailing?: boolean;
+    wait?: number
+    leading?: boolean
+    trailing?: boolean
   }
 ): Readonly<{ refX: Ref<number>; refY: Ref<number>; stop: Fn<void> }> {
   const refX = ref(0);
@@ -16,7 +17,8 @@ export function useScroll(
     if (isWindow(refEl.value)) {
       refX.value = refEl.value.scrollX;
       refY.value = refEl.value.scrollY;
-    } else if (refEl.value) {
+    }
+    else if (refEl.value) {
       refX.value = (refEl.value as Element).scrollLeft;
       refY.value = (refEl.value as Element).scrollTop;
     }
@@ -37,11 +39,11 @@ export function useScroll(
     stopWatch = watch(
       refEl,
       (el, prevEl, onCleanup) => {
-        if (el) {
+        if (el)
           el.addEventListener('scroll', handler);
-        } else if (prevEl) {
+        else if (prevEl)
           prevEl.removeEventListener('scroll', handler);
-        }
+
         onCleanup(() => {
           refX.value = refY.value = 0;
           el && el.removeEventListener('scroll', handler);
