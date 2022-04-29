@@ -3,16 +3,16 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { useHttp } from '@/service';
+import { useDemoService } from '@/service/modules/demo';
 
 export default defineComponent({
   setup() {
     const data = ref();
 
-    const http = useHttp();
+    const demoService = useDemoService();
 
-    http
-      .get('app/hello')
+    demoService
+      .hello()
       .then((res) => {
         data.value = res;
       })

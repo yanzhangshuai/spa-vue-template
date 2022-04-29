@@ -1,9 +1,9 @@
 import Router from 'vue-router';
-import { useHttp } from '@/service';
+import { useAsker } from '@mwjz/asker';
 
 export function createHttpGuard(router: Readonly<Router>): void {
   router.beforeEach((_to, _from, next) => {
-    const http = useHttp();
+    const http = useAsker();
     http?.canceler?.removeAllPending();
     next();
   });

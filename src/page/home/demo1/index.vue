@@ -8,13 +8,10 @@
 </template>
 
 <script lang="ts">
-import { useStorage } from '@/plugin/storage';
 import { defineComponent } from '@vue/composition-api';
 
 export default defineComponent({
   setup() {
-    const storage = useStorage();
-    storage.set('name', 'value');
     return {};
   }
 });
