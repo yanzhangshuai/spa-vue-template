@@ -1,36 +1,26 @@
+<script setup lang="ts">
+
+export interface RefSetupDemoProps {
+  name: string
+  id: number
+}
+
+export interface RefSetupDemoExpose {
+  onBtn: () => void
+  name: string
+}
+
+const props = defineProps<RefSetupDemoProps>();
+const emit = defineEmits(['update:name']);
+
+const onBtn = () => {
+  emit('update:name', Math.random().toString());
+};
+defineExpose<RefSetupDemoExpose>({ onBtn, name: props.name });
+</script>
+
 <template>
   <h1>{{ name }}</h1>
   <button @click="onBtn">btn</button>
 </template>
-
-<script setup lang="ts">
-import { PropType } from 'vue';
-
-export interface De {
-  name: string;
-}
-
-const props = defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  id: {
-    type: Number,
-    required: true
-  },
-  value: {
-    type: Object as PropType<De>,
-    default: () => undefined
-  }
-});
-const emit = defineEmits(['update:name']);
-const onBtn = () => {
-  emit('update:name', Math.random().toString());
-};
-defineExpose({
-  onBtn,
-  name: props.name
-});
-</script>
 <style lang="less" scoped></style>

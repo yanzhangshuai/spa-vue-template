@@ -1,4 +1,4 @@
-import { App, Directive, Plugin } from 'vue';
+import type { App, Directive, Plugin } from 'vue';
 import { moduleFilter } from '@/util/helper';
 
 const DirectivePlugin: Plugin = {
@@ -15,7 +15,7 @@ function injectDirectives(app: App<Element>) {
   //  匹配文件名称的正则
   const directiveRegex = /\/([\w\d-]+)([.-]?[dD]irective)?\/([\w\d-]+)([.-]?[dD]irective)?\.[tj]s$/;
 
-  Object.keys(modules).map((filename) => {
+  Object.keys(modules).forEach((filename) => {
     const directive = modules[filename] as Directive;
 
     const fileMatch = filename.match(directiveRegex);

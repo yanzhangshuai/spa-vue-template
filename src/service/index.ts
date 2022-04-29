@@ -1,4 +1,4 @@
-import { Plugin } from 'vue';
+import type { Plugin } from 'vue';
 import { createAsker } from '@mwjz/asker';
 import { setupInterceptor } from './interceptor/index';
 

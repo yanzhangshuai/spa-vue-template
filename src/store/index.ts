@@ -1,13 +1,15 @@
-import { App, Plugin } from 'vue';
+import type { App, Plugin } from 'vue';
 import { debounce } from 'lodash-es';
-import { createPinia, Pinia } from 'pinia';
+import type { Pinia } from 'pinia';
+import { createPinia } from 'pinia';
 import { PiniaStorage } from '@mwjz/pinia-storage';
 import { PiniaDebounce } from '@pinia/plugin-debounce';
 
 const StorePlugin: Plugin = {
   install(app: App) {
     const store = create();
-    if (!store) return;
+    if (!store)
+      return;
 
     app.use(store);
   }
