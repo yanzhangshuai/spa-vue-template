@@ -1,8 +1,8 @@
 export interface Menu {
-  id: string | number;
-  title: string;
-  icon?: string;
-  children?: Array<Menu>;
+  id: string | number
+  title: string
+  icon?: string
+  children?: Array<Menu>
 }
 
 const menus: Array<Menu> = [

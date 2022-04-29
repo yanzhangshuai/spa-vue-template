@@ -1,4 +1,4 @@
-import { DatePicker, Layout, Menu, ConfigProvider } from 'ant-design-vue';
+import { ConfigProvider, DatePicker, Layout, Menu } from 'ant-design-vue';
 
 if (GLOBAL_DEV) {
   // dev环境加载全部antd样式

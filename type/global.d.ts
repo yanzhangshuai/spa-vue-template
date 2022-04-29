@@ -62,12 +62,12 @@ declare global {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface Fn<T = any, R = T> {
-    (...arg: Array<T>): R;
+    (...arg: Array<T>): R
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface PromiseFn<T = any, R = T> {
-    (...arg: Array<T>): Promise<R>;
+    (...arg: Array<T>): Promise<R>
   }
 
   type RefType<T> = T | null;
@@ -77,7 +77,7 @@ declare global {
   type TargetContext = '_self' | '_blank';
 
   interface ComponentElRef<T extends HTMLElement = HTMLDivElement> {
-    $el: T;
+    $el: T
   }
 
   type ComponentRef<T extends HTMLElement = HTMLDivElement> = ComponentElRef<T> | null;

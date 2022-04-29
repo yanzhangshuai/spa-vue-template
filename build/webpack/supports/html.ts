@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { resolve } from '../../util/path';
-import { SupportFn } from '../../type/webpack';
+import type { SupportFn } from '../../type/webpack';
 
 export const htmlSupport: SupportFn = (mode, env) => {
   return {

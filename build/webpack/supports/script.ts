@@ -1,5 +1,5 @@
 import { resolve } from '../../util/path';
-import { SupportFn } from '../../type/webpack';
+import type { SupportFn } from '../../type/webpack';
 
 export const scriptSupport: SupportFn = () => {
   return {

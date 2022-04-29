@@ -1,7 +1,7 @@
-import { Configuration } from 'webpack-dev-server';
-import { Env } from '../type/env';
-import { createProxy } from './proxy';
+import type { Configuration } from 'webpack-dev-server';
+import type { Env } from '../type/env';
 import { findPort } from '../util/helper';
+import { createProxy } from './proxy';
 
 export function createDevServer(env: Env): Promise<Configuration> {
   const config: Configuration = {

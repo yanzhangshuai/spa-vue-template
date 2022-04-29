@@ -1,15 +1,9 @@
-<template>
-  <div>HTTP请求数据：{{ data }}</div>
-</template>
 <script setup lang="ts">
-import { useHttp } from '@/service';
-
-let data = $ref();
-
-const http = useHttp();
-
-http
-  .get('app/hello')
+import { useDemoService } from '@/service/modules/demo';
+let data = $ref('');
+const demoService = useDemoService();
+demoService
+  .hello()
   .then((res) => {
     data = res;
   })
@@ -17,3 +11,6 @@ http
     console.error(err);
   });
 </script>
+<template>
+  <div>HTTP请求数据：{{ data }}</div>
+</template>
