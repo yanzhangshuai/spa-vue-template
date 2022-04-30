@@ -6,5 +6,5 @@ import portfinder from 'portfinder';
  * @param startPort
  */
 export const findPort = (startPort: number): Promise<number> => {
-  return portfinder.getPortPromise({ startPort: startPort, port: startPort });
+  return portfinder.getPortPromise({ startPort, port: startPort });
 };

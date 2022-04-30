@@ -1,8 +1,9 @@
-import Vue, { DirectiveOptions } from 'vue';
+import type { DirectiveOptions } from 'vue';
+import Vue from 'vue';
 import { moduleFilter } from '@/util/helper';
 
 interface Directive extends DirectiveOptions {
-  name?: string;
+  name?: string
 }
 
 function injectDirectives() {
@@ -11,7 +12,7 @@ function injectDirectives() {
   //  匹配文件名称的正则
   const directiveRegex = /\/([\w\d-]+)([.-]?[dD]irective)?\/([\w\d-]+)([.-]?[dD]irective)?\.[tj]s$/;
 
-  Object.keys(modules).map((filename) => {
+  Object.keys(modules).forEach((filename) => {
     const directive = modules[filename] as Directive;
 
     const fileMatch = filename.match(directiveRegex);

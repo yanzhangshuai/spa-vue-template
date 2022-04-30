@@ -1,4 +1,4 @@
-import { ProxyConfigMap } from 'webpack-dev-server';
+import type { ProxyConfigMap } from 'webpack-dev-server';
 
 export function createProxy(proxy: Record<string, string>): ProxyConfigMap {
   return Object.keys(proxy)

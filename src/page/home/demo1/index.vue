@@ -1,3 +1,13 @@
+<script lang="ts">
+import { defineComponent } from '@vue/composition-api';
+
+export default defineComponent({
+  setup() {
+    return {};
+  }
+});
+</script>
+
 <template>
   <div>
     <div class="text-block" @click="$window.alert('1')">我是demo1</div>
@@ -7,19 +17,6 @@
     <date-picker-test />
   </div>
 </template>
-
-<script lang="ts">
-import { useStorage } from '@/plugin/storage';
-import { defineComponent } from '@vue/composition-api';
-
-export default defineComponent({
-  setup() {
-    const storage = useStorage();
-    storage.set('name', 'value');
-    return {};
-  }
-});
-</script>
 <style lang="less" scoped>
 div {
   color: @primary;

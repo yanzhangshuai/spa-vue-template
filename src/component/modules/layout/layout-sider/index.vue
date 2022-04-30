@@ -1,13 +1,3 @@
-<template>
-  <a-layout-sider collapsed-width="0" width="240">
-    <div class="logo">
-      <img class="h-7" :src="$globalProps.APP_LOGO" />
-      <h4 class="ml-4 text-2xl text-white">{{ $globalProps.APP_NAME }}</h4>
-    </div>
-    <!-- <layout-menu /> -->
-  </a-layout-sider>
-</template>
-
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 export default defineComponent({
@@ -16,6 +6,16 @@ export default defineComponent({
   }
 });
 </script>
+
+<template>
+  <a-layout-sider collapsed-width="0" width="240">
+    <div class="logo">
+      <img class="h-7" :src="$globalProps.APP_LOGO">
+      <h4 class="ml-4 text-2xl text-white">{{ $globalProps.APP_NAME }}</h4>
+    </div>
+    <!-- <layout-menu /> -->
+  </a-layout-sider>
+</template>
 
 <style lang="less" scoped>
 .logo {

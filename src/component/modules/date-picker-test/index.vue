@@ -1,7 +1,3 @@
-<template>
-  <a-date-picker @change="onChanged" />
-</template>
-
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 
@@ -15,5 +11,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<template>
+  <a-date-picker @change="onChanged" />
+</template>
 
 <style lang="less" scoped></style>

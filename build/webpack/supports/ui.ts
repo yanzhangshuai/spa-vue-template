@@ -1,7 +1,6 @@
-//@ts-ignore
 import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
 import { resolve } from '../../util/path';
-import { SupportFn } from '../../type/webpack';
+import type { SupportFn } from '../../type/webpack';
 
 export const uiSupport: SupportFn = (isBuild, env) => {
   const alias: Record<string, string> = {};

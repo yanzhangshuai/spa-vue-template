@@ -1,4 +1,4 @@
-import Router from 'vue-router';
+import type Router from 'vue-router';
 import { createAuthGuard } from './auth';
 import { createHttpGuard } from './http';
 import { createPermissionGuard } from './permission';

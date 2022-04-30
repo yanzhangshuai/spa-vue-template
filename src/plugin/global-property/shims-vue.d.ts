@@ -1,8 +1,8 @@
-import { GlobalProps } from './type';
+import type { GlobalProps } from './type';
 declare module 'vue/types/vue' {
   interface Vue {
-    $window: Window & typeof globalThis;
+    $window: Window & typeof globalThis
 
-    $globalProps: GlobalProps;
+    $globalProps: GlobalProps
   }
 }
