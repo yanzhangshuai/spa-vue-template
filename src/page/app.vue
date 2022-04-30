@@ -1,9 +1,3 @@
-<template>
-  <config-provider>
-    <router-view />
-  </config-provider>
-</template>
-
 <script lang="ts">
 import { defineComponent, watch } from '@vue/composition-api';
 import { useRoute } from '@/router';
@@ -22,3 +16,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<template>
+  <config-provider>
+    <router-view />
+  </config-provider>
+</template>

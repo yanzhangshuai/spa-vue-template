@@ -1,5 +1,5 @@
-import { AssetInfo } from 'webpack';
-import { Mode } from '../type/webpack';
+import type { AssetInfo } from 'webpack';
+import type { Mode } from '../type/webpack';
 
 /**
  *

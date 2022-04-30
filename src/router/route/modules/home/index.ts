@@ -1,4 +1,4 @@
-import { RouteConfig } from 'vue-router';
+import type { RouteConfig } from 'vue-router';
 import Demo1Route from './demo1';
 import { HomeRouteName } from './const';
 

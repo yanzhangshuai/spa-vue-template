@@ -14,12 +14,12 @@ export const awaitWrapper = <T = unknown, E = unknown>(promise: Promise<T>): Pro
  */
 export const moduleFilter = <T>(
   modules: {
-    keys(): string[];
+    keys(): string[]
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (id: string): any;
-    <T>(id: string): T;
-    resolve(id: string): string;
-    id: string;
+    (id: string): any
+    <T>(id: string): T
+    resolve(id: string): string
+    id: string
   },
   filter = /^\.\/.*$/,
   de = true
@@ -29,10 +29,10 @@ export const moduleFilter = <T>(
     .filter((filename) => {
       //  过滤组件
       return (
-        modules(filename)[Symbol.toStringTag] === 'Module' &&
-        filter.test(filename) &&
+        modules(filename)[Symbol.toStringTag] === 'Module'
+        && filter.test(filename)
         // 当只获取default模块时, 判断其是否存在
-        (de ? modules(filename).default : true)
+        && (de ? modules(filename).default : true)
       );
     })
     .reduce<Record<string, T>>((accumulator, filename) => {

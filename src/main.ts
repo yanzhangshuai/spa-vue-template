@@ -25,7 +25,7 @@ const store = setupStore();
 const router = setupRouter();
 
 new Vue({
-  render: (h) => h(App),
+  render: h => h(App),
   [store.name]: store,
   router
 }).$mount('#app');

@@ -1,16 +1,17 @@
-import { ref, watch, Ref } from '@vue/composition-api';
+import type { Ref } from '@vue/composition-api';
+import { ref, watch } from '@vue/composition-api';
 import { tryOnUnmounted } from '@vueuse/core';
 import { isFunction } from '@/util/is';
 
 export function useTimeout(handle: Fn<unknown>, wait: number, native = false): { readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> } {
-  if (!isFunction(handle)) {
+  if (!isFunction(handle))
     throw new Error('handle is not Function!');
-  }
 
   const { readyRef, stop, start } = useTimeoutRef(wait);
   if (native) {
     handle();
-  } else {
+  }
+  else {
     watch(
       readyRef,
       (maturity) => {
@@ -23,9 +24,9 @@ export function useTimeout(handle: Fn<unknown>, wait: number, native = false): {
 }
 
 export function useTimeoutRef(wait: number): {
-  readyRef: Ref<boolean>;
-  start: Fn<void>;
-  stop: Fn<void>;
+  readyRef: Ref<boolean>
+  start: Fn<void>
+  stop: Fn<void>
 } {
   const readyRef = ref(false);
 

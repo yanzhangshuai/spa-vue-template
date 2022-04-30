@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { moduleFilter } from '@/util/helper';
 
-type Component = { name?: string };
+interface Component { name?: string }
 
 function injectComponents() {
   const modules = moduleFilter<Component>(require.context('./modules/', true, /\.(vue|tsx)$/));

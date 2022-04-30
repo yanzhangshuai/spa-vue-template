@@ -10,8 +10,6 @@
 		"alwaysStrict": true,
 		"isolatedModules": false,
 		"removeComments": true,
-		"jsx": "preserve",
-		"jsxFactory": "h",
 		"experimentalDecorators": true,
 		"strictFunctionTypes": true,
 		"resolveJsonModule": true,

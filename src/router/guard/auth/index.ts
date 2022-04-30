@@ -1,4 +1,4 @@
-import Router from 'vue-router';
+import type Router from 'vue-router';
 import { getMeta } from '@/router/util';
 import { useUserStore } from '@/store/modules/user';
 

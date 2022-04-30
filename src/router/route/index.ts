@@ -1,8 +1,8 @@
-import { RouteConfig } from 'vue-router';
+import type { RouteConfig } from 'vue-router';
 import { flatMap, isArray } from 'lodash-es';
-import { moduleFilter } from '@/util/helper';
 import { HomeRouteName } from './modules/home/const';
 import { ErrorRouteName } from './modules/error/const';
+import { moduleFilter } from '@/util/helper';
 
 /**
  * 遍历moduleRoutes
@@ -25,7 +25,7 @@ const findModuleRoutes = (): Array<RouteConfig> => {
 
 const moduleRoutes = findModuleRoutes();
 
-export const routes: Array<RouteConfig> = [
+const routes: Array<RouteConfig> = [
   ...moduleRoutes,
   {
     path: '/',

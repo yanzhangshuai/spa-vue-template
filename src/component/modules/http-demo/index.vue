@@ -1,6 +1,3 @@
-<template>
-  <div>HTTP请求数据：{{ data }}</div>
-</template>
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
 import { useDemoService } from '@/service/modules/demo';
@@ -24,3 +21,6 @@ export default defineComponent({
   }
 });
 </script>
+<template>
+  <div>HTTP请求数据：{{ data }}</div>
+</template>

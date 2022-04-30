@@ -1,6 +1,8 @@
 import Vue from 'vue';
-import Router, { Route } from 'vue-router';
-import { reactive, ref, Ref, UnwrapRef } from '@vue/composition-api';
+import type { Route } from 'vue-router';
+import Router from 'vue-router';
+import type { Ref, UnwrapRef } from '@vue/composition-api';
+import { reactive, ref } from '@vue/composition-api';
 import routes from './route';
 import { setupRouterGuard } from './guard';
 
@@ -13,7 +15,7 @@ export function setupRouter(): Readonly<Router> {
   const router = new Router({
     base: GLOBAL_PATH_BASE_URL,
     mode: 'history',
-    routes: routes,
+    routes,
     scrollBehavior: () => ({ x: 0, y: 0 })
   });
 

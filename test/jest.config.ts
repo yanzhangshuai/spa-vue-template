@@ -1,4 +1,4 @@
-import { InitialOptionsTsJest } from 'ts-jest';
+import type { InitialOptionsTsJest } from 'ts-jest';
 import { root } from '../build/util/path';
 
 const config: InitialOptionsTsJest = {
@@ -27,7 +27,7 @@ const config: InitialOptionsTsJest = {
         allowJs: true
       }
     },
-    babelConfig: {
+    'babelConfig': {
       presets: [['@babel/preset-env', { targets: { node: 'current' } }], ['@babel/preset-typescript']]
     }
   },

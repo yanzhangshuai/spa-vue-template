@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { debounce } from 'lodash-es';
-import { createPinia, Pinia, PiniaVuePlugin } from 'pinia';
+import type { Pinia } from 'pinia';
+import { PiniaVuePlugin, createPinia } from 'pinia';
 import { PiniaStorage } from '@mwjz/pinia-storage';
 import { PiniaDebounce } from '@pinia/plugin-debounce';
 
