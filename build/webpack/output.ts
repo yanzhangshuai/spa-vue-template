@@ -8,7 +8,6 @@ import type { Mode } from '../type/webpack';
  * @param _assetInfo
  * @returns
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function filename(mode: Mode, _pathData: unknown, _assetInfo?: AssetInfo): string {
   const hash = mode === 'production' ? '[contenthash].' : '';
 
@@ -22,7 +21,6 @@ export function filename(mode: Mode, _pathData: unknown, _assetInfo?: AssetInfo)
  * @param _assetInfo
  * @returns
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function chunkFilename(mode: Mode, _pathData: unknown, _assetInfo?: AssetInfo): string {
   const hash = mode === 'production' ? '[contenthash].' : '';
 
@@ -36,7 +34,6 @@ export function chunkFilename(mode: Mode, _pathData: unknown, _assetInfo?: Asset
  * @param _assetInfo
  * @returns
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function cssFilename(mode: Mode, _pathData: unknown, _assetInfo?: AssetInfo) {
   const hash = mode === 'production' ? '[contenthash].' : '';
 
@@ -50,7 +47,6 @@ export function cssFilename(mode: Mode, _pathData: unknown, _assetInfo?: AssetIn
  * @param _assetInfo
  * @returns
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function cssChunkFilename(mode: Mode, _pathData: unknown, _assetInfo?: AssetInfo): string {
   const hash = mode === 'production' ? '[contenthash].' : '';
 

@@ -18,10 +18,10 @@ export default defineConfig({
         block: '#0a1f44'
       },
       screens: {
-        sm: '576px',
-        md: '768px',
-        lg: '992px',
-        xl: '1200px',
+        'sm': '576px',
+        'md': '768px',
+        'lg': '992px',
+        'xl': '1200px',
         '2xl': '1600px'
       }
     },
