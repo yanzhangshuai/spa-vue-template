@@ -18,4 +18,5 @@ userStore.getUserInfo().then((res) => {
     <router-view />
   </config-provider>
 </template>
+
 <style lang="less"></style>

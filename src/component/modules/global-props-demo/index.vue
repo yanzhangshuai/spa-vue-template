@@ -1,4 +1,5 @@
 <script setup lang="ts"></script>
+
 <template>
   <li>应用名称：{{ $globalProps.APP_NAME }}</li>
   <li>应用logo：<img :src="$globalProps.APP_LOGO" alt="" width="50"></li>
@@ -8,6 +9,7 @@
   <li>当前是否为开发环境：{{ $globalProps.DEV }}</li>
   <li>当前时间：{{ $globalProps.dateFormat($window.Date.now()) }}</li>
 </template>
+
 <style lang="less" scoped>
 li {
   @apply font-bold py-1 list-none px-0 text-red-300 rounded !important;

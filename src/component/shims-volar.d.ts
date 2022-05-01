@@ -7,4 +7,4 @@ declare module 'vue' {
     'tsx-demo': typeof import('./modules/tsx-demo/index')['default']
   }
 }
-export {};
+export { };

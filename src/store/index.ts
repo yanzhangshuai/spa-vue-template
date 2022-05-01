@@ -1,6 +1,5 @@
 import type { App, Plugin } from 'vue';
 import { debounce } from 'lodash-es';
-import type { Pinia } from 'pinia';
 import { createPinia } from 'pinia';
 import { PiniaStorage } from '@mwjz/pinia-storage';
 import { PiniaDebounce } from '@pinia/plugin-debounce';
@@ -16,8 +15,6 @@ const StorePlugin: Plugin = {
 };
 
 export default StorePlugin;
-
-export type Store = Pinia;
 
 function create() {
   const store = createPinia();

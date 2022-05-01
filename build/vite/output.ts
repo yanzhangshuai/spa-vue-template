@@ -1,17 +1,14 @@
 import type { PreRenderedAsset, PreRenderedChunk } from 'rollup';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function entryFileNames(chunkInfo: PreRenderedChunk) {
+export function entryFileNames(_chunkInfo: PreRenderedChunk) {
   return 'js/[name].[hash].js';
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function chunkFileNames(chunkInfo: PreRenderedChunk) {
+export function chunkFileNames(_chunkInfo: PreRenderedChunk) {
   return 'js/[name].[hash].js';
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function assetFileNames(chunkInfo?: PreRenderedAsset): string {
+export function assetFileNames(_chunkInfo?: PreRenderedAsset): string {
   return '[ext]/[name].[hash].[ext]';
 }
 
