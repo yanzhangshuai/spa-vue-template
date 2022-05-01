@@ -2,6 +2,7 @@
 import LayoutSider from './layout-sider/index.vue';
 import LayoutHeader from './layout-header/index.vue';
 </script>
+
 <template>
   <a-layout class="!min-h-screen main-layout">
     <layout-sider />
