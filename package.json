@@ -11,7 +11,7 @@
     "build:br": "     npm-run-all lint && cross-env WEBPACK_BUILD_COMPRESS=brotli  npm-run-all webpack-build",
     "build:gz": "     npm-run-all lint && cross-env WEBPACK_BUILD_COMPRESS=gzip    npm-run-all webpack-build",
     "deploy": "       npm-run-all build:gz && docker build -t spa-vue-template -f ./deploy/Dockerfile .",
-    "lint:js": "      eslint ./{src,test,type,build}/**/*.{ts,tsx,vue} --fix",
+    "lint:js": "      eslint ./{src,test,type,build}/**/*.{js,ts,tsx,vue} --fix",
     "lint:style": "   stylelint ./src/**/*.{css,less,vue} --fix",
     "lint": "         npm-run-all --parallel lint:*",
     "test": "         jest --passWith-no-tests --config ./test/jest.config.ts --watchAll",
@@ -40,7 +40,7 @@
     "windicss": "^3.5.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "^0.21.1",
+    "@antfu/eslint-config-vue": "^0.22.0",
     "@babel/core": "^7.17.10",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-proposal-decorators": "^7.17.9",

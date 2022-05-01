@@ -30,6 +30,7 @@ module.exports = {
     'eqeqeq': [2, 'always', { null: 'ignore' }],
     'semi': [2, 'always', { omitLastInOneLineBlock: true }],
     '@typescript-eslint/semi': [2, 'always', { omitLastInOneLineBlock: true }],
+    '@typescript-eslint/no-explicit-any': 2,
     'vue/require-default-prop': 2,
     'vue/singleline-html-element-content-newline': 0,
     'vue/multi-word-component-names': 0,

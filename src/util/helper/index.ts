@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  *await Promise
  * @param promise
  * @returns[error, data]
  */
-export const awaitWrapper = <T = unknown, E = unknown>(promise: Promise<T>): Promise<Array<T | E>> => promise.then((data: T) => [null, data]).catch((err: E) => [err, null]);
+export function awaitWrapper<T = unknown, E = unknown>(promise: Promise<T>): Promise<Array<T | E>> {
+  return promise.then((data: T) => [null, data]).catch((err: E) => [err, null]);
+}
 
 /**
  * modules 过滤
@@ -12,10 +15,9 @@ export const awaitWrapper = <T = unknown, E = unknown>(promise: Promise<T>): Pro
  * @param de 是否只需要默认导出
  * @returns 模块  key:文件名称, value:default:模块 或当前文件所有模块列表
  */
-export const moduleFilter = <T>(
+export function moduleFilter<T>(
   modules: {
     keys(): string[]
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (id: string): any
     <T>(id: string): T
     resolve(id: string): string
@@ -23,13 +25,14 @@ export const moduleFilter = <T>(
   },
   filter = /^\.\/.*$/,
   de = true
-): Record<string, T | Record<string, T>> => {
+): Record<string, T | Record<string, T>> {
   return modules
     .keys()
     .filter((filename) => {
       //  过滤组件
       return (
-        modules(filename)[Symbol.toStringTag] === 'Module'
+        modules(filename)
+        && modules(filename)[Symbol.toStringTag] === 'Module'
         && filter.test(filename)
         // 当只获取default模块时, 判断其是否存在
         && (de ? modules(filename).default : true)
@@ -39,4 +42,4 @@ export const moduleFilter = <T>(
       accumulator[filename] = de ? modules(filename).default : modules(filename);
       return accumulator;
     }, {});
-};
+}

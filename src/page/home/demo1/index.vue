@@ -17,6 +17,7 @@ export default defineComponent({
     <date-picker-test />
   </div>
 </template>
+
 <style lang="less" scoped>
 div {
   color: @primary;

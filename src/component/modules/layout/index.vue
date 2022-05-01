@@ -2,6 +2,7 @@
 import { defineComponent } from '@vue/composition-api';
 import LayoutHeader from './layout-header/index.vue';
 import LayoutSider from './layout-sider/index.vue';
+
 export default defineComponent({
   components: {
     LayoutHeader,
@@ -23,6 +24,7 @@ export default defineComponent({
   }
 });
 </script>
+
 <template>
   <a-layout class="!min-h-screen main-layout">
     <layout-sider />

@@ -2,6 +2,11 @@ import Vue from 'vue';
 import uiComponents from './ui';
 import { moduleFilter } from '@/util/helper';
 
+export function setupComponent(): void {
+  injectComponents();
+  useUI();
+}
+
 interface Component { name?: string }
 
 function injectComponents() {
@@ -30,7 +35,3 @@ function useUI() {
   });
 }
 
-export function setupComponent(): void {
-  useUI();
-  injectComponents();
-}

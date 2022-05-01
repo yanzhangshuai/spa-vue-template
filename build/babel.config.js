@@ -5,14 +5,13 @@ const plugins = [
   ['@babel/plugin-proposal-class-properties', { loose: true }]
 ];
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production')
   plugins.push(['import', { libraryName: 'ant-design-vue', libraryDirectory: 'lib', style: 'css' }]);
-}
 
 module.exports = {
   presets: [
     ['@babel/preset-env', { modules: false, useBuiltIns: 'usage', loose: true, corejs: { version: '3.21.1', proposals: true } }],
     ['@babel/preset-typescript', { allExtensions: true }]
   ],
-  plugins: plugins
+  plugins
 };
