@@ -4,7 +4,13 @@ export interface RefSetupDemoExpose {
   name: string
 }
 
-const props = defineProps<{ name: string; id: number; value?: { name: string } }>();
+export interface RefSetupDemoProps {
+  name: string
+  id: number
+  value?: { name: string }
+}
+
+const props = defineProps<RefSetupDemoProps>();
 
 const emit = defineEmits(['update:name']);
 
@@ -19,4 +25,5 @@ defineExpose<RefSetupDemoExpose>({ onBtn, name: props.name });
   <h1>{{ name }}</h1>
   <button @click="onBtn">btn</button>
 </template>
+
 <style lang="less" scoped></style>

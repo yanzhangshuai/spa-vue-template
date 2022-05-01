@@ -5,7 +5,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/404',
     name: ErrorRouteName.NOT_FOUND_ROUTER,
-    component: () => import(`@/page/error/404/index.vue`)
+    component: () => import('@/page/error/404/index.vue')
   }
 ];
 

@@ -12,4 +12,4 @@ declare module 'vue' {
     'layout-menu': typeof import('./modules/layout/layout-sider/layout-menu/index')['default']
   }
 }
-export {};
+export { };

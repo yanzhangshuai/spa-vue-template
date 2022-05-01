@@ -10,6 +10,6 @@ helper({
   tabWidth: 2,
   ignoreExt: ['tsx'],
   namingStyle: 'hyphen',
-  semi: true,
+  semi: false,
   singleQuote: true
 });

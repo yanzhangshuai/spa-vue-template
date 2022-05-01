@@ -14,6 +14,7 @@ demoService
     console.error(err);
   });
 </script>
+
 <template>
   <div>HTTP请求数据：{{ data }}</div>
 </template>
