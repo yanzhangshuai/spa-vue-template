@@ -6,9 +6,8 @@ const plugins = [
   ['@babel/plugin-proposal-class-properties', { loose: true }]
 ];
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production')
   plugins.push(['import', { libraryName: 'ant-design-vue', libraryDirectory: 'es', style: 'css' }]);
-}
 
 module.exports = {
   presets: [
