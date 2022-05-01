@@ -46,7 +46,6 @@ export function addClass(el: Element, cls: string): void {
     el.className = curClass;
 }
 
-/* istanbul ignore next */
 export function removeClass(el: Element, cls: string): void {
   if (!el || !cls)
     return;
@@ -106,7 +105,6 @@ function trim(string: string) {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 }
 
-/* istanbul ignore next */
 export function on(element: Element | HTMLElement | Document | Window, event: string, handler: EventListenerOrEventListenerObject): void {
   if (element && event && handler)
     element.addEventListener(event, handler, false);

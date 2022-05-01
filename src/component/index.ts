@@ -1,6 +1,10 @@
 import Vue from 'vue';
 import { moduleFilter } from '@/util/helper';
 
+export function setupComponent(): void {
+  injectComponents();
+}
+
 interface Component { name?: string }
 
 function injectComponents() {
@@ -23,6 +27,3 @@ function injectComponents() {
   });
 }
 
-export function setupComponent(): void {
-  injectComponents();
-}

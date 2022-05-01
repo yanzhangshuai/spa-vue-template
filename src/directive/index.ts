@@ -1,6 +1,10 @@
-import type { DirectiveOptions } from 'vue';
 import Vue from 'vue';
+import type { DirectiveOptions } from 'vue';
 import { moduleFilter } from '@/util/helper';
+
+export function setupDirective(): void {
+  injectDirectives();
+}
 
 interface Directive extends DirectiveOptions {
   name?: string
@@ -27,6 +31,3 @@ function injectDirectives() {
   });
 }
 
-export function setupDirective(): void {
-  injectDirectives();
-}

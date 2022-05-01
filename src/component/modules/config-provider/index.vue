@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
 import 'dayjs/locale/zh-cn';
+
 export default defineComponent({
   setup() {
     return {};

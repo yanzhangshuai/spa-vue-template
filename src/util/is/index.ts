@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const toString = Object.prototype.toString;
 
 export function is(val: unknown, type: string): boolean {
@@ -45,7 +46,6 @@ export function isNumber(val: unknown): val is number {
   return is(val, 'Number');
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export function isNumeric(val: any): val is number | string {
   return !isArray(val) && !isObject(val) && val - parseFloat(val) + 1 >= 0;
 }

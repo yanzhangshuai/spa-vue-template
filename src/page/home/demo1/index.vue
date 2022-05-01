@@ -16,6 +16,7 @@ export default defineComponent({
     <global-props-demo />
   </div>
 </template>
+
 <style lang="less" scoped>
 div {
   color: @primary;

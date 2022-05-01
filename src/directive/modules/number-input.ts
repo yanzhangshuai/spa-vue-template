@@ -1,5 +1,5 @@
 // import { Directive } from 'vue';
-//
+
 // const numberInputDirective: Directive = {
 //   name: 'number',
 //   mounted(el: HTMLInputElement): void {
@@ -12,5 +12,5 @@
 //     });
 //   }
 // };
-//
+
 // export default numberInputDirective;
