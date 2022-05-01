@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { useDemoService } from '@/service/modules/demo';
-let data = $ref('');
+
 const demoService = useDemoService();
+
+let data = $ref('');
+
 demoService
   .hello()
   .then((res) => {
@@ -11,6 +14,7 @@ demoService
     console.error(err);
   });
 </script>
+
 <template>
   <div>HTTP请求数据：{{ data }}</div>
 </template>

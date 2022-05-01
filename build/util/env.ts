@@ -6,52 +6,9 @@ const RE_NEWLINES = /\\n/g;
 const NEWLINES_MATCH = /\n|\r|\r\n/;
 const RE_INI_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/;
 
-const main = function (config: { parsed: Record<string, string>; ignoreProcessEnv: boolean }) {
-  // if ignoring process.env, use a blank object
-  const environment = config.ignoreProcessEnv ? {} : process.env;
-
-  const interpolate = (envValue: string): string => {
-    const matches = envValue.match(/(.?\${?(?:[a-zA-Z0-9_]+)?}?)/g) || [];
-
-    return matches.reduce((newEnv: string, match: string) => {
-      const parts = /(.?)\${?([a-zA-Z0-9_]+)?}?/g.exec(match);
-      const prefix = parts[1];
-
-      let value, replacePart;
-
-      if (prefix === '\\') {
-        replacePart = parts[0];
-        value = replacePart.replace('\\$', '$');
-      }
-      else {
-        const key = parts[2];
-        replacePart = parts[0].substring(prefix.length);
-        // process.env value 'wins' over .env file's value
-        value = Reflect.has(environment, key) ? environment[key] : config.parsed[key] || '';
-
-        // Resolve recursive interpolations
-        value = interpolate(value);
-      }
-
-      return newEnv.replace(replacePart, value);
-    }, envValue);
-  };
-
-  for (const configKey in config.parsed) {
-    const value = Reflect.has(environment, configKey) ? environment[configKey] : config.parsed[configKey];
-
-    config.parsed[configKey] = interpolate(value);
-  }
-
-  for (const processKey in config.parsed)
-    environment[processKey] = config.parsed[processKey];
-
-  return config;
-};
-
 export function loadEnv(mode: 'development' | 'production', envDir: string, prefix = 'WEBPACK_'): Record<string, string> {
   const env: Record<string, string> = {};
-  const envFiles = [`.env.${mode}.local`, /** mode file */ `.env.${mode}`, /** local file */ `.env.local`, /** default file */ `.env`];
+  const envFiles = [`.env.${mode}.local`, /** mode file */ `.env.${mode}`, /** local file */ '.env.local', /** default file */ '.env'];
   // 检查是否有前缀起始的env变量
   // 通常是内联提供的，应该按优先级排列
   for (const key in process.env) {
@@ -145,7 +102,7 @@ function parse(src: string | Buffer): Record<string, string> {
         let val = keyValueArr[2] || '';
         const end = val.length - 1;
         const isDoubleQuoted = val[0] === '"' && val[end] === '"';
-        const isSingleQuoted = val[0] === "'" && val[end] === "'";
+        const isSingleQuoted = val[0] === '\'' && val[end] === '\'';
 
         // 如果具有引号，将其去掉
         if (isSingleQuoted || isDoubleQuoted) {
@@ -177,4 +134,47 @@ function lookupFile(dir: string, formats: Array<string> | string, pathOnly = fal
   const parentDir = path.dirname(dir);
   if (parentDir !== dir)
     return lookupFile(parentDir, formats, pathOnly);
+}
+
+function main(config: { parsed: Record<string, string>; ignoreProcessEnv: boolean }) {
+  // if ignoring process.env, use a blank object
+  const environment = config.ignoreProcessEnv ? {} : process.env;
+
+  const interpolate = (envValue: string): string => {
+    const matches = envValue.match(/(.?\${?(?:[a-zA-Z0-9_]+)?}?)/g) || [];
+
+    return matches.reduce((newEnv: string, match: string) => {
+      const parts = /(.?)\${?([a-zA-Z0-9_]+)?}?/g.exec(match);
+      const prefix = parts[1];
+
+      let value, replacePart;
+
+      if (prefix === '\\') {
+        replacePart = parts[0];
+        value = replacePart.replace('\\$', '$');
+      }
+      else {
+        const key = parts[2];
+        replacePart = parts[0].substring(prefix.length);
+        // process.env value 'wins' over .env file's value
+        value = Reflect.get(environment, key) ? environment[key] : config.parsed[key] || '';
+
+        // Resolve recursive interpolations
+        value = interpolate(value);
+      }
+
+      return newEnv.replace(replacePart, value);
+    }, envValue);
+  };
+
+  for (const configKey in config.parsed) {
+    const value = Reflect.get(environment, configKey) ? environment[configKey] : config.parsed[configKey];
+
+    config.parsed[configKey] = interpolate(value);
+  }
+
+  for (const processKey in config.parsed)
+    environment[processKey] = config.parsed[processKey];
+
+  return config;
 }

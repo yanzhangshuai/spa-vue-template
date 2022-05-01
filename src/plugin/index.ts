@@ -9,6 +9,6 @@ const _Plugin: Plugin = {
 
 export default _Plugin;
 
-export function injectPlugin(app: App<Element>) {
+function injectPlugin(app: App<Element>) {
   setupGlobalProperty(app);
 }

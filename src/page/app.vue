@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useTitle } from '@/hook/web/title';
+
 useTitle();
 </script>
 
