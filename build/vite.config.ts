@@ -90,7 +90,6 @@ export default defineConfig((conf: ConfigEnv) => {
       alias: {
         '@': resolve('src')
       },
-      mainFields: ['index', 'module', 'jsnext'],
       extensions: ['.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
     }
   };

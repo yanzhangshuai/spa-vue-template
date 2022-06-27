@@ -1,24 +1,21 @@
 <script setup lang="ts">
-export interface RefSetupDemoExpose {
-  onBtn: () => void
-  name: string
-}
+import type { RefSetupDemoExpose } from './type';
 
-export interface RefSetupDemoProps {
-  name: string
+const props = defineProps<{
   id: number
+  name: string
   value?: { name: string }
-}
+}>();
 
-const props = defineProps<RefSetupDemoProps>();
-
-const emit = defineEmits(['update:name']);
+const emit = defineEmits<{
+  (e: 'update:name', val: string): void
+}>();
 
 const onBtn = () => {
   emit('update:name', Math.random().toString());
 };
 
-defineExpose<RefSetupDemoExpose>({ onBtn, name: props.name });
+defineExpose<RefSetupDemoExpose>({ name: props.name, onBtn });
 </script>
 
 <template>
