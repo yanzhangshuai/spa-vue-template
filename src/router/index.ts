@@ -1,8 +1,8 @@
-import Vue from 'vue';
+import Vue, { reactive, ref } from 'vue';
 import type { Route } from 'vue-router';
 import Router from 'vue-router';
-import type { Ref, UnwrapRef } from '@vue/composition-api';
-import { reactive, ref } from '@vue/composition-api';
+import type { Ref, UnwrapRef } from 'vue';
+
 import routes from './route';
 import { setupRouterGuard } from './guard';
 

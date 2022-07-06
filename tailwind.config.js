@@ -1,6 +1,4 @@
-import { defineConfig } from 'windicss/helpers';
-
-export default defineConfig({
+const config = {
   darkMode: 'class',
   attributify: true,
   extract: {
@@ -28,4 +26,6 @@ export default defineConfig({
     default: {}
   },
   shortcuts: {}
-});
+};
+
+module.exports = config;

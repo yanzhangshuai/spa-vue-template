@@ -1,5 +1,5 @@
-import type { Ref } from '@vue/composition-api';
-import { ref, watch } from '@vue/composition-api';
+import type { Ref } from 'vue';
+import { ref, watch } from 'vue';
 import { isDef } from '@/util/is';
 
 interface Options {

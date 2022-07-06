@@ -1,9 +1,4 @@
-const plugins = [
-  ['@babel/plugin-proposal-function-bind'],
-  ['@babel/plugin-proposal-decorators', { legacy: true }],
-  ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
-  ['@babel/plugin-proposal-class-properties', { loose: true }]
-];
+const plugins = [];
 
 module.exports = {
   presets: [

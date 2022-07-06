@@ -1,4 +1,7 @@
-const plugins = { autoprefixer: {} };
+const plugins = {
+  autoprefixer: {},
+  tailwindcss: {}
+};
 
 if (process.env.NODE_ENV === 'production')
   plugins.cssnano = {};

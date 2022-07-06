@@ -1,5 +1,5 @@
-import type { DeepReadonly, Ref } from '@vue/composition-api';
-import { readonly, ref, watchEffect } from '@vue/composition-api';
+import type { DeepReadonly, Ref } from 'vue';
+import { readonly, ref, watchEffect } from 'vue';
 
 /**
  * Handle overlapping async evaluations

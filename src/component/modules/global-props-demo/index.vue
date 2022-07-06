@@ -1,5 +1,5 @@
 <script  lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -9,19 +9,15 @@ export default defineComponent({
 </script>
 
 <template>
-  <div>
-    <li>应用名称：{{ $globalProps.APP_NAME }}</li>
-    <li>应用logo：<img :src="$globalProps.APP_LOGO" alt="" width="50"></li>
-    <li>应用版本：{{ $globalProps.APP_VERSION }}</li>
-    <li>应用标题：{{ $globalProps.APP_TITLE }}</li>
-    <li>文件服务器地址：{{ $globalProps.FILE_PATH_PREFIX }}</li>
-    <li>当前是否为开发环境：{{ $globalProps.DEV }}</li>
-    <li>当前时间：{{ $globalProps.dateFormat($window.Date.now()) }}</li>
-  </div>
+  <ul>
+    <li class="text-block">APP_NAME：{{ $globalProps.APP_NAME }}</li>
+    <li>APP_LOGO：<img :src="$globalProps.APP_LOGO" alt="" width="50"></li>
+    <li>APP_VERSION：{{ $globalProps.APP_VERSION }}</li>
+    <li>APP_TITLE：{{ $globalProps.APP_TITLE }}</li>
+    <li>FILE_PATH：{{ $globalProps.FILE_PATH_PREFIX }}</li>
+    <li>IS DEV：{{ $globalProps.DEV }}</li>
+    <li>CURRENT TIME：{{ $globalProps.dateFormat($window.Date.now()) }}</li>
+  </ul>
 </template>
 
-<style lang="less" scoped>
-li {
-  @apply font-bold py-1 list-none px-0 text-red-300 rounded !important;
-}
-</style>
+<style lang="less" scoped></style>

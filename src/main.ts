@@ -1,6 +1,4 @@
-import 'windi.css';
 import Vue from 'vue';
-import VueCompositionAPI from '@vue/composition-api';
 import { setupPlugin } from '@/plugin';
 import { setupStore } from '@/store';
 import { setupRouter } from '@/router';
@@ -8,9 +6,8 @@ import { setupService } from '@/service';
 import { setupComponent } from '@/component';
 import { setupDirective } from '@/directive';
 import App from '@/page/app.vue';
+import '@/asset/style/tailwind.css';
 import '@/asset/style/index.less';
-
-Vue.use(VueCompositionAPI);
 
 setupPlugin();
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, watch } from '@vue/composition-api';
+import { defineComponent, watch } from 'vue';
 import { useRoute } from '@/router';
 import { useTitle } from '@/hook/web/title';
 

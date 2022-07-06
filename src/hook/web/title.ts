@@ -1,4 +1,4 @@
-import { unref, watchEffect } from '@vue/composition-api';
+import { unref, watchEffect } from 'vue';
 import { useTitle as usePageTitle } from '@vueuse/core';
 import { useRoute } from '@/router';
 

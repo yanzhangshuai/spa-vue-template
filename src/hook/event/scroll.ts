@@ -1,5 +1,5 @@
-import type { Ref } from '@vue/composition-api';
-import { onMounted, onUnmounted, ref, watch } from '@vue/composition-api';
+import type { Ref } from 'vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
 import { useThrottleFn } from '@vueuse/core';
 import { isObject, isWindow } from '@/util/is';
 
