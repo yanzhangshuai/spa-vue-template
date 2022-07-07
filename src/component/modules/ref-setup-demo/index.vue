@@ -1,16 +1,11 @@
 <script setup lang="ts">
+import type { RefSetupDemoExpose } from './type';
 
-export interface RefSetupDemoProps {
-  name: string
+const props = defineProps<{
   id: number
-}
-
-export interface RefSetupDemoExpose {
-  onBtn: () => void
   name: string
-}
+}>();
 
-const props = defineProps<RefSetupDemoProps>();
 const emit = defineEmits(['update:name']);
 
 const onBtn = () => {
