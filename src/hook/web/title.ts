@@ -9,11 +9,7 @@ export function useTitle(): void {
 
   watch(
     () => currentRoute.value.path,
-    () => {
-      const route = unref(currentRoute);
-      console.log('route', route);
-      pageTitle.value = route?.meta?.title as string;
-    },
+    () => pageTitle.value = unref(currentRoute)?.meta?.title,
     { immediate: true }
   );
 }

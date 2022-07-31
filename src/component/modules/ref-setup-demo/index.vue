@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="tsx" setup>
 import type { RefSetupDemoExpose } from './type';
 
 const props = defineProps<{
@@ -16,11 +16,17 @@ const onBtn = () => {
 };
 
 defineExpose<RefSetupDemoExpose>({ name: props.name, onBtn });
+
+const render = () => {
+  return (
+    <>
+      <h1>{props.name}</h1>
+      <button onClick={onBtn}>btn</button>
+    </>
+  );
+};
 </script>
 
 <template>
-  <h1>{{ name }}</h1>
-  <button @click="onBtn">btn</button>
+  <render />
 </template>
-
-<style lang="less" scoped></style>

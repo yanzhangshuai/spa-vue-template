@@ -4,14 +4,14 @@ import { HomeRouteName } from './const';
 
 const route: RouteRecordRaw = {
   path: '/home',
-  name: HomeRouteName.DEFAULT_ROUTER,
   component: () => import('@/page/home/index.vue'),
-  meta: {
-    auth: true
-  },
+
+  meta: { auth: true },
+
   children: [
     {
       path: '',
+      name: HomeRouteName.DEFAULT_ROUTER,
       redirect: { name: HomeRouteName.DEMO1_ROUTER }
     },
     {

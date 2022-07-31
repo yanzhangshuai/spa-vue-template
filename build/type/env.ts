@@ -7,11 +7,6 @@ export interface Env {
   readonly VITE_APP_TITLE: string
 
   /**
-   * 是否支持JSX
-   */
-  readonly VITE_SUPPORT_JSX: boolean
-
-  /**
    * 是否支持options api写法
    */
   readonly VITE_SUPPORT_VUE_OPTIONS_API: boolean

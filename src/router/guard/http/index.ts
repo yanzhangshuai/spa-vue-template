@@ -3,8 +3,8 @@ import { useAsker } from '@mwjz/asker';
 
 export function createHttpGuard(router: Router): void {
   router.beforeEach(() => {
-    const asker = useAsker();
-    asker?.canceler?.removeAllPending();
+    useAsker()?.canceler?.removeAllPending();
+
     return true;
   });
 }

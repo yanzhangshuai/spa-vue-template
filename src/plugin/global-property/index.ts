@@ -15,19 +15,10 @@ export function setupGlobalProperty(app: App<Element>): App<Element> {
     dateFormat
   };
 
-  Object.defineProperty(app.config.globalProperties, '$window', {
-    enumerable: false,
-    get() {
-      return window;
-    }
-  });
+  Object.defineProperty(app.config.globalProperties, '$window', { enumerable: false, get: () => window });
 
-  Object.defineProperty(app.config.globalProperties, '$globalProps', {
-    enumerable: false,
-    get() {
-      return globalProps;
-    }
-  });
+  Object.defineProperty(app.config.globalProperties, '$globalProps', { enumerable: false, get: () => globalProps });
+
   return app;
 }
 

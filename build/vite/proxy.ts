@@ -4,6 +4,7 @@ export function createProxy(proxy: Record<string, string>): ProxyTarget {
   return Object.keys(proxy)
     .map((prefix: string) => {
       const isHttps = /^https:\/\//.test(proxy[prefix]);
+
       const option = {
         target: proxy[prefix],
         changeOrigin: true,
@@ -12,10 +13,11 @@ export function createProxy(proxy: Record<string, string>): ProxyTarget {
         // https is require secure=false
         ...(isHttps ? { secure: false } : {})
       };
+
       return { prefix, option };
     })
-    .reduce((accumulator, current) => {
-      accumulator[current.prefix] = current.option;
-      return accumulator;
+    .reduce((acc, curr) => {
+      acc[curr.prefix] = curr.option;
+      return acc;
     }, {} as ProxyTarget);
 }

@@ -8,18 +8,11 @@ export function useTimeout(handle: Fn<unknown>, wait: number, native = false): R
     throw new Error('handle is not Function!');
 
   const { readyRef, stop, start } = useTimeoutRef(wait);
-  if (native) {
-    handle();
-  }
-  else {
-    watch(
-      readyRef,
-      (maturity) => {
-        maturity && handle();
-      },
-      { immediate: false }
-    );
-  }
+
+  native && handle();
+
+  native || watch(readyRef, maturity => maturity && handle(), { immediate: false });
+
   return { readyRef, stop, start };
 }
 
@@ -31,16 +24,17 @@ export function useTimeoutRef(wait: number): {
   const readyRef = ref(false);
 
   let timer: Timeout;
-  function stop(): void {
+
+  const stop = () => {
     readyRef.value = false;
     timer && window.clearTimeout(timer);
-  }
-  function start(): void {
+  };
+
+  const start = () => {
     stop();
-    timer = setTimeout(() => {
-      readyRef.value = true;
-    }, wait);
-  }
+
+    timer = setTimeout(() => readyRef.value = true, wait);
+  };
 
   start();
 

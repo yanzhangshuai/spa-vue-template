@@ -7,10 +7,8 @@ import { PiniaDebounce } from '@pinia/plugin-debounce';
 const StorePlugin: Plugin = {
   install(app: App) {
     const store = create();
-    if (!store)
-      return;
 
-    app.use(store);
+    store && app.use(store);
   }
 };
 

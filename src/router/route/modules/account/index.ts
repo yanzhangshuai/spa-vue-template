@@ -5,11 +5,11 @@ import { AccountRouteName } from './const';
 
 const route: RouteRecordRaw = {
   path: '/account',
-  name: AccountRouteName.DEFAULT_ROUTER,
   component: () => Promise.resolve(createVNode(RouterView)),
   children: [
     {
       path: '',
+      name: AccountRouteName.DEFAULT_ROUTER,
       redirect: { name: AccountRouteName.LOGIN_ROUTER }
     },
     {

@@ -19,12 +19,13 @@ export default defineConfig(async (env) => {
       globals: true,
       environment: 'jsdom',
       transformMode: {
-        web: [/\.[jt]sx$/]
+        web: [/\.([cm]?[jt]sx?|json|vue)$/]
       },
       dir: 'test/modules',
       include: ['**/*.{test,spec}.ts'],
       coverage: {
         reporter: ['html'],
+        all: true,
         reportsDirectory: 'report/test'
       }
     }

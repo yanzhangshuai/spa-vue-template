@@ -17,16 +17,12 @@ describe('config-provider', () => {
       dateFormat: (date: Date) => date.valueOf()
     };
 
-    const wrapper = mount(GlobalPropsDemoComponent, {
-      global: {
-        mocks: {
-          $globalProps: globalProps,
-          $window: window
-        }
-      }
-    });
+    const wrapper = mount(GlobalPropsDemoComponent, { global: { mocks: { $globalProps: globalProps, $window: window } } });
+
     expect(wrapper).toBeTruthy();
+
     const li = wrapper.findAll('li');
+
     expect(li).toHaveLength(7);
     expect(li[0].text()).toEqual(`APP_NAME：${globalProps.APP_NAME}`);
     expect(li[1].find('img').element.src).toEqual(`${globalProps.APP_LOGO}`);
