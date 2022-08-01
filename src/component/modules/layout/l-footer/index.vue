@@ -1,9 +1,11 @@
 <script lang="tsx" setup>
-import Layout from '@/component/modules/layout/index.vue';
+import { Layout } from '@/component/ui';
 
 const render = () => {
   return (
-    <Layout />
+    <Layout.Footer class="!bg-white ">
+      footer
+    </Layout.Footer>
   );
 };
 </script>

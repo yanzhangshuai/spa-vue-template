@@ -3,16 +3,16 @@ import type { Env } from '../type/env';
 // 转换配置文件数据
 export function wrapperEnv(env: Record<keyof Env, string>): Env {
   return (Object.keys(env) as Array<keyof Env>)
-    .map((envName) => {
-      const value = env[envName].replace(/\\n/g, '\n');
+    .map((key) => {
+      const value = env[key].replace(/\\n/g, '\n');
 
       //  布尔值
       if (/(true|false)/.test(value))
-        return { envName, value: value === 'true' };
+        return { envName: key, value: value === 'true' };
 
       // 数值
       if (/^\d+$/.test(value))
-        return { envName, value: Number(value) };
+        return { envName: key, value: Number(value) };
 
       // 数组或对象
       if (/^[{\[].*[}\]]$/.test(value)) {
@@ -20,15 +20,16 @@ export function wrapperEnv(env: Record<keyof Env, string>): Env {
         try {
           realValue = JSON.parse(value);
         }
-        catch (error) {}
-        return { envName, value: realValue };
+        catch (error) { }
+
+        return { envName: key, value: realValue };
       }
 
       //  字符串
-      return { envName, value };
+      return { envName: key, value };
     })
-    .reduce((accumulator, current) => {
-      accumulator[current.envName] = current.value;
-      return accumulator;
+    .reduce((acc, curr) => {
+      acc[curr.envName] = curr.value;
+      return acc;
     }, {} as Record<keyof Env, unknown>) as Env;
 }

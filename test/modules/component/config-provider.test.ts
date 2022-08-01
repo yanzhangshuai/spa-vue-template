@@ -9,11 +9,9 @@ describe('config-provider', () => {
 
   it('slots', () => {
     const text = 'default slot';
-    const wrapper = mount(ConfigProviderComponent, {
-      slots: {
-        default: () => h('h1', text)
-      }
-    });
+
+    const wrapper = mount(ConfigProviderComponent, { slots: { default: () => h('h1', text) } });
+
     expect(wrapper.find('.config-provider').find('h1').text()).toEqual(text);
   });
 });

@@ -9,7 +9,7 @@ declare module 'vue' {
     'tsx-demo': typeof import('./modules/tsx-demo/index')['default']
     'layout-header': typeof import('./modules/layout/layout-header/index.vue')['default']
     'layout-sider': typeof import('./modules/layout/layout-sider/index.vue')['default']
-    'layout-menu': typeof import('./modules/layout/layout-sider/layout-menu/index')['default']
+    'layout-menu': typeof import('./modules/layout/sider/l-menu/index')['default']
   }
 }
 export { };

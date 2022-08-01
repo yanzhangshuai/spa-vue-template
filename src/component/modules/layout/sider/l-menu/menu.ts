@@ -5,7 +5,7 @@ export interface Menu {
   children?: Array<Menu>
 }
 
-const menus: Array<Menu> = [
+export const menus: Array<Menu> = [
   {
     id: '1',
     title: 'option 1'
@@ -73,5 +73,3 @@ const menus: Array<Menu> = [
     ]
   }
 ];
-
-export default menus;

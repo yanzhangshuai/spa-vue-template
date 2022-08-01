@@ -12,11 +12,9 @@ const RouterPlugin: Plugin = {
 
     app.use(router);
 
-    router
-      && router
-        .isReady()
-        .then(() => readyCallBack(app))
-        .catch(err => (app.config.errorHandler || console.error)(err, null, null));
+    router?.isReady()
+      ?.then(() => readyCallBack(app))
+      ?.catch(err => (app.config.errorHandler || console.error)(err, null, null));
   }
 };
 

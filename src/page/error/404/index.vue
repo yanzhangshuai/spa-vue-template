@@ -1,5 +1,13 @@
-<script setup lang="ts"></script>
+<script lang="tsx" setup>
+const render = () => {
+  return (
+    <>
+      <h1 class="text-red-600">This is 404</h1>
+    </>
+  );
+};
+</script>
 
 <template>
-  <h1 class="text-red-600">Not Found</h1>
+  <render />
 </template>

@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <li>APP_NAME：{{ $globalProps.APP_NAME }}</li>
   <li>APP_LOGO：<img :src="$globalProps.APP_LOGO" alt="" width="50"></li>

@@ -11,8 +11,7 @@ export function useCopyToClipboard(initial?: string): Readonly<{ clipboardRef: R
   const isSuccessRef = ref(false);
   const copiedRef = ref(false);
 
-  watch(
-    clipboardRef,
+  watch(clipboardRef,
     (str?: string) => {
       if (isDef(str)) {
         copiedRef.value = true;

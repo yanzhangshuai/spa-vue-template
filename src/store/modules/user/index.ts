@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia';
 
-export const useUserStore = defineStore({
-  id: 'app-user',
+export const useUserStore = defineStore('app-user', {
+
   state: () => ({ token: '' }),
+
   getters: {
     getToken(state): string {
       return state.token;
@@ -30,7 +31,7 @@ export const useUserStore = defineStore({
     /**
      * 登录
      */
-    login() {},
+    login() { },
 
     /**
      * 登出
@@ -40,6 +41,7 @@ export const useUserStore = defineStore({
       // goLogin && router.push(PageEnum.BASE_LOGIN);
     }
   },
+
   storage: {
     local: ['token']
   }
