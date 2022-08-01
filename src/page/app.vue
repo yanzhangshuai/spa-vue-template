@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useTitle } from '@/hook/web/title';
 import { useUserStore } from '@/store/modules/user';
 
@@ -19,4 +19,5 @@ userStore.getUserInfo().then((res) => {
   </config-provider>
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+</style>

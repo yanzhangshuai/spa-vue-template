@@ -3,10 +3,7 @@ import css from './index.module.less';
 
 export default defineComponent({
   props: {
-    msg: {
-      type: String,
-      default: ''
-    }
+    msg: { type: String, default: '' }
   },
   setup() {
     const list = [1, 2, 3, 4, 5];
@@ -14,15 +11,7 @@ export default defineComponent({
     return () => (
       <>
         <h1>我是tsx-demo</h1>
-        {list.map(s => (
-          <li
-            onClick={() => {
-              console.log(s);
-            }}
-            class={css.li}>
-            {s}
-          </li>
-        ))}
+        {list.map(s => (<li class={css.li} onClick={() => { console.log(s) }}>{s}</li>))}
       </>
     );
   }
