@@ -1,13 +1,5 @@
-<script lang="tsx" setup>
-const render = () => {
-  return (
-    <>
-      <h1>This is Register</h1>
-    </>
-  );
-};
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <render />
+  <h1>This is Register</h1>
 </template>

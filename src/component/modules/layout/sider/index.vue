@@ -4,7 +4,8 @@
       <img class="h-7" :src="$globalProps.APP_LOGO" alt="">
       <h4 class="ml-4 text-2xl text-white">{{ $globalProps.APP_NAME }}</h4>
     </div>
-    <l-menu />
+
+    <m-l-menu />
   </a-layout-sider>
 </template>
 

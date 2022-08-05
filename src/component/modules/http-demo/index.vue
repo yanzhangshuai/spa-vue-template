@@ -1,4 +1,4 @@
-<script lang="tsx" setup>
+<script setup lang="ts">
 import { useDemoService } from '@/service/modules/demo';
 
 let data = $ref('');
@@ -8,14 +8,8 @@ const demoService = useDemoService();
 demoService.hello()
   .then(res => data = res)
   .catch(err => console.error(err));
-
-const render = () => {
-  return (
-    <div>HTTP请求数据 {data} </div>
-  );
-};
 </script>
 
 <template>
-  <render />
+  <div>HTTP请求数据 {{ data }} </div>
 </template>

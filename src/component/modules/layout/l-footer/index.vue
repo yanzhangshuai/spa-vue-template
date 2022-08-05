@@ -1,15 +1,9 @@
-<script lang="tsx" setup>
-import { Layout } from '@/component/ui';
+<script setup lang="tsx">
 
-const render = () => {
-  return (
-    <Layout.Footer class="!bg-white ">
-      footer
-    </Layout.Footer>
-  );
-};
 </script>
 
 <template>
-  <render />
+  <a-layout-footer class="!bg-white ">
+    <h3> footer</h3>
+  </a-layout-footer>
 </template>

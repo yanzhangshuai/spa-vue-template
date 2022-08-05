@@ -1,4 +1,4 @@
-<script lang="tsx" setup>
+<script setup lang="tsx">
 import { h } from 'vue';
 import type { Menu as MenuType } from './menu';
 import { menus } from './menu';

@@ -1,29 +1,13 @@
-<script lang="tsx" setup>
-import Sider from './sider/index.vue';
-import Header from './l-header/index.vue';
-import Body from './l-body/index.vue';
-import Footer from './l-footer/index.vue';
-import { Layout } from '@/component/ui';
-
-const render = () => {
-  return (
-    <Layout class='!min-h-screen'>
-      <Sider />
-
-      <Layout>
-
-        <Header />
-
-        <Body />
-
-        <Footer />
-
-      </Layout>
-    </Layout>
-  );
-};
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <render />
+  <a-layout class="!min-h-screen">
+    <m-sider />
+
+    <a-layout>
+      <m-l-header />
+      <m-l-body />
+      <m-l-footer />
+    </a-layout>
+  </a-layout>
 </template>

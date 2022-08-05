@@ -1,15 +1,7 @@
-<script lang="tsx" setup>
-import { Layout } from '@/component/ui';
-
-const render = () => {
-  return (
-    <Layout.Header class="!bg-white p-4">
-      <h3>header</h3>
-    </Layout.Header>
-  );
-};
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <render />
+  <a-layout-header class="!bg-white p-4">
+    <h3>header</h3>
+  </a-layout-header>
 </template>

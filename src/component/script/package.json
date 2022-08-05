@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "vue-component-volar": "^1.0.2"
+    "vue-component-volar": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",

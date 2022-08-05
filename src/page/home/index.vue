@@ -1,13 +1,5 @@
-<script lang="tsx" setup>
-import Layout from '@/component/modules/layout/index.vue';
-
-const render = () => {
-  return (
-    <Layout />
-  );
-};
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <render />
+  <m-layout />
 </template>
