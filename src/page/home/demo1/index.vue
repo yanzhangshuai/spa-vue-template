@@ -18,7 +18,7 @@ watch($$(name), (newVal) => {
 <template>
   <div class="text-block" @click="$window.alert('1')">我是demo1</div>
   <button class="text-red-700 dark:text-green-400" @click="$router.push('/home/demo2')">Go To Demo2</button>
-  <http-demo />
-  <ref-setup-demo :id="123" ref="refSetupDemoRef" v-model:name="name" />
-  <global-props-demo />
+  <m-http-demo />
+  <m-ref-setup-demo :id="123" ref="refSetupDemoRef" v-model:name="name" />
+  <m-global-props-demo />
 </template>

@@ -14,9 +14,9 @@ userStore.getUserInfo().then((res) => {
 </script>
 
 <template>
-  <config-provider>
+  <m-config-provider>
     <router-view />
-  </config-provider>
+  </m-config-provider>
 </template>
 
 <style lang="less">

@@ -19,7 +19,7 @@ export default defineConfig(async (env) => {
       globals: true,
       environment: 'jsdom',
       transformMode: {
-        web: [/\.([cm]?[jt]sx?|json|vue)$/]
+        web: [/\.([jt]sx?|json|vue)$/]
       },
       dir: 'test/modules',
       include: ['**/*.{test,spec}.ts'],
