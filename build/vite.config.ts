@@ -64,7 +64,7 @@ export default defineConfig((conf: ConfigEnv) => {
           drop_console: viteEnv.VITE_BUILD_DROP_CONSOLE
         }
       },
-      brotliSize: false,
+      reportCompressedSize: false,
       chunkSizeWarningLimit: 2000,
       rollupOptions: {
 
