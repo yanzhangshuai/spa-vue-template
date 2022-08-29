@@ -1,3 +1,4 @@
+import type { Plugin } from 'vite';
 import visualizer from 'rollup-plugin-visualizer';
 import type { PluginFn } from '../../type/vite';
 
@@ -11,5 +12,5 @@ export const reportPlugin: PluginFn = (_mode, env) => {
     brotliSize: true,
     template: 'treemap', // "sunburst" | "treemap" | "network",
     filename: './report/libs/index.html'
-  });
+  }) as Plugin;
 };
