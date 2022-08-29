@@ -1,4 +1,4 @@
-import type { App } from 'vue';
+import type { App, DeepReadonly } from 'vue';
 import type { GlobalProps } from './type';
 import { dateFormat } from '@/util/date';
 

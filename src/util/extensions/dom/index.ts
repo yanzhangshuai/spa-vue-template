@@ -1,3 +1,5 @@
+import type { Fn } from '@mwjz/utils';
+
 export interface ViewportOffsetResult {
   left: number
   top: number

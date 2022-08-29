@@ -1,3 +1,4 @@
+import type { Fn } from '@mwjz/utils';
 import { tryOnMounted, tryOnUnmounted, useDebounceFn } from '@vueuse/core';
 
 interface WindowSizeOptions {

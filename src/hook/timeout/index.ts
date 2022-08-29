@@ -1,10 +1,11 @@
 import type { Ref } from 'vue';
 import { ref, watch } from 'vue';
+import { isFunc } from '@mwjz/utils';
 import { tryOnUnmounted } from '@vueuse/core';
-import { isFunction } from '@/util/is';
+import type { Fn, Timeout } from '@mwjz/utils';
 
 export function useTimeout(handle: Fn<unknown>, wait: number, native = false): Readonly<{ readyRef: Ref<boolean>; start: Fn<void>; stop: Fn<void> }> {
-  if (!isFunction(handle))
+  if (!isFunc(handle))
     throw new Error('handle is not Function!');
 
   const { readyRef, stop, start } = useTimeoutRef(wait);

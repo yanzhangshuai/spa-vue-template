@@ -1,6 +1,6 @@
 import type { Ref } from 'vue';
 import { ref, watch } from 'vue';
-import { isDef } from '@/util/is';
+import { isDef } from '@mwjz/utils';
 
 interface Options {
   target?: HTMLElement

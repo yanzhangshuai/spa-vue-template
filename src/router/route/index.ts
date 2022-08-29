@@ -1,8 +1,8 @@
 import { flatMap } from 'lodash-es';
+import { isArray } from '@mwjz/utils';
 import type { RouteRecordRaw } from 'vue-router';
 import { HomeRouteName } from './modules/home/const';
 import { ErrorRouteName } from './modules/home/error/const';
-import { isArray } from '@/util/is';
 import { moduleFilter } from '@/util/helper';
 
 const routes: Array<RouteRecordRaw> = [
