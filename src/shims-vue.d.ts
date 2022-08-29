@@ -5,3 +5,8 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, unknown>;
   export default component;
 }
+
+declare module '*.json' {
+  const value: unknown;
+  export default value;
+}

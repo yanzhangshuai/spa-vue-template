@@ -39,7 +39,6 @@ npm run report:windi            分析 windicss 使用结果
   * **util**：工具层
 * **standard**：代码规则模块
 * **test**：单元测试模块
-* **type**：通用类型模块
 
 
 ### NPM

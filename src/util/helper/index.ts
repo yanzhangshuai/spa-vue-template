@@ -1,7 +1,3 @@
-export function awaitWrapper<T = unknown, E = unknown>(promise: Promise<T>): Promise<Array<T | E>> {
-  return promise.then((data: T) => [null, data]).catch((err: E) => [err, null]);
-}
-
 /**
  * modules 过滤
  * @param modules
