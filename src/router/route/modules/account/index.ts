@@ -9,17 +9,17 @@ const route: RouteRecordRaw = {
   children: [
     {
       path: '',
-      name: AccountRouteName.DEFAULT_ROUTER,
-      redirect: { name: AccountRouteName.LOGIN_ROUTER }
+      name: AccountRouteName.DEFAULT,
+      redirect: { name: AccountRouteName.LOGIN }
     },
     {
       path: 'login',
-      name: AccountRouteName.LOGIN_ROUTER,
+      name: AccountRouteName.LOGIN,
       component: () => import('@/page/account/login/index.vue')
     },
     {
       path: 'register',
-      name: AccountRouteName.REGISTER_ROUTER,
+      name: AccountRouteName.REGISTER,
       component: () => import('@/page/account/register/index.vue')
     }
   ]
