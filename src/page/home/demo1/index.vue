@@ -17,7 +17,7 @@ watch($$(name), (newVal) => {
 </script>
 
 <template>
-  <div class="text-block" @click="$window.alert('1')">我是demo1</div>
+  <div class="text-black" @click="$window.alert('1')">我是demo1</div>
   <button class="text-red-700 dark:text-green-400" @click="$router.push({ name: HomeRouteName.DEMO2 })">Go To Demo2</button>
   <m-http-demo />
   <m-ref-setup-demo :id="123" ref="refSetupDemoRef" v-model:name="name" />

@@ -3,7 +3,7 @@ import glob from 'glob';
 
 type ThemeColor = Record<string, Record<string, string>>;
 
-const THEME_REGEX = /(?<=@)([^:^;]+):([^:^;]+)(?=;)/g;
+// const COLOR_REGEX = /(?<=@)([^:^;]+)[: ]+/([^:^;]+)(?=;)/g;
 
 /**
  * 解析主题文件
@@ -25,10 +25,13 @@ export function themeParse(path = 'src/asset/theme'): ThemeColor {
     //  读取文件内容
     const themeContent = fs.readFileSync(file, 'utf-8');
 
-    let res: RegExpExecArray;
-    // eslint-disable-next-line no-cond-assign
-    while ((res = THEME_REGEX.exec(themeContent)) !== null)
-      curr[res[1].trim()] = `${res[2].trim()}`;
+    themeContent.split(';')
+      .map(item => item.replace(/(\r\n)|[\r\n\t ]/, ''))
+      .filter(item => item && !item.startsWith('//'))
+      .forEach((item) => {
+        const res = /(?<=@)([^:^;]+)[: ]+([^:^;]+)/g.exec(item);
+        res && (curr[res[1].trim()] = res[2].trim());
+      });
 
     themes[name] = curr;
   });

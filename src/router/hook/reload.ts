@@ -1,6 +1,5 @@
 import { unref } from 'vue';
 import { useRouter } from 'vue-router';
-import type { PromiseFn } from '@mwjz/utils';
 import type { NavigationFailure, Router } from 'vue-router';
 
 export function useReload(router?: Router): PromiseFn<never, NavigationFailure | void | undefined> {

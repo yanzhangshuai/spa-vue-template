@@ -12,5 +12,5 @@ export const reportPlugin: PluginFn = (_mode, env) => {
     brotliSize: true,
     template: 'treemap', // "sunburst" | "treemap" | "network",
     filename: './report/libs/index.html'
-  }) as Plugin;
+  }) as unknown as Plugin;
 };

@@ -1,26 +1,27 @@
 import { defineConfig } from 'windicss/helpers';
 import { themeParse } from './build/theme';
 
-//  解析主题 TODO:暂未使用
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// TODO: themeParse处理无法使用热更新
 const themes = themeParse();
 
 export default defineConfig({
   darkMode: 'class',
-  attributify: true,
+  attributify: {
+    prefix: 'w'
+  },
   extract: {
     // accepts globs and file paths relative to project root
     include: ['src/**/*.{vue,tsx,html,less,css}'],
     exclude: ['node_modules/**/*', '.git/**/*']
   },
+  plugins: [],
   theme: {
     extend: {
       zIndex: {
         '-1': '-1'
       },
       colors: {
-        primary: '#007fff',
-        block: '#0a1f44'
+        ...themes.default
       },
       screens: {
         'sm': '576px',
