@@ -5,6 +5,7 @@ import type { Mode } from './type/vite';
 import { wrapperEnv } from './util/env';
 import { createProxy } from './vite/proxy';
 import { createVitePlugins } from './vite/plugin';
+import { tsconfigAlias } from './vite/tsconfig.alias';
 import { configPath, resolve, root } from './util/path';
 import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './vite/output';
 
@@ -87,9 +88,7 @@ export default defineConfig((conf: ConfigEnv) => {
     },
 
     resolve: {
-      alias: {
-        '@': resolve('src')
-      },
+      alias: tsconfigAlias(),
       extensions: ['.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
     }
   };

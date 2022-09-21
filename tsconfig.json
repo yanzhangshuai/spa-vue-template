@@ -24,18 +24,16 @@
 		"downlevelIteration": true,
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"types": ["node", "vite/client", "vitest/globals"],
-		"typeRoots": ["node_modules/@types", "src"],
+		"types": ["node", "vite/client", "vitest/globals", "@mwjz/utils/globals"],
+		"typeRoots": ["node_modules/@types"],
 		"lib": ["dom", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "esnext", "dom.iterable"]
 	},
 	"exclude": ["node_modules", "build", "src/asset/json/*.json", "src/**/script"],
 	"include": [
 		"src/**/*.ts",
-		"src/**/*.js",
 		"src/**/*.d.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue",
-		"type/**/*.d.ts",
 		"test/**/*.ts"
 	]
 }

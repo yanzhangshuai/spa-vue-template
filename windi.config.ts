@@ -1,4 +1,9 @@
 import { defineConfig } from 'windicss/helpers';
+import { themeParse } from './build/theme';
+
+//  解析主题 TODO:暂未使用
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const themes = themeParse();
 
 export default defineConfig({
   darkMode: 'class',

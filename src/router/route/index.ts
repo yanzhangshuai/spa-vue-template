@@ -7,8 +7,8 @@ import { moduleFilter } from '@/util/helper';
 
 const routes: Array<RouteRecordRaw> = [
   ...findModuleRoutes(),
-  { path: '/', redirect: HomeRouteName.DEFAULT_ROUTER },
-  { path: '/:catchAll(.*)', redirect: { name: ErrorRouteName.NOT_FOUND_ROUTER } }
+  { path: '/', redirect: HomeRouteName.DEFAULT },
+  { path: '/:catchAll(.*)', redirect: { name: ErrorRouteName.NOT_FOUND } }
 ];
 
 export default routes;
@@ -18,7 +18,7 @@ export default routes;
  * @returns
  */
 function findModuleRoutes(): Array<RouteRecordRaw> {
-  const modules = moduleFilter<Array<RouteRecordRaw> | RouteRecordRaw>(import.meta.glob('./modules/*/index.ts', { eager: true })) as Record<string, Array<RouteRecordRaw> | RouteRecordRaw>;
+  const modules = moduleFilter(import.meta.glob('./modules/*/index.ts', { eager: true })) as Record<string, Array<RouteRecordRaw> | RouteRecordRaw>;
 
   return flatMap(Object.values(modules).map(module => isArray(module) ? module : [module]));
 }

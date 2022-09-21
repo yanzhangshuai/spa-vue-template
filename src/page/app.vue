@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useTitle } from '@/hook/web/title';
 import { useUserStore } from '@/store/modules/user';
+import { usePageTitle } from '@/hook/web/title';
 
 defineProps({});
 
-useTitle();
+usePageTitle();
 
 const userStore = useUserStore();
 

@@ -1,6 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { AccountRouteName } from '@/router/route/modules/account/const';
+</script>
 
 <template>
   <h1>This is Login</h1>
-  <button @click="$router.push('/account/register')">跳转register页面</button>
+  <button @click="$router.push({ name: AccountRouteName.REGISTER })">跳转register页面</button>
 </template>
