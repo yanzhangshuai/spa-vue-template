@@ -1,7 +1,7 @@
-import type { InitialOptionsTsJest } from 'ts-jest';
+import type { JestConfigWithTsJest } from 'ts-jest';
 import { root } from '../build/util/path';
 
-const config: InitialOptionsTsJest = {
+const config: JestConfigWithTsJest = {
   preset: 'ts-jest',
   rootDir: root,
   testEnvironment: 'jsdom',
@@ -12,25 +12,8 @@ const config: InitialOptionsTsJest = {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   transform: {
-    '^.+\\.[jt]sx?$': 'ts-jest',
+    '^.+\\.[jt]sx?$': ['babel-jest', { presets: [['@babel/preset-env', { targets: { node: 'current' } }], ['@babel/preset-typescript']] }],
     '.+\\.vue$': '@vue/vue3-jest'
-  },
-
-  globals: {
-    'ts-jest': {
-      tsconfig: {
-        jsx: 'preserve',
-        jsxFragmentFactory: 'h',
-        esModuleInterop: true,
-        target: 'esnext',
-        module: 'esnext',
-        sourceMap: true,
-        allowJs: true
-      }
-    },
-    'babelConfig': {
-      presets: [['@babel/preset-env', { targets: { node: 'current' } }], ['@babel/preset-typescript']]
-    }
   },
   collectCoverageFrom: ['src/**/*.{vue,tsx,ts}', '!**/node_modules/**'],
   coverageReporters: ['html'],

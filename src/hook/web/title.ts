@@ -1,18 +1,16 @@
-import { useTitle as usePageTitle } from '@vueuse/core';
 import { unref, watch } from 'vue';
+import { useTitle } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 
-export function useTitle(): void {
+export function usePageTitle(): void {
   const { currentRoute } = useRouter();
 
-  const pageTitle = usePageTitle();
+  const title = useTitle();
 
-  watch(
-    () => currentRoute.value.path,
-    () => {
-      const route = unref(currentRoute);
-      pageTitle.value = route?.meta?.title as string;
-    },
+  const appTitle = GLOBAL_APP_TITLE;
+
+  watch(() => currentRoute.value.path,
+    () => title.value = unref(currentRoute)?.meta?.title || appTitle,
     { immediate: true }
   );
 }

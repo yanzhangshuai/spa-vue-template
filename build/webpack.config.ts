@@ -4,10 +4,11 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { merge as webpackMerge } from 'webpack-merge';
 import { version } from '../package.json';
 import type { Env } from './type/env';
+import { support } from './webpack/support';
 import { loadEnv, wrapperEnv } from './util/env';
 import { configPath, resolve } from './util/path';
-import { support } from './webpack/support';
 import { createDevServer } from './webpack/dev';
+import { tsconfigAlias } from './webpack/tsconfig.alias';
 import { chunkFilename, filename } from './webpack/output';
 
 export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean; WEBPACK_SERVE: boolean; development: boolean }): Promise<Configuration> => {
@@ -60,9 +61,7 @@ export default async (option: { WEBPACK_BUNDLE: boolean; WEBPACK_BUILD: boolean;
 
     resolve: {
       mainFiles: ['index', 'module', 'jsnext'],
-      alias: {
-        '@': resolve('src')
-      }
+      alias: tsconfigAlias()
     }
   };
 

@@ -4,7 +4,7 @@ import { HomeRouteName } from './const';
 
 const route: RouteRecordRaw = {
   path: '/home',
-  name: HomeRouteName.DEFAULT_ROUTER,
+  name: HomeRouteName.DEFAULT,
   component: () => import(/* webpackChunkName: "home" */ '@/page/home/index.vue'),
   meta: {
     auth: true
@@ -12,11 +12,11 @@ const route: RouteRecordRaw = {
   children: [
     {
       path: '',
-      redirect: { name: HomeRouteName.DEMO1_ROUTER }
+      redirect: { name: HomeRouteName.DEMO1 }
     },
     {
       path: 'demo2',
-      name: HomeRouteName.DEMO2_ROUTER,
+      name: HomeRouteName.DEMO2,
       component: () => import(/* webpackChunkName: "home" */ '@/page/home/demo2/index.vue')
     },
     Demo1Route

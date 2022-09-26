@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useTitle } from '@/hook/web/title';
+import { usePageTitle } from '@/hook/web/title';
 
-useTitle();
+usePageTitle();
 </script>
 
 <template>
