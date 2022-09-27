@@ -1,6 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { AccountRouteName } from '@/router/route/modules/account/const';
+</script>
 
 <template>
-  <div>我是demo2</div>
-  <button @click="$router.push('/account')">跳转login页面</button>
+  <div class="text-black">我是demo2</div>
+  <button @click="$router.push({ name: AccountRouteName.LOGIN })">跳转login页面</button>
 </template>

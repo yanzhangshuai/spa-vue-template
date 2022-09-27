@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/**
- *await Promise
- * @param promise
- * @returns[error, data]
- */
-export function awaitWrapper<T = unknown, E = unknown>(promise: Promise<T>): Promise<Array<T | E>> {
-  return promise.then((data: T) => [null, data]).catch((err: E) => [err, null]);
+
+interface RequireContext {
+  keys(): string[]
+  (id: string): any
+  <T>(id: string): T
+  resolve(id: string): string
+  /** The module id of the context module. This may be useful for module.hot.accept. */
+  id: string
 }
 
 /**
@@ -15,17 +16,7 @@ export function awaitWrapper<T = unknown, E = unknown>(promise: Promise<T>): Pro
  * @param de 是否只需要默认导出
  * @returns 模块  key:文件名称, value:default:模块 或当前文件所有模块列表
  */
-export function moduleFilter<T>(
-  modules: {
-    keys(): string[]
-    (id: string): any
-    <T>(id: string): T
-    resolve(id: string): string
-    id: string
-  },
-  filter = /^\.\/.*$/,
-  de = true
-): Record<string, T | Record<string, T>> {
+export function moduleFilter<T>(modules: RequireContext, filter = /^\.\/.*$/, de = true): Record<string, T | Record<string, T>> {
   return modules
     .keys()
     .filter((filename) => {

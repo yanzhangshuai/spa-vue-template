@@ -8,12 +8,12 @@ const routes: Array<RouteRecordRaw> = [
   ...findModuleRoutes(),
   {
     path: '/',
-    redirect: HomeRouteName.DEFAULT_ROUTER
+    redirect: HomeRouteName.DEFAULT
   },
   {
     path: '/:catchAll(.*)',
     redirect: {
-      name: ErrorRouteName.NOT_FOUND_ROUTER
+      name: ErrorRouteName.NOT_FOUND
     }
   }
 ];
@@ -31,10 +31,10 @@ function findModuleRoutes(): Array<RouteRecordRaw> {
     /^\.\/(\w+)\/index\.(ts|js)$/
   );
 
-  return flatMap(
-    Object.keys(modules).map((key) => {
-      const module: Array<RouteRecordRaw> | RouteRecordRaw = modules[key] as Array<RouteRecordRaw> | RouteRecordRaw;
-      return isArray(module) ? module : [module];
-    })
-  );
+  const routes = Object.keys(modules).map((key) => {
+    const module = modules[key] as Array<RouteRecordRaw> | RouteRecordRaw;
+    return isArray(module) ? module : [module];
+  });
+
+  return flatMap(routes);
 }

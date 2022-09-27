@@ -38,11 +38,10 @@ npm run report:windi            分析 windicss 使用结果
   * **util**：工具层
 * **standard**：代码规则模块
 * **test**：单元测试模块
-* **type**：通用类型模块
 
 
 ### NPM
 
 支持 `npm`、`yarn`、`pnpm` 等多种包管理工具
 
-`NPM仓库` 地址默认为 **https://registry.npmmirror.com(原 https://registry.npm.taobao.org)**，如需更改为其它仓库地址，可修改 `.npmrc` 文件 **registry** 属性
+`NPM仓库` 地址默认为 **https://registry.npmjs.com/** 如需更改为其它仓库地址，如**https://registry.npmmirror.com(原 https://registry.npm.taobao.org)** 可修改 `.npmrc` 文件 **registry** 属性

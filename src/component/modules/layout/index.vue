@@ -5,9 +5,9 @@ import LayoutHeader from './layout-header/index.vue';
 
 <template>
   <a-layout class="!min-h-screen main-layout">
-    <layout-sider />
+    <LayoutSider />
     <a-layout>
-      <layout-header />
+      <LayoutHeader />
       <a-layout-content :style="{ margin: '24px' }">
         <div :style="{ padding: '24px', background: '#fff', height: '100%' }">
           <router-view />

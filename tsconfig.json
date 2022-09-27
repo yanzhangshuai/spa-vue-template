@@ -8,7 +8,7 @@
 		"noImplicitAny": true,
 		"noImplicitThis": true,
 		"alwaysStrict": true,
-		"isolatedModules": false,
+		"isolatedModules": true,
 		"removeComments": true,
 		"jsx": "preserve",
 		"jsxFactory": "h",
@@ -24,18 +24,16 @@
 		"downlevelIteration": true,
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"types": ["node", "webpack-env", "jest"],
-		"typeRoots": ["node_modules/@types", "src", "type"],
+		"types": ["node", "webpack-env", "jest", "@mwjz/utils/globals"],
+		"typeRoots": ["node_modules/@types", "src"],
 		"lib": ["dom", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020", "esnext", "dom.iterable"]
 	},
 	"exclude": ["node_modules", "build", "src/asset/json/*.json", "src/**/script"],
 	"include": [
 		"src/**/*.ts",
-		"src/**/*.js",
 		"src/**/*.d.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue",
-		"type/**/*.d.ts",
 		"test/**/*.ts"
 	]
 }
