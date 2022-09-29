@@ -1,4 +1,5 @@
 import type { App, Plugin } from 'vue';
+
 import { debounce } from 'lodash-es';
 import { createPinia } from 'pinia';
 import { PiniaStorage } from '@mwjz/pinia-storage';

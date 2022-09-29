@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 import glob from 'glob';
 
 type ThemeColor = Record<string, Record<string, string>>;

@@ -1,6 +1,6 @@
 import path from 'path';
 import helper from 'vue-component-volar';
-// @ts-expect-error 无法判断类型
+// @ts-ignore
 import { CNamePrefix } from '../const';
 
 const componentPath = path.join(__dirname, '../');

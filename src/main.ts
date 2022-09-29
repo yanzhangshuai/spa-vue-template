@@ -1,5 +1,6 @@
 import 'windi.css';
 import { createApp } from 'vue';
+
 import Store from '@/store';
 import Plugin from '@/plugin';
 import Router from '@/router';

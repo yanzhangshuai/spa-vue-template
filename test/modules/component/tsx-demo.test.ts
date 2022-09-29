@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import TsxDemoComponent from '@/component/modules/tsx-demo';
 
 describe('tsx-demo', () => {

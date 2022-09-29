@@ -1,5 +1,7 @@
 import type { Plugin } from 'vue';
+
 import { createAsker } from '@mwjz/asker';
+
 import { setupInterceptor } from './interceptor/index';
 
 const HttpPlugin: Plugin = {
