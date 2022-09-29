@@ -1,4 +1,5 @@
 import type { Router } from 'vue-router';
+
 import { useUserStore } from '@/store/modules/user';
 
 /**

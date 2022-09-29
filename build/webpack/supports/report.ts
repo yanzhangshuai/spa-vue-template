@@ -1,6 +1,8 @@
-import type { Configuration } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
 import { resolve } from '../../util/path';
+
+import type { Configuration } from 'webpack';
 import type { SupportFn } from '../../type/webpack';
 
 export const reportSupport: SupportFn = (_mode, env) => {

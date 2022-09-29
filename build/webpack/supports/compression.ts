@@ -1,5 +1,6 @@
-import type { Configuration } from 'webpack';
 import CompressionPlugin from 'compression-webpack-plugin';
+
+import type { Configuration } from 'webpack';
 import type { SupportFn } from '../../type/webpack';
 
 export const compressionSupport: SupportFn = (mode, env) => {

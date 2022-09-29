@@ -1,6 +1,8 @@
 import { createVNode } from 'vue';
+
 import { mount } from '@vue/test-utils';
 import { ConfigProvider } from 'ant-design-vue';
+
 import ConfigProviderComponent from '@/component/modules/config-provider/index.vue';
 
 describe('config-provider', () => {

@@ -1,8 +1,11 @@
-import { flatMap, isArray } from 'lodash-es';
 import type { RouteRecordRaw } from 'vue-router';
+
+import { flatMap, isArray } from 'lodash-es';
+
+import { moduleFilter } from '@/util/helper';
+
 import { HomeRouteName } from './modules/home/const';
 import { ErrorRouteName } from './modules/home/error/const';
-import { moduleFilter } from '@/util/helper';
 
 const routes: Array<RouteRecordRaw> = [
   ...findModuleRoutes(),

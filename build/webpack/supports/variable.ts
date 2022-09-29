@@ -1,8 +1,10 @@
-import type { Configuration } from 'webpack';
 import { DefinePlugin } from 'webpack';
-import type { SupportFn } from '../../type/webpack';
+
 import { configPath } from '../../util/path';
 import { loadEnv, wrapperEnv } from '../../util/env';
+
+import type { SupportFn } from '../../type/webpack';
+import type { Configuration } from 'webpack';
 
 export const variableSupport: SupportFn = (mode) => {
   const config: Configuration = { plugins: [] };

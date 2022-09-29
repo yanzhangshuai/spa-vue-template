@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+
 import GlobalPropsDemoComponent from '@/component/modules/global-props-demo/index.vue';
 
 describe('config-provider', () => {

@@ -1,6 +1,8 @@
 import type { App } from 'vue';
-import type { GlobalProps } from './type';
+
 import { dateFormat } from '@/util/date';
+
+import type { GlobalProps } from './type';
 
 let globalProps: GlobalProps;
 

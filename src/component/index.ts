@@ -1,6 +1,8 @@
 import type { App, Component, Plugin } from 'vue';
-import uiComponents from './ui';
+
 import { moduleFilter } from '@/util/helper';
+
+import uiComponents from './ui';
 
 const ComponentPlugin: Plugin = {
   install(app: App) {
