@@ -1,6 +1,9 @@
-import { DefinePlugin } from 'webpack';
 import { VueLoaderPlugin } from 'vue-loader';
+
+import { DefinePlugin } from 'webpack';
+
 import { resolve } from '../../util/path';
+
 import type { SupportFn } from '../../type/webpack';
 
 export const vueSupport: SupportFn = (_mode, env) => {

@@ -1,4 +1,5 @@
 import type { App, Plugin } from 'vue';
+
 import { setupGlobalProperty } from './global-property';
 
 const _Plugin: Plugin = {

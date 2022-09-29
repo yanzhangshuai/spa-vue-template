@@ -1,4 +1,5 @@
 import type { App, Component, Plugin } from 'vue';
+
 import { moduleFilter } from '@/util/helper';
 
 const ComponentPlugin: Plugin = {
