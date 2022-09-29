@@ -1,5 +1,6 @@
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+
 import type { PluginFn } from '../../type/vite';
 
 export const vuePlugin: PluginFn = () => {

@@ -1,8 +1,11 @@
 <script setup lang="tsx">
 import { h } from 'vue';
-import type { Menu as MenuType } from './menu';
-import { menus } from './menu';
+
 import { Menu } from '@/component/ui';
+
+import { menus } from './menu';
+
+import type { Menu as MenuType } from './menu';
 
 const theme = 'dark';
 

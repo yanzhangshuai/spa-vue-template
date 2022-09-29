@@ -1,4 +1,5 @@
 import compress from 'vite-plugin-compression';
+
 import type { PluginFn } from '../../type/vite';
 
 export const compressionPlugin: PluginFn = (mode, env) => {

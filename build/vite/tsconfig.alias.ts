@@ -1,4 +1,5 @@
 import ts from 'typescript';
+
 import { resolve } from '../util/path';
 
 const ALIAS_REGEX = /^.+(?=\/\*)/;

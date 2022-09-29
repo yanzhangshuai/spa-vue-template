@@ -1,5 +1,5 @@
-declare module 'vue' {
-  export interface GlobalComponents {
+declare module 'vue' { 
+  export interface GlobalComponents { 
     'm-config-provider': typeof import('./modules/config-provider/index.vue')['default']
     'm-date-picker-test': typeof import('./modules/date-picker-test/index.vue')['default']
     'm-global-props-demo': typeof import('./modules/global-props-demo/index.vue')['default']
@@ -14,4 +14,4 @@ declare module 'vue' {
     'm-l-menu': typeof import('./modules/layout/sider/l-menu/index.vue')['default']
   }
 }
-export { }
+export {}

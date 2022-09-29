@@ -1,5 +1,6 @@
 import { unref, watch } from 'vue';
 import { useRouter } from 'vue-router';
+
 import { useTitle } from '@vueuse/core';
 
 export function usePageTitle(): void {

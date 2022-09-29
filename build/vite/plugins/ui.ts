@@ -1,4 +1,5 @@
 import { AndDesignVueResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
+
 import type { PluginFn } from '../../type/vite';
 
 export const uiPlugin: PluginFn = () => {

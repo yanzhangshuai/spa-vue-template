@@ -1,5 +1,6 @@
-import type { Plugin } from 'vite';
 import visualizer from 'rollup-plugin-visualizer';
+
+import type { Plugin } from 'vite';
 import type { PluginFn } from '../../type/vite';
 
 export const reportPlugin: PluginFn = (_mode, env) => {

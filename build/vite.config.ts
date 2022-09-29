@@ -1,13 +1,16 @@
-import type { ConfigEnv } from 'vite';
 import { defineConfig, loadEnv } from 'vite';
+
 import { version } from '../package.json';
-import type { Mode } from './type/vite';
+
 import { wrapperEnv } from './util/env';
 import { createProxy } from './vite/proxy';
 import { createVitePlugins } from './vite/plugin';
 import { tsconfigAlias } from './vite/tsconfig.alias';
 import { configPath, resolve, root } from './util/path';
 import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './vite/output';
+
+import type { Mode } from './type/vite';
+import type { ConfigEnv } from 'vite';
 
 export default defineConfig((conf: ConfigEnv) => {
   const mode = conf.mode as Mode;

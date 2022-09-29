@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite';
-import type { UserConfig } from 'vitest/config';
+
 import { root } from '../build/util/path';
 import viteConfig from '../build/vite.config';
+
+import type { UserConfig } from 'vitest/config';
 
 export default defineConfig(async (env) => {
   // function

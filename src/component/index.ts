@@ -1,6 +1,8 @@
 import type { App, Component, Plugin } from 'vue';
-import { CNamePrefix } from './const';
+
 import { moduleFilter } from '@/util/helper';
+
+import { CNamePrefix } from './const';
 
 const ComponentPlugin: Plugin = {
   install(app: App) {
