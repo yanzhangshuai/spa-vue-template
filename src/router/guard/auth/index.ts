@@ -14,6 +14,6 @@ export function createAuthGuard(router: Router): void {
     to?.meta?.auth
       && useUserStore().getUserInfo()
         .then(() => next())
-        .catch(() => next('/account/login'));
+        .catch(() => next({ name: 'account-login' }));
   });
 }

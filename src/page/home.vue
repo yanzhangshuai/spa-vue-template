@@ -5,3 +5,10 @@
   <h1 class="text-2xl text-primary">This is home</h1>
   <router-view />
 </template>
+
+<route lang="yaml">
+redirect:
+  name: home-demo1
+meta:
+  auth: true
+</route>
