@@ -47,7 +47,7 @@ export default defineConfig((conf: ConfigEnv) => {
       preprocessorOptions: {
         less: {
           modifyVars: {
-            hack: [`true; @import (reference) "${resolve('src/asset/theme/default.less')}";`]
+            hack: [`true; @import (reference) "${resolve('src/style/theme/default.less')}";`]
           },
           javascriptEnabled: true
         }

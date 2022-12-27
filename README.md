@@ -18,7 +18,6 @@ npm run lint                    eslint、stylelint
 
 npm run report                  分析生产环境编译结果
 npm run report:test             分析单元测试结果
-npm run report:windi            分析 windicss 使用结果
 
 ```
 

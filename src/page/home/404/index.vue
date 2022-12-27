@@ -17,6 +17,5 @@ const router = useRouter();
 </template>
 
 <route lang="yaml">
-name: not-found
-path: /404
+name: home-not-found
 </route>

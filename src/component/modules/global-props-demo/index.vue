@@ -13,5 +13,8 @@
 <style lang="less" scoped>
 li {
   @apply font-bold py-1 list-none px-0 text-red-300 rounded !important;
+  &:hover {
+    @apply text-primaryHover !important;
+  }
 }
 </style>

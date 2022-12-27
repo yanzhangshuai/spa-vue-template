@@ -20,5 +20,5 @@ defineExpose<RefSetupDemoExpose>({ name: props.name, onBtn });
 
 <template>
   <h1>{{ name }}</h1>
-  <button @click="onBtn">btn</button>
+  <button class="btn-red" @click="onBtn">btn</button>
 </template>
