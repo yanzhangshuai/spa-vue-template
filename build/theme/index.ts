@@ -10,7 +10,7 @@ type ThemeColor = Record<string, Record<string, string>>;
  * 解析主题文件
  * @param path
  */
-export function themeParse(path = 'src/asset/theme'): ThemeColor {
+export function themeParse(path = 'src/style/theme'): ThemeColor {
   // path 结尾为 / 时，移除
   path.endsWith('/') && (path = path.slice(0, -1));
 

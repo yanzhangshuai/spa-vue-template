@@ -18,7 +18,7 @@ watch($$(name), (newVal) => {
 
 <template>
   <div class="text-black" @click="$window.alert('1')">我是demo1</div>
-  <button @click="$router.push({ name: 'account-login' })">跳转login页面</button>
+  <button class="btn" c-text="white" c-bg="primary hover:primaryHover" @click="$router.push({ name: 'account-login' })">跳转login页面</button>
   <m-http-demo />
   <m-ref-setup-demo :id="123" ref="refSetupDemoRef" v-model:name="name" />
   <m-global-props-demo />

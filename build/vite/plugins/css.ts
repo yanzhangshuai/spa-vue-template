@@ -1,7 +1,6 @@
-import WindiCSS from 'vite-plugin-windicss';
+import Unocss from '@unocss/vite';
 
 import type { PluginFn } from '../../type/vite';
-
 export const cssPlugin: PluginFn = () => {
-  return WindiCSS();
+  return Unocss({ /* options */ });
 };
