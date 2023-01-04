@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 
-import { version } from '../package.json';
+// import { version } from '../package.json';
 
 import { wrapperEnv } from './util/env';
 import { createProxy } from './vite/proxy';
@@ -16,7 +16,7 @@ export default defineConfig((conf: ConfigEnv) => {
   const mode = conf.mode as Mode;
 
   // 设置版本号
-  process.env.GLOBAL_APP_VERSION = version;
+  // process.env.GLOBAL_APP_VERSION = version;
 
   // 根据VITE命令设置NODE环境变量
   process.env.NODE_ENV = mode;

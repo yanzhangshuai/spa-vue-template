@@ -1,10 +1,6 @@
 import type { EsbuildTransformOptions } from 'vite';
 
 export interface Env {
-  /**
-   * 项目标题
-   */
-  readonly VITE_APP_TITLE: string
 
   /**
    * 是否支持options api写法

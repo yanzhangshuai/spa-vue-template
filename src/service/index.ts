@@ -2,6 +2,8 @@ import type { Plugin } from 'vue';
 
 import { createAsker } from '@mwjz/asker';
 
+import { Win } from '@/win';
+
 import { setupInterceptor } from './interceptor/index';
 
 const HttpPlugin: Plugin = {
@@ -13,11 +15,13 @@ const HttpPlugin: Plugin = {
 export default HttpPlugin;
 
 function create() {
+  const baseURL = Win.appConfig.baseURL;
+
   const asker = createAsker({
     request: {
       ignoreCancelToken: false,
-      baseURL: import.meta.env.GLOBAL_API_BASE_URL,
-      uploadBaseUrl: import.meta.env.GLOBAL_UPLOAD_BASE_URL
+      baseURL: baseURL.api,
+      uploadBaseUrl: baseURL.upload
     }
   });
 

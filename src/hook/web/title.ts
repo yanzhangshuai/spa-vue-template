@@ -3,12 +3,14 @@ import { useRouter } from 'vue-router';
 
 import { useTitle } from '@vueuse/core';
 
+import { Win } from '@/win';
+
 export function usePageTitle(): void {
   const { currentRoute } = useRouter();
 
   const title = useTitle();
 
-  const appTitle = import.meta.env.GLOBAL_APP_TITLE;
+  const appTitle = Win.appConfig.name;
 
   watch(
     () => unref(currentRoute).path,
