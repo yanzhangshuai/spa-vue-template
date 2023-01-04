@@ -4,25 +4,46 @@ import {
   presetIcons,
   presetUno, transformerDirectives
 } from 'unocss';
+import presetTheme from 'unocss-preset-theme';
 
 import { themeParse } from './build/theme';
 
-// TODO: themeParse处理无法使用热更新
+import type { Theme } from '@unocss/preset-uno';
+
+// TODO: themeParse暂时无法处理文件热更新
 const themes = themeParse();
+
+const theme: Record<string, Theme> = {};
+
+Object.keys(themes).filter(key => key !== 'default').forEach((key) => {
+  theme[key] = {
+    colors: themes[key]
+  };
+});
 
 export default defineConfig({
   exclude: ['node_modules', 'dist', '.git', '.husky', '.vscode', 'public', 'build', 'mock', './stats.html'],
-  presets: [
-    presetUno({ dark: 'class' }),
-    presetAttributify({ prefix: 'c-', prefixedOnly: false }),
-    presetIcons()
-  ],
   transformers: [
-    transformerDirectives()
+    transformerDirectives({ enforce: 'pre' })
   ],
+
+  presets: [
+    presetUno(),
+    presetAttributify({ prefix: 'c-', prefixedOnly: false }),
+    presetIcons(),
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error 类型
+    presetTheme({ theme, prefix: '--style-theme' })
+  ],
+
+  theme: {
+    colors: themes.default
+  },
+
   shortcuts: [
     {
       'wh-full': 'w-full h-full',
+      'wh-screen': 'w-screen h-screen',
       'flex-center': 'flex justify-center items-center',
       'flex-col-center': 'flex-center flex-col',
       'flex-x-center': 'flex justify-center',
@@ -56,34 +77,9 @@ export default defineConfig({
       'nowrap-hidden': 'whitespace-nowrap overflow-hidden',
       'ellipsis-text': 'nowrap-hidden overflow-ellipsis',
       'transition-base': 'transition-all duration-300 ease-in-out',
-      'btn': 'h-8 px-4 rounded b-0 cursor-pointer transition-base'
+      'btn': '        px-4 py-1.5 rounded cursor-pointer transition-base bg-transparent   b-1 b-solid b-border         text-text   hover:b-primaryBorder hover:text-primary',
+      'btn-primary': 'px-4 py-1.5 rounded cursor-pointer transition-base bg-primary       b-1 b-solid b-primaryBorder  text-white  hover:bg-primaryHover hover:b-primaryHover'
     },
-    [/^btn-(.*)$/, ([, c]) => `bg-${c}-400 text-${c}-100 h-8 px-4 rounded b-0 cursor-pointer transition-base`]
-  ],
-  theme: {
-    colors: {
-      ...themes.default
-      // primary: 'var(--primary-color)',
-      // primary_hover: 'var(--primary-color-hover)',
-      // primary_pressed: 'var(--primary-color-pressed)',
-      // primary_active: 'var(--primary-color-active)',
-      // info: 'var(--info-color)',
-      // info_hover: 'var(--info-color-hover)',
-      // info_pressed: 'var(--info-color-pressed)',
-      // info_active: 'var(--info-color-active)',
-      // success: 'var(--success-color)',
-      // success_hover: 'var(--success-color-hover)',
-      // success_pressed: 'var(--success-color-pressed)',
-      // success_active: 'var(--success-color-active)',
-      // warning: 'var(--warning-color)',
-      // warning_hover: 'var(--warning-color-hover)',
-      // warning_pressed: 'var(--warning-color-pressed)',
-      // warning_active: 'var(--warning-color-active)',
-      // error: 'var(--error-color)',
-      // error_hover: 'var(--error-color-hover)',
-      // error_pressed: 'var(--error-color-pressed)',
-      // error_active: 'var(--error-color-active)',
-      // dark: '#18181c'
-    }
-  }
+    [/^btn-(.*)$/, ([, c]) => `px-4 py-1.5 rounded cursor-pointer transition-base bg-${c}-400  b-1 b-solid b-${c}-400 text-${c}-100 hover:bg-${c}-300 hover:b-${c}-300`]
+  ]
 });

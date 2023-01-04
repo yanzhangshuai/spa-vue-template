@@ -2,11 +2,11 @@ import { defineStore } from 'pinia';
 
 export const useUserStore = defineStore('app-user', {
 
-  state: () => ({ token: '' }),
+  state: () => ({ _token: '' }),
 
   getters: {
-    getToken(state): string {
-      return state.token;
+    token(state): string {
+      return state._token;
     }
   },
 
@@ -23,7 +23,7 @@ export const useUserStore = defineStore('app-user', {
         }
 
         // TODO: 模拟登录成功
-        this.token = '0-1-2-3-4-5-6-7-8-9';
+        this._token = '0-1-2-3-4-5-6-7-8-9';
         resolve(this.token);
       });
     },
@@ -43,6 +43,6 @@ export const useUserStore = defineStore('app-user', {
   },
 
   storage: {
-    local: ['token']
+    local: ['_token']
   }
 });

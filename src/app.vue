@@ -4,9 +4,9 @@ usePageTitle();
 </script>
 
 <template>
-  <m-config-provider>
+  <config-provider>
     <router-view />
-  </m-config-provider>
+  </config-provider>
 </template>
 
 <style lang="less">

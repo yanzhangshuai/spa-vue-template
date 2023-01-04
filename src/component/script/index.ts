@@ -1,5 +1,7 @@
-import path from 'path';
 import helper from 'vue-component-volar';
+
+import path from 'path';
+
 // @ts-ignore
 import { CNamePrefix } from '../const';
 

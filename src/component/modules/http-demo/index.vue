@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useDemoService } from '@/service/modules/demo';
 
 let data = $ref('');
@@ -11,5 +11,5 @@ demoService.hello()
 </script>
 
 <template>
-  <div>HTTP请求数据 {{ data }} </div>
+  <div class="my-2">HTTP请求数据: <span c-text="success hover:successHover"> {{ data }}</span> </div>
 </template>

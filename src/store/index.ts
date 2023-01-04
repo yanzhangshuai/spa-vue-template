@@ -22,7 +22,7 @@ function create() {
 
   store.use(PiniaDebounce(debounce));
 
-  store.use(PiniaStorage({ prefix: 'spa-template_' }));
+  store.use(PiniaStorage({ prefix: `${import.meta.env.GLOBAL_APP_NAME}__` }));
 
   return store;
 }
