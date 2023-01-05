@@ -22,11 +22,10 @@
     "prepare": "     husky install"
   },
   "dependencies": {
-    "@mwjz/asker": "^0.0.3",
+    "@mwjz/asker": "^0.0.4",
     "@mwjz/pinia-storage": "^0.0.3",
     "@mwjz/utils": "^0.1.8",
     "@pinia/plugin-debounce": "^0.1.0",
-    "@unocss/preset-uno": "^0.48.0",
     "@vueuse/core": "^9.9.0",
     "axios": "^1.2.1",
     "crypto-js": "^4.1.1",
@@ -49,6 +48,7 @@
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.18",
     "@typescript-eslint/parser": "^5.47.1",
+    "@unocss/preset-uno": "^0.48.0",
     "@unocss/vite": "^0.48.0",
     "@vitejs/plugin-legacy": "^3.0.1",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -82,6 +82,7 @@
     "terser": "^5.16.1",
     "ts-node": "^10.9.1",
     "unocss-preset-theme": "^0.3.0",
+    "unplugin-vue-components": "^0.22.12",
     "vite": "^4.0.3",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-html": "^3.2.0",

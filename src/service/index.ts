@@ -4,15 +4,15 @@ import { createAsker } from '@mwjz/asker';
 
 import { Win } from '@/win';
 
-import { setupInterceptor } from './interceptor/index';
+import { setupInterceptor } from './interceptor';
 
-const HttpPlugin: Plugin = {
+const SPlugin: Plugin = {
   install() {
     create();
   }
 };
 
-export default HttpPlugin;
+export default SPlugin;
 
 function create() {
   const baseURL = Win.appConfig.baseURL;

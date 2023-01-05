@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils';
 import { dateFormat } from '@/util/date';
 import { assetResolve, imageResolve } from '@/util/file';
 import type { AppProps } from '@/plugin/global-property/type';
-import AppPropsDemoComponent from '@/component/modules/app-props-demo/index.vue';
+import AppPropsDemoComponent from '@/component/app-props-demo/index.vue';
 
 describe('config-provider', () => {
   it('component exist', () => {

@@ -1,14 +1,11 @@
 import type { App, Plugin } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 
-// import routes from './route';
 import { setupRouterGuard } from './guard';
 
 import routes from '~pages';
 
-console.log('routes--------', routes);
-
-const RouterPlugin: Plugin = {
+const RPlugin: Plugin = {
   install(app: App, readyCallBack: (app: App) => void) {
     const router = create();
 
@@ -23,7 +20,7 @@ const RouterPlugin: Plugin = {
   }
 };
 
-export default RouterPlugin;
+export default RPlugin;
 
 function create() {
   const router = createRouter({

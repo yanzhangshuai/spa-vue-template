@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useThemeStore } from '@/store/modules/global/theme';
+import { useThemeStore } from '@/store/global/theme';
 
 const theme = useThemeStore();
 

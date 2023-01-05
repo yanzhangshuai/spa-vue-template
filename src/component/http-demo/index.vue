@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useDemoService } from '@/service/modules/demo';
+import { useDemoService } from '@/service/demo';
 
 let data = $ref('');
 

@@ -2,7 +2,7 @@ import { h } from 'vue';
 
 import { mount } from '@vue/test-utils';
 
-import ConfigProviderComponent from '@/component/modules/config-provider/index.vue';
+import ConfigProviderComponent from '@/component/config-provider/index.vue';
 
 describe('config-provider', () => {
   it('component exist', () => {

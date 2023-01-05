@@ -7,7 +7,7 @@ import { PiniaDebounce } from '@pinia/plugin-debounce';
 
 import { Win } from '@/win';
 
-const StorePlugin: Plugin = {
+const SPlugin: Plugin = {
   install(app: App) {
     const store = create();
 
@@ -15,7 +15,7 @@ const StorePlugin: Plugin = {
   }
 };
 
-export default StorePlugin;
+export default SPlugin;
 
 function create() {
   const store = createPinia();

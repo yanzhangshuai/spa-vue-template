@@ -1,6 +1,6 @@
 import type { Directive } from 'vue';
 
-const numberInputDirective: Directive = {
+const vNumber: Directive = {
   name: 'number',
 
   mounted(el: HTMLInputElement): void {
@@ -14,4 +14,4 @@ const numberInputDirective: Directive = {
   }
 };
 
-export default numberInputDirective;
+export default vNumber;
