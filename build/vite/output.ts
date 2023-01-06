@@ -8,14 +8,24 @@ export function chunkFileNames(_chunkInfo: PreRenderedChunk) {
   return 'js/[name].[hash].js';
 }
 
-export function assetFileNames(_chunkInfo?: PreRenderedAsset): string {
-  return '[ext]/[name].[hash].[ext]';
+export function assetFileNames(chunkInfo?: PreRenderedAsset): string {
+  const extFileDirMap: Record<string, string> = {
+    'png,gif,jpg,jpeg,svg': 'asset/image'
+  };
+
+  const ext = chunkInfo?.name.match(/\.(\w+)$/)?.[1] || 'js';
+
+  const dir = Object.keys(extFileDirMap)
+    .filter(key => key.split(',').includes(ext))
+    .map(key => extFileDirMap[key])
+    ?.[0] || '[ext]';
+
+  return `${dir}/[name].[hash].[ext]`;
 }
 
 /**
  * 生成chunk
  * @param id
- * @param api
  */
 export function manualChunks(id: string): string | null | undefined {
   if (id.includes('node_modules'))
