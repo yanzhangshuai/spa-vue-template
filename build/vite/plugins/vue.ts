@@ -1,6 +1,7 @@
 import vue from '@vitejs/plugin-vue';
 import Pages from 'vite-plugin-pages';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 
 import type { PluginFn } from '../../type/vite';
@@ -13,7 +14,13 @@ export const vuePlugin: PluginFn = () => {
     Components({
       dirs: ['src/component'],
       dts: 'src/component/shims-vue.d.ts',
-      types: []
+      types: [],
+      resolvers: []
+    }),
+    AutoImport({
+      imports: ['vue', 'vue-router'],
+      dts: 'src/shims-import.d.ts',
+      resolvers: []
     })
   ];
 

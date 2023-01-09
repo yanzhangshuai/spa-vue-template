@@ -12,3 +12,5 @@ yarn.lock
 stats.html
 report
 .history
+/src/shims-import.d.ts
+/src/component/shims-vue.d.ts
