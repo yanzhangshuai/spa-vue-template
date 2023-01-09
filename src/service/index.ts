@@ -2,22 +2,26 @@ import type { Plugin } from 'vue';
 
 import { createAsker } from '@mwjz/asker';
 
-import { setupInterceptor } from './interceptor/index';
+import { Win } from '@/win';
 
-const HttpPlugin: Plugin = {
+import { setupInterceptor } from './interceptor';
+
+const SPlugin: Plugin = {
   install() {
     create();
   }
 };
 
-export default HttpPlugin;
+export default SPlugin;
 
 function create() {
+  const baseURL = Win.appConfig.baseURL;
+
   const asker = createAsker({
     request: {
       ignoreCancelToken: false,
-      baseURL: import.meta.env.GLOBAL_API_BASE_URL,
-      uploadBaseUrl: import.meta.env.GLOBAL_UPLOAD_BASE_URL
+      baseURL: baseURL.api,
+      uploadBaseUrl: baseURL.upload
     }
   });
 

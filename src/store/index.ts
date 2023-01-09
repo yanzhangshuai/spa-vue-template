@@ -5,7 +5,9 @@ import { createPinia } from 'pinia';
 import { PiniaStorage } from '@mwjz/pinia-storage';
 import { PiniaDebounce } from '@pinia/plugin-debounce';
 
-const StorePlugin: Plugin = {
+import { Win } from '@/win';
+
+const SPlugin: Plugin = {
   install(app: App) {
     const store = create();
 
@@ -13,7 +15,7 @@ const StorePlugin: Plugin = {
   }
 };
 
-export default StorePlugin;
+export default SPlugin;
 
 function create() {
   const store = createPinia();
@@ -22,7 +24,7 @@ function create() {
 
   store.use(PiniaDebounce(debounce));
 
-  store.use(PiniaStorage({ prefix: 'spa-template_' }));
+  store.use(PiniaStorage({ prefix: `${Win.appConfig.name}__` }));
 
   return store;
 }

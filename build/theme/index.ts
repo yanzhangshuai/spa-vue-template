@@ -28,10 +28,14 @@ export function themeParse(path = 'src/style/theme'): ThemeColor {
 
     themeContent.split(';')
       .map(item => item.replace(/(\r\n)|[\r\n\t ]/, ''))
+
       .filter(item => item && !item.startsWith('//'))
+
       .forEach((item) => {
         const res = /(?<=@)([^:^;]+)[: ]+([^:^;]+)/g.exec(item);
-        res && (curr[res[1].trim()] = res[2].trim());
+
+        if (res)
+          curr[res[1].trim()] = res[2].trim();
       });
 
     themes[name] = curr;

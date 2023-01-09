@@ -1,26 +1,9 @@
-<script setup lang="ts">
-import { onMounted, ref, unref, watch } from 'vue';
-
-import type { RefSetupDemoExpose } from '@/component/modules/ref-setup-demo/type';
-
-const name = $ref('ref-setup-demo');
-
-const refSetupDemoRef = ref<RefSetupDemoExpose>(null);
-
-onMounted(() => {
-  unref(refSetupDemoRef)?.onBtn();
-});
-
-watch($$(name), (newVal) => {
-  console.log('name changed', newVal);
-});
+<script lang="ts" setup>
 </script>
 
 <template>
-  <div class="text-black" @click="$window.alert('1')">我是demo1</div>
-  <button class="btn" c-text="white" c-bg="primary hover:primaryHover" @click="$router.push({ name: 'account-login' })">跳转login页面</button>
-  <m-http-demo />
-  <m-ref-setup-demo :id="123" ref="refSetupDemoRef" v-model:name="name" />
-  <m-global-props-demo />
-  <m-date-picker-test />
+  <a-button type="primary" @click="$router.push({ name: 'account-login' })">跳转login页面</a-button>
+  <http-demo />
+  <app-props-demo />
+  <date-picker-test />
 </template>

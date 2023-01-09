@@ -1,36 +1,36 @@
-export interface GlobalProps {
+export interface AppProps {
   /**
    * 应用名称
    */
-  readonly APP_NAME: string
+  readonly name: string
 
   /**
    * 应用LOGO
    */
-  readonly APP_LOGO: string
+  readonly logo: string
 
   /**
    * 应用版本
    */
-  readonly APP_VERSION: string
-
-  /**
-   * 应用标题
-   */
-  readonly APP_TITLE: string
-
-  /**
-   * 文件服务器路径
-   */
-  readonly FILE_PATH_PREFIX: string
+  readonly version: string
 
   /**
    * 当前是否为开发环境
    */
-  readonly DEV: boolean
+  readonly dev: boolean
 
   /**
    * 日期格式化
    */
   readonly dateFormat: (date: number | Date, template?: string) => string
+
+  /**
+   * 静态地址解析
+   */
+  readonly assetResolve: (path: string) => string
+
+  /**
+   * 图片地址解析
+   */
+  readonly imageResolve: (path: string) => string
 }

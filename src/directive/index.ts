@@ -2,16 +2,16 @@ import type { App, Directive, Plugin } from 'vue';
 
 import { moduleFilter } from '@/util/helper';
 
-const DirectivePlugin: Plugin = {
+const DPlugin: Plugin = {
   install(app: App) {
     useDirective(app);
   }
 };
 
-export default DirectivePlugin;
+export default DPlugin;
 
 function useDirective(app: App<Element>) {
-  const modules = moduleFilter<Directive>(import.meta.glob('./modules/**/*.{ts,js}', { eager: true }));
+  const modules = moduleFilter<Directive>(import.meta.glob('./**/*.ts', { eager: true }));
 
   //  匹配文件名称的正则
   const directiveRegex = /\/([\w\d-]+)([.-]?[dD]irective)?\/([\w\d-]+)([.-]?[dD]irective)?\.[tj]s$/;

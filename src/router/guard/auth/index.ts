@@ -1,6 +1,6 @@
 import type { Router } from 'vue-router';
 
-import { useUserStore } from '@/store/modules/user';
+import { useUserStore } from '@/store/user';
 
 /**
  * 认证守卫

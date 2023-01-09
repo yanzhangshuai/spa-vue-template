@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <m-layout />
+  <layout />
 </template>
 
 <route lang="yaml">

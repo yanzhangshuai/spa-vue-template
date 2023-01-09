@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 
-import TsxDemoComponent from '@/component/modules/tsx-demo';
+import TsxDemoComponent from '@/component/tsx-demo';
 
 describe('tsx-demo', () => {
   it('component exist', () => {
