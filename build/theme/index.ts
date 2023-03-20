@@ -1,4 +1,5 @@
-import fs from 'fs';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 import glob from 'glob';
 
@@ -8,18 +9,19 @@ type ThemeColor = Record<string, Record<string, string>>;
 
 /**
  * 解析主题文件
- * @param path
+ * @param p
  */
-export function themeParse(path = 'src/style/theme'): ThemeColor {
+export function themeParse(p = 'src/style/theme'): ThemeColor {
   // path 结尾为 / 时，移除
-  path.endsWith('/') && (path = path.slice(0, -1));
+  p.endsWith('/') && (p = p.slice(0, -1));
 
   const themes: ThemeColor = {};
-  const files = glob.sync(`${path}/**.less`);
+  const files = glob.sync(`${p}/**.less`);
 
   files.forEach((file: string) => {
     // 文件名
-    const name = file.match(/(?<=\/)[^\/]+(?=\.less)/)?.[0];
+    //  获取文件名,判断path.sep
+    const name = file.split(path.sep).pop()?.replace(/\.less$/, '') || '';
 
     const curr: Record<string, string> = {};
 

@@ -26,6 +26,7 @@ export default defineConfig(async (env) => {
       dir: 'test/modules',
       include: ['**/*.{test,spec}.ts'],
       coverage: {
+        provider: 'c8',
         reporter: ['html'],
         all: true,
         reportsDirectory: 'report/test'
