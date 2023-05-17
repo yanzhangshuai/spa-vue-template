@@ -10,7 +10,6 @@ module.exports = {
     'media-feature-name-no-vendor-prefix': true,
     'at-rule-empty-line-before': 'never',
     'block-no-empty': true,
-    'indentation': 2,
     'color-hex-length': 'short',
     'no-empty-source': null,
     'max-nesting-depth': 5

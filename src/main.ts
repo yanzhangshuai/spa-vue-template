@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { VueQueryPlugin } from 'vue-query';
 
 import { Win } from '@/win';
 import Store from '@/store';
@@ -27,6 +28,7 @@ async function setupApp() {
   const app = createApp(App);
 
   app
+    .use(VueQueryPlugin)
     .use(Plugin)
     .use(Component)
     .use(Directive)

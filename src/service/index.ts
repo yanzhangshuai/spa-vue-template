@@ -1,8 +1,7 @@
 import type { Plugin } from 'vue';
 
-import { createAsker } from '@mwjz/asker';
-
 import { Win } from '@/win';
+import { createHttp } from '@/service/http';
 
 import { setupInterceptor } from './interceptor';
 
@@ -17,7 +16,7 @@ export default SPlugin;
 function create() {
   const baseURL = Win.appConfig.baseURL;
 
-  const asker = createAsker({
+  const http = createHttp({
     request: {
       ignoreCancelToken: false,
       baseURL: baseURL.api,
@@ -25,5 +24,7 @@ function create() {
     }
   });
 
-  setupInterceptor(asker.interceptor);
+  Win.http = http;
+
+  setupInterceptor(http.interceptor);
 }

@@ -11,9 +11,9 @@ const emit = defineEmits<{
   (e: 'update:name', val: string): void
 }>();
 
-const onBtn = () => {
+function onBtn() {
   emit('update:name', Math.random().toString());
-};
+}
 
 defineExpose<RefSetupDemoExpose>({ name: props.name, onBtn });
 </script>

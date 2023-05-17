@@ -81,7 +81,7 @@ export default defineConfig({
       'transition-base': 'transition-all duration-300 ease-in-out',
       'btn': '        px-4 py-1.5 rounded cursor-pointer transition-base bg-transparent   b-1 b-solid b-border         text-text   hover:b-primaryBorder hover:text-primary',
       'btn-primary': 'px-4 py-1.5 rounded cursor-pointer transition-base bg-primary       b-1 b-solid b-primaryBorder  text-white  hover:bg-primaryHover hover:b-primaryHover'
-    },
-    [/^btn-(.*)$/, ([, c]) => `px-4 py-1.5 rounded cursor-pointer transition-base bg-${c}-400  b-1 b-solid b-${c}-400 text-${c}-100 hover:bg-${c}-300 hover:b-${c}-300`]
+    }
+    // [/^btn-(.*)$/, ([, c]) => `px-4 py-1.5 rounded cursor-pointer transition-base bg-${c}-400  b-1 b-solid b-${c}-400 text-${c}-100 hover:bg-${c}-300 hover:b-${c}-300`]
   ]
 });

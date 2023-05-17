@@ -1,7 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-import glob from 'glob';
+import * as glob from 'glob';
 
 type ThemeColor = Record<string, Record<string, string>>;
 
@@ -16,6 +16,7 @@ export function themeParse(p = 'src/style/theme'): ThemeColor {
   p.endsWith('/') && (p = p.slice(0, -1));
 
   const themes: ThemeColor = {};
+
   const files = glob.sync(`${p}/**.less`);
 
   files.forEach((file: string) => {

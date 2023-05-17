@@ -7,7 +7,7 @@ import Components from 'unplugin-vue-components/vite';
 import type { PluginFn } from '../../type/vite';
 
 export const vuePlugin: PluginFn = () => {
-  const plugins = [
+  return [
     vue({ reactivityTransform: true }),
     vueJsx({ optimize: true, transformOn: true }),
     Pages({ dirs: 'src/page', routeBlockLang: 'yaml' }),
@@ -23,6 +23,4 @@ export const vuePlugin: PluginFn = () => {
       resolvers: []
     })
   ];
-
-  return plugins;
 };
