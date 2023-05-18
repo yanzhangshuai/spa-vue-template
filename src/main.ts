@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { VueQueryPlugin } from 'vue-query';
 
 import { Win } from '@/win';
 import Store from '@/store';
@@ -9,9 +10,12 @@ import Component from '@/component';
 import Directive from '@/directive';
 import App from '@/app.vue';
 
+import 'uno.css';
+import '@/style/index.less';
+
 async function loadAppConfig() {
   try {
-    const res = await fetch('/config/app.json');
+    const res = await fetch('/app.json');
     const data = await res.json();
     Win.appConfig = data;
   }
@@ -27,6 +31,7 @@ async function setupApp() {
   const app = createApp(App);
 
   app
+    .use(VueQueryPlugin)
     .use(Plugin)
     .use(Component)
     .use(Directive)

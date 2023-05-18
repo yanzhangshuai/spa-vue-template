@@ -5,9 +5,9 @@ const theme = useThemeStore();
 
 theme.init();
 
-const onThemeChange = () => {
+function onThemeChange() {
   theme.darkChange(!theme.dark);
-};
+}
 </script>
 
 <template>

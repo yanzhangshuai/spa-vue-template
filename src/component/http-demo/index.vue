@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-import { useDemoService } from '@/service/demo';
+import { useQuery } from 'vue-query/esm';
 
-let data = $ref('');
+import { getHello } from '@/service/demo';
 
-const demoService = useDemoService();
-
-demoService.hello()
-  .then(res => data = res)
-  .catch(err => console.error(err));
+const { data } = useQuery({ queryFn: getHello });
 </script>
 
 <template>
-  <div class="my-2">HTTP请求数据: <span c-text="success hover:successHover"> {{ data }}</span> </div>
+  <div class="my-2">HTTP请求数据: <span c-text="success hover:successHover"> {{ data }}</span></div>
 </template>

@@ -5,10 +5,10 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
-import type { PluginFn } from '../../type/vite';
+import { definePlugin } from '../../type/vite';
 
-export const vuePlugin: PluginFn = () => {
-  const plugins = [
+export default definePlugin(() => {
+  return [
     vue({ reactivityTransform: true }),
     vueJsx({ optimize: true, transformOn: true }),
     Pages({ dirs: 'src/page', routeBlockLang: 'yaml' }),
@@ -26,6 +26,4 @@ export const vuePlugin: PluginFn = () => {
       resolvers: []
     })
   ];
-
-  return plugins;
-};
+});

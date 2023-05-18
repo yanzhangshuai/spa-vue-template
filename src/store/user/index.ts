@@ -1,12 +1,14 @@
 import { defineStore } from 'pinia';
 
+import { getCurrent } from '@/service/account';
+
 export const useUserStore = defineStore('app-user', {
 
-  state: () => ({ _token: '' }),
+  state: () => ({ _user: '' }),
 
   getters: {
-    token(state): string {
-      return state._token;
+    user(state): string {
+      return state._user;
     }
   },
 
@@ -16,16 +18,14 @@ export const useUserStore = defineStore('app-user', {
      * @returns
      */
     getUserInfo(): Promise<string> {
-      return new Promise((resolve) => {
-        if (this.token) {
-          resolve(this.token);
-          return;
-        }
+      if (this.user)
+        return Promise.resolve(this.user);
 
-        // TODO: 模拟登录成功
-        this._token = '0-1-2-3-4-5-6-7-8-9';
-        resolve(this.token);
-      });
+      return getCurrent()
+        .then((res) => {
+          this._user = res;
+          return this.user;
+        });
     },
 
     /**
@@ -40,9 +40,5 @@ export const useUserStore = defineStore('app-user', {
     logout() {
       // goLogin && router.push(PageEnum.BASE_LOGIN);
     }
-  },
-
-  storage: {
-    local: ['_token']
   }
 });

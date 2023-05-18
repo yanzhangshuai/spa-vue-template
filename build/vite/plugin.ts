@@ -1,10 +1,10 @@
 import { uiPlugin } from './plugins/ui';
-import { vuePlugin } from './plugins/vue';
-import { cssPlugin } from './plugins/css';
-import { filePlugin } from './plugins/file';
-import { htmlPlugin } from './plugins/html';
-import { reportPlugin } from './plugins/report';
-import { compressionPlugin } from './plugins/compression';
+import vuePlugin from './plugins/vue';
+import cssPlugin from './plugins/css';
+import filePlugin from './plugins/file';
+import htmlPlugin from './plugins/html';
+import reportPlugin from './plugins/report';
+import compressionPlugin from './plugins/compression';
 
 import type { Plugin } from 'vite';
 import type { Env } from '../type/env';

@@ -1,14 +1,14 @@
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-import type { PluginFn } from '../../type/vite';
+import { definePlugin } from '../../../build/type/vite';
 
-export const filePlugin: PluginFn = () => {
+export default definePlugin(() => {
   return viteStaticCopy({
     targets: [
       {
-        src: ['src/config/', 'src/asset'],
+        src: ['src/config/app.json', 'src/asset'],
         dest: ''
       }
     ]
   });
-};
+});

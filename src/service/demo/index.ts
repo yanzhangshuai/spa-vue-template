@@ -1,8 +1,5 @@
-import { defineService } from '@mwjz/asker';
+import { Win } from '@/win';
 
-export const useDemoService = defineService({
-
-  hello(): Promise<string> {
-    return this.$asker.get('app/hello');
-  }
-});
+export function getHello() {
+  return Win.http.get('app/hello');
+}
