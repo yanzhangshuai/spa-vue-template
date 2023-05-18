@@ -4,9 +4,9 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 
-import type { PluginFn } from '../../type/vite';
+import { definePlugin } from '../../type/vite';
 
-export const vuePlugin: PluginFn = () => {
+export default definePlugin(() => {
   return [
     vue({ reactivityTransform: true }),
     vueJsx({ optimize: true, transformOn: true }),
@@ -23,4 +23,4 @@ export const vuePlugin: PluginFn = () => {
       resolvers: []
     })
   ];
-};
+});

@@ -1,6 +1,6 @@
 import type { App, Directive, Plugin } from 'vue';
 
-import { moduleFilter } from '@/util/helper';
+import { moduleFilter } from '@/util/glob';
 
 const DPlugin: Plugin = {
   install(app: App) {

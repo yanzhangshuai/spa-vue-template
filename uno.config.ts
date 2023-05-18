@@ -31,10 +31,6 @@ export default defineConfig({
     presetUno(),
     presetAttributify({ prefix: 'c-', prefixedOnly: false }),
     presetIcons(),
-    /**
-     * eslint-disable-next-line @typescript-eslint/ban-ts-comment
-     * @ts-expect-error 类型
-     */
     presetTheme({ theme, prefix: '--style-theme' })
   ],
 

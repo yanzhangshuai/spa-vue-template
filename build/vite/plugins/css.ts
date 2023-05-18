@@ -1,7 +1,7 @@
 import Unocss from '@unocss/vite';
 
-import type { PluginFn } from '../../type/vite';
+import { definePlugin } from '../../type/vite';
 
-export const cssPlugin: PluginFn = () => {
+export default definePlugin(() => {
   return Unocss({ /* options */ });
-};
+});

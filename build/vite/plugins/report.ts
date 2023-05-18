@@ -1,9 +1,8 @@
 import visualizer from 'rollup-plugin-visualizer';
 
-import type { Plugin } from 'vite';
-import type { PluginFn } from '../../type/vite';
+import { definePlugin } from '../../../build/type/vite';
 
-export const reportPlugin: PluginFn = (_mode, env) => {
+export default definePlugin((_mode, env) => {
   if (!env.VITE_REPORT)
     return [];
 
@@ -13,5 +12,5 @@ export const reportPlugin: PluginFn = (_mode, env) => {
     brotliSize: true,
     template: 'treemap', // "sunburst" | "treemap" | "network",
     filename: './report/libs/index.html'
-  }) as unknown as Plugin;
-};
+  });
+});

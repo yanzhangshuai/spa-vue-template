@@ -1,9 +1,9 @@
-import { vuePlugin } from './plugins/vue';
-import { cssPlugin } from './plugins/css';
-import { filePlugin } from './plugins/file';
-import { htmlPlugin } from './plugins/html';
-import { reportPlugin } from './plugins/report';
-import { compressionPlugin } from './plugins/compression';
+import vuePlugin from './plugins/vue';
+import cssPlugin from './plugins/css';
+import filePlugin from './plugins/file';
+import htmlPlugin from './plugins/html';
+import reportPlugin from './plugins/report';
+import compressionPlugin from './plugins/compression';
 
 import type { Mode, PluginFn } from '../type/vite';
 import type { Env } from '../type/env';

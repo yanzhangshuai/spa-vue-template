@@ -1,8 +1,8 @@
 import compress from 'vite-plugin-compression';
 
-import type { PluginFn } from '../../type/vite';
+import { definePlugin } from '../../type/vite';
 
-export const compressionPlugin: PluginFn = (mode, env) => {
+export default definePlugin((mode, env) => {
   if (mode !== 'production' || !env?.VITE_BUILD_COMPRESS || env.VITE_BUILD_COMPRESS === 'none')
     return [];
 
@@ -20,4 +20,4 @@ export const compressionPlugin: PluginFn = (mode, env) => {
     return [];
   }
   return compress({ ...obj, deleteOriginFile: env.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE });
-};
+});

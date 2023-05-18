@@ -10,9 +10,12 @@ import Component from '@/component';
 import Directive from '@/directive';
 import App from '@/app.vue';
 
+import 'uno.css';
+import '@/style/index.less';
+
 async function loadAppConfig() {
   try {
-    const res = await fetch('/config/app.json');
+    const res = await fetch('/app.json');
     const data = await res.json();
     Win.appConfig = data;
   }
