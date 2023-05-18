@@ -1,11 +1,11 @@
 <script lang="tsx" setup>
-const onChanged = (data: unknown) => {
+function onChanged(data: unknown) {
   console.log(data);
-};
+}
 
-const render = () => {
+function render() {
   return <a-date-picker onChange={onChanged} />;
-};
+}
 </script>
 
 <template>

@@ -27,7 +27,7 @@
     "@pinia/plugin-debounce": "^0.1.0",
     "@vueuse/core": "^10.1.2",
     "axios": "^1.4.0",
-    "ant-design-vue": "^3.2.15",
+    "ant-design-vue": "^3.2.20",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.11.7",
     "less": "^4.1.3",

@@ -1,8 +1,8 @@
 import { AndDesignVueResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
 
-import type { PluginFn } from '../../type/vite';
+import { definePlugin } from '../../type/vite';
 
-export const uiPlugin: PluginFn = () => {
+export default definePlugin(() => {
   return createStyleImportPlugin({
     resolves: [AndDesignVueResolve()],
     libs: [
@@ -13,4 +13,4 @@ export const uiPlugin: PluginFn = () => {
       }
     ]
   });
-};
+});

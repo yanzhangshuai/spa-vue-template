@@ -1,4 +1,4 @@
-import { uiPlugin } from './plugins/ui';
+import uiPlugin from './plugins/ui';
 import vuePlugin from './plugins/vue';
 import cssPlugin from './plugins/css';
 import filePlugin from './plugins/file';
