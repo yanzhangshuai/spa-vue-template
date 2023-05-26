@@ -1,19 +1,19 @@
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 
-import css from './index.module.less';
+import css from './index.module.less'
 
 export default defineComponent({
   props: {
     msg: { type: String, default: '' }
   },
   setup() {
-    const list = [1, 2, 3, 4, 5];
+    const list = [1, 2, 3, 4, 5]
 
     return () => (
       <>
         <h1>我是tsx-demo</h1>
         {list.map(s => (<li class={css.li} onClick={() => { console.log(s) }}>{s}</li>))}
       </>
-    );
+    )
   }
-});
+})

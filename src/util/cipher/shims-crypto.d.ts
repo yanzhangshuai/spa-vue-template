@@ -1,6 +1,6 @@
 declare module 'crypto-js' {
-  export type WordArray = CryptoJS.lib.WordArray;
-  export type CipherParams = CryptoJS.lib.CipherParams;
+  export type WordArray = CryptoJS.lib.WordArray
+  export type CipherParams = CryptoJS.lib.CipherParams
 
   export interface Format {
     /**

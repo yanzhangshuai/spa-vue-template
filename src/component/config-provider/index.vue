@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/zh-cn'
 </script>
 
 <template>

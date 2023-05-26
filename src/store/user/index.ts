@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
-import { getCurrent } from '@/service/account';
+import { getCurrent } from '@/service/account'
 
 export const useUserStore = defineStore('app-user', {
 
@@ -8,7 +8,7 @@ export const useUserStore = defineStore('app-user', {
 
   getters: {
     user(state): string {
-      return state._user;
+      return state._user
     }
   },
 
@@ -19,13 +19,13 @@ export const useUserStore = defineStore('app-user', {
      */
     getUserInfo(): Promise<string> {
       if (this.user)
-        return Promise.resolve(this.user);
+        return Promise.resolve(this.user)
 
       return getCurrent()
         .then((res) => {
-          this._user = res;
-          return this.user;
-        });
+          this._user = res
+          return this.user
+        })
     },
 
     /**
@@ -41,4 +41,4 @@ export const useUserStore = defineStore('app-user', {
       // goLogin && router.push(PageEnum.BASE_LOGIN);
     }
   }
-});
+})

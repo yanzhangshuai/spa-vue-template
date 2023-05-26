@@ -1,4 +1,4 @@
-import type { EsbuildTransformOptions } from 'vite';
+import type { EsbuildTransformOptions } from 'vite'
 
 export interface Env {
 

@@ -1,29 +1,29 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv } from 'vite'
 
 // import { version } from '../package.json';
 
-import { wrapperEnv } from './util/env';
-import { createProxy } from './vite/proxy';
-import { createVitePlugins } from './vite/plugin';
-import { tsconfigAlias } from './vite/tsconfig.alias';
-import { configPath, resolve, root } from './util/path';
-import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './vite/output';
+import { wrapperEnv } from './util/env'
+import { createProxy } from './vite/proxy'
+import { createVitePlugins } from './vite/plugin'
+import { tsconfigAlias } from './vite/tsconfig.alias'
+import { configPath, resolve, root } from './util/path'
+import { assetFileNames, chunkFileNames, entryFileNames, manualChunks } from './vite/output'
 
-import type { Mode } from './type/vite';
-import type { ConfigEnv } from 'vite';
+import type { Mode } from './type/vite'
+import type { ConfigEnv } from 'vite'
 
 export default defineConfig((conf: ConfigEnv) => {
-  const mode = conf.mode as Mode;
+  const mode = conf.mode as Mode
 
   // 设置版本号
   // process.env.GLOBAL_APP_VERSION = version;
 
   // 根据VITE命令设置NODE环境变量
-  process.env.NODE_ENV = mode;
+  process.env.NODE_ENV = mode
 
-  const env = loadEnv(mode, configPath);
+  const env = loadEnv(mode, configPath)
 
-  const viteEnv = wrapperEnv(env);
+  const viteEnv = wrapperEnv(env)
 
   return {
     base: viteEnv.VITE_PUBLIC_PATH || '/',
@@ -94,5 +94,5 @@ export default defineConfig((conf: ConfigEnv) => {
       alias: tsconfigAlias(),
       extensions: ['.ts', '.tsx', '.json', '.jsx', '.mjs', '.js']
     }
-  };
-});
+  }
+})

@@ -1,3 +1,5 @@
+export {}
+
 declare module '@vue/runtime-dom' {
   interface HTMLAttributes {
     [key: string]: any
@@ -8,4 +10,3 @@ declare module '@vue/runtime-core' {
     [key: string]: any
   }
 }
-export {}

@@ -1,10 +1,10 @@
-import visualizer from 'rollup-plugin-visualizer';
+import visualizer from 'rollup-plugin-visualizer'
 
-import { definePlugin } from '../../../build/type/vite';
+import { definePlugin } from '../../../build/type/vite'
 
 export default definePlugin((_mode, env) => {
   if (!env.VITE_REPORT)
-    return [];
+    return []
 
   return visualizer({
     open: true,
@@ -12,5 +12,5 @@ export default definePlugin((_mode, env) => {
     brotliSize: true,
     template: 'treemap', // "sunburst" | "treemap" | "network",
     filename: './report/libs/index.html'
-  });
-});
+  })
+})

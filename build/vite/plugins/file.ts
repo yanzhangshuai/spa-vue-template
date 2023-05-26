@@ -1,6 +1,6 @@
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
-import { definePlugin } from '../../../build/type/vite';
+import { definePlugin } from '../../../build/type/vite'
 
 export default definePlugin(() => {
   return viteStaticCopy({
@@ -10,5 +10,5 @@ export default definePlugin(() => {
         dest: ''
       }
     ]
-  });
-});
+  })
+})
