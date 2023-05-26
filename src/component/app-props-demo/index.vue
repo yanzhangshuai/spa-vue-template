@@ -6,7 +6,7 @@
     <li>LOGO：<img :src="$app.imageResolve($app.logo)" alt="" width="25" c-b="rounded-50%" c-bg="text"></li>
     <li>VERSION：{{ $app.version }}</li>
     <li>IS DEV：{{ $app.dev }}</li>
-    <li>CURRENT TIME：{{ $app.dateFormat($window.Date.now()) }}</li>
+    <li>CURRENT TIME：{{ $app.dateFormat(Date.now()) }}</li>
   </ul>
 </template>
 

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { useQuery } from 'vue-query/esm';
+import { useQuery } from '@tanstack/vue-query';
 
-import { getHello } from '@/service/demo';
+import { DemoService } from '@/service/demo';
 
-const { data } = useQuery({ queryFn: getHello });
+const { data } = useQuery({ queryFn: DemoService.load().getHello });
 </script>
 
 <template>
