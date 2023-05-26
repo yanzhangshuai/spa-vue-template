@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { useThemeStore } from '@/store/global/theme';
+import { useThemeStore } from '@/store/global/theme'
 
-const themeStore = useThemeStore();
-const currentTheme = ref<'light' | 'dark'>();
+const themeStore = useThemeStore()
+const currentTheme = ref<'light' | 'dark'>()
 
 watch(() => themeStore.dark, (newVal) => {
-  currentTheme.value = newVal ? 'dark' : 'light';
-}, { immediate: true });
+  currentTheme.value = newVal ? 'dark' : 'light'
+}, { immediate: true })
 </script>
 
 <template>

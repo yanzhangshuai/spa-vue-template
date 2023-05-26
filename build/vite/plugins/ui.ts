@@ -1,6 +1,6 @@
-// import { AndDesignVueResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
+// import { AndDesignVueResolve, createStyleImportPlugin } from 'vite-plugin-style-import'
 //
-// import { definePlugin } from '../../type/vite';
+// import { definePlugin } from '../../type/vite'
 //
 // export default definePlugin(() => {
 //   return createStyleImportPlugin({
@@ -12,5 +12,5 @@
 //         resolveStyle: name => `ant-design-vue/es/${name}/style/index`
 //       }
 //     ]
-//   });
-// });
+//   })
+// })
