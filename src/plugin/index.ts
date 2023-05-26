@@ -1,19 +1,19 @@
-import type { App, Plugin } from 'vue';
+import type { App, Plugin } from 'vue'
 
-import { VueQueryPlugin } from '@tanstack/vue-query';
+import { VueQueryPlugin } from '@tanstack/vue-query'
 
-import { setupGlobalProperties } from './global-property';
+import { setupGlobalProperties } from './global-property'
 
 const PPlugin: Plugin = {
   install(app: App) {
-    usePlugin(app);
+    usePlugin(app)
   }
-};
+}
 
-export default PPlugin;
+export default PPlugin
 
 function usePlugin(app: App<Element>) {
-  setupGlobalProperties(app);
+  setupGlobalProperties(app)
 
-  app.use(VueQueryPlugin);
+  app.use(VueQueryPlugin)
 }

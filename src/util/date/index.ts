@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs from 'dayjs'
 
 /**
  * 日期格式化
@@ -6,5 +6,5 @@ import dayjs from 'dayjs';
  * @param template
  */
 export function dateFormat(date: number | Date, template = 'YYYY-MM-DD HH:mm:ss'): string {
-  return date ? dayjs(date).format(template) : '';
+  return date ? dayjs(date).format(template) : ''
 }

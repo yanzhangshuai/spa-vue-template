@@ -1,14 +1,14 @@
-import path from 'node:path';
+import path from 'node:path'
 
 /**
  * 根目录
  */
-export const root = process.cwd();
+export const root = process.cwd()
 
 /**
  * 配置文件所在路径
  */
-export const configPath = resolve('build/config');
+export const configPath = resolve('build/config')
 
 /**
  * 从根目录拼接
@@ -16,5 +16,5 @@ export const configPath = resolve('build/config');
  * @returns
  */
 export function resolve(...paths: string[]): string {
-  return path.join(root, ...paths);
+  return path.join(root, ...paths)
 }

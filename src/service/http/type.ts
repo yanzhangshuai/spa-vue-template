@@ -1,4 +1,4 @@
-import type { AxiosInterceptorManager, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
+import type { AxiosInterceptorManager, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios'
 
 export interface HttpOptions {
   request?: HttpRequestConfig

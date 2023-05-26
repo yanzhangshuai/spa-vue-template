@@ -1,4 +1,4 @@
-import type { Directive } from 'vue';
+import type { Directive } from 'vue'
 
 const vNumber: Directive = {
   name: 'number',
@@ -7,11 +7,11 @@ const vNumber: Directive = {
     // TODO: 1.未处理中文
     el.addEventListener('keydown', (options) => {
       if (/^[a-z,A-Z]$/.test(options.key)) {
-        el.value = el.value.replace(/D/g, '');
-        options.preventDefault();
+        el.value = el.value.replace(/D/g, '')
+        options.preventDefault()
       }
-    });
+    })
   }
-};
+}
 
-export default vNumber;
+export default vNumber

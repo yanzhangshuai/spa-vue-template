@@ -1,23 +1,23 @@
-import compress from 'vite-plugin-compression';
+import compress from 'vite-plugin-compression'
 
-import { definePlugin } from '../../type/vite';
+import { definePlugin } from '../../type/vite'
 
 export default definePlugin((mode, env) => {
   if (mode !== 'production' || !env?.VITE_BUILD_COMPRESS || env.VITE_BUILD_COMPRESS === 'none')
-    return [];
+    return []
 
-  const obj: Record<string, string> = {};
+  const obj: Record<string, string> = {}
 
   if (env.VITE_BUILD_COMPRESS === 'gzip') {
-    obj.ext = '.gz';
-    obj.algorithm = 'gzip';
+    obj.ext = '.gz'
+    obj.algorithm = 'gzip'
   }
   else if (env.VITE_BUILD_COMPRESS === 'brotli') {
-    obj.ext = '.br';
-    obj.algorithm = 'brotliCompress';
+    obj.ext = '.br'
+    obj.algorithm = 'brotliCompress'
   }
   else {
-    return [];
+    return []
   }
-  return compress({ ...obj, deleteOriginFile: env.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE });
-});
+  return compress({ ...obj, deleteOriginFile: env.VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE })
+})

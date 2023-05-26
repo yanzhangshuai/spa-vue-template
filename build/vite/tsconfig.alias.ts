@@ -1,8 +1,8 @@
-import ts from 'typescript';
+import ts from 'typescript'
 
-import { resolve } from '../util/path';
+import { resolve } from '../util/path'
 
-const ALIAS_REGEX = /^.+(?=\/\*)/;
+const ALIAS_REGEX = /^.+(?=\/\*)/
 
 /**
  * @description: 读取tsconfig.json中的paths配置,转为alias配置
@@ -10,30 +10,30 @@ const ALIAS_REGEX = /^.+(?=\/\*)/;
  */
 export function tsconfigAlias(alias: Record<string, string> = {}) {
   //  读取tsconfig.json
-  const configFileName = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.json');
+  const configFileName = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.json')
 
-  const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
+  const configFile = ts.readConfigFile(configFileName, ts.sys.readFile)
 
-  const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
+  const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './')
 
-  const targetAlias: Record<string, string> = Object.assign({}, alias || {});
+  const targetAlias: Record<string, string> = Object.assign({}, alias || {})
 
   //  遍历解析paths属性
   Object.keys(compilerOptions.options.paths).forEach((key) => {
-    const path = compilerOptions.options.paths[key];
+    const path = compilerOptions.options.paths[key]
 
     if (!Array.isArray(path))
-      return;
+      return
 
-    const aliasName = key.match(ALIAS_REGEX)?.[0];
+    const aliasName = key.match(ALIAS_REGEX)?.[0]
 
-    const aliasPath = path?.[0].match(ALIAS_REGEX)?.[0];
+    const aliasPath = path?.[0].match(ALIAS_REGEX)?.[0]
 
     if (!aliasName || !aliasPath)
-      return;
+      return
 
-    targetAlias[aliasName] = resolve(compilerOptions.options.baseUrl, aliasPath);
-  });
+    targetAlias[aliasName] = resolve(compilerOptions.options.baseUrl, aliasPath)
+  })
 
-  return targetAlias;
+  return targetAlias
 }

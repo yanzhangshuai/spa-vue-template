@@ -8,97 +8,97 @@ export interface ViewportOffsetResult {
 }
 
 export function getBoundingClientRect(element: Element): DOMRect {
-  return element?.getBoundingClientRect?.() || new DOMRect(0, 0, 0, 0);
+  return element?.getBoundingClientRect?.() || new DOMRect(0, 0, 0, 0)
 }
 
 export function hasClass(el: Element, cls: string): boolean {
   if (!el || !cls)
-    return false;
+    return false
 
   if (cls.includes(' '))
-    throw new Error('className should not contain space.');
+    throw new Error('className should not contain space.')
 
   if (el.classList)
-    return el.classList.contains(cls);
+    return el.classList.contains(cls)
   else
-    return (` ${el.className} `).includes(` ${cls} `);
+    return (` ${el.className} `).includes(` ${cls} `)
 }
 
 /* istanbul ignore next */
 export function addClass(el: Element, cls: string): void {
   if (!el)
-    return;
+    return
 
-  let curClass = el.className;
-  const classes = (cls || '').split(' ');
+  let curClass = el.className
+  const classes = (cls || '').split(' ')
 
   for (let i = 0, j = classes.length; i < j; i++) {
-    const clsName = classes[i];
+    const clsName = classes[i]
 
     if (!clsName)
-      continue;
+      continue
 
     if (el.classList)
-      el.classList.add(clsName);
+      el.classList.add(clsName)
 
     else if (!hasClass(el, clsName))
-      curClass += ` ${clsName}`;
+      curClass += ` ${clsName}`
   }
 
   if (!el.classList)
-    el.className = curClass;
+    el.className = curClass
 }
 
 /* istanbul ignore next */
 export function removeClass(el: Element, cls: string): void {
   if (!el || !cls)
-    return;
+    return
 
-  const classes = cls.split(' ');
-  let curClass = ` ${el.className} `;
+  const classes = cls.split(' ')
+  let curClass = ` ${el.className} `
 
   for (let i = 0, j = classes.length; i < j; i++) {
-    const clsName = classes[i];
+    const clsName = classes[i]
 
     if (!clsName)
-      continue;
+      continue
 
     if (el.classList)
-      el.classList.remove(clsName);
+      el.classList.remove(clsName)
 
     else if (hasClass(el, clsName))
-      curClass = curClass.replace(` ${clsName} `, ' ');
+      curClass = curClass.replace(` ${clsName} `, ' ')
   }
 
   if (!el.classList)
-    el.className = trim(curClass);
+    el.className = trim(curClass)
 }
 
 export function getViewportOffset(element: Element): ViewportOffsetResult {
-  const doc = document.documentElement;
+  const doc = document.documentElement
 
-  const docScrollLeft = doc.scrollLeft;
-  const docScrollTop = doc.scrollTop;
-  const docClientLeft = doc.clientLeft;
-  const docClientTop = doc.clientTop;
+  const docScrollLeft = doc.scrollLeft
+  const docScrollTop = doc.scrollTop
+  const docClientLeft = doc.clientLeft
+  const docClientTop = doc.clientTop
 
-  const pageXOffset = window.pageXOffset;
-  const pageYOffset = window.pageYOffset;
+  const pageXOffset = window.pageXOffset
+  const pageYOffset = window.pageYOffset
 
-  const box = getBoundingClientRect(element);
+  const box = getBoundingClientRect(element)
 
-  const { left: retLeft, top: rectTop, width: rectWidth, height: rectHeight } = box as DOMRect;
+  const { left: retLeft, top: rectTop, width: rectWidth, height: rectHeight } = box as DOMRect
 
-  const scrollLeft = (pageXOffset || docScrollLeft) - (docClientLeft || 0);
-  const scrollTop = (pageYOffset || docScrollTop) - (docClientTop || 0);
-  const offsetLeft = retLeft + pageXOffset;
-  const offsetTop = rectTop + pageYOffset;
+  const scrollLeft = (pageXOffset || docScrollLeft) - (docClientLeft || 0)
+  const scrollTop = (pageYOffset || docScrollTop) - (docClientTop || 0)
+  const offsetLeft = retLeft + pageXOffset
+  const offsetTop = rectTop + pageYOffset
 
-  const left = offsetLeft - scrollLeft;
-  const top = offsetTop - scrollTop;
+  const left = offsetLeft - scrollLeft
+  const top = offsetTop - scrollTop
 
-  const clientWidth = window.document.documentElement.clientWidth;
-  const clientHeight = window.document.documentElement.clientHeight;
+  const clientWidth = window.document.documentElement.clientWidth
+  const clientHeight = window.document.documentElement.clientHeight
   return {
     left,
     top,
@@ -106,28 +106,28 @@ export function getViewportOffset(element: Element): ViewportOffsetResult {
     bottom: clientHeight - rectHeight - top,
     rightIncludeBody: clientWidth - left,
     bottomIncludeBody: clientHeight - top
-  };
+  }
 }
 
 function trim(string: string) {
-  return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+  return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
 }
 
 /* istanbul ignore next */
 export function on(element: Element | HTMLElement | Document | Window, event: string, handler: EventListenerOrEventListenerObject): void {
-  element && event && handler && element.addEventListener(event, handler, false);
+  element && event && handler && element.addEventListener(event, handler, false)
 }
 
 export function off(element: Element | HTMLElement | Document | Window, event: string, handler: Fn): void {
-  element && event && handler && element.removeEventListener(event, handler, false);
+  element && event && handler && element.removeEventListener(event, handler, false)
 }
 
 export function once(el: HTMLElement, event: string, fn: EventListener): void {
   const listener = function (this: unknown, ...args: Array<unknown>) {
-    fn && fn.apply(this, args);
+    fn && fn.apply(this, args)
 
-    off(el, event, listener);
-  };
+    off(el, event, listener)
+  }
 
-  on(el, event, listener);
+  on(el, event, listener)
 }

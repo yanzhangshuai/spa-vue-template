@@ -2,7 +2,7 @@
 defineSlots<{
   default: { msg: string }
   header: { msg: string }
-}>();
+}>()
 </script>
 
 <template>

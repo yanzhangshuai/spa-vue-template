@@ -1,11 +1,11 @@
-import vue from '@vitejs/plugin-vue';
-import Pages from 'vite-plugin-pages';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+import vue from '@vitejs/plugin-vue'
+import Pages from 'vite-plugin-pages'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
-import { definePlugin } from '../../type/vite';
+import { definePlugin } from '../../type/vite'
 
 export default definePlugin(() => {
   return [
@@ -29,5 +29,5 @@ export default definePlugin(() => {
       dts: 'src/shims-import.d.ts',
       resolvers: []
     })
-  ];
-});
+  ]
+})

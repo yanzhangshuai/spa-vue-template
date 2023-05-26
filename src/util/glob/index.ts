@@ -15,10 +15,10 @@ export function moduleFilter<T>(modules: Recordable<Recordable<T>>, filter = /^\
         && filter.test(name)
         // 当只获取default模块时, 判断其是否存在
         && (de ? modules[name].default : true)
-      );
+      )
     })
     .reduce<Recordable<T | Recordable<T>> >((acc, name) => {
-      acc[name] = de ? modules[name].default : modules[name];
-      return acc;
-    }, {});
+      acc[name] = de ? modules[name].default : modules[name]
+      return acc
+    }, {})
 }

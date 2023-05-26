@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { useThemeStore } from '@/store/global/theme';
+import { useThemeStore } from '@/store/global/theme'
 
-const theme = useThemeStore();
+const theme = useThemeStore()
 
-theme.init();
+theme.init()
 
 function onThemeChange() {
-  theme.darkChange(!theme.dark);
+  theme.darkChange(!theme.dark)
 }
 </script>
 

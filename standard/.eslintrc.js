@@ -34,13 +34,13 @@ module.exports = {
         'newlines-between': 'always'
       }
     ],
-    '@typescript-eslint/comma-dangle': ['error', 'never'],
     'no-alert': process.env.NODE_ENV !== 'production' ? 0 : 2,
     'no-console': process.env.NODE_ENV !== 'production' ? 0 : [1, { allow: ['warn', 'error'] }],
     'quotes': [2, 'single', { avoidEscape: true, allowTemplateLiterals: true }],
     'eqeqeq': [2, 'always', { null: 'ignore' }],
-    'semi': [2, 'always', { omitLastInOneLineBlock: true }],
-    '@typescript-eslint/semi': [2, 'always', { omitLastInOneLineBlock: true }],
+    'semi': [2, 'never'],
+    '@typescript-eslint/comma-dangle': ['error', 'never'],
+    '@typescript-eslint/semi': [2, 'never'],
     '@typescript-eslint/no-explicit-any': 2,
     'vue/require-default-prop': 2,
     'vue/singleline-html-element-content-newline': 0,

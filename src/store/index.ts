@@ -1,30 +1,30 @@
-import type { App, Plugin } from 'vue';
+import type { App, Plugin } from 'vue'
 
-import { debounce } from 'lodash-es';
-import { createPinia } from 'pinia';
-import { PiniaStorage } from '@mwjz/pinia-storage';
-import { PiniaDebounce } from '@pinia/plugin-debounce';
+import { debounce } from 'lodash-es'
+import { createPinia } from 'pinia'
+import { PiniaStorage } from '@mwjz/pinia-storage'
+import { PiniaDebounce } from '@pinia/plugin-debounce'
 
-import { Win } from '@/win';
+import { Win } from '@/win'
 
 const SPlugin: Plugin = {
   install(app: App) {
-    const store = create();
+    const store = create()
 
-    store && app.use(store);
+    store && app.use(store)
   }
-};
+}
 
-export default SPlugin;
+export default SPlugin
 
 function create() {
-  const store = createPinia();
+  const store = createPinia()
 
-  store.name = 'pinia';
+  store.name = 'pinia'
 
-  store.use(PiniaDebounce(debounce));
+  store.use(PiniaDebounce(debounce))
 
-  store.use(PiniaStorage({ prefix: `${Win.appConfig.name}__` }));
+  store.use(PiniaStorage({ prefix: `${Win.appConfig.name}__` }))
 
-  return store;
+  return store
 }

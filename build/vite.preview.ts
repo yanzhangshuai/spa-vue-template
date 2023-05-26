@@ -1,10 +1,10 @@
-import { loadEnv, preview } from 'vite';
+import { loadEnv, preview } from 'vite'
 
-import { wrapperEnv } from './util/env';
-import { configPath } from './util/path';
-import { createProxy } from './vite/proxy';
+import { wrapperEnv } from './util/env'
+import { configPath } from './util/path'
+import { createProxy } from './vite/proxy'
 
-const viteEnv = wrapperEnv(loadEnv('development', configPath));
+const viteEnv = wrapperEnv(loadEnv('development', configPath))
 
 preview({
   preview: {
@@ -16,5 +16,5 @@ preview({
     proxy: createProxy(viteEnv.VITE_SERVER_PROXY)
   }
 }).then((server) => {
-  server.printUrls();
-});
+  server.printUrls()
+})

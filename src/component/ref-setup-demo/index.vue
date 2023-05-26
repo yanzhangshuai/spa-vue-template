@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-import type { RefSetupDemoExpose } from './type';
+import type { RefSetupDemoExpose } from './type'
 
 const props = defineProps<{
   id: number
   name: string
   value?: { name: string }
-}>();
+}>()
 
 const emit = defineEmits<{
   (e: 'update:name', val: string): void
-}>();
+}>()
 
 function onBtn() {
-  emit('update:name', Math.random().toString());
+  emit('update:name', Math.random().toString())
 }
 
-defineExpose<RefSetupDemoExpose>({ name: props.name, onBtn });
+defineExpose<RefSetupDemoExpose>({ name: props.name, onBtn })
 </script>
 
 <template>

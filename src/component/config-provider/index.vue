@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import 'dayjs/locale/zh-cn';
-import locale from 'ant-design-vue/es/locale/zh_CN';
+import 'dayjs/locale/zh-cn'
+import locale from 'ant-design-vue/es/locale/zh_CN'
 </script>
 
 <template>

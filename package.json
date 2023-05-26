@@ -13,7 +13,7 @@
     "build:gz": "    npm-run-all vue-tsc && cross-env VITE_BUILD_COMPRESS=gzip   npm-run-all vite-build",
     "serve": "       npm-run-all vite-build && vite preview --config ./build/vite.preview.ts",
     "deploy": "      npm-run-all build:gz && docker build -t spa-vue-template -f ./deploy/Dockerfile .",
-    "lint:js": "     eslint    ./{src,test,type,build}/**/*.{js,ts,tsx,vue} --fix --ignore-path ./standard/.eslintignore",
+    "lint:js": "     eslint    ./{src,test,type,build}/**/*.{ts,d.ts,tsx,vue} --fix --ignore-path ./standard/.eslintignore",
     "lint:style": "  stylelint ./src/**/*.{css,less,vue}           --fix",
     "lint": "        npm-run-all --parallel lint:*",
     "test": "        vitest --passWithNoTests --config ./test/vitest.config.ts",

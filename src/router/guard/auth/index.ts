@@ -1,6 +1,6 @@
-import type { Router } from 'vue-router';
+import type { Router } from 'vue-router'
 
-import { useUserStore } from '@/store/user';
+import { useUserStore } from '@/store/user'
 
 /**
  * 认证守卫
@@ -8,12 +8,12 @@ import { useUserStore } from '@/store/user';
  */
 export function createAuthGuard(router: Router): void {
   router.beforeEach((to, _, next) => {
-    to?.meta?.auth || next();
+    to?.meta?.auth || next()
 
     //  如果当前需要登录,获取当前用户,进行认证
     to?.meta?.auth
       && useUserStore().getUserInfo()
         .then(() => next())
-        .catch(() => next({ name: 'account-login' }));
-  });
+        .catch(() => next({ name: 'account-login' }))
+  })
 }

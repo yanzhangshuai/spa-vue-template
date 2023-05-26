@@ -1,25 +1,25 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('app-counter', {
   state: () => ({ count: 1 }),
 
   getters: {
     double(state): number {
-      return state.count * 2;
+      return state.count * 2
     }
   },
 
   actions: {
     increment() {
-      this.count++;
+      this.count++
     },
 
     increment2() {
-      this.count++;
+      this.count++
     }
   },
 
   debounce: {
     increment: 3000
   }
-});
+})

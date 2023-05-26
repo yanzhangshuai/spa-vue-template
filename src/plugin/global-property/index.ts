@@ -1,15 +1,15 @@
-import type { App, DeepReadonly } from 'vue';
+import type { App, DeepReadonly } from 'vue'
 
-import { Win } from '@/win';
-import { dateFormat } from '@/util/date';
-import { assetResolve, imageResolve } from '@/util/file';
+import { Win } from '@/win'
+import { dateFormat } from '@/util/date'
+import { assetResolve, imageResolve } from '@/util/file'
 
-import type { AppProps } from './type';
+import type { AppProps } from './type'
 
-let appProps: AppProps;
+let appProps: AppProps
 
 export function setupGlobalProperties(app: App<Element>): App<Element> {
-  const appConfig = Win.appConfig;
+  const appConfig = Win.appConfig
 
   appProps = {
     name: appConfig.name,
@@ -19,15 +19,15 @@ export function setupGlobalProperties(app: App<Element>): App<Element> {
     assetResolve,
     imageResolve,
     dateFormat
-  };
+  }
 
-  Object.defineProperty(app.config.globalProperties, '$window', { enumerable: false, get: () => window });
+  Object.defineProperty(app.config.globalProperties, '$window', { enumerable: false, get: () => window })
 
-  Object.defineProperty(app.config.globalProperties, '$app', { enumerable: false, get: () => appProps });
+  Object.defineProperty(app.config.globalProperties, '$app', { enumerable: false, get: () => appProps })
 
-  return app;
+  return app
 }
 
 export function useApp(): DeepReadonly<AppProps> {
-  return appProps;
+  return appProps
 }
