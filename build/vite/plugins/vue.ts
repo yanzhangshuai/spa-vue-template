@@ -16,6 +16,10 @@ export default definePlugin(() => {
       dirs: ['src/component'],
       dts: 'src/component/shims-vue.d.ts',
       types: [],
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/, /\.vue\?vue/ // .vue
+      ],
       resolvers: [
         AntDesignVueResolver({ importStyle: 'less' })
       ]
